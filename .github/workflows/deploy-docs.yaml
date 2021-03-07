@@ -1,0 +1,29 @@
+name: Deploy docs
+
+on:
+  push:
+    branches: [ master ]
+#   pull_request:
+#     branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+    - run: npm ci
+    - run: npm run build
+    - run: rm -rf docs
+    - run: mv build docs
+    - run: cp CNAME docs/CNAME
+    - run: |
+            git config --global user.email "github-action@hypi.io"
+            git config --global user.name "Hypi Github Action"
+            git add :/ && \
+            git commit -m "Deploy docs" && \
+            git push origin master
+
