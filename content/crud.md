@@ -12,15 +12,15 @@ To carry out CRUD operations, you should have a basic understanding of `GraphQL`
 
 > You may check out these Guides.
 
-+ [ArcQL]()
-+ [Magic Hypi Object]()
-+ [GraphQL type definitions]()
++ [ArcQL](#)
++ [Magic Hypi Object](#)
++ [GraphQL type definitions](#)
 
 Let’s look at `CRUD` operations in detail. While you perform Query operations to get data from the database, you perform Mutations to create or update data in the database. Create, Update and Delete are mutations. Read is the Query.
 
 > We will work with the below schemas to perform CRUD operations.
 
-"`"
+```java
   type Books {
   title: String
   publication: String
@@ -33,16 +33,18 @@ Let’s look at `CRUD` operations in detail. While you perform Query operations 
   count: Int
   booklist: \[Books!\]
   }
-"`"
+
+```
+
 
 Data type `Books` holds the information of a book like a title, publication, etc. It checks its availability in the library with the help of Boolean value. Data type `Author` holds data of an Author like name, age, count of books, and list of books.
 
 > Now take a look at the below operations one by one!
 
-+ [Create]()
++ [Create](#)
 
-+ [Update]()
++ [Update](#)
 
-+ [Read]()
++ [Read](#)
 
-+ [Delete]()
++ Delete
