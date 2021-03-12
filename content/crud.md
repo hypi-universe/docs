@@ -1,9 +1,9 @@
 ---
 id: crud
-title: CRUD - Introduction to Hypi's CRUD APIs
+title: CRUD APIs
+sidebar_label: CRUD APIs
+slug: /
 ---
-# CRUD
-
 CRUD is the acronym commonly used for Create, Read, Update, Delete. Hypi automatically generates CRUD API from the app’s schema.
 
 Every app has one or more releases. Each release has its own schema. A schema is a set of GraphQL type definitions that defines the app’s data model. When you define a schema, Hypi automatically generates several APIs for you. CRUD APIs are one of them! They allow you to get data in and out of your apps.
@@ -21,6 +21,7 @@ Let’s look at `CRUD` operations in detail. While you perform Query operations 
 > We will work with the below schemas to perform CRUD operations.
 
 ```java
+  
   type Books {
   title: String
   publication: String
@@ -36,7 +37,6 @@ Let’s look at `CRUD` operations in detail. While you perform Query operations 
 
 ```
 
-
 Data type `Books` holds the information of a book like a title, publication, etc. It checks its availability in the library with the help of Boolean value. Data type `Author` holds data of an Author like name, age, count of books, and list of books.
 
 > Now take a look at the below operations one by one!
@@ -47,4 +47,4 @@ Data type `Books` holds the information of a book like a title, publication, etc
 
 + [Read](#)
 
-+ Delete
++ [Delete](#)
