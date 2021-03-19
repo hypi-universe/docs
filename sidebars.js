@@ -1,6 +1,8 @@
 module.exports = {
   someSidebar: {
-    Docusaurus: ['style', 'doc2', 'doc3'],
-    Features: ['mdx'],
+    Getting Started: ['introduction', 'overview'],
+    API References: ['crud','hypiobject','aggregations','authorizations','mathsapi'],
+    Sample App: ['mdx'],
+    User Interface: ['mdx'],
   },
 };
