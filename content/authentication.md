@@ -89,7 +89,7 @@ Login generates session token. The user has to use the session token to perform 
 {
      "data": {
      "login": {
-     "sessionToken": "eyJhbGciOiJSUzI1NiJ9.eyJoeXBpLmluc3RhbmNlIjp7InJlYWxtIjoidHJ5aHlwaSIsIm5hbWUiOiJtZXNzYWdpbmciLCJyZWxlYXNlIjoiY2hlY2tkZWxldGUifSwiaHlwaS5sb2dpbiI6dHJ1ZSwiaHlwaS5wdXJwb3NlIjoibG9naW4iLCJoeXBpLnVzZXJuYW1lIjoidGVzdC1oeXBpQGh5cGkuaW8iLCJoeXBpLmVtYWlsIjoidGVzdC1oeXBpQGh5cGkuaW8iLCJhdWQiOiJ0cnloeXBpIiwiaWF0IjoxNjE1NzEzNzI0LCJleHAiOjE2MTgzMDU3MjQsInN1YiI6IjAxRjBSMEJKOVhHREhTMkdHTTdZWTRZN00xIiwibmJmIjoxNjE1NzEzNzI0fQ.aPKxmRtMwBal9bv64R1UKuKkNrHhZsXGWp3pgOQqsQQjD2Rz5YrD3KRd1XOu9TdtkuOgjvuu4RkMkSL72ToJ0DQylQ5aIJpSVyUQZlXKcwKVPHcsmaszdrkWwzNnz67DJtARlRFYWEax5eZ0EiC0qGIufgL\_ybepI055jKpfFyYzzdaM6\_nlUJIy2r\_EycTeqFSVMS7LnCzoSxMER-OWuuM0wugsYefrj2JroleYVjkD9f72MvCzq8iLlE5Qad1Hk5XXwMPqtB463xaY3BWl82A\_VhFPo-A9ewkfjKa-poKHXBxvuNh81l2RGtK8irYZ_SBEInTE4pCNpQskF4kf6g",
+     "sessionToken": "<test.login-token>",
      "sessionExpires": 1618305724,
      "errorCode": null,
      "errorMsg": null
@@ -115,7 +115,7 @@ It also generates session-token and provides error code and error message if any
 {
      "data": {
      "loginByEmail": {
-     "sessionToken": "eyJhbGciOiJSUzI1NiJ9.eyJoeXBpLmluc3RhbmNlIjp7InJlYWxtIjoidHJ5aHlwaSIsIm5hbWUiOiJtZXNzYWdpbmciLCJyZWxlYXNlIjoiY2hlY2tkZWxldGUifSwiaHlwaS5sb2dpbiI6dHJ1ZSwiaHlwaS5wdXJwb3NlIjoibG9naW4iLCJoeXBpLnVzZXJuYW1lIjoidGVzdC1oeXBpQGh5cGkuaW8iLCJoeXBpLmVtYWlsIjoidGVzdC1oeXBpQGh5cGkuaW8iLCJhdWQiOiJ0cnloeXBpIiwiaWF0IjoxNjE1NzE0MDYzLCJleHAiOjE2MTgzMDYwNjMsInN1YiI6IjAxRjBSMEJKOVhHREhTMkdHTTdZWTRZN00xIiwibmJmIjoxNjE1NzE0MDYzfQ.syEn4gNH68nwZ5Fj7Mc85MoaTCDjNvFgFrE7ymSSgV7LpndNdZptEZ1aV-Tsniq9S3U89xsxUosHgiq6vZJUfexsBn5Okd5pm0tMgR2Eb2SMWNq2kSIyfdP1X9xLGIZ7NT13e9bAdKcEHwXuJDwV6Bf\_b-xlne5A3J9Zp-9eL5ebWtJ1rU20Q-3icZ0rwesAnDrlBdiz0SqQ3FzjIj7oM4mxcCOKYp4yfSwUHdAJpqIgD7cjIKczwOd4eyinew\_RiRdwi0mDyVgysovUlcvNfasj1Aze0Lqi9BlyR9d-9Z5uNS_eA8RJepGl75JdMVUX48w3MBCfpl1x2nJ6bfGSSA",
+     "sessionToken": "test.login-token",
      "sessionExpires": 1618306063,
      "errorCode": null,
      "errorMsg": null
