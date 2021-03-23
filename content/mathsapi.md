@@ -2,7 +2,7 @@
 id: mathsapi
 title: Maths APIs
 sidebar_label: Maths APIs
-slug: /
+slug: /maths-api
 ---
 Mathematical functions perform standard calculations on the data. Users may perform these calculations on the client-side. However, if more than two clients are performing mathematical operations on the data at the same time, it may lead to data loss or errors. To prevent this scenario, Hypi Maths APIs are designed.
 

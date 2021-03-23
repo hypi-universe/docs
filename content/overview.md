@@ -2,7 +2,7 @@
 id: overview
 title: Overview
 sidebar_label: Overview
-slug: /
+slug: /overview
 ---
 There are certain concepts which are backbone of Hypi. It is better to know them. Let's take an overview of these concepts. 
 

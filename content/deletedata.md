@@ -2,7 +2,7 @@
 id: deletedata
 title: Delete Data
 sidebar_label: Delete Data
-slug: /
+slug: /deletedata
 ---
 The hypi platform supports two types of deletions. The first one is a **Soft Delete** that does not actually delete data but ‘marks’ it as deleted. Use the `trash` function to perform a soft delete. You may reverse the soft delete to restore data.
 

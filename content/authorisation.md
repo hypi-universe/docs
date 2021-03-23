@@ -2,7 +2,7 @@
 id: authorisation
 title: Authorisation
 sidebar_label: Authorisation
-slug: /
+slug: /authorisation
 ---
 
 [Authorisation](https://en.wikipedia.org/wiki/Authorization) is the process of specifying access/ rights/ privileges to various resources. It provides information security and computer security to systems. Of course, we can control the access to users as well. The authorisation process decides whether access should be given or denied.

@@ -2,7 +2,7 @@
 id: createdata
 title: Create Data
 sidebar_label: Create Data
-slug: /
+slug: /createdata
 ---
 
 “Create” functions as a mutation to insert data in the table. After creating an instance, you may want to add data to it. Just one function does the job of inserting and updating data, i.e. `upsert`.

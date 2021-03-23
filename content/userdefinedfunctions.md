@@ -2,7 +2,7 @@
 id: userdefinedfunctions
 title: User Defined Functions
 sidebar_label: User Defined Functions
-slug: /
+slug: /user-defined-function
 ---
 
 User Defined functions provide a lightweight way to implement custom behaviour outside of what Hypi offers. The functions are executed on the same server where the query gets processed.

@@ -2,7 +2,7 @@
 id: hypiobject
 title: Magic Hypi Object
 sidebar_label: Magic Hypi Object
-slug: /
+slug: /magic-hypi-object
 ---
 
 We like simple and automated things in the world of programming. One such thing is `Magic Hypi Object`. You will not create it and still, you will get it. That’s why it’s a magic object! It automatically gets attached to every data type. It allows the programmer to do pretty powerful things. 

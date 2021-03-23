@@ -2,7 +2,7 @@
 id: authentication
 title: Authentication
 sidebar_label: Authentication
-slug: /
+slug: /authentication
 ---
 
 Authentication involves verifying the identification of a user. The credentials of the user are matched against the credentials in the database. Users are generally identified with a user id or an email.

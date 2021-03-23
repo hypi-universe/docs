@@ -2,7 +2,7 @@
 id: apisetup
 title: API Set-Up
 sidebar_label: API Set-Up
-slug: /
+slug: /apisetup
 ---
 
 Hypi is API based platform. You may access Hypi APIs to build various functions for your App. 

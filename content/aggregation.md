@@ -2,7 +2,7 @@
 id: aggregation
 title: Aggregation
 sidebar_label: Aggregation
-slug: /
+slug: /aggregation
 ---
 
 Aggregation performs a calculation on a set of values and returns a single value. Aggregations are powerful functions. Their results provide insight into the gathered values in the database.

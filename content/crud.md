@@ -2,7 +2,7 @@
 id: crud
 title: CRUD APIs
 sidebar_label: CRUD APIs
-slug: /
+slug: /crud
 ---
 CRUD is the acronym commonly used for Create, Read, Update, Delete. Hypi automatically generates CRUD API from the app’s schema.
 

@@ -2,7 +2,7 @@
 id: readdata
 title: Read Data
 sidebar_label: Read Data
-slug: /
+slug: /read-data
 ---
 Read the inserted data by using query functions. `get` and `find` are the two functions that return the data. If you need a single record, use the `get` function. For getting multiple records, use the `find` function.
 

@@ -2,7 +2,7 @@
 id: updatedata
 title: Update Data
 sidebar_label: Update Data
-slug: /
+slug: /update-data
 ---
 To perform an update for a created object, you can use the `upsert` function in the same format.
 ```java

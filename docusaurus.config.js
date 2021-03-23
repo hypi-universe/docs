@@ -37,12 +37,12 @@ module.exports = {
           title: 'Docs',
           items: [
             {
-              label: 'Style Guide',
+              label: 'Home',
               to: 'docs/',
             },
             {
               label: 'Second Doc',
-              to: 'docs/doc2/',
+              to: 'docs/authentication/',
             },
           ],
         },
@@ -86,13 +86,13 @@ module.exports = {
       {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
-          editUrl: 'https://github.com/hypi-universe/docs/edit/master/website/',
+          editUrl: 'https://github.com/hypi-universe/docs/edit/master/',
           path: "content",
         },
         blog: {
           showReadingTime: true,
-          editUrl:
-            'https://github.com/hypi-universe/docs/edit/master/website/blog/',
+          editUrl: 'https://github.com/hypi-universe/docs/edit/master/',
+          path: "blog"
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
