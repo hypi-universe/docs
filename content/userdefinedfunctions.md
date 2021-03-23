@@ -81,7 +81,7 @@ inlineGroovyFunction(a: String, b: Int, c: Boolean):Json @tan(type:Groovy, inlin
 
 #### Function ‘gql’
 
-The function 'gql' is available to execute inside the user defined function. Using this function you may perform mutation or query operations inside the user defined function. The result depends upon the type of operation. If you perform an ‘upsert’ mutation, it will return id, createdBy etc. (Just like normal mutation) If you perform a ‘find’ query, it will return a list.
+The function 'gql' is available to execute inside the user defined function. Using this function you may perform mutation or query operations inside the user defined function. The result depends upon the type of operation. If you perform an `upsert` mutation, it will return id, createdBy etc. (Just like the normal `upsert`in Hypi) If you perform a `find` query, it will return a list.
 
 Let’s check a few examples of how to use this function. Add the following schema in GraphQL.
 ```java
@@ -131,7 +131,7 @@ type Query {
   """)
 }                                                         
 ```
-`SetBookInfo` is a user defined function to set parameter values inside the table `Book`. Upon successful creation of the object, the `hypi id` is returned.
+`SetBookInfo` is a user defined function to set parameter values inside the table `Book`. Upon successful creation of the object, the `hypi.id` is returned.
 ```java
 mutation {
   SetBookInfo(a:"Ikigai", b:6.99, c: 7)
@@ -187,3 +187,40 @@ It returns the author infomation with id 'Author1'
   }
 }
 ```
+
+The`gql`function accepts two parameters.
+
++ `query`: String - the GraphQL query to execute
++  `values`: Map - a map containing the set of variables used in`query`
+
+In the above examples, we have just used GraphQL query string. Let's modify the `SetBookInfo` function with Map values.
+
+```java
+type Mutation {
+  SetBookInfo(a: String, b: Float, c: Int):Json @tan(type:Groovy, inline: """
+    return gql('''
+    mutation CreateBook($p: String, $q: Float, $r: Int){
+        upsert(
+            values: { 
+                Book: [
+                    { 
+                        title: $p,
+                        price: $q,
+                        authorid: $r
+                    }
+                ] 
+            }
+        ) {
+            id
+        }
+    }''', ['p':a , 'q': b, 'r': c])
+  """)
+}
+```
+Notice few changes here:
+
++ Replaced the`\"""`with just`'''`. Using three`'`in Groovy, we have the same effect as`"""`. without string interpolation. It means that`$a`is not evaluated as a Groovy variable and remains as a part of the string.
++ Added GraphQL variables`CreateBook($p: String, $q: Float, $r: Int)`
++ Added variable values`['p':a, 'q': b, 'r': c]` in the map. Now, the variables`$p`,`$q`and`$r`are GraphQL variables not Groovy variables.
+
+With these changes, the result is the same as the previous example!
