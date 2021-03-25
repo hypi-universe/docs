@@ -2,7 +2,7 @@
 id: workflow
 title: Workflow
 sidebar_label: Workflow
-slug: 
+slug: https://docs.hypi.io/docs/workflow
 ---
 
 Workflows are useful to handle sequential events. Let’s say you want to execute one function after the other and you need results of the first function to execute the second function. The `workflow` will handle these kinds of events for you.
@@ -26,13 +26,13 @@ The parameters are as follows:
 
 | Parameter        | Type         | Description                                                                                                                                                                                                                                                                                               |
 |------------------|--------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Name             | String       | Name of the workflow                                                                                                                                                                                                                                                                                      |
+| name             | String       | Name of the workflow                                                                                                                                                                                                                                                                                      |
 | cronSchedule     | String       | If present, this is a \`cron\` schedule to automatically execute this Workflow The syntax as defined at https://www.manpagez.com/man/5/crontab/ NOTE: The special strings @hourly, @daily, etc are NOT supported                                                                                          |
 | execAs           | String       | An ArcQL query to find the account e.g. hypi.id = 'user123' to find by id or username = 'blah' to find by username.<br><br>If present, execution of the steps in the Workflow will be done as this account. If not specified, it defaults to the account making the request                               |
-| Async            | Boolean      | Set to \`true\` for asynchronous processing                                                                                                                                                                                                                                                               |
-| Parallel         | Boolean      | If present AND true, all steps in the workflow are executed at the same time.                                                                                                                                                                                                                             |
+| async            | Boolean      | Set to \`true\` for asynchronous processing                                                                                                                                                                                                                                                               |
+| parallel         | Boolean      | If present AND true, all steps in the workflow are executed at the same time.                                                                                                                                                                                                                             |
 | maxExecutionTime | String       | Specifies the max time an async task should be allowed to execute. When this time has elapsed the task will be killed.<br><br>The format is ISO8601 durations [https://en.wikipedia.org/wiki/ISO_8601](https://en.wikipedia.org/wiki/ISO_8601)<br><br>#Durations e.g. P1M is 1 month and PT1M is 1 minute |
-| Steps            | WorkflowStep | Holds details of each workflow step                                                                                                                                                                                                                                                                       |
+| steps            | WorkflowStep | Holds details of each workflow step                                                                                                                                                                                                                                                                       |
 
 Let’s look into WorkflowStep as well:
 ```java
@@ -45,9 +45,9 @@ type WorkflowStep {
 
 | Parameter | Type       | Description                                                                                                                                                                                                  |
 |-----------|------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Name      | String     | The name of the step                                                                                                                                                                                         |
-| Fn        | GraphQLRef | The function to execute for this step. The data returned by the step can subsequently be used in other steps. Set the type of the functions as query, mutation, or Subscription. Set the field to step name. |
-| Order     | Int        | Order of the step                                                                                                                                                                                            |
+| name      | String     | The name of the step                                                                                                                                                                                         |
+| fn        | GraphQLRef | The function to execute for this step. The data returned by the step can subsequently be used in other steps. Set the type of the functions as query, mutation, or Subscription. Set the field to step name. |
+| order     | Int        | Order of the step                                                                                                                                                                                            |
 
 #### Example
 
@@ -184,7 +184,7 @@ type Mutation {
 
 > Important notes to understand the schema!
 
-The first step can have any parameters you want. For the other steps, some rules define how the system maps parameters to the function in these steps.
+The first step can have any parameters you want. For the other steps, some rules are defined how the system maps parameters to the function in these steps.
 
 These rules are:
 
@@ -274,7 +274,7 @@ To use the workflow, first create the workflow object in the system. The name of
 }
 ```
 
-To use this workflow execute it like any other workflow.
+To use this workflow execute it like any other function.
 
 ```java
 query Q($a: String, $b: String){BorrowBook1(a: $a, b:$b){
