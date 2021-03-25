@@ -17,7 +17,7 @@ module.exports = {
     {
       type: 'category',
       label: 'API & References',
-      items: ['authentication','hypiobject','createdata','updatedata','readdata','deletedata','crud','authorisation','mathsapi','aggregation'],
+      items: ['authentication','hypiobject','createdata','updatedata','readdata','deletedata','crud','authorisation','mathsapi','aggregation', 'workflow', 'webhooks', 'fileupload'],
     },
     {
       type: 'category',
