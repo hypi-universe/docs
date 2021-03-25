@@ -2,7 +2,7 @@
 id: workflow
 title: Workflow
 sidebar_label: Workflow
-slug: https://docs.hypi.io/docs/workflow
+slug: /workflow
 ---
 
 Workflows are useful to handle sequential events. Let’s say you want to execute one function after the other and you need results of the first function to execute the second function. The `workflow` will handle these kinds of events for you.
