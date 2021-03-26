@@ -10,6 +10,7 @@ Workflows are useful to handle sequential events. Let’s say you want to execut
 Design the steps of the workflow and create an order of events. Execute the functions (work) inside the steps. Get the result after sequential processing of steps or functions. You may check the results of individual steps as well.
 
 Hypi provides below given `Workflow` data type for the implementation of the sequence of steps.
+
 ```java
 type Workflow {
     name: String!
@@ -21,6 +22,7 @@ type Workflow {
     steps(...): [WorkflowStep!]
 }
 ```
+
 The parameters are as follows:
 
 
@@ -28,13 +30,15 @@ The parameters are as follows:
 |------------------|--------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | name             | String       | Name of the workflow                                                                                                                                                                                                                                                                                      |
 | cronSchedule     | String       | If present, this is a \`cron\` schedule to automatically execute this Workflow The syntax as defined at https://www.manpagez.com/man/5/crontab/ NOTE: The special strings @hourly, @daily, etc are NOT supported                                                                                          |
-| execAs           | String       | An ArcQL query to find the account e.g. hypi.id = 'user123' to find by id or username = 'blah' to find by username.<br><br>If present, execution of the steps in the Workflow will be done as this account. If not specified, it defaults to the account making the request                               |
+| execAs           | String       | An ArcQL query to find the account e.g. hypi.id = 'user123' to find by id or username = 'blah' to find by username.<br/><br/>If present, execution of the steps in the Workflow will be done as this account. If not specified, it defaults to the account making the request                               |
 | async            | Boolean      | Set to \`true\` for asynchronous processing                                                                                                                                                                                                                                                               |
 | parallel         | Boolean      | If present AND true, all steps in the workflow are executed at the same time.                                                                                                                                                                                                                             |
-| maxExecutionTime | String       | Specifies the max time an async task should be allowed to execute. When this time has elapsed the task will be killed.<br><br>The format is ISO8601 durations [https://en.wikipedia.org/wiki/ISO_8601](https://en.wikipedia.org/wiki/ISO_8601)<br><br>#Durations e.g. P1M is 1 month and PT1M is 1 minute |
+| maxExecutionTime | String       | Specifies the max time an async task should be allowed to execute. When this time has elapsed the task will be killed.<br/><br/>The format is ISO8601 durations [https://en.wikipedia.org/wiki/ISO_8601](https://en.wikipedia.org/wiki/ISO_8601)<br/><br/>#Durations e.g. P1M is 1 month and PT1M is 1 minute |
 | steps            | WorkflowStep | Holds details of each workflow step                                                                                                                                                                                                                                                                       |
 
+
 Let’s look into WorkflowStep as well:
+
 ```java
 type WorkflowStep {
     name: String
