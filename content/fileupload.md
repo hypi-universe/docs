@@ -31,21 +31,21 @@ typeFile {
 ```
 
 
-| **Parameter** | **Type**   | **Description**                                                                                                                   |
-|---------------|------------|-----------------------------------------------------------------------------------------------------------------------------------|
-| name          | String     | Name of the file                                                                                                                  |
-| directory     | String     | The name of the directory                                                                                                         |
-| path          | String     | The path of the file                                                                                                              |
-| isDirectory   | Boolean    | If the file has to be uploaded in a virtual file system like Google Drive/Dropbox, this field is set to true                      |
-| status        | FileStatus | Status of file upload                                                                                                             |
-| url           | URL        | URL to download file                                                                                                              |
-| type          | String     | Media type                                                                                                                        |
-| size          | Long       | Size of the file in Bytes                                                                                                         |
-| extension     | String     | Extension of the file (.txt,.jpg, etc)                                                                                            |
-| isStared      | Boolean    | For the virtual file system, the file can be set to Starred status                                                                |
-| isSharable    | Boolean    | File sharing status                                                                                                               |
-| content       | String     | For the virtual file system upload, the content of the file would be set to a String value. Otherwise, the content would be null. |
-| children      | File       | For the virtual file system, the directory can have sub-files                                                                     |
+| **Parameter**   | **Type**   | **Description**                                                                                                                   |
+|-----------------|------------|-----------------------------------------------------------------------------------------------------------------------------------|
+| **name**        | String     | Name of the file                                                                                                                  |
+| **directory**   | String     | The name of the directory                                                                                                         |
+| **path**        | String     | The path of the file                                                                                                              |
+| **isDirectory** | Boolean    | If the file has to be uploaded in a virtual file system like Google Drive/Dropbox, this field is set to true                      |
+| **status**      | FileStatus | Status of file upload                                                                                                             |
+| **url**         | URL        | URL to download file                                                                                                              |
+| **type**        | String     | Media type                                                                                                                        |
+| **size**        | Long       | Size of the file in Bytes                                                                                                         |
+| **extension**   | String     | Extension of the file (.txt,.jpg, etc)                                                                                            |
+| **isStared**    | Boolean    | For the virtual file system, the file can be set to Starred status                                                                |
+| **isSharable**  | Boolean    | File sharing status                                                                                                               |
+| **content**     | String     | For the virtual file system upload, the content of the file would be set to a String value. Otherwise, the content would be null. |
+| **children**    | File       | For the virtual file system, the directory can have sub-files                                                                     |
 
 ### Upload endpoint
 

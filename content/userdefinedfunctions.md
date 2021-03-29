@@ -18,7 +18,8 @@ Currently, you may use two programming language for the user defined functions.
 We will start with a simple schema as follows: 
 ```java
 type Query {
-    inlineGroovyFunction(a: String, b: Int, c: Boolean):Json @tan(type:Groovy, inline: """
+    inlineGroovyFunction(a: String, b: Int, c: Boolean)
+        :Json @tan(type:Groovy, inline: """
         def map = new java.util.LinkedHashMap()
         map.put("a", a)
         map.put("b", b)
@@ -79,7 +80,7 @@ inlineGroovyFunction(a: String, b: Int, c: Boolean):Json @tan(type:Groovy, inlin
  """)
 ```
 
-#### Function ‘gql’
+### Function ‘gql’
 
 The function 'gql' is available to execute inside the user defined function. Using this function you may perform mutation or query operations inside the user defined function. The result depends upon the type of operation. If you perform an `upsert` mutation, it will return id, createdBy etc. (Just like the normal `upsert`in Hypi) If you perform a `find` query, it will return a list.
 
@@ -191,7 +192,7 @@ It returns the author infomation with id 'Author1'
 The`gql`function accepts two parameters.
 
 + `query`: String - the GraphQL query to execute
-+  `values`: Map - a map containing the set of variables used in`query`
++ `values`: Map - a map containing the set of variables used in`query`
 
 In the above examples, we have just used GraphQL query string. Let's modify the `SetBookInfo` function with Map values.
 

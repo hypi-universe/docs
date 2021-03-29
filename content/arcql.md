@@ -13,7 +13,7 @@ type Author {
     name: String
     age: Int
     bestbook: Book
-    booklist(...): \[Book!\]
+    booklist(...): [Book!]
 }
 
 type Book {
@@ -22,20 +22,20 @@ type Book {
     price: Float
 }
 ```
-Insert the following data in the table `Author`. Know more about Insert [here](#).
+Insert the following data in the table `Author`. Know more about Insert [here](/read-data).
 
-/*Note: For illustration purpose, the data is demontrated in the form of table.
+*Note: For illustration purpose, the data is demontrated in the form of table.
 
-| Hypi ID | name            | age  |
-|---------|-----------------|------|
-| Author1 | Dan Brown       | 56   |
-| Author2 | Paulo Coelho    | 70   |
-| Author3 | Sudha Murti     | 70   |
-| Author4 | Agatha christie | null |
+| hypi.id     | name            | age  |
+|-------------|-----------------|------|
+| **Author1** | Dan Brown       | 56   |
+| **Author2** | Paulo Coelho    | 70   |
+| **Author3** | Sudha Murti     | 70   |
+| **Author4** | Agatha christie | null |
 
 | booklist     |                                     |           |              |
 |--------------|-------------------------------------|-----------|--------------|
-| **Hypi ID**  | **title**                           | **price** | **authorid** |
+| **hypi.id**  | **title**                           | **price** | **authorid** |
 | Author1Book1 | Da Vinci Code                       | 12.99     | 1            |
 | Author1Book2 | The Last Symbol                     | 10        | 1            |
 | Author1Book3 | Inferno                             | 5.99      | 1            |
@@ -58,7 +58,6 @@ Insert the following data in the table `Author`. Know more about Insert [here](#
 + [Match All Query](#match all query)
 + [Geo Location](#geo location)
 + [Type In-Field In Queries](#type in-field in queries)
-
 
 ***
 
@@ -83,7 +82,7 @@ Here, `a` is the field name. `b` is an object and `c` is the field in object b.
 
 Let’s consider few examples with the inserted data:
 
-###### SORT EXAMPLE 1
+#### SORT EXAMPLE 1
 
 Query Statement: 
 `arcql: "* SORT title ASC"`
@@ -155,7 +154,7 @@ Result:
 }
 ```
 
-###### SORT EXAMPLE 2
+#### SORT EXAMPLE 2
 
 `arcql: "* SORT price DESC"`
 
@@ -241,7 +240,7 @@ You may frame a query like this:
 
 Boolean Logic is possible on all query types. As specified in the third statement, AND and OR logic can be utilized to get specific records.
 
-###### TERM QUERY EXAMPLE 1
+#### TERM QUERY EXAMPLE 1
 
 Query Statement:
 `arcql: "title='Wise and Otherwise'"`
@@ -279,7 +278,7 @@ Result:
   }
 }
 ```
-###### TERM QUERY EXAMPLE 2
+#### TERM QUERY EXAMPLE 2
 
 Query Statement: 
 `price=5.99 AND authorid = 2`
@@ -319,7 +318,7 @@ Result:
   }
 }
 ```
-###### TERM QUERY EXAMPLE 3
+#### TERM QUERY EXAMPLE 3
 
 Query Statement: 
 `(price=5.99 AND authorid = 1) OR authorid = 2`
@@ -389,7 +388,7 @@ You may frame a query like this:
 
 Here `a` is any field from the data type. Consider the third statement. Here, the query returns data from the `a` field which has strings ‘some’ or ‘ string’ or integer 123.
 
-###### PHRASE QUERY EXAMPLE 1
+#### PHRASE QUERY EXAMPLE 1
 
 Query Statement: 
 `name ~ 'sudha'`
@@ -424,7 +423,7 @@ Result:
   }
 }
 ```
-###### PHRASE QUERY EXAMPLE 2
+#### PHRASE QUERY EXAMPLE 2
 
 Query Statement: 
 `name ~ 'sudha' OR age ~ 56`
@@ -575,7 +574,7 @@ A prefix query returns records that have data starting with the prefix stated in
 
 The last statement returns the records from the field `a` that start with ‘some string’ or ‘123’
 
-###### PREFIX QUERY EXAMPLE 1
+#### PREFIX QUERY EXAMPLE 1
 
 Query Statement: 
 `name ^ 'Paulo' OR age ^ 5`
@@ -629,7 +628,7 @@ A wildcard character is used to substitute one or more characters in a string. A
 
 The first statement searches words with ‘some’ like someone, somewhere, something, etc. Third sting searches phrases with 'string_?. The question mark may carry any alphabet, number, or symbol.
 
-###### WILDCARD QUERY EXAMPLE 1
+#### WILDCARD QUERY EXAMPLE 1
 
 Query Statement: 
 `name * 'P*'`
@@ -668,7 +667,7 @@ Result:
 
 ***
 
-###### WILDCARD QUERY EXAMPLE 2
+#### WILDCARD QUERY EXAMPLE 2
 
 Query Statement: 
 `age * '?6'`
@@ -725,7 +724,7 @@ Range query also works for strings
 
 The strings work in alphabetical order. The query returns the values that start with a letter between ‘A’ and ‘J’.
 
-###### RANGE QUERY EXAMPLE 1
+#### RANGE QUERY EXAMPLE 1
 
 Query Statement: 
 `age IN (50, 70)`
@@ -760,7 +759,7 @@ Result:
   }
 }
 ```
-###### RANGE QUERY EXAMPLE 2
+#### RANGE QUERY EXAMPLE 2
 
 Query Statement: 
 `age IN (50, 70]`
@@ -807,7 +806,7 @@ Result:
   }
 }
 ```
-###### RANGE QUERY EXAMPLE 3
+#### RANGE QUERY EXAMPLE 3
 
 Query Statement: 
 `title IN ['Da Vinci Code','Inferno']`
@@ -1004,7 +1003,7 @@ Both forms of queries `<fieldExr> TYPE IN` and `<fieldExpr> FIELD IN` are tra
 
 We will go through examples to understand working on these two clauses.
 
-##### TYPE IN
+#### TYPE IN
 
 Consider a question for Author data.:  **What are the books by Author2**?
 
@@ -1037,33 +1036,34 @@ Consider we have the following data in the Author and Book table.
 
 **Author
 
-| **Hypi ID** | **name**        | **age** |
+| **hypi.id** | **name**        | **age** |
 |-------------|-----------------|---------|
-| Author1     | Dan Brown       | 56      |
-| Author2     | Paulo Coelho    | 70      |
-| Author3     | Sudha Murti     | 70      |
-| Author4     | Agatha christie | null    |
+| **Author1** | Dan Brown       | 56      |
+| **Author2** | Paulo Coelho    | 70      |
+| **Author3** | Sudha Murti     | 70      |
+| **Author4** | Agatha christie | null    |
 
 | Booklist         |                                     |           |              |                |
 |------------------|------------------------------------:|-----------|--------------|----------------|
-| **Hypi ID book** |                      **Title book** | **price** | **authorid** | **authorinfo** |
+| **hypi.id book** |                           **title** | **price** | **authorid** | **authorinfo** |
 |                  |                                     |           |              | **name**       |
-| Author1Book1     |                       Da Vinci Code | 13        | 1            | Dan Brown      |
-| Author1Book2     |                     The Last Symbol | 10        | 1            | Dan Brown      |
-| Author1Book3     |                             Inferno | 5.99      | 1            | Dan Brown      |
-| Author2Book1     |                           Alchemist | 5.99      | 2            | Paulo Coelho   |
-| Author2Book2     |                   Warriors of light | 13        | 2            | Paulo Coelho   |
-| Author3Book1     |                  Wise and Otherwise | 3.99      | 3            | Sudha Murti    |
-| Author3Book2     | How I taught my GrandMother to Read | 2.99      | 3            | Sudha Murti    |
+| **Author1Book1** |                       Da Vinci Code | 13        | 1            | Dan Brown      |
+| **Author1Book2** |                     The Last Symbol | 10        | 1            | Dan Brown      |
+| **Author1Book3** |                             Inferno | 5.99      | 1            | Dan Brown      |
+| **Author2Book1** |                           Alchemist | 5.99      | 2            | Paulo Coelho   |
+| **Author2Book2** |                   Warriors of light | 13        | 2            | Paulo Coelho   |
+| **Author3Book1** |                  Wise and Otherwise | 3.99      | 3            | Sudha Murti    |
+| **Author3Book2** | How I taught my GrandMother to Read | 2.99      | 3            | Sudha Murti    |
 | Null             |                                Null | null      | Null         |                |
 
 **Book
 
-| **Hypi ID** | **Title**              | **price** | **Authorid** | **Authorinfo** |
+| **hypi.id** | **title**              | **price** | **authorid** | **authorinfo** |
 |-------------|------------------------|-----------|--------------|----------------|
-|             |                        |           |              | **Name**       |
-| Book1       | Hamlet                 | -         | -            | Shakespeare    |
-| Book2       | Like the flowing river | -         | -            | Paulo Coelho   |
+|             |                        |           |              | **name**       |
+| **Book1**   | Hamlet                 | -         | -            | Shakespeare    |
+| **Book2**   | Like the flowing river | -         | -            | Paulo Coelho   |
+
 Now we will combine data from Author and Book with TYPE IN query below.
 
 ```javascript
@@ -1131,7 +1131,7 @@ Result :
 ```
 Thus we get books by `Author2` from both tables using `TYPE IN`. Frame your own query using TYPE IN.
 
-##### FIELD IN
+#### FIELD IN
 
 Consider below question for Author data.
 

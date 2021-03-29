@@ -2,7 +2,7 @@
 id: deletedata
 title: Delete Data
 sidebar_label: Delete Data
-slug: /deletedata
+slug: /delete-data
 ---
 The hypi platform supports two types of deletions. The first one is a **Soft Delete** that does not actually delete data but ‘marks’ it as deleted. Use the `trash` function to perform a soft delete. You may reverse the soft delete to restore data.
 
@@ -12,7 +12,7 @@ So, there are four functions related to deletion.
 
 > Let's check them out!
 
-+ [trash](###trash)
++ [trash](#trash)
 + [untrash](#untrash)
 + [delete](#delete)
 + [deleteScalars](#deletescalars)
@@ -20,7 +20,7 @@ So, there are four functions related to deletion.
 
 ***
 
-### trash
+## trash
 
 In some cases, you want your data to ‘appear’ deleted. But you may restore it if required. Take an example of an email application. There is often a "recycle" or "trash" folder. By using the `trash` function, you can put unwanted data in Trash.
 ```
@@ -45,7 +45,7 @@ If you use the ‘get’ or ‘find’ queries now, the result will not disp
 
 ***
 
-### untrash
+## untrash
 
 The opposite of the trash function is `untrash`. Use this function to remove the marker from the data that was previously marked as trash.
 ```
@@ -69,7 +69,7 @@ mutation {
 
 ***
 
-### delete
+## delete
 
 If you want to delete data permanently, use the `delete` function.
 ```
@@ -93,17 +93,17 @@ You may delete more records using the ArcQL query. Maximum 25 records will be de
 
 ***
 
-###  deleteScalars
+##  deleteScalars
 
 Array fields in Hypi are not stored directly with the other scalar fields in an object. This allows you to add an unlimited number of items to an array field. So, if you want to delete data permanently from a scalar array, use the `deleteScalars` function.
 
 If there is an array that references another type, note that deleteScalars will not delete scalar data from that array. ‘link’ function is used for that purpose.
 ```java
 deleteScalars(
-type: HypiMutationType!
-field: String!
-values: \[String!\]!
-arcql: String!
+    type: HypiMutationType!
+    field: String!
+    values: [String!]!
+    arcql: String!
 ): Int!
 ```
 
@@ -119,8 +119,8 @@ arcql: String!
 ```java
 type Question {
 hypi: Hypi
-question: \[Int!\]
-answer: \[String!\]  
+question: [Int!]
+answer: [String!]  
 }
 ```
  The below example shows the use of the ‘deleteScalars’ function to delete data from scalar arrays. In the example, from an ‘ans’ field from Question, string values (“b” and “c”) are deleted. The function returns the number of records affected by the deletion.

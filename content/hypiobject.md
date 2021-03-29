@@ -15,7 +15,7 @@ type Author {
 name: String
 age: Int
 count: Int
-booklist: \[String!\]
+booklist: [String!]
 }
 ```
 The above data type stores information of an author. The data fields are name, age, book count, and list of books, etc.  Insert this data in the form of a table.  A hypi object gets added to it automatically.
@@ -25,7 +25,7 @@ hypi: Hypi
 name: String
 age: Int
 count: Int
-booklist: \[String!\]
+booklist: [String!]
 }
 ```
 > Let’s look at its structure.
@@ -40,7 +40,7 @@ type Hypi {
 }
 ```
 
-### Available fields
+## Available fields
 
 | **Field**     | **Data Type** | **Description**                                      |
 |---------------|---------------|------------------------------------------------------|
@@ -55,10 +55,10 @@ Hypi updates some of the fields automatically like `trashed`, `updated`, `create
 
 A field like ‘id’ may get generated automatically. But you may set it as well. ’impl’ field value has to be set. Let’s look at these two fields in detail.
 
-#### id
+### id
 
 `id:` => Specify the value of this field during mutation. Otherwise, Hypi will generate a unique ID number automatically. It is a mandatory field during ‘upsert’ (update) to locate the object to be updated. Specify it in the ArcQL query to find objects by ID. Check CRUD operations to understand the utilization of an id.
 
-#### impl
+### impl
 
 `impl:`  => An app may consist of various interfaces. The ‘impl’ field stores value of the name of the implementation of an interface. Let’s say you have social media interfaces like Instagram, Twitter, Facebook. The ‘impl’ field should be set to “Twitter” to use the ‘Twitter’ interface. Hypi cannot automatically decide the implementation of an interface on which you intend to perform a mutation. If you do not provide the ‘impl’ value, the mutation will fail.

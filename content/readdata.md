@@ -6,7 +6,7 @@ slug: /read-data
 ---
 Read the inserted data by using query functions. `get` and `find` are the two functions that return the data. If you need a single record, use the `get` function. For getting multiple records, use the `find` function.
 
-### Get
+## Get
 
 The `get` function returns a single record using the ‘id’ of an object. You may use the ‘id’ received after creating the record. The magic hypi object also contains the ‘id’ of the object (`hypi.id`).
 ```
@@ -60,19 +60,19 @@ Let’s pass the `Author` data type as an argument to fetch the data. Get the re
 
 ***
 
-### Find
+## Find
 
 The second approach to getting data out of an instance is by using the`find` 
 function. Unlike the `get` function, this returns a list of objects matching the arcql filter provided.
 ```java
 find(
-type: HypiMutationType!
-arcql: String!
-first: Int
-after: String
-last: Int
-before: String
-includeTrashed: Boolean
+    type: HypiMutationType!
+    arcql: String!
+    first: Int
+    after: String
+    last: Int
+    before: String
+    includeTrashed: Boolean
 ): HypiFilterConnection!
 ```
 This function has many parameters. Let’s look at this table to understand them.
