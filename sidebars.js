@@ -33,10 +33,10 @@ module.exports = {
 	  GraphQL:['gql-introduction','gql-queries','gql-mutations','gql-directives','gql-interfaces','gql-schema-types'],
 	},
 	{
-	  GraphQL CRUD Tutorial: ['graphqlcrud'],
+	  'GraphQL CRUD Tutorial': ['graphqlcrud'],
 	}, 
 	{
-	  GraphQL Time Series Aggregation: ['timeseriesaggregation'],
+	  'GraphQL Time Series Aggregation': ['timeseriesaggregation'],
 	},
 	], //GraphQL, ArcQL
     },
