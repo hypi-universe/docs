@@ -30,7 +30,7 @@ type Author {
 }
 ```
 
-### Examples:
+## Examples:
 
 Let’s add some data in an object to perform aggregations.
 ```java
@@ -110,7 +110,7 @@ Result:
 ```
 Here author’s age and price of the book are numerical fields. So, we will perform operations on these two fields. Aggregation operations can be performed with or without filters. Filters may have `distinct`, `group-by` or `where` clauses, etc. They are similar to SQL-type database queries.
 
-#### Aggregate with No Filter
+### Aggregate with No Filter
 
 The below example demonstrates aggregation without any filters. Here, we are simply aggregating values from age and price fields. The function returns the average value, the number of records(count), minimum value, maximum value, and the sum of the values from both fields.
 ```json
@@ -167,7 +167,7 @@ Result:
 ```
 You may not select a field or an aggregation function, if it's not needed, Hypi will perform calculations only if you select the field or specify the aggregate function. This means you get faster queries by specifying less.
 
-#### Aggregate Distinct Rows
+### Aggregate Distinct Rows
 
 You may aggregate unique rows by specifying the filter ‘distinct’ as true. Hypi considers repeated values as just one value. Hence, the count of books has gone down to 3. Only three unique prices have been selected for aggregation. (12.99,5.99,10)
 ```json
@@ -233,7 +233,7 @@ Result:
 }
 ```
 
-#### Aggregate with groupBy
+### Aggregate with groupBy
 
 You may make specific groups of records and perform aggregate operations on them. Use `groupBy` clause as a filter. The below example makes two groups by specifying `authorid` as groupBy field. There are two groups of books with 2 distinct authorids. So, authorid is a key with values 1 and 2.
 
@@ -292,7 +292,7 @@ Result:
   }
 }
 ```
-#### Aggregate by Date
+### Aggregate by Date
 
 You may group the fields based upon the `dateTime` field. Hypi object has the dateTime fields like `hypi_created` or `hypi_updated`. The below example has groups based upon the date of creation of objects. dateGranularity can be set to DAYS, HOURS, MINUTES, or SECONDS.
 ```json

@@ -138,10 +138,10 @@ type EchoType {
 
 This has just defined a @tan function that accepts 3 parameters of types String, Integer, and Boolean. It returns a JSON object. The @tan directive has a few options; type, name, handler, and saveAs. They are explained below:
 
-* type: instructs the system on which serverless backend to use, currently OpenFaaS is available as well as inline scripts written in Groovy or Velocity.
-* name: the name field should match the name provided under the GraphQL "serverless" object.
-* handler: is the script/entrypoint to execute inside the container. For example, "python main.py -env=prod" or "go run quickstart.go" ... etc.
-* saveAs: instructs the Hypi platform to persist the result of the serverless function call as a GraphQL type in the database. For example, saveAs: "ServerlessResponse".
++ **type:** instructs the system on which serverless backend to use, currently OpenFaaS is available as well as inline scripts written in Groovy or Velocity.
++ **name:** the name field should match the name provided under the GraphQL "serverless" object.
++ **handler:** is the script/entrypoint to execute inside the container. For example, "python main.py -env=prod" or "go run quickstart.go" ... etc.
++ **saveAs:** instructs the Hypi platform to persist the result of the serverless function call as a GraphQL type in the database. For example, saveAs: "ServerlessResponse".
 
 Observe here how the @tan directive is instructed to return payload of user-defined type "EchoType". Thus, any user-defined type can be returned.
 

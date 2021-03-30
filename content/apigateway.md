@@ -9,11 +9,11 @@ Hypi's API gateway acts as a middleware that simplifies the integration of your 
 
 Importantly, by using the Hypi gateway, you can integrate external services with your Hypi app as if they were a part of the platform.
 
-Hypi's features such as [authorisation](#), [workflows](#) etc can all be mixed with gateway functions.
+Hypi's features such as [authorisation](/authorisation), [workflows](/workflow) etc can all be mixed with gateway functions.
 
 ### Using the API gateway
 
-To use the API gateway, you must add a dependency ``gateway`` to the App . As a reminder, a dependency is referenced by the app name, realm and release. Check more about [dependencies](#) here. 
+To use the API gateway, you must add a dependency ``gateway`` to the App . As a reminder, a dependency is referenced by the app name, realm and release. Check more about [dependencies](/overview) here. 
 
 ### @http directive
 
@@ -26,6 +26,8 @@ Once you have added the directive to a function, it can be treated like any othe
 ```java
 directive @http(  method: HttpMethod! = GET,  url: String!,  headers: String,  requestTemplate: String,  saveAs: String) on FIELD_DEFINITION
 ```
+When applied causes the value of the field it is applied to to be resolved using an HTTP query configured with the given parameters
+
 
 | Parameter | Description | Example |
 | --- | --- | --- |
@@ -34,8 +36,6 @@ directive @http(  method: HttpMethod! = GET,  url: String!,  headers: String,  r
 | headers | The string formatted JSON object which sets the headers sent in the HTTP request. A JSON object where ALL entries MUST be strings or convertible to strings (basically numbers) #e.g. {"a": "v1", "b": 2} | {"Authorization":"Bearer ${settings.apiToken}"} |
 | requestTemplate | The name of the request template which defines how the request body and response should be handled |     |
 | saveAs | If present, the HTTP response will be stored in Hypi as the given type. The type must exist in the current instance |     |
-
-When applied causes the value of the field it is applied to to be resolved using an HTTP query configured with the given parameters
 
 ### Variables
 
@@ -69,3 +69,5 @@ type Query {
 You can then call this function via HTTP or GraphQL in your app. Note here that the response from the API must match the structure of the`User`object you specified as the return type.
 
 If you're making a request to an API which doesn't directly match your type i.e.`User`in this case, you can use the`requestTemplate`parameter.  It transforms the API response by extracting fields from it and constructs an object which matches your declared return type.
+
+

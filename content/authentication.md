@@ -9,9 +9,9 @@ Authentication involves verifying the identification of a user. The credentials 
 
 Authentication is important. It keeps the resources secure from unauthenticated users. The resources may include networks, databases, websites, and other applications. 
 
-Hypi provides authentication functions to its users. The functions are easy-to-use. You can [create a password-protected account](#) with a user name or an email. You can [log in to the account](#) with saved credentials.
+Hypi provides authentication functions to its users. The functions are easy-to-use. You can [create a password-protected account](#createAccount) with a user name or an email. You can [log in to the account](#login) with saved credentials.
 
-### createAccount:
+## createAccount
 
 `createAccount` is a mutation that creates a new user account. You need to provide the credentials of the user. It generates a new user account. This account can be used to login and perform various actions.
 ```java
@@ -64,7 +64,7 @@ The above function returns the account id, the date of creation, and created by 
   }
 }
 ```
-### login
+## login
 
 Users may log in using the `login` function.
 ```java
@@ -97,7 +97,8 @@ Login generates session token. The user has to use the session token to perform 
     }
 }
 ```
-### loginByEmail:
+
+## loginByEmail:
 
 Users may log in using the `loginByEmai` function. This function takes email-id and password as inputs. 
 ```java

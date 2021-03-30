@@ -2,12 +2,12 @@
 id: createdata
 title: Create Data
 sidebar_label: Create Data
-slug: /createdata
+slug: /create-data
 ---
 
 “Create” functions as a mutation to insert data in the table. After creating an instance, you may want to add data to it. Just one function does the job of inserting and updating data, i.e. `upsert`.
 ```java
-upsert (values: HypiUpsertUnion!) : \[Hypi!\] !
+upsert (values: HypiUpsertUnion!) : [Hypi!] !
 ```
 Notice the argument ‘values’ is plural because it allows you to create or update multiple values in a single request.
 

@@ -12,17 +12,33 @@ module.exports = {
     {
       type: 'category',
       label: 'Welcome',
-      items: ['introduction', 'overview'],
+      items: ['introduction', 'overview', 'get-started'],
     },
     {
       type: 'category',
       label: 'API & References',
-      items: ['authentication','hypiobject','createdata','updatedata','readdata','deletedata','crud','authorisation','mathsapi','aggregation', 'workflow', 'webhooks', 'fileupload'],
+      items: ['apisetup','authentication','arcql','hypiobject','crud','createdata','updatedata','readdata','deletedata','authorisation','apigateway','aggregation','mathsapi','userdefinedfunctions','workflow','triggers','webhooks','serverlessfunction','fileupload','rest-apis','oauth2login'],
+    },
+    {
+      type: 'category',
+      label: 'Hypi + Angular',
+      items: ['hypi-angular'],
     },
     {
       type: 'category',
       label: 'Tutorial',
-      items: [], //GraphQL, ArcQL
+      items: [
+	'tutorial/graphql',
+        {
+	  GraphQL:['gql-introduction','gql-queries','gql-mutations','gql-directives','gql-interfaces','gql-schema-types'],
+	},
+	{
+	  GraphQL CRUD Tutorial: ['graphqlcrud'],
+	}, 
+	{
+	  GraphQL Time Series Aggregation: ['timeseriesaggregation'],
+	},
+	], //GraphQL, ArcQL
     },
     {
       type: 'category',

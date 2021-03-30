@@ -1,7 +1,7 @@
 ---
 id: introduction
 title: Introduction
-sidebar_label: introduction
+sidebar_label: Introduction
 slug: /
 ---
 
@@ -25,4 +25,4 @@ Wondering how to use Hypi in your product? In this guide, we will take you throu
 
 [Check](#) out the sample application built using Hypi.
 
-[Refer](#) to the detailed documentation of Hypi APIs as well.
+[Refer](#/overview) to the detailed documentation of Hypi APIs as well.
