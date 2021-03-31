@@ -30,14 +30,10 @@ module.exports = {
       items: [
 	'graphql',
         {
-	  GraphQL:['gql-introduction','gql-queries','gql-mutations','gql-directives','gql-interfaces','gql-schema-types'],
+	  'GraphQL Features': ['gql-introduction','gql-queries','gql-mutations','gql-directives','gql-interfaces','gql-schema-types'],
 	},
-	{
-	  'GraphQL CRUD Tutorial': ['gql-crud-tutorial'],
-	}, 
-	{
-	  'GraphQL Time Series Aggregation': ['time-series-aggregations'],
-	},
+	'gql-crud-tutorial',
+	'time-series-aggregations',
 	], //GraphQL, ArcQL
     },
     {
@@ -50,6 +46,12 @@ module.exports = {
       label: 'User Interface Guide',
       items: [],
     },
+	
+    {
+      type: 'category',
+      label: 'Glossary',
+      items: ['glossary'],
+    },
     {
       type: 'category',
       label: 'Release Notes',
@@ -58,7 +60,7 @@ module.exports = {
     {
       type: 'category',
       label: 'Get Involved',
-      items: [],
+      items: ['get-involved'],
     },
   ],
 };
