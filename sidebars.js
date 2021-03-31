@@ -50,6 +50,12 @@ module.exports = {
       label: 'User Interface Guide',
       items: [],
     },
+	
+    {
+      type: 'category',
+      label: 'Glossary',
+      items: ['glossary'],
+    },
     {
       type: 'category',
       label: 'Release Notes',
@@ -58,7 +64,7 @@ module.exports = {
     {
       type: 'category',
       label: 'Get Involved',
-      items: [],
+      items: ['get-involved'],
     },
   ],
 };
