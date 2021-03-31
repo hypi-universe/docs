@@ -9,11 +9,11 @@ Hypi's API gateway acts as a middleware that simplifies the integration of your 
 
 Importantly, by using the Hypi gateway, you can integrate external services with your Hypi app as if they were a part of the platform.
 
-Hypi's features such as [authorisation](/authorisation), [workflows](/workflow) etc can all be mixed with gateway functions.
+Hypi's features such as [authorisation](authorisation.md), [workflows](workflow.md) etc can all be mixed with gateway functions.
 
 ### Using the API gateway
 
-To use the API gateway, you must add a dependency ``gateway`` to the App . As a reminder, a dependency is referenced by the app name, realm and release. Check more about [dependencies](/overview) here. 
+To use the API gateway, you must add a dependency ``gateway`` to the App . As a reminder, a dependency is referenced by the app name, realm and release. Check more about [dependencies](overview.md) here. 
 
 ### @http directive
 
@@ -29,13 +29,13 @@ directive @http(  method: HttpMethod! = GET,  url: String!,  headers: String,  r
 When applied causes the value of the field it is applied to to be resolved using an HTTP query configured with the given parameters
 
 
-| Parameter | Description | Example |
-| --- | --- | --- |
-| method | One of the available HTTP methods | GET, PUT, POST, DELETE, PATCH, OPTIONS, HEAD, TRACE |
-| url | The URL template to use to make the request | [https://api.my-domain.com/users/${settings.userId}?includeAge=${vars.includeAge}](https://api.my-domain.com/users/$%7Bsettings.userId%7D?includeAge=$%7Bvars.includeAge%7D) |
-| headers | The string formatted JSON object which sets the headers sent in the HTTP request. A JSON object where ALL entries MUST be strings or convertible to strings (basically numbers) #e.g. {"a": "v1", "b": 2} | {"Authorization":"Bearer ${settings.apiToken}"} |
-| requestTemplate | The name of the request template which defines how the request body and response should be handled |     |
-| saveAs | If present, the HTTP response will be stored in Hypi as the given type. The type must exist in the current instance |     |
+| Parameter           | Description                                                                                                                                                                                               | Example                                                                                                                                                                      |
+|---------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **method**          | One of the available HTTP methods                                                                                                                                                                         | GET, PUT, POST, DELETE, PATCH, OPTIONS, HEAD, TRACE                                                                                                                          |
+| **url**             | The URL template to use to make the request                                                                                                                                                               | [https://api.my-domain.com/users/${settings.userId}?includeAge=${vars.includeAge}](https://api.my-domain.com/users/$%7Bsettings.userId%7D?includeAge=$%7Bvars.includeAge%7D) |
+| **headers**         | The string formatted JSON object which sets the headers sent in the HTTP request. A JSON object where ALL entries MUST be strings or convertible to strings (basically numbers) #e.g. {"a": "v1", "b": 2} | {"Authorization":"Bearer ${settings.apiToken}"}                                                                                                                              |
+| **requestTemplate** | The name of the request template which defines how the request body and response should be handled                                                                                                        |                                                                                                                                                                              |
+| **saveAs**          | If present, the HTTP response will be stored in Hypi as the given type. The type must exist in the current instance                                                                                       |                                                                                                                                                                              |
 
 ### Variables
 

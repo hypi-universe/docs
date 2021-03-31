@@ -7,7 +7,7 @@ slug: /authorisation
 
 [Authorisation](https://en.wikipedia.org/wiki/Authorization) is the process of specifying access/ rights/ privileges to various resources. It provides information security and computer security to systems. Of course, we can control the access to users as well. The authorisation process decides whether access should be given or denied.
 
-Authorisation defers from [Authentication](/authentication). Authentication verifies the identity of a user. In authorisation, a user or an application gets permission to access a resource. The resource determines the extent of the permissions it should grant.
+Authorisation defers from [Authentication](authentication.md). Authentication verifies the identity of a user. In authorisation, a user or an application gets permission to access a resource. The resource determines the extent of the permissions it should grant.
 
 Classic authorisation models consist of a triple; a [subject](#subject), an [object](#object), and an `action`. Hypi adopts this triple with few enhancements.
 
@@ -124,11 +124,11 @@ Permissions are based upon various operations the subject wants to perform on th
 
 ### Update, Delete, Trash, Link and Unlink of a resource
 
-[Mutation](/crud) permissions may be granted to the subject. It includes update, delete, trash, link, and unlink permissions. All of these functions operate on existing resources. Permission object generates an authorisation request for mutations.
+[Mutation](crud.md) permissions may be granted to the subject. It includes update, delete, trash, link, and unlink permissions. All of these functions operate on existing resources. Permission object generates an authorisation request for mutations.
 
 ### Searching for resources
 
-The platform uses [ArcQL](/arcql) query language for finding data. All requests to get data, no matter how trivial the query, goes through ArcQL. During a search, resources that match that search are further filtered down to only those that the subject is allowed to see. So, only certain types of records a subject can access through a query. For example, a password is a resource that is not accessible to any subject except the user.
+The platform uses [ArcQL](arcql.md) query language for finding data. All requests to get data, no matter how trivial the query, goes through ArcQL. During a search, resources that match that search are further filtered down to only those that the subject is allowed to see. So, only certain types of records a subject can access through a query. For example, a password is a resource that is not accessible to any subject except the user.
 
 ### Implicit Permission
 

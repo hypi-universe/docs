@@ -93,6 +93,6 @@ Data stored in the database at a particular time is called an instance of a data
 
 Every instance gets a domain. Hypi generates one by default. But, you are free to create a new domain, e.g. [_abc.apps.hypi.app_](#). A domain has a unique set of values attributed to various data fields.
 
-Check more about [Domains](/apisetup) provided by Hypi.
+Check more about [Domains](apisetup.md) provided by Hypi.
 
 [Add Instance](#)

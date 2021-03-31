@@ -131,7 +131,7 @@ In conclusion, aggregations using`dateGranularity`boils down to:
 
 1.  Using the right aggregation type - which is named "\[your_type\]With".
 2.  Using`groupBy`to specify which**field**and`dateGranularity`you would like to group by. In our example`hypi_created`,`DAYS`.
-3.  Using`where`if you want to filter before calculating - it is an [ArcQL](/arcql) string. In our example -`hypi.id='actor1'`.
+3.  Using`where`if you want to filter before calculating - it is an [ArcQL](arcql.md) string. In our example -`hypi.id='actor1'`.
 4.  Adding the field that you want to aggregate. In our example`rating`.
 5.  Choosing what you want to calculate. In our example`avg`(others include`count`,`min`,`max`and`sum`)
 6.  Adding`groupValues`so you can see the**value of the field**that you grouped by in the**result set**.

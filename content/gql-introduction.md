@@ -2,7 +2,7 @@
 id: gql-introduction
 title: GraphQL Introduction
 sidebar_label: GraphQL Introduction
-slug: /gql-introduction
+slug: /gql-introduction 
 ---
 ## What is GraphQL?
 

@@ -5,7 +5,7 @@ sidebar_label: RESTful APIs
 slug: /rest-apis
 ---
 
-Hypi platform provides APIs with multiple flavors that suit different developers' tastes. The RESTful APIs are no different and at the same time they were redesigned to abide by the HATEOS code of conduct for better semantics and easier interpretation. The API endpoints available are documented in [Hypi Platform API Documentation](/apisetup).
+Hypi platform provides APIs with multiple flavors that suit different developers' tastes. The RESTful APIs are no different and at the same time they were redesigned to abide by the HATEOS code of conduct for better semantics and easier interpretation. The API endpoints available are documented in [Hypi Platform API Documentation](apisetup.md).
 
 The examples use the following GraphQL schema as an example.
 ```java
@@ -142,7 +142,7 @@ $ curl --location --request POST '/rest/v1/login' \
 ```
 ## CRUD Operations
 
-The four basic CRUD operations**C**reate,**R**ead,**U**pdate, and**D**elete can be performed using the semantics of**P**ost,**G**et,**P**ut, and**D**elete HTTP methods. Furthermore, the APIs endpoints can be mapped to resources using the /{{aggregate}} or /{{aggregate}}/{{identifier}} for both GET and DELETE whilst POST and PUT will capture the identifiers from the GraphQL request body to avoid redundancy. Hereby, the RESTful APIs explained herein allow the same functionality as the CRUD operations manifested under [Hypi Platform CRUD Documentation](/crud)
+The four basic CRUD operations**C**reate,**R**ead,**U**pdate, and**D**elete can be performed using the semantics of**P**ost,**G**et,**P**ut, and**D**elete HTTP methods. Furthermore, the APIs endpoints can be mapped to resources using the /{{aggregate}} or /{{aggregate}}/{{identifier}} for both GET and DELETE whilst POST and PUT will capture the identifiers from the GraphQL request body to avoid redundancy. Hereby, the RESTful APIs explained herein allow the same functionality as the CRUD operations manifested under [Hypi Platform CRUD Documentation](crud.md)
 
 ### POST
 
@@ -297,7 +297,7 @@ $ curl --location --request GET '/rest/v1/URL/url1' \
 
 GraphQL find method can be used to access a resource, so replace`URL`with {{aggregate}}.
 
-> The ArcQL parameter accepts any valid filter supported by [ArcQL](/arcql). The example here uses`hypi.id = 'url1'`only for simplicity.
+> The ArcQL parameter accepts any valid filter supported by [ArcQL](arcql.md). The example here uses`hypi.id = 'url1'`only for simplicity.
 
 **Request**
 ```java

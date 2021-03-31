@@ -12,8 +12,8 @@ To carry out CRUD operations, you should have a basic understanding of `GraphQL`
 
 > You may check out these Guides.
 
-+ [ArcQL](/arcql)
-+ [Magic Hypi Object](/magic-hypi-object)
++ [ArcQL](arcql.md)
++ [Magic Hypi Object](hypiobject.md)
 + [GraphQL type definitions](https://graphql.org/learn/schema/#type-system)
 
 Let’s look at `CRUD` operations in detail. While you perform Query operations to get data from the database, you perform Mutations to create or update data in the database. Create, Update and Delete are mutations. Read is the Query.
@@ -41,10 +41,10 @@ Data type `Books` holds the information of a book like a title, publication, etc
 
 > Now take a look at the below operations one by one!
 
-+ [Create](/create-data)
++ [Create](createdata.md)
 
-+ [Update](/update-data)
++ [Update](updatedata.md)
 
-+ [Read](/read-data)
++ [Read](readdata.md)
 
-+ [Delete](/delete-data)
++ [Delete](deletedata.md)
