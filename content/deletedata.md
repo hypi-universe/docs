@@ -107,12 +107,13 @@ deleteScalars(
 ): Int!
 ```
 
-| **Parameter** | **Description**                                     | **Example**                                   |
-|---------------|-----------------------------------------------------|-----------------------------------------------|
-| **type**      | The type (table) to delete scalar array values from | Message, Author                               |
-| **field**     | The name of the array field                         | Number                                        |
-| **values**    | The values to be deleted                            | \[2,5,6\]                                     |
-| **arcql**     | The id of the object to delete values from          | arcql: "hypi.id='01F0FW9XYQWQNNEDYV3S5P2WGQ'" |
+
+| **Parameter** | **Description**                                     | **Example**                       |
+|---------------|-----------------------------------------------------|-------------------------------------------------|
+| **type**      | The type (table) to delete scalar array values from | Message, Author                                 |
+| **field**     | The name of the array field                         | Number                                          |
+| **values**    | The values to be deleted                            | \[2,5,6\]                                       |
+| **arcql**     | The id of the object to delete values from          | arcql: "hypi.id=  '01F0FW9XYQWQNNEDYV3S5P2WGQ'" |
 
 > Consider the data type ‘Question’ which holds question-answer keys for a test.
 
@@ -126,6 +127,7 @@ answer: [String!]  
  The below example shows the use of the ‘deleteScalars’ function to delete data from scalar arrays. In the example, from an ‘ans’ field from Question, string values (“b” and “c”) are deleted. The function returns the number of records affected by the deletion.
 
 Frame arcql query to select the object and get an id. In the example, hypi id has been hardcoded.
+
 ```java
 mutation{
   deleteScalars(

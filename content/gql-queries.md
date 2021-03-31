@@ -13,7 +13,7 @@ GraphQL queries return only the data you define. To construct a query, you must 
 
 The GraphQL API has a single endpoint:`https://api.hypi.app/graphql`You should construct queries like this:
 
-**Note:**_Arcql is Hypi's SQL-like query language used to filter, sort and paginate data in the platform._
+> Note:  Arcql is Hypi's SQL-like query language used to filter, sort and paginate data in the platform.
 
 ```java
 query getMyTodos($arcql:String) {
@@ -51,9 +51,9 @@ Result:
 
 ## Authorization
 
-**Note:** You need to pass the Authorization`token`header before querying to get the results. Here's Example of setting up your header with auth token.
+**Note:**  You need to pass the Authorization`token`header before querying to get the results. Here's Example of setting up your header with auth token.
 
-```json`
+```json
 {
   "url": "https://api.hypi.app/graphql/",
   "headers": {
@@ -62,11 +62,12 @@ Result:
        "hypi-domain": "my-domain.com" // instance API domain
   }
 }
-```  
+```
 
 ## Query Variables
 
-GraphQL Variables makes queries more dynamic and powerful, and they reduce complexity when passing mutation input objects.**Here you can see variables in its simplest form.**
+GraphQL Variables makes queries more dynamic and powerful, and they reduce complexity when passing mutation input objects. **Here you can see variables in its simplest form.**
+
 ```java
 query findTodoItem($arcql:String) {
      todos(arcql: $arcql) {
@@ -82,6 +83,7 @@ variables {
    "arcql": "hypi.id = 'abc-123'"
 }
 ```
+
 There are three steps to using variables:
 
 + Create the variable outside the operation in a`variables`object:

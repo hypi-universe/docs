@@ -54,6 +54,6 @@ The API URLs you use depend on how you intend to work with your app. You make re
 curl -v 'https://api.hypi.app/graphql' -H 'Content-Type: application/json' -H 'Authorization: &lt;auth-token-here&gt;' -H 'hypi-domain: my-instance.apps.hypi.app' --data-binary '&lt;graphql-query-here&gt;' --compressed
 ```
 
-+ `https://api.hypi.app/rest](https://api.hypi.app/rest)`- allows you to use standard REST-like requests to execute queries against your instance. Check out RESTful APIs [here](#).
++ `https://api.hypi.app/rest](https://api.hypi.app/rest)`- allows you to use standard REST-like requests to execute queries against your instance. Check out RESTful APIs [here](rest-apis.md).
 
 + `wss://api.hypi.app` - allows you to subscribe to updates via WebSockets. Establishing a WebSocket connection provides a persistent connection between client and server and facilitates message passing between them.

@@ -44,7 +44,9 @@ If present on an object then it controls which Hypi CRUD functions will be gener
 
 ### @secret
 
-Fields annotated with the`@secret`directive are never returned. They can only be compared using ArcQL. This is good for password fields._Note_: The value of these fields**CANNOT**be retrieved. You can only run queries to check if the original value matches.
+Fields annotated with the`@secret`directive are never returned. They can only be compared using ArcQL. This is good for password fields.
+
+**Note**:  The value of these fields **CANNOT** be retrieved. You can only run queries to check if the original value matches.
 
 Secrets are encrypted using one of three available algorithms: 1. SHA3 2. BCRYPT 3. PKCS5
 
@@ -74,7 +76,7 @@ Check if the date is in the future
 
 ### @pattern
 
-Check if the field's value matches the regular expression given a match flag (see[https://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html](https://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html))
+Check if the field's value matches the regular expression given a match flag (see [https://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html](https://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html))
 
 ### @email
 
