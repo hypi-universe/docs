@@ -28,15 +28,15 @@ module.exports = {
       type: 'category',
       label: 'Tutorial',
       items: [
-	'tutorial/graphql',
+	'graphql',
         {
 	  GraphQL:['gql-introduction','gql-queries','gql-mutations','gql-directives','gql-interfaces','gql-schema-types'],
 	},
 	{
-	  GraphQL CRUD Tutorial: ['graphqlcrud'],
+	  'GraphQL CRUD Tutorial': ['gql-crud-tutorial'],
 	}, 
 	{
-	  GraphQL Time Series Aggregation: ['timeseriesaggregation'],
+	  'GraphQL Time Series Aggregation': ['time-series-aggregations'],
 	},
 	], //GraphQL, ArcQL
     },
