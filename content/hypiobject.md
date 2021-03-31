@@ -12,20 +12,20 @@ We like simple and automated things in the world of programming. One such thing 
 We have the following data type.
 ```java
 type Author {
-name: String
-age: Int
-count: Int
-booklist: [String!]
+    name: String
+    age: Int
+    count: Int
+    booklist: [String!]
 }
 ```
 The above data type stores information of an author. The data fields are name, age, book count, and list of books, etc.  Insert this data in the form of a table.  A hypi object gets added to it automatically.
 ```java
 type Author {
-hypi: Hypi
-name: String
-age: Int
-count: Int
-booklist: [String!]
+    hypi: Hypi
+    name: String
+    age: Int
+    count: Int
+    booklist: [String!]
 }
 ```
 > Let’s look at its structure.

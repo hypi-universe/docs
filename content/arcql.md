@@ -22,7 +22,7 @@ type Book {
     price: Float
 }
 ```
-Insert the following data in the table `Author`. Know more about Insert [here](/read-data).
+Insert the following data in the table `Author`. Know more about Insert [here](readdata.md).
 
 *Note: For illustration purpose, the data is demontrated in the form of table.
 

@@ -239,4 +239,4 @@ Great! well done for making this for! let's take a look back:
     
 4.  Made a request to your instance's domain
     
-Setting up and connecting to Hypi is very easy. We are excited to see what you build next. Checkout the [CRUD](/crud) section of documentation, so you get familiar with the operations you can run against your APIs.
+Setting up and connecting to Hypi is very easy. We are excited to see what you build next. Checkout the [CRUD](crud.md) section of documentation, so you get familiar with the operations you can run against your APIs.

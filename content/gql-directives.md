@@ -22,7 +22,7 @@ For example, we can imagine a UI component that has a summarised and detailed vi
   }
 ```
      
-Here, the`@field`part of the model is a directive. It tells Hypi to index the field it appears next to so that data in that field is searchable with [ArcQL](/arcql)
+Here, the`@field`part of the model is a directive. It tells Hypi to index the field it appears next to so that data in that field is searchable with [ArcQL](arcql.md)
 
 ## Built-in directives
 

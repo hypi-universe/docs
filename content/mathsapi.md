@@ -7,6 +7,7 @@ slug: /maths-api
 Mathematical functions perform standard calculations on the data. Users may perform these calculations on the client-side. However, if more than two clients are performing mathematical operations on the data at the same time, it may lead to data loss or errors. To prevent this scenario, Hypi Maths APIs are designed.
 
 Let’s perform mathematical operations on the price field in the data type `Book`. `Price` is a float value. Mathematical APIs work only on floats and integers, i.e., numerical values.
+
 ```json
 type Book {
     authorid: Int
@@ -21,7 +22,7 @@ Mathematical operations can only be performed on an existing object. The precede
 +  Addition
 +  Subtraction
 
-Let’s perform a mathematical operation as shown in the below code. We are carrying out the operations on hypi id - `Author2Book1` generated during [Aggregate APIs example](/aggregation).
+Let’s perform a mathematical operation as shown in the below code. We are carrying out the operations on hypi id - `Author2Book1` generated during [Aggregate APIs example](aggregation.md).
 ```json
 mutation {
      math (
