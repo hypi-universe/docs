@@ -2,7 +2,7 @@
 id: graphql
 title: GraphQL 
 sidebar_label: GraphQL 
-slug: /tutorial/graphql
+slug: /graphql
 ---
 
 GraphQL is**a syntax that represents how to request data**and is generally used to load data from a server to a client. The GraphQL data query language is:
