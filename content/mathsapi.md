@@ -61,11 +61,11 @@ In this example, we are using all the mathematical operators available in the AP
 
 The order of execution is as follows:
 
-1.  value = 5.99 (the price of the book with id Author2Book1)
-2.  5.99 / 3 = 1.996666666666667
-3.  1.996666666666667 * 10 = 19.96666666666667
-4.  19.96666666666667 - 2 = 17. 96666666666667
-5.  17. 96666666666667 + 30 = 47. 96666666666667
+1. value = 5.99 (the price of the book with id Author2Book1)
+2. 5.99 / 3 = 1.996666666666667
+3. 1.996666666666667 * 10 = 19.96666666666667
+4. 19.96666666666667 - 2 = 17. 96666666666667
+5. 17. 96666666666667 + 30 = 47. 96666666666667
 
 Now, query the price value of the book that was originally set to 5.99. Its value has changed to 47.96666666666667.
 ```java

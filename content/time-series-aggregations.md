@@ -49,7 +49,7 @@ In this tutorial we will focus on using`actorRatingsWith`since it is the one tha
 
 Now, let's get into some examples.
 
-Let's say I want to get the**average**`rating`**for each day**for the actor with`hypi.id='actor1'`. The aggregation looks like this.
+Let's say I want to get the **average** `rating` **for each day** for the actor with`hypi.id='actor1'`. The aggregation looks like this.
 ```java
 {
   aggregate {
@@ -68,12 +68,15 @@ Let's say I want to get the**average**`rating`**for each day**for the actor with
 }
 ```
 
-Here we are using the`actorRatingsWith`aggregation with the`groupBy`parameter pointing at the field`hypi_created`and passing the`dateGranularity: DAYS`parameter to indicate that we want to group by the`hypi_created`field and have the results grouped**specifically**by the**days**.
+Here we are using the`actorRatingsWith`aggregation with the`groupBy`parameter pointing at the field`hypi_created`and passing the`dateGranularity: DAYS`parameter to indicate that we want to group by the`hypi_created`field and have the results grouped **specifically** by the **days**.
 
-As for the data we want to be returned, we specify`avg`and then the`groupValues`so we can know the**value of the field**we are grouping by -`hypi_created`.
+As for the data we want to be returned, we specify`avg`and then the`groupValues`so we can know the **value of the field** we are grouping by -`hypi_created`.
 
-> Required selections:
-> Note that the groupValues field is a mandatory selection when using the dateGranularity parameter. This means it_MUST_be one of the fields you select. Otherwise you will receive an error.
+:::tip Required Selections:
+
+Note that the groupValues field is a mandatory selection when using the dateGranularity parameter. This means it_MUST_be one of the fields you select. Otherwise you will receive an error.
+
+:::
 
 The result will look like this.
 
@@ -121,7 +124,7 @@ The result will look like this.
 }
 ```
 
-As you can see, the`value`field of the`groupValues`, is displaying dates with different days and the**average**is calculated for that day.
+As you can see, the`value`field of the`groupValues`, is displaying dates with different days and the **average** is calculated for that day.
 
 Similarly we can use all the other aggregations:`count`,`min`,`max`,`sum`.
 
@@ -130,8 +133,8 @@ Also, just as we did`DAYS`for the`dateGranularity`in this tutorial, you can use`
 In conclusion, aggregations using`dateGranularity`boils down to:
 
 1.  Using the right aggregation type - which is named "\[your_type\]With".
-2.  Using`groupBy`to specify which**field**and`dateGranularity`you would like to group by. In our example`hypi_created`,`DAYS`.
+2.  Using`groupBy`to specify which **field** and`dateGranularity`you would like to group by. In our example`hypi_created`,`DAYS`.
 3.  Using`where`if you want to filter before calculating - it is an [ArcQL](arcql.md) string. In our example -`hypi.id='actor1'`.
 4.  Adding the field that you want to aggregate. In our example`rating`.
 5.  Choosing what you want to calculate. In our example`avg`(others include`count`,`min`,`max`and`sum`)
-6.  Adding`groupValues`so you can see the**value of the field**that you grouped by in the**result set**.
+6.  Adding`groupValues`so you can see the **value of the field** that you grouped by in the **result set**.

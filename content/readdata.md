@@ -9,11 +9,13 @@ Read the inserted data by using query functions. `get` and `find` are the two fu
 ## Get
 
 The `get` function returns a single record using the ‘id’ of an object. You may use the ‘id’ received after creating the record. The magic hypi object also contains the ‘id’ of the object (`hypi.id`).
-```
+
+```java
 get(type: HypiMutationType!, id: String!): HypiRootAggregate
 ```
 Let’s pass the `Author` data type as an argument to fetch the data. Get the records in the fields like name, booklist, hypi id, created date, updated date. You can get titles and availability of books from the array booklist. You may use the fields from which you want to fetch the data.
-```
+
+```java
 {
   get(type: Author, id: "01F0DVHM26HHWS8X8X3NBRSAV6"){
     ... on Author {
@@ -77,15 +79,15 @@ find(
 ```
 This function has many parameters. Let’s look at this table to understand them.
 
-| **Parameter**      | **Description**                                                                 | **Example**                                   |
-|:------------------:|-------------------------------------------------------------------------------|-----------------------------------------------|
-| **type**           | The type (table) to find data from                                             | Message, Author                               |
-| **arcql**          | Query to filter the data                                                      | arcql: "hypi.id='01F0FW9XYQWQNNEDYV3S5P2WGQ'" |
-| **first**          | Limit the number of records in the results. Used with the ‘after’ parameter.  | 12                                            |
-| **after**          | Return records after an object with this ID                                   | “01F0FW9XYQWQNNEDYV3S5P2WGQ”                  |
-| **last**           | Limit the number of records in the results. Used with the ‘before’ parameter. | 6                                             |
-| **before**         | Return records before an object with this ID                                  | “01F0FW9XYQWQNNEDYV3S5P2WGQ”                  |
-| **includeTrashed** | Display Trashed objects in the record. ‘false’ by default                     | False                                         |
+| **Parameter**      | **Description**                                                                            | **Example**                                    |
+|--------------------|--------------------------------------------------------------------------------------|------------------------------------------------|
+| **type**           | The type (table) to find data from                                                         | Message, Author                                |
+| **arcql**          | Query to filter the data                                                                   | arcql: "hypi.id= '01F0FW9XYQWQNNEDYV3S5P2WGQ'" |
+| **first**          | Limit the number of records in the              results. Used with the ‘after’ parameter.  | 12                                             |
+| **after**          | Return records after an object with this ID                                                | “01F0FW9XYQWQNNEDYV3S5P2WGQ”                   |
+| **last**           | Limit the number of records in the              results. Used with the ‘before’ parameter. | 6                                              |
+| **before**         | Return records before an object with this ID                                               | “01F0FW9XYQWQNNEDYV3S5P2WGQ”                   |
+| **includeTrashed** | Display Trashed objects in the                     record. ‘false’ by default              | False                                          |
 
 + ‘first’ and ‘after’ parameters work together. ‘last’ and ‘before’ work together.
 

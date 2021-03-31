@@ -8,6 +8,7 @@ slug: /rest-apis
 Hypi platform provides APIs with multiple flavors that suit different developers' tastes. The RESTful APIs are no different and at the same time they were redesigned to abide by the HATEOS code of conduct for better semantics and easier interpretation. The API endpoints available are documented in [Hypi Platform API Documentation](apisetup.md).
 
 The examples use the following GraphQL schema as an example.
+
 ```java
 type URL  @indices(sets: [
   ["path"]
@@ -142,7 +143,7 @@ $ curl --location --request POST '/rest/v1/login' \
 ```
 ## CRUD Operations
 
-The four basic CRUD operations**C**reate,**R**ead,**U**pdate, and**D**elete can be performed using the semantics of**P**ost,**G**et,**P**ut, and**D**elete HTTP methods. Furthermore, the APIs endpoints can be mapped to resources using the /{{aggregate}} or /{{aggregate}}/{{identifier}} for both GET and DELETE whilst POST and PUT will capture the identifiers from the GraphQL request body to avoid redundancy. Hereby, the RESTful APIs explained herein allow the same functionality as the CRUD operations manifested under [Hypi Platform CRUD Documentation](crud.md)
+The four basic CRUD operations **C**reate,**R**ead,**U**pdate, and **D**elete can be performed using the semantics of **P**ost,**G**et,**P**ut,and **D**elete HTTP methods. Furthermore, the APIs endpoints can be mapped to resources using the /{{aggregate}} or /{{aggregate}}/{{identifier}} for both GET and DELETE whilst POST and PUT will capture the identifiers from the GraphQL request body to avoid redundancy. Hereby, the RESTful APIs explained herein allow the same functionality as the CRUD operations manifested under [Hypi Platform CRUD Documentation](crud.md)
 
 ### POST
 
@@ -498,7 +499,7 @@ For further flexibility the**R**ead requests discussed above can be rephrased as
 The`GET`,`PUT`,`POST`and`DELETE`methods above are all semantics to make the API more familiar and inline with existing common practice but the same thing can be done by explicitly calling the appropriate function by passing the`aggregate`to`type`query parameter when using`find`GraphQL function. Unlike the`GET`function, this returns a list of objects matching the filter provided.
 
 **Request**
-```
+```java
 $ curl --location --request GET "/rest/v1/fn/query/find?first=1&type=URL&arcql=hypi.id='url1'" \
   --header 'authorization: eyJhb ...' \
   --header 'hypi-domain: latest.store.hypi.hypi.hypi.app' \

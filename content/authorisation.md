@@ -107,7 +107,7 @@ type Aggregated Policy implementsPolicy {
 
 Permission encapsulates the object involved in the authorisation. You may check out the parameters in the [example](#example) section.
 ```java
-typePermission {
+type Permission {
     hypi: Hypi
     name: String!
     decisionStrategy: DecisionStrategy

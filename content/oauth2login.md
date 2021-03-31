@@ -64,7 +64,7 @@ Providing the following JSON payload for the GraphQL request under the`Variables
         }
       ],
       "clientName": "Google",
-      "hypiSuccessRedirectUri": "https://yourHypiAppDomain.com/successfulLogin"
+      "hypiSuccessRedirectUri": "https://youcallbackdomain.com/successfulLogin"
     }
   }
 }
@@ -147,7 +147,7 @@ Then provide the redirection Uri that the enduser should land on after the OAuth
 
 ```java
 {
-  ""hypiSuccessRedirectUri": "https://yourHypiAppDomain.com/successfulLogin"
+  ""hypiSuccessRedirectUri": "https://youcallbackdomain.com/successfulLogin"
 }
 ```
 

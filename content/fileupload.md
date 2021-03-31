@@ -13,7 +13,7 @@ The file can be downloaded from the URL given in the object using an authorizati
 
 With this preliminary information, let’s get inside the `File` type definition.
 ```java
-typeFile {
+type File {
     name: String!
     directory: String!
     path: String!
@@ -53,7 +53,7 @@ To upload a file (any file can be uploaded, image, pdf, etc), use the following 
 
 `POST /upload/**`
 
-Note the`**`, if you use a path like`/upload/my/path`, then the`File`object will have a directory value of`/my/path`. 
+Note the `**`, if you use a path like `/upload/my/path`, then the `File` object will have a directory value of `/my/path`. 
 
 
 ## Download endpoint
@@ -62,7 +62,7 @@ Note the`**`, if you use a path like`/upload/my/path`, then the`File`object will
 
 To download a file uploaded to the platform, the above URL pattern should be used.
 
-The`<path>`is by default the`ID`of the`File`object. The`.ext`is the original extension of the file e.g.`.txt`.
+The `<path>` is by default the `ID` of the `File` object. The `.ext` is the original extension of the file e.g. `.txt`.
 
 ## curl upload example
 ```
@@ -70,8 +70,8 @@ auth='<hypi-auth-token>'
 curl -v https://api.hypi.app/upload/ -H "Accept: application/json" -H "Authorization: $auth" -H 'hypi-domain: <instance-domain>' -F 0=@/path/to/file.txt
 ```
 +  The response of the upload is JSON
-+  The`Authorization`header is required
-+  The`hypi-domain`header is required (like other API requests)
++  The `Authorization` header is required
++  The `hypi-domain` header is required (like other API requests)
 
 ## curl download example
 ```
@@ -80,7 +80,7 @@ curl -v https://api.hypi.app/file/<id>.ext -H "Authorization: $auth"
 
 In this example, we provide an authorisation token. This is because files are private to the account which created it by default. To give access to other users or allow anonymous download a permission must be created with appropriate policies.
 
-For example, to give the anonymous users access (no token required), use an`AccountPolicy`to grant the`anonymous`user account read access.
+For example, to give the anonymous users access (no token required), use an `AccountPolicy` to grant the `anonymous` user account read access.
 
 ```java
 mutation {
@@ -113,7 +113,7 @@ mutation {
 }
 ```
     
-In this example we explicitly give anonymous users access to the file uploaded. This could also have been done by giving access to_all_accounts in the app instance by setting`includeAllAccounts`to true.
+In this example we explicitly give anonymous users access to the file uploaded. This could also have been done by giving access to_all_accounts in the app instance by setting `includeAllAccounts` to true.
 
     curl -v https://api.hypi.app/file/<id>.ext
 

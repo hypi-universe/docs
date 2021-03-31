@@ -9,11 +9,11 @@ Serverless technology are a means of adding custom behaviour without having to w
 
 > How to setup and use a serverless?
 
-+ [Create an App](#create an app)
-+ [Get App ID](#get app id)
-+ [Create Serverless](#create serverless)
-+ [Define tan directive](#define tan directive)
-+ [Trigger Function](#trigger function)
++ [Create an App](#create-an-app)
++ [Get App ID](#get-app-id)
++ [Create Serverless](#create-serverless)
++ [Define tan directive](#define-tan-directive)
++ [Trigger Function](#trigger-function)
 
 ### Create an App
 

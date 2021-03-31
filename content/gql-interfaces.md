@@ -43,4 +43,8 @@ type Customer {
 ```
 The`owns`field uses the`Car`interface. This allows`owns`to have values of type`Audi`and`Bently`.
 
-> **IMPORTANT**: When creating or updating a customer object, the`hypi.impl`field MUST be specified on each object in the`owns`field. Each object must tell Hypi if it is an Audi or a Bently.
+:::tip IMPORTANT
+
+When creating or updating a customer object, the`hypi.impl`field MUST be specified on each object in the`owns`field. Each object must tell Hypi if it is an Audi or a Bently.
+
+:::

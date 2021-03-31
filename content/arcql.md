@@ -24,7 +24,11 @@ type Book {
 ```
 Insert the following data in the table `Author`. Know more about Insert [here](readdata.md).
 
-*Note: For illustration purpose, the data is demontrated in the form of table.
+:::note
+
+For illustration purpose, the data is demontrated in the form of table.
+
+:::
 
 | hypi.id     | name            | age  |
 |-------------|-----------------|------|
@@ -47,17 +51,17 @@ Insert the following data in the table `Author`. Know more about Insert [here](r
 
 > Let's get inside the ArcQL query statements one by one.
 
-+ [Sort Query](#sort query)
-+ [Term Query](#term query)
-+ [Phrase Query](#phrase query)
++ [Sort Query](#sort-query)
++ [Term Query](#term-query)
++ [Phrase Query](#phrase-query)
 + [EXIST](#exist)
-+ [NOT EXIST](#not exist)
-+ [Prefix Query](#prefix query)
-+ [Wildcard Query](#wildcard query)
-+ [Range Query](#range query)
-+ [Match All Query](#match all query)
-+ [Geo Location](#geo location)
-+ [Type In-Field In Queries](#type in-field in queries)
++ [NOT EXIST](#not-exist)
++ [Prefix Query](#prefix-query)
++ [Wildcard Query](#wildcard-query)
++ [Range Query](#range-query)
++ [Match All Query](#match-all-query)
++ [Geo Location](#geo-location)
++ [Type In-Field In Queries](#type-in-field-in-queries)
 
 ***
 
@@ -1034,7 +1038,7 @@ type Author {
 ```
 Consider we have the following data in the Author and Book table.
 
-**Author
+**Author**
 
 | **hypi.id** | **name**        | **age** |
 |-------------|-----------------|---------|
@@ -1056,7 +1060,7 @@ Consider we have the following data in the Author and Book table.
 | **Author3Book2** | How I taught my GrandMother to Read | 2.99      | 3            | Sudha Murti    |
 | Null             |                                Null | null      | Null         |                |
 
-**Book
+**Book**
 
 | **hypi.id** | **title**              | **price** | **authorid** | **authorinfo** |
 |-------------|------------------------|-----------|--------------|----------------|

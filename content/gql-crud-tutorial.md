@@ -7,7 +7,7 @@ slug: /gql-crud-tutorial
 
 In this tutorial we’re going to show you how to use our GraphQL API to perform CRUD operations on your app.
 
-For the purpose of this tutorial, we’ve created an app with the name hypi-tutorials, and in the**Editor**section we’ve created a simple**schema**for our application.
+For the purpose of this tutorial, we’ve created an app with the name hypi-tutorials, and in the **Editor** section we’ve created a simple **schema** for our application.
 
 ```java
 interface Employee{
@@ -50,7 +50,7 @@ with the http headers
 "hypi-domain": "" –the domain of your Hypi app
 ```
 
-Let’s start performing some operations on your Hypi app. For the purpose of this tutorial, we will use the**Api Editor.**
+Let’s start performing some operations on your Hypi app. For the purpose of this tutorial, we will use the  **Api Editor.**
 
 Documentation for the queries and mutations mentioned in this tutorial can be found on the right side of the Api Editor under the “DOCS” tab.
 
@@ -73,9 +73,9 @@ mutation {
 }
 ```
 
-As you can see, if you are familiar with**GraphQL**, the call is pretty simple, you pass in the object that you want to create as a`values`parameter to the`upsert`mutation, and specify what fields of the**Magic Hypi object**you want in the response.
+As you can see, if you are familiar with **GraphQL** , the call is pretty simple, you pass in the object that you want to create as a`values`parameter to the`upsert`mutation, and specify what fields of the **Magic Hypi object** you want in the response.
 
-You can look into all of the fields that the**Magic Hypi object**contains under its section in the Hypi GraphQL API documentation, here we just return the`id`.
+You can look into all of the fields that the **Magic Hypi object** contains under its section in the Hypi GraphQL API documentation, here we just return the`id`.
 
 As expected, the response looks like this
 ```java
@@ -132,7 +132,7 @@ For reading the data, we will show you two queries that Hypi provides out of the
 
 **1\. get()**
 
-The**get**`query`provides a way to get a single object by its`hypi.id`. The query will like this.
+The **get** `query`provides a way to get a single object by its`hypi.id`. The query will like this.
 
 ```java
 query {
@@ -167,7 +167,7 @@ The**find**`query`is used to search through your data, for the purpose of this t
 
 The find query accepts two mandatory parameters`Type`and`arcql`, the`Type`is the type of object you want to query, and the`arcql`parameter is the query that you want to use for searching though the data.
 
-To learn more about**Arcql**, please refer to the**Developer Hub**under the section**“Arc Query Language”**.
+To learn more about **Arcql** , please refer to the **Developer Hub** under the section**“Arc Query Language”**.
 
 In this tutorial we will cover listing of all of the actors and searching them by`name`.
 
@@ -229,7 +229,7 @@ As expected, the response is a list of all of the edges of type`Actor`
 }
 ```
 
-Next, we will use**Arcql**to create a typical auto-complete query for the`name`field. The arcql will look like this.
+Next, we will use **Arcql** to create a typical auto-complete query for the`name`field. The arcql will look like this.
 
     “name ^ ‘Will’”
 
@@ -285,15 +285,15 @@ As expected, the response contains only the actors with the names starting with 
 
 ## Delete
 
-Hypi offers**soft delete**and**hard delete**of objects.
+Hypi offers **soft delete** and **hard delete** of objects.
 
 **1\. Soft Delete**
 
-Soft deleting an object in the**Hypi Universe**, is referred to as ‘**trashing**’ an object.
+Soft deleting an object in the **Hypi Universe** , is referred to as  ‘trashing’ an object.
 
-The field “trashed”, which is a part of the**Magic Hypi object**is used to track that.
+The field “trashed”, which is a part of the **Magic Hypi object** is used to track that.
 
-The**trash**`mutation`accepts two parameters, the`Type`of the object and an`arcql`query. It will trash up to 25 of the objects that match the query. The mutation call looks like this.
+The **trash** `mutation`accepts two parameters, the`Type`of the object and an`arcql`query. It will trash up to 25 of the objects that match the query. The mutation call looks like this.
 
 ```java
 mutation {
@@ -310,13 +310,13 @@ The trash mutation returns the number of trashed items
   }
 }
 ```
-We can verify that the item has been trashed by calling the**get**query with the`id`of the trashed object.
+We can verify that the item has been trashed by calling the **get** query with the`id`of the trashed object.
 
 It should not return any data.
 
 You can find include the trashed items in searches by calling find with the parameter`“includeTrashed: True”`
 
-The**untrash**`mutation`accepts two parameters, the`Type`of the object and an`arcql`query. It will untrash all of the objects that match the query.
+The **untrash** `mutation`accepts two parameters, the`Type`of the object and an`arcql`query. It will untrash all of the objects that match the query.
 
 The mutation call looks like this.
 ```java
@@ -337,7 +337,7 @@ The untrash mutation returns the number of untrashed items
 
 **2\. Hard Delete**
 
-Hard delete is done by calling the**delete**`mutation`. The delete mutation accepts two parameters, the`Type`of the object and an`arcql`query. It will delete up to 25 of the objects that match the query. The mutation call looks like this.
+Hard delete is done by calling the **delete** `mutation`. The delete mutation accepts two parameters, the`Type`of the object and an`arcql`query. It will delete up to 25 of the objects that match the query. The mutation call looks like this.
 ```java
 mutation {
     delete(type: Actor, arcql: "hypi.id='01ED4X75AG1G96PDC8A231KTC8'")
