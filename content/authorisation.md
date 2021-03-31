@@ -188,7 +188,7 @@ Let's check the parameters.
 
 ### hasPermission
 
-You may check if the user has permission to access an object's details. You can use the function `hasPermission` for that. The below example demonstrates how to use the function. Refer to the table above to know about the parameters. Make sure you have passed the appropriate session token as the “Authorisation” parameter in the HTTP header. You get a session token after [login](/authentication) into the account
+You may check if the user has permission to access an object's details. You can use the function `hasPermission` for that. The below example demonstrates how to use the function. Refer to the table above to know about the parameters. Make sure you have passed the appropriate session token as the “Authorisation” parameter in the HTTP header. You get a session token after [login](authentication.md) into the account
 ```java
 { 
    hasPermission(req:{
@@ -222,7 +222,7 @@ type PermissionDescription {
     permissions(...): [Permission]
 }
 ```
-You may simply use the fields of PermissionDescription to access permission details. Information about the group/organization/role should have been stored while [creating the user account](/authentication). Otherwise, the fields would return a null value.
+You may simply use the fields of PermissionDescription to access permission details. Information about the group/organization/role should have been stored while [creating the user account](authentication.md). Otherwise, the fields would return a null value.
 ```json
 {
    me{
