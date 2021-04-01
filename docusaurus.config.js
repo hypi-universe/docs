@@ -22,7 +22,17 @@ module.exports = {
           label: 'Docs',
           position: 'left',
         },
-        {to: 'blog', label: 'Blog', position: 'left'},
+        //{to: 'blog', label: 'Blog', position: 'left'},
+        {
+          href: 'https://hypi.io',
+          label: 'Main website',
+          position: 'left',
+        },
+        {
+          href: 'https://hypi.app',
+          label: 'Register or Login',
+          position: 'right',
+        },
         {
           href: 'https://github.com/hypi-universe/docs',
           label: 'GitHub',
@@ -41,8 +51,24 @@ module.exports = {
               to: 'docs/',
             },
             {
-              label: 'Second Doc',
-              to: 'docs/authentication/',
+              label: 'Get Started',
+              to: 'docs/get-started/',
+            },
+            {
+              label: 'Authentication',
+              to: 'docs/authentication',
+            },
+            {
+              label: 'Filtering your data',
+              to: 'docs/arcql',
+            },
+            {
+              label: 'GraphQL CRUD APIs',
+              to: 'docs/crud',
+            },
+            {
+              label: 'REST APIs',
+              to: 'docs/rest-apis',
             },
           ],
         },
@@ -79,6 +105,10 @@ module.exports = {
       ],
       copyright: `Copyright © ${new Date().getFullYear()} Hypi.`,
     },
+    gtag: {
+      trackingID: 'UA-120274358-1',
+      anonymizeIP: false, 
+    },
   },
   presets: [
     [
@@ -97,6 +127,31 @@ module.exports = {
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
+        sitemap: {
+          changefreq: 'weekly',
+          priority: 0.5,
+          trailingSlash: false,
+        },
+        gtag: {
+          trackingId: 'UA-120274358-1'
+        },
+      },
+    ],
+  ],
+  plugins: [
+    [ //See https://docusaurus.io/docs/api/plugins/@docusaurus/plugin-client-redirects
+      '@docusaurus/plugin-client-redirects',
+      {
+        redirects: [
+          {
+            to: '/docs/apisetup', // string
+            from: ['/references/api'], // string | string[]
+          },
+          {
+            to: '/docs/arcql',
+            from: ['/references/arcql'],
+          },
+        ],
       },
     ],
   ],

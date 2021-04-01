@@ -8,12 +8,11 @@ import styles from './styles.module.css';
 
 const features = [
   {
-    title: 'Easy to Use',
+    title: 'Build apps fast',
     imageUrl: 'img/undraw_docusaurus_mountain.svg',
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+        Hypi gives you out the box functionalities that fast track your app's time to market, without managing an infrastructure.
       </>
     ),
   },
@@ -22,18 +21,17 @@ const features = [
     imageUrl: 'img/undraw_docusaurus_tree.svg',
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+        Give your developers their time back. Take on large projects with small teams. Hypi database, storage and instances are fully managed, secure and fault-tolerant.
       </>
     ),
   },
   {
-    title: 'Powered by React',
+    title: 'Scale on demand',
     imageUrl: 'img/undraw_docusaurus_react.svg',
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        Address the volume and velocity of scaling your applications and APIs autonomously as your needs grow.
+        Lowcode that scales with no effort on your part.
       </>
     ),
   },
@@ -59,8 +57,8 @@ function Home() {
   const {siteConfig = {}} = context;
   return (
     <Layout
-      title={`Hello from ${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />">
+      title={`${siteConfig.title}`}
+      description="Hypi's lowcode web and mobile app development platform documentation">
       <header className={clsx('hero hero--primary', styles.heroBanner)}>
         <div className="container">
           <h1 className="hero__title">{siteConfig.title}</h1>
