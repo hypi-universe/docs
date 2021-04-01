@@ -28,12 +28,28 @@ trash(type: HypiMutationType!, arcql: String!): Int!
 ```
 The function returns the number of records that were marked as trash.
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs
+  defaultValue="query"
+  values={[
+    {label: 'GraphQL Query', value: 'query'},
+    {label: 'Response', value: 'response'},
+  ]}>
+<TabItem value="query">
+
 ```
 mutation {
   trash(type: Author, 
   arcql: "hypi.id = '01F0DN278W6NMQFRW4TVRCA52V'")
 }
 ```
+
+</TabItem>
+
+<TabItem value="response">
+
 ```json
 {
   "data": {
@@ -41,6 +57,10 @@ mutation {
   }
 }
 ```
+
+</TabItem>
+</Tabs>
+
 If you use the ‘get’ or ‘find’ queries now, the result will not display the trashed object by default. You must set the ‘includeTrashed’ parameter to ‘true’ to get the object.
 
 ***
@@ -53,12 +73,28 @@ untrash(type: HypiMutationType!, arcql: String!): Int!
 ```
 The function returns the number of records that were marked untrashed.
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs
+  defaultValue="query"
+  values={[
+    {label: 'GraphQL Query', value: 'query'},
+    {label: 'Response', value: 'response'},
+  ]}>
+<TabItem value="query">
+
 ```
 mutation {
   untrash(
   type: Author, arcql: "hypi.id = '01F0DN278W6NMQFRW4TVRCA52V'")
 }
 ```
+
+</TabItem>
+
+<TabItem value="response">
+
 ```json
 {
   "data": {
@@ -66,6 +102,9 @@ mutation {
   }
 }
 ```
+
+</TabItem>
+</Tabs>
 
 ***
 
@@ -76,12 +115,29 @@ If you want to delete data permanently, use the `delete` function.
 delete(type: HypiMutationType!, arcql: String!): Int!
 ```
 The function returns the number of records that were marked deleted.
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs
+  defaultValue="query"
+  values={[
+    {label: 'GraphQL Query', value: 'query'},
+    {label: 'Response', value: 'response'},
+  ]}>
+<TabItem value="query">
+
 ```
 mutation {
   delete(type: Author, 
   arcql: "hypi.id = '01F0DVHM2AZCGM0JSR9QRNBWZY'")
 }
 ```
+
+</TabItem>
+
+<TabItem value="response">
+
 ```json
 {
   "data": {
@@ -89,6 +145,10 @@ mutation {
   }
 }
 ```
+
+</TabItem>
+</Tabs>
+
 You may delete more records using the ArcQL query. Maximum 25 records will be deleted in one request.
 
 ***
@@ -119,14 +179,25 @@ deleteScalars(
 
 ```java
 type Question {
-hypi: Hypi
-question: [Int!]
-answer: [String!]  
+    hypi: Hypi
+    question: [Int!]
+    answer: [String!]  
 }
 ```
  The below example shows the use of the ‘deleteScalars’ function to delete data from scalar arrays. In the example, from an ‘ans’ field from Question, string values (“b” and “c”) are deleted. The function returns the number of records affected by the deletion.
 
 Frame arcql query to select the object and get an id. In the example, hypi id has been hardcoded.
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs
+  defaultValue="query"
+  values={[
+    {label: 'GraphQL Query', value: 'query'},
+    {label: 'Response', value: 'response'},
+  ]}>
+<TabItem value="query">
 
 ```java
 mutation{
@@ -138,9 +209,18 @@ mutation{
   )
 }
 ```
+
+</TabItem>
+
+<TabItem value="response">
+
 ```json
 {
   "data": {
     "deleteScalars": 2
   }
 }
+```
+
+</TabItem>
+</Tabs>

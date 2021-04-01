@@ -5,14 +5,14 @@ sidebar_label: Triggers
 slug: /triggers
 ---
 
-In many databases and some other systems, it is possible to define a trigger which is executed before or after an even has happened. In Hypi, triggers are supported with both a before and after semantics by adding the`@trigger`directive to a function.
+In many databases and some other systems, it is possible to define a trigger which is executed before or after an even has happened. In Hypi, triggers are supported with both a before and after semantics by adding the `@trigger` directive to a function.
 
 >  Important points to remember
 
 + Triggers can break existing functions if you decide to completely replace the output
-+ A trigger's`before`function is executed synchronously. i.e. it will complete before the function it is attached to
-+ A trigger's`after`function is executed asynchronously. i.e. the function it is attached to will return before the trigger is completed.
-+ If a trigger's`before`function returns false, the function it is attached to will not be executed, nor will the`after`function.
++ A trigger's `before` function is executed synchronously. i.e. it will complete before the function it is attached to
++ A trigger's `after` function is executed asynchronously. i.e. the function it is attached to will return before the trigger is completed.
++ If a trigger's `before` function returns false, the function it is attached to will not be executed, nor will the `after` function.
 
 On this page, we use the following schema:
 
@@ -67,8 +67,8 @@ type Mutation {
 }
 ```
 
-You can see the error message here`Pre-condition given by Query.deny2 failed`. The function`deny1`has a`before`trigger which calls`deny2`. Since`deny2`returns false, the function is not executed.
+You can see the error message here `Pre-condition given by Query.deny2 failed`. The function `deny1` has a `before` trigger which calls `deny2`. Since `deny2` returns false, the function is not executed.
 
 #### Function overriding
 
-The`upsert`function is overriden in the schema above so that a`@trigger`could be attached. Function overriding is allowed so long as all parameters of the new function match the original exactly. In this case, the built in`upsert`function had a trigger added to it. This can be used to arbitrarily allow or deny access as your app see fit to the function. Care must be taken when overriding functions, upsert for example is used everywhere - breaking it will cause many things to fail.
+The `upsert` function is overriden in the schema above so that a `@trigger` could be attached. Function overriding is allowed so long as all parameters of the new function match the original exactly. In this case, the built in `upsert` function had a trigger added to it. This can be used to arbitrarily allow or deny access as your app see fit to the function. Care must be taken when overriding functions, upsert for example is used everywhere - breaking it will cause many things to fail.

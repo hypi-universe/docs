@@ -13,8 +13,12 @@ GraphQL is **a syntax that represents how to request data** and is generally use
     
 + **Introspective**, allows a client to ask the server for details about the schema.
     
-+ **Hierarchical**, the shape of a GraphQL query mirrors the shape of the`JSON`data it returns. Query and receive only the data you specify in a single round trip.
++ **Hierarchical**, the shape of a GraphQL query mirrors the shape of the `JSON` data it returns. Query and receive only the data you specify in a single round trip.
     
-> The purpose of GraphQL is to decrease the load on the server. Users can make a single call to fetch the required data rather than to construct multiple REST requests. The key idea is to `POST` a "query" to an HTTP endpoint, instead of hitting different HTTP endpoints for various resources. It makes fetching client's data from their backend APIs convenient.
+:::note
 
-**GraphQL** is now considered one of the most modern ways of building and querying APIs.
+The purpose of GraphQL is to decrease the load on the server. Users can make a single call to fetch the required data rather than to construct multiple REST requests. The key idea is to `POST` a "query" to an HTTP endpoint, instead of hitting different HTTP endpoints for various resources. It makes fetching client's data from their backend APIs convenient.
+
+:::
+
+**GraphQL**  is now considered one of the most modern ways of building and querying APIs.

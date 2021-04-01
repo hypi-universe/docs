@@ -23,16 +23,16 @@ Let’s look at `CRUD` operations in detail. While you perform Query operations 
 ```java
   
   type Books {
-  title: String
-  publication: String
-  available: Boolean
+      title: String
+      publication: String
+      available: Boolean
   }
 
   type Author {
-  name: String!
-  age: Int
-  count: Int
-  booklist: [Books!]
+      name: String!
+      age: Int
+      count: Int
+      booklist: [Books!]
   }
 
 ```

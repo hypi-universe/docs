@@ -30,11 +30,23 @@ type Query {
 
 A function must be defined which will process the Webhook request. Hypi defines both the argument and response type that this function must use.
 
-> The function signature MUST be`(payload: WebhookPayload): WebhookResponse`for the webhook to work correctly.
+:::caution
+
+The function signature MUST be `(payload: WebhookPayload): WebhookResponse` for the webhook to work correctly.
+
+:::
 
 ### Example
 
 A simple webhook example looks like this:
+
+<Tabs
+  defaultValue="query"
+  values={[
+    {label: 'GraphQL Query', value: 'query'},
+    {label: 'Input Data', value: 'data'},
+  ]}>
+<TabItem value="query">
 
 ```json
 mutation Upsert($values: HypiUpsertInputUnion!) {
@@ -42,7 +54,12 @@ mutation Upsert($values: HypiUpsertInputUnion!) {
     id
   }
 }
-# Data
+```
+
+</TabItem>
+<TabItem value="data">
+
+```json
 {
   "values": {
     "Webhook": [
@@ -60,8 +77,12 @@ mutation Upsert($values: HypiUpsertInputUnion!) {
     }
 }
 ```
+
+</TabItem>
+</Tabs>
+
 Once a Webhook is created, it can be called by making a request to:
 
-* [https://api.hypi.app/webhook/{domain}/{webhook](https://api.hypi.app/webhook/%7Bdomain%7D/%7Bwebhook)name}
+* [https://api.hypi.app/webhook/{domain}/{webhookname}](https://api.hypi.app/webhook/domain/webhookname)
 
-where`{domain}`is the instance domain for you app and`{webhook name}`is the name of the webhook to be executed. In the example on this page, the name is`wh1`.
+where `{domain}` is the instance domain for you app and `{webhook name}` is the name of the webhook to be executed. In the example on this page, the name is `wh1`.

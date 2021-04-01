@@ -24,9 +24,9 @@ These docs will help you to go from getting started with Hypi to becoming an exp
 
 Things you'll need:
 
-1.  **Instance API domain**— copy or create a instance API domain in Hypi
-2.  **Auth token**— copy your auth token from the developer hub
-3.  **Apollo Angular**— add apollo angular
+1.  **Instance API domain** — copy or create a instance API domain in Hypi
+2.  **Auth token** — copy your auth token from the developer hub
+3.  **Apollo Angular** — add apollo angular
 
 ### Installing Angular CLI and Setting Up An Angular Project
 
@@ -55,7 +55,7 @@ In order to use Apollo Client for Angular we need to add a few packages to our p
 * `graphql`— Most important package
     
 
-The`@apollo/client`package requires`AsyncIterable`so make sure your tsconfig.base.json includes`esnext.asynciterable`:
+The `@apollo/client` package requires `AsyncIterable` so make sure your tsconfig.base.json includes `esnext.asynciterable`:
 
 ```java
 {
@@ -70,9 +70,9 @@ The`@apollo/client`package requires`AsyncIterable`so make sure your tsconfig.bas
 }
 ```
 
-Great, now that you have all the dependencies you need, let's create you a`graphql.module.ts`file; in here you will setup Apollo and connect to Hypi. Remember to import the`graphql.module.ts`file into the`app.module.ts`file.
+Great, now that you have all the dependencies you need, let's create you a `graphql.module.ts` file; in here you will setup Apollo and connect to Hypi. Remember to import the `graphql.module.ts` file into the `app.module.ts` file.
 
-In`graphql.module.ts`:
+In `graphql.module.ts`:
 
 ```java
 import { NgModule } from '@angular/core';
@@ -117,14 +117,14 @@ export class GraphQLModule {
 ```
 Take a closer look what we did there:
 
-1.  With`apollo-angular/http`and`HttpLink`service we connect our client to Hypi
+1.  With `apollo-angular/http` and `HttpLink` service we connect our client to Hypi
     
-2.  We set our`uri``const uri = 'https://api.hypi.app/graphql/';`
+2.  We set our `uri``const uri = 'https://api.hypi.app/graphql/';`
     
-3.  With`setContext`we added our`hypi-domain`and`Authorization`token
+3.  With `setContext` we added our `hypi-domain` and `Authorization` token
     
 
-In`app.module.ts`:
+In `app.module.ts`:
 
 ```java
 import { BrowserModule } from '@angular/platform-browser';
@@ -231,11 +231,11 @@ export class ProfileComponent implements OnInit {
 
 Great! well done for making this for! let's take a look back:
 
-1.  Created our`App`,`Release`,`Instance`domain in Hypi
+1.  Created our `App` , `Release` , `Instance` domain in Hypi
     
-2.  Installed`angular CLI`and set our project up
+2.  Installed `angular CLI` and set our project up
     
-3.  Installed`Apollo client`and connected to your Hypi app's instance domain
+3.  Installed `Apollo client` and connected to your Hypi app's instance domain
     
 4.  Made a request to your instance's domain
     

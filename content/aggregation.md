@@ -33,6 +33,19 @@ type Author {
 ## Examples:
 
 Let’s add some data in an object to perform aggregations.
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs
+  defaultValue="query"
+  values={[
+    {label: 'GraphQL Query', value: 'query'},
+    {label: 'Input Data', value: 'data'},
+    {label: 'Response', value: 'response'},
+  ]}>
+<TabItem value="query">
+
 ```java
 mutation Upsert($values: HypiUpsertInputUnion!) {
     upsert(values: $values) {
@@ -40,7 +53,10 @@ mutation Upsert($values: HypiUpsertInputUnion!) {
     }
 }
 ```
-Data:
+
+</TabItem>
+<TabItem value="data">
+
 ```json
 {
  "values": {
@@ -93,7 +109,11 @@ Data:
  }
 }
 ```
-Result:
+
+</TabItem>
+
+<TabItem value="response">
+
 ```json
 {
      "data": {
@@ -108,11 +128,27 @@ Result:
     }
 }
 ```
-Here author’s age and price of the book are numerical fields. So, we will perform operations on these two fields. Aggregation operations can be performed with or without filters. Filters may have `distinct`, `group-by` or `where` clauses, etc. They are similar to SQL-type database queries.
+
+</TabItem>
+</Tabs>
+
+Here author’s age and price of the book are numerical fields. So, we would perform operations on these two fields. Aggregation operations can be performed with or without filters. Filters may have `distinct`, `group-by` or `where` clauses, etc. They are similar to SQL-type database queries.
 
 ### Aggregate with No Filter
 
 The below example demonstrates aggregation without any filters. Here, we are simply aggregating values from age and price fields. The function returns the average value, the number of records(count), minimum value, maximum value, and the sum of the values from both fields.
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs
+  defaultValue="query"
+  values={[
+    {label: 'GraphQL Query', value: 'query'},
+    {label: 'Response', value: 'response'},
+  ]}>
+<TabItem value="query">
+
 ```json
 {
  aggregate{
@@ -138,7 +174,11 @@ The below example demonstrates aggregation without any filters. Here, we are sim
 }
 
 ```
-Result:
+
+</TabItem>
+
+<TabItem value="response">
+
 ```json
 {
  "data": {
@@ -165,11 +205,28 @@ Result:
    }
 }
 ```
+
+</TabItem>
+</Tabs>
+
+
 You may not select a field or an aggregation function, if it's not needed, Hypi will perform calculations only if you select the field or specify the aggregate function. This means you get faster queries by specifying less.
 
 ### Aggregate Distinct Rows
 
 You may aggregate unique rows by specifying the filter ‘distinct’ as true. Hypi considers repeated values as just one value. Hence, the count of books has gone down to 3. Only three unique prices have been selected for aggregation. (12.99,5.99,10)
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs
+  defaultValue="query"
+  values={[
+    {label: 'GraphQL Query', value: 'query'},
+    {label: 'Response', value: 'response'},
+  ]}>
+<TabItem value="query">
+
 ```json
 {
  aggregate{
@@ -183,7 +240,11 @@ You may aggregate unique rows by specifying the filter ‘distinct’ as true. H
  }
 }
 ```
-Result
+
+</TabItem>
+
+<TabItem value="response">
+
 ```json
 {
  "data": {
@@ -199,9 +260,25 @@ Result
    }
 }
 ```
+
+</TabItem>
+</Tabs>
+
 ### Aggregate Matching Rows
 
 You may select matching rows ( records with the specific field value) and perform aggregation on those rows. The below example shows the aggregation of prices of books with `authorid` equal to ‘2’.`where` clause have been used for row selection. The result returns aggregate values of prices of books of the second author.,i.e. Paulo Coelho
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs
+  defaultValue="query"
+  values={[
+    {label: 'GraphQL Query', value: 'query'},
+    {label: 'Response', value: 'response'},
+  ]}>
+<TabItem value="query">
+
 ```json
 {
      aggregate{
@@ -216,7 +293,11 @@ You may select matching rows ( records with the specific field value) and perfor
      }
 }
 ```
-Result:
+
+</TabItem>
+
+<TabItem value="response">
+
 ```json
 {
  "data": {
@@ -233,11 +314,26 @@ Result:
 }
 ```
 
+</TabItem>
+</Tabs>
+
 ### Aggregate with groupBy
 
 You may make specific groups of records and perform aggregate operations on them. Use `groupBy` clause as a filter. The below example makes two groups by specifying `authorid` as groupBy field. There are two groups of books with 2 distinct authorids. So, authorid is a key with values 1 and 2.
 
 ‘With’ gets attached to the data type to form the aggregate query function. Use the function `bookWith` for using the groupby clause. (Here data type is `book`). You may specify the order to sort the key values,i.e. ascending or descending. (ASC/DESC). The `bookWith` function returns the aggregate prices of books of two authors.
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs
+  defaultValue="query"
+  values={[
+    {label: 'GraphQL Query', value: 'query'},
+    {label: 'Response', value: 'response'},
+  ]}>
+<TabItem value="query">
+
 ```json
 {
  aggregate {
@@ -255,7 +351,11 @@ You may make specific groups of records and perform aggregate operations on them
    }
 }
 ```
-Result:
+
+</TabItem>
+
+<TabItem value="response">
+
 ```json
 {
  "data": {
@@ -292,9 +392,25 @@ Result:
   }
 }
 ```
+
+</TabItem>
+</Tabs>
+
 ### Aggregate by Date
 
 You may group the fields based upon the `dateTime` field. Hypi object has the dateTime fields like `hypi_created` or `hypi_updated`. The below example has groups based upon the date of creation of objects. dateGranularity can be set to DAYS, HOURS, MINUTES, or SECONDS.
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs
+  defaultValue="query"
+  values={[
+    {label: 'GraphQL Query', value: 'query'},
+    {label: 'Response', value: 'response'},
+  ]}>
+<TabItem value="query">
+
 ```json
 {
  aggregate {
@@ -313,7 +429,11 @@ You may group the fields based upon the `dateTime` field. Hypi object has the da
      }
 }
 ```
-Result:
+
+</TabItem>
+
+<TabItem value="response">
+
 ```json
 {
  "data": {
@@ -350,3 +470,7 @@ Result:
   }
 }
 ```
+
+</TabItem>
+</Tabs>
+

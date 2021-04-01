@@ -23,6 +23,18 @@ Mathematical operations can only be performed on an existing object. The precede
 +  Subtraction
 
 Let’s perform a mathematical operation as shown in the below code. We are carrying out the operations on hypi id - `Author2Book1` generated during [Aggregate APIs example](aggregation.md).
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs
+  defaultValue="query"
+  values={[
+    {label: 'GraphQL Query', value: 'query'},
+    {label: 'Response', value: 'response'},
+  ]}>
+<TabItem value="query">
+
 ```json
 mutation {
      math (
@@ -45,7 +57,11 @@ mutation {
     }
 }
 ```
-Result:
+
+</TabItem>
+
+<TabItem value="response">
+
 ```json
 {
  "data": {
@@ -57,17 +73,33 @@ Result:
    }
 }
 ```
-In this example, we are using all the mathematical operators available in the APIs. Notice that the query uses an array (the square brackets) so you can perform math operations on multiple objects (and even multiple types) in one request.
+
+</TabItem>
+</Tabs>
+
+In above example, we are using all the mathematical operators available in the APIs. Notice that the query uses an array (the square brackets) so you can perform math operations on multiple objects (and even multiple types) in one request.
 
 The order of execution is as follows:
 
 1. value = 5.99 (the price of the book with id Author2Book1)
 2. 5.99 / 3 = 1.996666666666667
 3. 1.996666666666667 * 10 = 19.96666666666667
-4. 19.96666666666667 - 2 = 17. 96666666666667
-5. 17. 96666666666667 + 30 = 47. 96666666666667
+4. 19.96666666666667 - 2 = 17.96666666666667
+5. 17.96666666666667 + 30 = 47.96666666666667
 
 Now, query the price value of the book that was originally set to 5.99. Its value has changed to 47.96666666666667.
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs
+  defaultValue="query"
+  values={[
+    {label: 'GraphQL Query', value: 'query'},
+    {label: 'Response', value: 'response'},
+  ]}>
+<TabItem value="query">
+
 ```java
 {
  find(type: Book, arcql: "hypi.id = 'Author2Book1'") {
@@ -82,6 +114,11 @@ Now, query the price value of the book that was originally set to 5.99. Its valu
    }
 }
 ```
+
+</TabItem>
+
+<TabItem value="response">
+
 ```json
 {
  "data": {
@@ -96,3 +133,7 @@ Now, query the price value of the book that was originally set to 5.99. Its valu
      }
   }
 }
+```
+
+</TabItem>
+</Tabs>

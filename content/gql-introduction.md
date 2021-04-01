@@ -8,7 +8,18 @@ slug: /gql-introduction
 
 GraphQL was created by Facebook to enhance RESTful API calls.
 
-**GraphQL** makes getting server information much more comfortable and a lot faster. A GraphQL `query`gets parsed to a string which is sent to a server to be interpreted and fulfilled, which returns JSON to the client.
+**GraphQL** makes getting server information much more comfortable and a lot faster. A GraphQL `query` gets parsed to a string which is sent to a server to be interpreted and fulfilled, which returns JSON to the client.
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs
+  defaultValue="query"
+  values={[
+    {label: 'GraphQL Query', value: 'query'},
+    {label: 'Response', value: 'response'},
+  ]}>
+<TabItem value="query">
 
 ```java
 {
@@ -20,7 +31,11 @@ GraphQL was created by Facebook to enhance RESTful API calls.
    }
 } 
 ```
-Result:
+
+</TabItem>
+
+<TabItem value="response">
+
 ```json
 {
        "data": {
@@ -28,7 +43,7 @@ Result:
            {
               "name": "It's A Beautiful Day",
               "author": "Queen",
-              "year":"1995",
+             year":"1995",
            },
            {
               "name": "Let's Make A Night To Remember",
@@ -40,6 +55,10 @@ Result:
        
  }
 ```
+
+</TabItem>
+</Tabs>
+
 Noticed that **GraphQL queries mirror their response**, making it easy to predict the shape of the data returned from a query; as well as writing a query if you know the data your app needs.
 
 GraphQL is unapologetic, and is driven by the data requirements of products and of the those who build them. Because of the predictability of GraphQL, it's easy to learn and use.

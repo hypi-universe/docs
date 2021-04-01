@@ -13,11 +13,11 @@ Hypi's features such as [authorisation](authorisation.md), [workflows](workflow.
 
 ### Using the API gateway
 
-To use the API gateway, you must add a dependency ``gateway`` to the App . As a reminder, a dependency is referenced by the app name, realm and release. Check more about [dependencies](overview.md) here. 
+To use the API gateway, you must add a dependency `gateway` to the App . As a reminder, a dependency is referenced by the app name, realm and release. Check more about [dependencies](overview.md) here. 
 
 ### @http directive
 
-Hypi's API gateway is centered around a directive, namely`@http`. To integrate an API you add the directive to a query or mutation function in your app's schema.
+Hypi's API gateway is centered around a directive, namely `@http`. To integrate an API you add the directive to a query or mutation function in your app's schema.
 
 Once you have added the directive to a function, it can be treated like any other function in Hypi. Instead of getting its data from the Hypi platform or serverless function, it will get its data from the HTTP service you've configured it to.
 
@@ -41,10 +41,10 @@ When applied causes the value of the field it is applied to to be resolved using
 
 Each argument is a valid Velocity template meaning you can use dynamic parameters. The following may be referenced "vars", "settings".
 
-+  **vars**refers to any arguments on the field the directive is applied to.   `${vars.firstName}` refers to the firstName argument of the field
-+ **settings**refers to any instance settings provided in the app
++  **vars** refers to any arguments on the field the directive is applied to.   `${vars.firstName}` refers to the firstName argument of the field
++ **settings** refers to any instance settings provided in the app
 
-### Utilities:
+### Utilities
 
 JSON and Map utilities are available for use in all templates.
 
@@ -66,8 +66,8 @@ type Query {
 }
 ```
 
-You can then call this function via HTTP or GraphQL in your app. Note here that the response from the API must match the structure of the`User`object you specified as the return type.
+You can then call this function via HTTP or GraphQL in your app. Note here that the response from the API must match the structure of the `User` object you specified as the return type.
 
-If you're making a request to an API which doesn't directly match your type i.e.`User`in this case, you can use the`requestTemplate`parameter.  It transforms the API response by extracting fields from it and constructs an object which matches your declared return type.
+If you're making a request to an API which doesn't directly match your type i.e. `User` in this case, you can use the `requestTemplate` parameter.  It transforms the API response by extracting fields from it and constructs an object which matches your declared return type.
 
 

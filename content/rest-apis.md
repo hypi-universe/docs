@@ -31,7 +31,16 @@ Users can login either by username or email and logins can be triggered either b
 
 The first is the login using the username method.
 
-**Request**
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs
+  defaultValue="query"
+  values={[
+    {label: 'Request', value: 'query'},
+    {label: 'Response', value: 'response'},
+  ]}>
+<TabItem value="query">
 
 ```java
 $ curl --location --request GET 
@@ -39,7 +48,11 @@ $ curl --location --request GET
   --header 'hypi-domain: latest.store.hypi.hypi.hypi.app' \
   --header 'content-type: application/json'
 ```
-**Response**
+
+</TabItem>
+
+<TabItem value="response">
+
 ```json
 {
   "data": {
@@ -54,18 +67,35 @@ $ curl --location --request GET
 }
 ```
 
+</TabItem>
+</Tabs>
+
 #### Email
 
 The second is the login using the email method.
 
-**Request**
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs
+  defaultValue="query"
+  values={[
+    {label: 'Request', value: 'query'},
+    {label: 'Response', value: 'response'},
+  ]}>
+<TabItem value="query">
+
 ```java
 $ curl --location --request GET 
     '/rest/v1/fn/query/loginByEmail?email=x&password=y&type=query' \
   --header 'hypi-domain: latest.store.hypi.hypi.hypi.app' \
   --header 'content-type: application/json'
 ```
-**Response**
+
+</TabItem>
+
+<TabItem value="response">
+
 ```json
 {
   "data": {
@@ -79,6 +109,10 @@ $ curl --location --request GET
   }
 }
 ```
+
+</TabItem>
+</Tabs>
+
 ### POST
 
 Authentication can also be performed using POST method.
@@ -87,7 +121,17 @@ Authentication can also be performed using POST method.
 
 The first is the login using the username method.
 
-**Request**
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs
+  defaultValue="query"
+  values={[
+    {label: 'Request', value: 'query'},
+    {label: 'Response', value: 'response'},
+  ]}>
+<TabItem value="query">
+
 ```java
 $ curl --location --request POST '/rest/v1/login' \
   --header 'authorization: eyJhb ...' \
@@ -98,7 +142,11 @@ $ curl --location --request POST '/rest/v1/login' \
       "password": "y"
   }'
 ```
-**Response**
+
+</TabItem>
+
+<TabItem value="response">
+
 ```json
 {
   "data": {
@@ -112,11 +160,26 @@ $ curl --location --request POST '/rest/v1/login' \
   }
 }
 ```
+
+</TabItem>
+</Tabs>
+
+
 #### Email
 
 The second is the login using the email method.
 
-**Request**
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs
+  defaultValue="query"
+  values={[
+    {label: 'Request', value: 'query'},
+    {label: 'Response', value: 'response'},
+  ]}>
+<TabItem value="query">
+
 ```java
 $ curl --location --request POST '/rest/v1/login' \
   --header 'authorization: eyJhb ...' \
@@ -127,7 +190,11 @@ $ curl --location --request POST '/rest/v1/login' \
       "password": "y"
   }'
 ```
-**Response**
+
+</TabItem>
+
+<TabItem value="response">
+
 ```json
 {
   "data": {
@@ -141,6 +208,10 @@ $ curl --location --request POST '/rest/v1/login' \
   }
 }
 ```
+
+</TabItem>
+</Tabs>
+
 ## CRUD Operations
 
 The four basic CRUD operations **C**reate,**R**ead,**U**pdate, and **D**elete can be performed using the semantics of **P**ost,**G**et,**P**ut,and **D**elete HTTP methods. Furthermore, the APIs endpoints can be mapped to resources using the /{{aggregate}} or /{{aggregate}}/{{identifier}} for both GET and DELETE whilst POST and PUT will capture the identifiers from the GraphQL request body to avoid redundancy. Hereby, the RESTful APIs explained herein allow the same functionality as the CRUD operations manifested under [Hypi Platform CRUD Documentation](crud.md)
@@ -149,7 +220,17 @@ The four basic CRUD operations **C**reate,**R**ead,**U**pdate, and **D**elete ca
 
 In order to create a resource, send a POST request to the`/rest/v1`endpoint with the body containing the resource signature as defined by the GraphQL types.
 
-**Request**
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs
+  defaultValue="query"
+  values={[
+    {label: 'Request', value: 'query'},
+    {label: 'Response', value: 'response'},
+  ]}>
+<TabItem value="query">
+
 ```java
 $ curl --location --request POST '/rest/v1' \
   --header 'authorization: eyJhb ...' \
@@ -167,7 +248,11 @@ $ curl --location --request POST '/rest/v1' \
       }
   }'
 ```
-**Response**
+
+</TabItem>
+
+<TabItem value="response">
+
 ```json
 {
   "data": {
@@ -191,12 +276,25 @@ $ curl --location --request POST '/rest/v1' \
   }
 }
 ```
+</TabItem>
+</Tabs>
+
 
 ### PUT
 
 In order to make an update request, the same endpoint and the payload can be used, however, the HTTP method should be`PUT`.
 
-**Request**
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs
+  defaultValue="query"
+  values={[
+    {label: 'Request', value: 'query'},
+    {label: 'Response', value: 'response'},
+  ]}>
+<TabItem value="query">
+
 ```java
 $ curl --location --request PUT '/rest/v1' \
   --header 'authorization: eyJhb ...' \
@@ -214,7 +312,11 @@ $ curl --location --request PUT '/rest/v1' \
       }
   }'
 ```
-**Response**
+
+</TabItem>
+
+<TabItem value="response">
+
 ```json
 {
   "data": {
@@ -238,18 +340,35 @@ $ curl --location --request PUT '/rest/v1' \
   }
 }
 ```
+
+</TabItem>
+</Tabs>
+
 ### GET by ID
 
 In order to access a resource, replace`URL/url1`with {{aggregate}}/{{identifier}} where {{aggregate}} is the GraphQL type name from your app's schema and {{identifier}} is the ID of the object to get.
 
-**Request**
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs
+  defaultValue="query"
+  values={[
+    {label: 'Request', value: 'query'},
+    {label: 'Response', value: 'response'},
+  ]}>
+<TabItem value="query">
+
 ```java
 $ curl --location --request GET '/rest/v1/URL/url1' \
   --header 'authorization: eyJhb ...' \
   --header 'hypi-domain: latest.store.hypi.hypi.hypi.app' \
   --header 'content-type: application/json'
 ```
-**Response**
+</TabItem>
+
+<TabItem value="response">
+
 ```json
 {
   "data": {
@@ -294,20 +413,37 @@ $ curl --location --request GET '/rest/v1/URL/url1' \
 }
 ```
 
+</TabItem>
+</Tabs>
+
 ### GET by ArcQL
 
 GraphQL find method can be used to access a resource, so replace`URL`with {{aggregate}}.
 
 > The ArcQL parameter accepts any valid filter supported by [ArcQL](arcql.md). The example here uses`hypi.id = 'url1'`only for simplicity.
 
-**Request**
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs
+  defaultValue="query"
+  values={[
+    {label: 'Request', value: 'query'},
+    {label: 'Response', value: 'response'},
+  ]}>
+<TabItem value="query">
+
 ```java
 $ curl --location --request GET "/rest/v1/URL?first=2&arcql=hypi.id='url1'" \
   --header 'authorization: eyJhb ...' \
   --header 'hypi-domain: latest.store.hypi.hypi.hypi.app' \
   --header 'content-type: application/json'
 ```
-**Response**
+
+</TabItem>
+
+<TabItem value="response">
+
 ```json
 {
   "data": {
@@ -352,18 +488,35 @@ $ curl --location --request GET "/rest/v1/URL?first=2&arcql=hypi.id='url1'" \
 }
 ```
 
+</TabItem>
+</Tabs>
+
 ### DELETE by ID
 
 In order to delete a resource, replace`URL/url1`with {{aggregate}}/{{identifier}}
 
-**Request**
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs
+  defaultValue="query"
+  values={[
+    {label: 'Request', value: 'query'},
+    {label: 'Response', value: 'response'},
+  ]}>
+<TabItem value="query">
+
 ```java
 $ curl --location --request DELETE '/rest/v1/URL/url1' \
   --header 'authorization: eyJhb ...' \
   --header 'hypi-domain: latest.store.hypi.hypi.hypi.app' \
   --header 'content-type: application/json'
 ```
-**Response**
+
+</TabItem>
+
+<TabItem value="response">
+
 ```json
 {
   "data": {
@@ -371,18 +524,36 @@ $ curl --location --request DELETE '/rest/v1/URL/url1' \
   }
 }
 ```
+
+</TabItem>
+</Tabs>
+
 ### DELETE by ArcQL
 
 The same can be achieved using GraphQL by passing the identifier as a query parameter`?id=xx`and replace`URL`with {{aggregate}}
 
-**Request**
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs
+  defaultValue="query"
+  values={[
+    {label: 'Request', value: 'query'},
+    {label: 'Response', value: 'response'},
+  ]}>
+<TabItem value="query">
+
 ```java
 $ curl --location --request DELETE "/rest/v1/URL?arcql=hypi.id='url1'" \
   --header 'authorization: eyJhb ...' \
   --header 'hypi-domain: latest.store.hypi.hypi.hypi.app' \
   --header 'content-type: application/json'
 ```
-**Response**
+
+</TabItem>
+
+<TabItem value="response">
+
 ```json
 {
   "data": {
@@ -390,6 +561,10 @@ $ curl --location --request DELETE "/rest/v1/URL?arcql=hypi.id='url1'" \
   }
 }
 ```
+
+</TabItem>
+</Tabs>
+
 ## GraphQL/ArcQL Functions
 
 Any arbitrary GraphQL function can be triggered using the following endpoint.
@@ -402,7 +577,17 @@ Any arbitrary GraphQL function can be triggered using the following endpoint.
 
 `POST`can be used to create resources on the server. This is equivalent to calling the Hypi`upsert`function in GraphQL.
 
-**Request**
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs
+  defaultValue="query"
+  values={[
+    {label: 'Request', value: 'query'},
+    {label: 'Response', value: 'response'},
+  ]}>
+<TabItem value="query">
+
 ```java
 $ curl --location --request POST '/rest/v1/fn/mutation/upsert' \
   --header 'authorization: eyJhb ...' \
@@ -420,7 +605,11 @@ $ curl --location --request POST '/rest/v1/fn/mutation/upsert' \
       }
   }'
 ```
-**Response**
+
+</TabItem>
+
+<TabItem value="response">
+
 ```json
 {
   "data": {
@@ -444,11 +633,25 @@ $ curl --location --request POST '/rest/v1/fn/mutation/upsert' \
   }
 }
 ```
+
+</TabItem>
+</Tabs>
+
 #### PUT
 
 Similar to`POST`,`PUT`is used to update/modify existing resources.
 
-**Request**
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs
+  defaultValue="query"
+  values={[
+    {label: 'Request', value: 'query'},
+    {label: 'Response', value: 'response'},
+  ]}>
+<TabItem value="query">
+
 ```java
 $ curl --location --request PUT '/rest/v1/fn/mutation/upsert' \
   --header 'authorization: eyJhb ...' \
@@ -466,7 +669,11 @@ $ curl --location --request PUT '/rest/v1/fn/mutation/upsert' \
       }
   }'
 ```
-**Response**
+
+</TabItem>
+
+<TabItem value="response">
+
 ```json
 {
   "data": {
@@ -490,6 +697,10 @@ $ curl --location --request PUT '/rest/v1/fn/mutation/upsert' \
   }
 }
 ```
+
+</TabItem>
+</Tabs>
+
 #### GET
 
 For further flexibility the**R**ead requests discussed above can be rephrased as arbitrary GraphQL functions by using`query/get`or`query/fin`.
@@ -498,14 +709,28 @@ For further flexibility the**R**ead requests discussed above can be rephrased as
 
 The`GET`,`PUT`,`POST`and`DELETE`methods above are all semantics to make the API more familiar and inline with existing common practice but the same thing can be done by explicitly calling the appropriate function by passing the`aggregate`to`type`query parameter when using`find`GraphQL function. Unlike the`GET`function, this returns a list of objects matching the filter provided.
 
-**Request**
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs
+  defaultValue="query"
+  values={[
+    {label: 'Request', value: 'query'},
+    {label: 'Response', value: 'response'},
+  ]}>
+<TabItem value="query">
+
 ```java
 $ curl --location --request GET "/rest/v1/fn/query/find?first=1&type=URL&arcql=hypi.id='url1'" \
   --header 'authorization: eyJhb ...' \
   --header 'hypi-domain: latest.store.hypi.hypi.hypi.app' \
   --header 'content-type: application/json'
 ```
-**Response**
+
+</TabItem>
+
+<TabItem value="response">
+
 ```json
 {
   "data": {
@@ -549,3 +774,6 @@ $ curl --location --request GET "/rest/v1/fn/query/find?first=1&type=URL&arcql=h
   }
 }
 ```
+
+</TabItem>
+</Tabs>

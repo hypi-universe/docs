@@ -16,7 +16,7 @@ OAuth2 Authorization framework enables a third-party application to obtain limit
 
 ### Register Developer Account
 
-External Http services enable developers to register applications on their platforms and then provide`ClientKey`and`ClientSecret`that can be used at subsequent API requests. 
+External Http services enable developers to register applications on their platforms and then provide `ClientKey` and `ClientSecret` that can be used at subsequent API requests. 
 
 For example, for Google one can register an application on 
 
@@ -24,12 +24,30 @@ For example, for Google one can register an application on
 
 ### Create OAuthProvider Object
 
-Once the`ClientKey`and`ClientSecret`have been obtained, then start by using GraphQL to integrate OAuth2 to your application on Hypi.
+Once the `ClientKey` and `ClientSecret` have been obtained, then start by using GraphQL to integrate OAuth2 to your application on Hypi. Provide the JSON payload data for the GraphQL request under the `Variables` tab as an input data..
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs
+  defaultValue="query"
+  values={[
+    {label: 'GraphQL Query', value: 'query'},
+    {label: 'Input Data', value: 'data'},
+  ]}>
+<TabItem value="query">
 
 ```java
-mutation upsert($values:HypiUpsertInputUnion!) {  upsert(values:$values){    id  }}
+mutation Upsert($values: HypiUpsertInputUnion!) {
+  upsert(values: $values) {
+    id
+  }
+}
 ```
-Providing the following JSON payload for the GraphQL request under the`Variables`tab. Here is an example for Google OAuth2 configuration:
+
+</TabItem>
+<TabItem value="data">
+
 ```json
 {
   "values": {
@@ -69,6 +87,10 @@ Providing the following JSON payload for the GraphQL request under the`Variables
   }
 }
 ```
+
+</TabItem>
+</Tabs>
+
 ### Enum Parameters
 
 The following variables can take any value as long as it is described on the enum type in the core GraphQL schema on Hypi.
@@ -104,7 +126,7 @@ enum ClientAuthenticationMethod {
   post
 }
 ```
-The definition of the above parameters can be found in the official standard specification of OAuth2 [Read more](#https://tools.ietf.org/html/rfc6749)
+The definition of the above parameters can be found in the official standard specification of OAuth2 [Read more](https://tools.ietf.org/html/rfc6749)
 
 ### Provider Endpoints
 
@@ -137,7 +159,7 @@ For GitHub, the values would be:
 
 ### Redirection URIs
 
-The`redirectUriTemplate`variable is reserved for Hypi in order to handle the callback response from the external Http service. It is always set to as follows:
+The `redirectUriTemplate` variable is reserved for Hypi in order to handle the callback response from the external Http service. It is always set to as follows:
 ```java
 {
   "redirectUriTemplate": "{baseUrl}/login/oauth2/code/{registrationId}"
@@ -147,11 +169,11 @@ Then provide the redirection Uri that the enduser should land on after the OAuth
 
 ```java
 {
-  ""hypiSuccessRedirectUri": "https://youcallbackdomain.com/successfulLogin"
+  "hypiSuccessRedirectUri": "https://youcallbackdomain.com/successfulLogin"
 }
 ```
 
-Hypi will add a query parameter`token`to the redirectUri that can be used to communicate with Hypi Platform representing the resource owner who has completed the authorization process. This token is the same as if you were to call the built in`login`or`loginByEmail`methods in Hypi i.e. it is a JWT token which can be used to call any Hypi API that would otherwise be called with a token returned by one of these methods.
+Hypi will add a query parameter `token` to the redirectUri that can be used to communicate with Hypi Platform representing the resource owner who has completed the authorization process. This token is the same as if you were to call the built in `login` or `loginByEmail` methods in Hypi i.e. it is a JWT token which can be used to call any Hypi API that would otherwise be called with a token returned by one of these methods.
 
 ### Trigger Authorization Flow
 
@@ -159,11 +181,11 @@ In order to start the authorization process, send the user to the following URL
 
 `https://api.hypi.app/oauth2/authorization/${registrationId`
 
-The`registrationId`is constructed as`instanceId`-`OAuthProviderId`.`instanceId`is the Hypi App Instance ID and`OAuthProviderId`is the ID of the`OAuthProvider`which is created in the first step. 
+The `registrationId` is constructed as`instanceId`-`OAuthProviderId`.`instanceId` is the Hypi App Instance ID and `OAuthProviderId` is the ID of the `OAuthProvider` which is created in the first step. 
 
 For example, 
 
-if`instanceId`is`NOV5MNZTF01Q8XIUCCA099CXZY`and`OAuthProviderId`is`01ERDGNV0W50J8WZZRVXR4KASC`then the`registrationId`is`NOV5MNZTF01Q8XIUCCA099CXZY-01ERDGNV0W50J8WZZRVXR4KASC`
+if `instanceId` is `NOV5MNZTF01Q8XIUCCA099CXZY` and `OAuthProviderId` is `01ERDGNV0W50J8WZZRVXR4KASC` then the `registrationId` is `NOV5MNZTF01Q8XIUCCA099CXZY-01ERDGNV0W50J8WZZRVXR4KASC`
 
 and the URL to initialize the flow is
 
@@ -171,7 +193,7 @@ and the URL to initialize the flow is
 
 ### Retrieve Access Token
 
-Hypi stores the`accessToken`and the`refreshToken`and they can be found on the GraphQL type`OAuth2AuthorizedClient`.
+Hypi stores the `accessToken` and the `refreshToken` and they can be found on the GraphQL type `OAuth2AuthorizedClient`.
 ```java
 type OAuth2AuthorizedClient {
   clientRegistrationId: String

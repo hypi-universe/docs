@@ -4,7 +4,21 @@ title: Update Data
 sidebar_label: Update Data
 slug: /update-data
 ---
-To perform an update for a created object, you can use the `upsert` function in the same format.
+
+To perform an update for a created object, you can use the `upsert` function in the same format. The only difference is we need to pass on created id value to locate the object. Notice that we have passed on the same id values from hypi objects to the update information of two different authors. If the update is successful, the same id values are returned. 
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs
+  defaultValue="query"
+  values={[
+    {label: 'GraphQL Query', value: 'query'},
+    {label: 'Input Data', value: 'data'},
+    {label: 'Response', value: 'response'},
+  ]}>
+<TabItem value="query">
+
 ```java
 mutation Upsert($values: HypiUpsertInputUnion!) {
   upsert(values: $values) {
@@ -12,7 +26,9 @@ mutation Upsert($values: HypiUpsertInputUnion!) {
   }
 }
 ```
-The only difference is we need to pass on created id value to locate the object. Notice we have passed on the same id values from hypi objects to the update information of two different authors.
+
+</TabItem>
+<TabItem value="data">
 
 ```json
 { 
@@ -42,7 +58,11 @@ The only difference is we need to pass on created id value to locate the object.
 }
 
 ```
-If the update is successful, the same id values are returned. If you don’t provide the id, a new object will get created. It may also result in the repetition of data.
+
+</TabItem>
+
+<TabItem value="response">
+
 ```json
 {
   "data": {
@@ -58,6 +78,13 @@ If the update is successful, the same id values are returned. If you don’t pro
 }
 
 ```
+
+</TabItem>
+</Tabs>
+
+If you don’t provide the id, a new object would be created. It may also result in the repetition of data.
+
+> More Information:
 
 + You are free to mix insert and update operations. The system will accept and process them correctly.
 

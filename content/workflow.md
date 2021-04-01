@@ -213,6 +213,18 @@ These rules are:
 The last step in the schema is given for the illustration purpose only to understand the usage of various parameters.
 
 To use the workflow, first create the workflow object in the system. The name of the workflow is important. Notice it is used in the function definition`@workflow(name: "BorrowBook")`. This is the same name used in the object created. 
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs
+  defaultValue="query"
+  values={[
+    {label: 'GraphQL Query', value: 'query'},
+    {label: 'Response', value: 'response'},
+  ]}>
+<TabItem value="query">
+
 ```java
 {
  "values": {
@@ -277,7 +289,38 @@ To use the workflow, first create the workflow object in the system. The name of
 }
 ```
 
-To use this workflow execute it like any other function.
+</TabItem>
+
+<TabItem value="response">
+
+```json
+{
+  "data": {
+    "upsert": [
+      {
+        "id": "01F1KYB7MG7PZEKGNQEF1D70EY"
+      }
+    ]
+  }
+}
+```
+
+</TabItem>
+</Tabs>
+
+To use this workflow execute it like any other function. And verify the results.
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs
+  defaultValue="query"
+  values={[
+    {label: 'GraphQL Query', value: 'query'},
+    {label: 'Input Data', value: 'data'},
+    {label: 'Response', value: 'response'},
+  ]}>
+<TabItem value="query">
 
 ```java
 query Q($a: String, $b: String){BorrowBook1(a: $a, b:$b){
@@ -290,15 +333,19 @@ query Q($a: String, $b: String){BorrowBook1(a: $a, b:$b){
      }
   }
 }
+```
 
-#Data
+</TabItem>
+<TabItem value="data">
+```
 {
  "a": "Author1",
  "b": "Inferno"
 }
 ```
 
-Verify the step results:
+</TabItem>
+<TabItem value="response">
 
 ```json
 {
@@ -407,3 +454,12 @@ Verify the step results:
     }
   }
 }
+```
+
+</TabItem>
+</Tabs>
+
+
+
+
+

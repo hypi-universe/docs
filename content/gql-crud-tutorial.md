@@ -7,7 +7,7 @@ slug: /gql-crud-tutorial
 
 In this tutorial we’re going to show you how to use our GraphQL API to perform CRUD operations on your app.
 
-For the purpose of this tutorial, we’ve created an app with the name hypi-tutorials, and in the **Editor** section we’ve created a simple **schema** for our application.
+For the purpose of this tutorial, we’ve created an app with the name hypi-tutorials, and in the  **Editor** section we’ve created a simple **schema** for our application.
 
 ```java
 interface Employee{
@@ -56,7 +56,7 @@ Documentation for the queries and mutations mentioned in this tutorial can be fo
 
 ## Create
 
-For this tutorial we would like to create an`Actor`object with the`name`“Will Smith”,`age`17, and he stars in episodes 1, 2 and 3. The mutation will look like this.
+For this tutorial we would like to create an `Actor` object with the `name` “Will Smith”, `age` 17, and he stars in episodes 1, 2 and 3. The mutation will look like this.
 
 ```java
 mutation {
@@ -73,11 +73,12 @@ mutation {
 }
 ```
 
-As you can see, if you are familiar with **GraphQL** , the call is pretty simple, you pass in the object that you want to create as a`values`parameter to the`upsert`mutation, and specify what fields of the **Magic Hypi object** you want in the response.
+As you can see, if you are familiar with **GraphQL** , the call is pretty simple, you pass in the object that you want to create as a `values`parameter to the `upsert` mutation, and specify what fields of the **Magic Hypi object** you want in the response.
 
-You can look into all of the fields that the **Magic Hypi object** contains under its section in the Hypi GraphQL API documentation, here we just return the`id`.
+You can look into all of the fields that the **Magic Hypi object** contains under its section in the Hypi GraphQL API documentation, here we just return the `id`.
 
 As expected, the response looks like this
+
 ```java
 {
   "data": {
@@ -90,7 +91,7 @@ As expected, the response looks like this
 }
 ```
 
-So, we have successfully used the upsert method to create an`Actor`in our database.
+So, we have successfully used the upsert method to create an `Actor` in our database.
 
 Next, let’s see how we can update that actor.
 
@@ -98,9 +99,9 @@ Next, let’s see how we can update that actor.
 
 As the “DOCS” say, to update an existing value, we should provide the `hypi.id`for the object along with the data that we want to save for that object.
 
-Let’s say that we want to update the`age`of the actor we just created.
+Let’s say that we want to update the `age` of the actor we just created.
 
-The`mutation`will look like this.
+The `mutation` will look like this.
 ```java
 mutation {
     upsert(values: {
