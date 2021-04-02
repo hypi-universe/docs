@@ -187,8 +187,6 @@ import TabItem from '@theme/TabItem';
 Query Statement:
 `arcql: "* SORT price DESC"`
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
 
 <Tabs
   defaultValue="query"
@@ -291,8 +289,6 @@ Boolean Logic is possible on all query types. As specified in the third statemen
 Query Statement:
 `arcql: "title='Wise and Otherwise'"`
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
 
 <Tabs
   defaultValue="query"
@@ -348,9 +344,6 @@ import TabItem from '@theme/TabItem';
 
 Query Statement: 
 `price=5.99 AND authorid = 2`
-
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
 
 <Tabs
   defaultValue="query"
@@ -410,8 +403,6 @@ import TabItem from '@theme/TabItem';
 Query Statement: 
 `(price=5.99 AND authorid = 1) OR authorid = 2`
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
 
 <Tabs
   defaultValue="query"
@@ -499,9 +490,6 @@ Here `a` is any field from the data type. Consider the third statement. Here, th
 Query Statement: 
 `name ~ 'sudha'`
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 <Tabs
   defaultValue="query"
   values={[
@@ -553,9 +541,6 @@ import TabItem from '@theme/TabItem';
 
 Query Statement: 
 `name ~ 'sudha' OR age ~ 56`
-
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
 
 <Tabs
   defaultValue="query"
@@ -617,9 +602,6 @@ import TabItem from '@theme/TabItem';
 + EXIST a
 
 This query returns records that have non-null data in the field `a`.
-
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
 
 <Tabs
   defaultValue="query"
@@ -693,9 +675,6 @@ This query returns records that have null data in the field `a`.
 
 + NOT EXIST a
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 <Tabs
   defaultValue="query"
   values={[
@@ -760,9 +739,6 @@ The last statement returns the records from the field `a` that start with ‘som
 
 Query Statement: 
 `name ^ 'Paulo' OR age ^ 5`
-
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
 
 <Tabs
   defaultValue="query"
@@ -834,9 +810,6 @@ The first statement searches words with ‘some’ like someone, somewhere, some
 Query Statement: 
 `name * 'P*'`
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 <Tabs
   defaultValue="query"
   values={[
@@ -891,9 +864,6 @@ import TabItem from '@theme/TabItem';
 
 Query Statement: 
 `age * '?6'`
-
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
 
 <Tabs
   defaultValue="query"
@@ -967,9 +937,6 @@ The strings work in alphabetical order. The query returns the values that start 
 Query Statement: 
 `age IN (50, 70)`
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 <Tabs
   defaultValue="query"
   values={[
@@ -1023,9 +990,6 @@ import TabItem from '@theme/TabItem';
 
 Query Statement: 
 `age IN (50, 70]`
-
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
 
 <Tabs
   defaultValue="query"
@@ -1089,9 +1053,6 @@ import TabItem from '@theme/TabItem';
 
 Query Statement: 
 `title IN ['Da Vinci Code','Inferno']`
-
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
 
 <Tabs
   defaultValue="query"
@@ -1157,9 +1118,6 @@ import TabItem from '@theme/TabItem';
 ### Match All Query
 
 A match all query is a query with the value **“\*”**. It returns all the data from all the fields.
-
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
 
 <Tabs
   defaultValue="query"
@@ -1276,9 +1234,6 @@ mutation {
 }
 ```
 Now we can locate the objects within a given radius.
-
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
 
 <Tabs
   defaultValue="query"
@@ -1411,9 +1366,6 @@ In the above ArcQL query, Book table performs `SELF JOIN` combining all the auth
 
 Let’s look into the entire query and results.
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 <Tabs
   defaultValue="query"
   values={[
@@ -1509,9 +1461,6 @@ The query says:
 First the query will perform self join on Books table to get all the author names excluding Author2 from left hand side. Then it does a SQL `IN` on the results of the query on the right hand side. 
 
 Here Names of Author1, 2 and 3 are the common author names from both sides. Author4 would be skipped from the list. So this list returns all the books (Books by Author2 as well as books not written by Author2).
-
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
 
 <Tabs
   defaultValue="query"

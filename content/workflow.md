@@ -310,9 +310,6 @@ import TabItem from '@theme/TabItem';
 
 To use this workflow execute it like any other function. And verify the results.
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 <Tabs
   defaultValue="query"
   values={[

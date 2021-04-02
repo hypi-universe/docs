@@ -89,9 +89,6 @@ The order of execution is as follows:
 
 Now, query the price value of the book that was originally set to 5.99. Its value has changed to 47.96666666666667.
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 <Tabs
   defaultValue="query"
   values={[

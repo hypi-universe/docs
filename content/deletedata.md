@@ -73,9 +73,6 @@ untrash(type: HypiMutationType!, arcql: String!): Int!
 ```
 The function returns the number of records that were marked untrashed.
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 <Tabs
   defaultValue="query"
   values={[
@@ -115,9 +112,6 @@ If you want to delete data permanently, use the `delete` function.
 delete(type: HypiMutationType!, arcql: String!): Int!
 ```
 The function returns the number of records that were marked deleted.
-
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
 
 <Tabs
   defaultValue="query"
@@ -187,9 +181,6 @@ type Question {
  The below example shows the use of the ‘deleteScalars’ function to delete data from scalar arrays. In the example, from an ‘ans’ field from Question, string values (“b” and “c”) are deleted. The function returns the number of records affected by the deletion.
 
 Frame arcql query to select the object and get an id. In the example, hypi id has been hardcoded.
-
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
 
 <Tabs
   defaultValue="query"

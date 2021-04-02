@@ -139,9 +139,6 @@ mutation Upsert($values: HypiUpsertInputUnion!) {
 
 If you want to enter `Book1` as the bestbook of Author1, you may link Author1 with Book1 via field `bestbook`.
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 <Tabs
   defaultValue="query"
   values={[
@@ -206,9 +203,6 @@ Linking the tables results in the insertion of data from Book1 into the field Be
 }
 ```
 You may remove the reference using the unlink function.
-
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
 
 <Tabs
   defaultValue="query"
@@ -277,9 +271,6 @@ This results in the setting of the value of bestbook as null. Book1 data remains
 
 The `link` function works on an array as well. You may link to the booklist field from the Author1 object to Book1. So an entry of Book1 gets added into the booklist array of Author1.
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 <Tabs
   defaultValue="query"
   values={[
@@ -344,9 +335,6 @@ You may retrieve data from Author1 using find function.
 }
 ```
 Unlinking the reference would simply remove the entry Book1 from the booklist. The Book1 object would not get deleted from the platform. But its entry would be removed from the array. 
-
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
 
 <Tabs
   defaultValue="query"
