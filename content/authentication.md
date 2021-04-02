@@ -36,23 +36,38 @@ type Account {
 ```
 You may pass on parameters to the Account object to store Account information. E.g. username, password, emails, phone contacts, group details, role details. Hypi also stores the login attempts in this table. The Person type (owner parameter) stores the information of the user like name, address, date of birth, gender, etc. It also keeps the information whether the user has been authenticated in the Boolean fields `verified` and `enable`.
 
-Create a user account like this. You may pass more parameters as required. 
+Create a user account as shown in the below example. You may pass more parameters as required. The  function returns the account id, the date of creation, and created by information from the created Account object.
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs
+  defaultValue="query"
+  values={[
+    {label: 'GraphQL Query', value: 'query'},
+    {label: 'Response', value: 'response'},
+  ]}>
+<TabItem value="query">
+
 ```json
 mutation {
  createAccount(
      value: {
-     username: "test-hypi@hypi.io"
-     password: { value: "test-hypi@hypi.io" }
-     emails: [{ value: "test-hypi@hypi.io" }]
+         username: "test-hypi@hypi.io"
+         password: { value: "test-hypi@hypi.io" }
+         emails: [{ value: "test-hypi@hypi.io" }]
      }
      ) {
-     id
-     created
-     createdBy
- }
+         id
+         created
+         createdBy
+     }
 }
 ```
-The above function returns the account id, the date of creation, and created by information from the created Account object.
+</TabItem>
+
+<TabItem value="response">
+
 ```json
 {
   "data": {
@@ -64,19 +79,35 @@ The above function returns the account id, the date of creation, and created by 
   }
 }
 ```
+
+</TabItem>
+</Tabs>
+
 ## login
 
 Users may log in using the `login` function.
 ```java
 login(username:String!,password:String!): AccessToken
 ```
- It takes a username and password as inputs.
+ It takes a username and password as inputs. Successful login generates session token. The user has to use the session token to perform various actions. This function also returns the session expiry time. If any error comes during login, you may also get an error code and error message.
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs
+  defaultValue="query"
+  values={[
+    {label: 'GraphQL Query', value: 'query'},
+    {label: 'Response', value: 'response'},
+  ]}>
+<TabItem value="query">
+
 ```java
 {
-        login(
-            username: "test-hypi@hypi.io", 
-            password: "test-hypi@hypi.io"
-        ) {
+    login(
+        username: "test-hypi@hypi.io", 
+        password: "test-hypi@hypi.io"
+    ) {
         sessionToken
         sessionExpires
         errorCode
@@ -84,43 +115,70 @@ login(username:String!,password:String!): AccessToken
     }
 }
 ```
-Login generates session token. The user has to use the session token to perform various actions. This function also returns the session expiry time. If any error comes during login, you may also get an error code and error message.
+
+</TabItem>
+
+<TabItem value="response">
+
 ```json
 {
      "data": {
      "login": {
-     "sessionToken": "<test.login-token>",
-     "sessionExpires": 1618305724,
-     "errorCode": null,
-     "errorMsg": null
-     }
-    }
-}
-```
-
-## loginByEmail:
-
-Users may log in using the `loginByEmai` function. This function takes email-id and password as inputs. 
-```java
-{
-    loginByEmail(email: "test-hypi@hypi.io", password: "test-hypi@hypi.io") {
-    sessionToken
-    sessionExpires
-    errorCode
-    errorMsg
-    }
-}
-```
-It also generates session-token and provides error code and error message if any.
-```json
-{
-     "data": {
-     "loginByEmail": {
-     "sessionToken": "test.login-token",
-     "sessionExpires": 1618306063,
-     "errorCode": null,
-     "errorMsg": null
+         "sessionToken": "<test.login-token>",
+         "sessionExpires": 1618305724,
+         "errorCode": null,
+         "errorMsg": null
      }
    }
 }
 ```
+
+</TabItem>
+</Tabs>
+
+## loginByEmail:
+
+Users may log in using the `loginByEmai` function. This function takes email-id and password as inputs. It also generates session-token and provides error code and error message if any.
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs
+  defaultValue="query"
+  values={[
+    {label: 'GraphQL Query', value: 'query'},
+    {label: 'Response', value: 'response'},
+  ]}>
+<TabItem value="query">
+
+```java
+{
+    loginByEmail(email: "test-hypi@hypi.io", password: "test-hypi@hypi.io") {
+        sessionToken
+        sessionExpires
+        errorCode
+        errorMsg
+    }
+}
+```
+
+</TabItem>
+
+<TabItem value="response">
+
+```json
+{
+     "data": {
+     "loginByEmail": {
+         "sessionToken": "test.login-token",
+         "sessionExpires": 1618306063,
+         "errorCode": null,
+         "errorMsg": null
+     }
+   }
+}
+```
+
+</TabItem>
+</Tabs>
+

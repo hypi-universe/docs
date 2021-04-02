@@ -134,9 +134,9 @@ The platform uses [ArcQL](arcql.md) query language for finding data. All reque
 
 If no `Permission` is given explicitly, the platform acts as if one is implicitly created with an `AccountPolicy`. This permission grants access to the `Account` which created the object. So, the creator of an object has complete access to it by default - no one else does.
 
-## Examples
+## Permission APIs
 
-Let's look at functions related to Permission.
+Let's look at the APIs related to Permission.
 
 ### Permission
 
@@ -189,6 +189,18 @@ Let's check the parameters.
 ### hasPermission
 
 You may check if the user has permission to access an object's details. You can use the function `hasPermission` for that. The below example demonstrates how to use the function. Refer to the table above to know about the parameters. Make sure you have passed the appropriate session token as the “Authorisation” parameter in the HTTP header. You get a session token after [login](authentication.md) into the account
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs
+  defaultValue="query"
+  values={[
+    {label: 'GraphQL Query', value: 'query'},
+    {label: 'Response', value: 'response'},
+  ]}>
+<TabItem value="query">
+
 ```java
 { 
    hasPermission(req:{
@@ -200,7 +212,11 @@ You may check if the user has permission to access an object's details. You can 
  })
 }
 ```
-The function returns `true` if the user has requested permission. Otherwise, it returns `false`.
+
+</TabItem>
+
+<TabItem value="response">
+
 ```json
 {
  "data": {
@@ -208,6 +224,12 @@ The function returns `true` if the user has requested permission. Otherwise, it 
   }
 }
 ```
+
+
+</TabItem>
+</Tabs>
+
+The function returns `true` if the user has requested permission. Otherwise, it returns `false`.
 
 ### me
 

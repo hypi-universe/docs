@@ -13,63 +13,89 @@ Notice the argument ‘values’ is plural because it allows you to create or up
 
 > Let’s go through an example. 
 
-You may use the below format to insert data into an instance (Information related to Authors)
-```java
-mutation Upsert($values: HypiUpsertInputUnion!) {
-  upsert(values: $values) {
-    id
-  }
-}
-```
-Put below values in Query variable.
-```json
-{
-  "values": {
-    "Author": [
-    {
-        "name": "Dan Brown",
-        "age": 56,
-        "booklist": [
-          {
-            "title": "Da Vinci Code",
-            "publication": "abc",
-            "available": true
-          },
-          {
-            "title": "The Last Symbol",
-            "publication": "pqr",
-            "available": false
-          }
-        ]
-    },
-    {
-       "name": "Paulo Coelho",
-       "age": 70,
-       "booklist": [
-          {
-            "title": "Alchemist"
-          }         
-        ]
-    	}     
-  	]
-  }
-}
+You may use the below example to insert data into an instance (Information related to Authors)
+Run `upsert` GraphQL mutation. Provide input data values in Query variables. ‘id’ value from the magic hypi object gets returned, when the data gets added successfully.
 
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs
+  defaultValue="query"
+  values={[
+    {label: 'GraphQL Query', value: 'query'},
+    {label: 'Input Data', value: 'data'},
+    {label: 'Response', value: 'response'},
+  ]}>
+<TabItem value="query">
+
+```graphql
+  mutation Upsert($values: HypiUpsertInputUnion!) {
+    upsert(values: $values) {
+      id
+    }
+  }
 ```
-‘id’ value from the magic hypi object gets returned, when the data gets added successfully.
+
+</TabItem>
+<TabItem value="data">
+
 ```json
-{
-  "data": {
-    "upsert": [
+  {
+    "values": {
+      "Author": [
       {
-        "id": "01F0DVHM26HHWS8X8X3NBRSAV6"
+          "name": "Dan Brown",
+          "age": 56,
+          "booklist": [
+            {
+              "title": "Da Vinci Code",
+              "publication": "abc",
+              "available": true
+            },
+            {
+              "title": "The Last Symbol",
+              "publication": "pqr",
+              "available": false
+            }
+          ]
       },
       {
-        "id": "01F0DVHM2AZCGM0JSR9QRNBWZY"
-      }
-    ]
+        "name": "Paulo Coelho",
+        "age": 70,
+        "booklist": [
+            {
+              "title": "Alchemist"
+            }         
+          ]
+        }     
+      ]
+    }
   }
-}
 
 ```
+
+</TabItem>
+
+<TabItem value="response">
+
+```json
+  {
+    "data": {
+      "upsert": [
+        {
+          "id": "01F0DVHM26HHWS8X8X3NBRSAV6"
+        },
+        {
+          "id": "01F0DVHM2AZCGM0JSR9QRNBWZY"
+        }
+      ]
+    }
+  }
+
+```
+
+</TabItem>
+</Tabs>
+
 For each object i.e. author, an id gets attached automatically. In the above example, we have passed hard-coded data in the form of a query variable. While passing on the data from User Interface, you may pass the data in the form of JSON. Just add JSON data into the variable ‘values’.

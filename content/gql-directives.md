@@ -9,7 +9,7 @@ A directive allows you to customise the behaviour of your data model. Hypi's bui
 
 ## What is a directive
 
-A`@`character followed by a series of character identifies a directive, optionally followed by a list of named arguments, which can appear after almost any form of syntax in the GraphQL query or schema languages.
+A `@` character followed by a series of character identifies a directive, optionally followed by a list of named arguments, which can appear after almost any form of syntax in the GraphQL query or schema languages.
 
 For example, we can imagine a UI component that has a summarised and detailed view, where one includes more fields than the other.
 
@@ -22,7 +22,7 @@ For example, we can imagine a UI component that has a summarised and detailed vi
   }
 ```
      
-Here, the`@field`part of the model is a directive. It tells Hypi to index the field it appears next to so that data in that field is searchable with [ArcQL](arcql.md)
+Here, the `@field` part of the model is a directive. It tells Hypi to index the field it appears next to so that data in that field is searchable with [ArcQL](arcql.md)
 
 ## Built-in directives
 

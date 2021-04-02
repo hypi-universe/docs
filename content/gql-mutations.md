@@ -17,26 +17,19 @@ You must specify three things when defining a mutation:
 
 3. `Payload object`, The data you want to send to the server.
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs
+  defaultValue="query"
+  values={[
+    {label: 'GraphQL Query', value: 'query'},
+    {label: 'Input Data', value: 'data'},
+    {label: 'Response', value: 'response'},
+  ]}>
+<TabItem value="query">
+
 ```java
-  mutation CreateTodo( $todos: [TodoInput!]!) {
-       createTodo(todo: $todo) {
-          hypi {
-            id
-            created
-           }
-         description
-         completed
-       }
-     }
-    # Variables
-   {
-     "todo": [ {
-       "description": "This is a great todo!"
-        "completed":"false",
-     }  ]
-   }
-```
-```json
 mutation CreateTodo( $todos: [TodoInput!]!) {
    createTodo(todo: $todo) {
       hypi {
@@ -47,15 +40,23 @@ mutation CreateTodo( $todos: [TodoInput!]!) {
      completed
    }
  }
-# Variables
-{
- "todo": [ {
-   "description": "This is a great todo!"
-    "completed":"false",
- }  ]
-}
 ```
-Result:
+   
+</TabItem>
+<TabItem value="data">
+
+```java
+   {
+     "todo": [ {
+       "description": "This is a great todo!"
+        "completed":"false",
+     }  ]
+   }
+```
+
+</TabItem>
+
+<TabItem value="response">
 
 ```json
 {
@@ -71,3 +72,10 @@ Result:
   }
 }
 ```
+
+</TabItem>
+</Tabs>
+
+
+
+

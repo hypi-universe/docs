@@ -11,6 +11,18 @@ On this page, you'll learn all you need to know about the GraphQL type system an
 
 If you've seen a GraphQL query before, you know that the GraphQL query language is basically about selecting fields on objects. So, for example, in the following query:
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs
+  defaultValue="query"
+  values={[
+    {label: 'GraphQL Query', value: 'query'},
+    {label: 'Input Data', value: 'data'},
+    {label: 'Response', value: 'response'},
+  ]}>
+<TabItem value="query">
+
 ```java
 query getMyTodos($arcql:String) {
    todos(arcql:$arcql) {
@@ -22,12 +34,20 @@ query getMyTodos($arcql:String) {
      completed
    }
 }
- # Variables
+```
+
+</TabItem>
+<TabItem value="data">
+
+```
 {
     "arcql": "* SORT hypi.updated DESC"
 }
 ```
-Result:
+
+</TabItem>
+<TabItem value="response">
+
 ```json
 {
    "data": {
@@ -44,6 +64,9 @@ Result:
      }
 }
 ```
+
+</TabItem>
+</Tabs>
 
 + We start with a special "root" object
 + We select the hero field on that
@@ -110,6 +133,17 @@ schema {
 ```
 Every GraphQL service has a query type and may or may not have a mutation type. These types are the same as a regular object type, but they are special because they define the entry point of every GraphQL query. So if you see a query that looks like:
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs
+  defaultValue="query"
+  values={[
+    {label: 'GraphQL Query', value: 'query'},
+    {label: 'Response', value: 'response'},
+  ]}>
+<TabItem value="query">
+
 ```java
 query {
     hero {
@@ -120,7 +154,11 @@ query {
     }
 }
 ```
-Result:
+
+</TabItem>
+
+<TabItem value="response">
+
 ```json
 {
   "data": {
@@ -133,6 +171,11 @@ Result:
   }
 }
 ```
+
+</TabItem>
+</Tabs>
+
+
 That means that the GraphQL service needs to have a Query type with hero and droid fields
 ```java
 type Query {
@@ -149,6 +192,18 @@ It's important to remember that other than the special status of being the "entr
 A GraphQL object type has a name and fields, but at some point those fields have to resolve to some concrete data. That's where the scalar types come in: they represent the leaves of the query.
 
 In the following query, the name and appearsIn fields will resolve to scalar types:
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs
+  defaultValue="query"
+  values={[
+    {label: 'GraphQL Query', value: 'query'},
+    {label: 'Response', value: 'response'},
+  ]}>
+<TabItem value="query">
+
 ```java
   {
     hero {
@@ -157,9 +212,13 @@ In the following query, the name and appearsIn fields will resolve to scalar typ
     }
   }
 ```
-Result:
+
+</TabItem>
+
+<TabItem value="response">
+
 ```json
-{{
+{
    "data": {
      "hero": {
        "name": "R2-D2",
@@ -172,6 +231,10 @@ Result:
    }
  }
 ```
+
+</TabItem>
+</Tabs>
+
 We know this because those fields don't have any sub-fields - they are the leaves of the query.
 
 GraphQL comes with a set of default scalar types out of the box:

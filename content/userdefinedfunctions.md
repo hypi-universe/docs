@@ -35,6 +35,17 @@ The schema has two user defined functions. `inlineGroovyFunction` and `inlineVel
 
 `inlineGroovyFunction` function puts value of variables a,b and c in a LinkedHashMap and the map is returned in the form of JSON data. `inlineVelocityFunction` uses velocity template to return the formatted string output of variables a,b, and c. You may execute the user defined function as any other GraphQL query.
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs
+  defaultValue="query"
+  values={[
+    {label: 'GraphQL Query', value: 'query'},
+    {label: 'Response', value: 'response'},
+  ]}>
+<TabItem value="query">
+
 ```java
 {
   inlineGroovyFunction(a:"val1", b:23, c: true)
@@ -45,7 +56,11 @@ OR
 }
 
 ```
-Result:
+
+</TabItem>
+
+<TabItem value="response">
+
 ```json
 {
   "data": {
@@ -63,13 +78,20 @@ OR
   }
 }
 ```
+
+</TabItem>
+</Tabs>
+
 You may pass the variable parameters to the function as well. Just like this:
+
 ```java
 query inlineVelocityFunction($a: String, $b: Int, $c: Boolean){
   inlineVelocityFunction(a: $a, b: $b, c: $c)
 }
 ```
+
 As you can see in `inlineGroovyFunction`, Java classes are also available to use inline. You may also use a simple Groovy like version as follows.
+
 ```java
 inlineGroovyFunction(a: String, b: Int, c: Boolean):Json @tan(type:Groovy, inline: """
      return [
@@ -82,7 +104,7 @@ inlineGroovyFunction(a: String, b: Int, c: Boolean):Json @tan(type:Groovy, inlin
 
 ### Function ‘gql’
 
-The function 'gql' is available to execute inside the user defined function. Using this function you may perform mutation or query operations inside the user defined function. The result depends upon the type of operation. If you perform an `upsert` mutation, it will return id, createdBy etc. (Just like the normal `upsert`in Hypi) If you perform a `find` query, it will return a list.
+The function 'gql' is available to execute inside the user defined function. Using this function you may perform mutation or query operations inside the user defined function. The result depends upon the type of operation. If you perform an `upsert` mutation, it will return id, createdBy etc. (Just like the normal `upsert` in Hypi) If you perform a `find` query, it will return a list.
 
 Let’s check a few examples of how to use this function. Add the following schema in GraphQL.
 ```java
@@ -132,13 +154,30 @@ type Query {
   """)
 }                                                         
 ```
+
 `SetBookInfo` is a user defined function to set parameter values inside the table `Book`. Upon successful creation of the object, the `hypi.id` is returned.
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs
+  defaultValue="query"
+  values={[
+    {label: 'GraphQL Query', value: 'query'},
+    {label: 'Response', value: 'response'},
+  ]}>
+<TabItem value="query">
+
 ```java
 mutation {
   SetBookInfo(a:"Ikigai", b:6.99, c: 7)
 }
 ```
-Result:
+
+</TabItem>
+
+<TabItem value="response">
+
 ```java
 {
   "data": {
@@ -156,13 +195,34 @@ Result:
   }
 }
 ```
-Let's retrieve `Author` table data using `GetAthorInfo`. Pass the Author id as `Author1`
+
+
+</TabItem>
+</Tabs>
+
+Let's retrieve `Author` table data using `GetAthorInfo`. Pass the Author id as `Author1` .It returns the author infomation with id 'Author1'
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs
+  defaultValue="query"
+  values={[
+    {label: 'GraphQL Query', value: 'query'},
+    {label: 'Response', value: 'response'},
+  ]}>
+<TabItem value="query">
+
 ```java
 query{
   GetAuthorInfo(a:"Author1")
 }
 ```
-It returns the author infomation with id 'Author1'
+
+</TabItem>
+
+<TabItem value="response">
+
 ```json
 {
   "data": {
@@ -189,10 +249,13 @@ It returns the author infomation with id 'Author1'
 }
 ```
 
+</TabItem>
+</Tabs>
+
 The`gql`function accepts two parameters.
 
 + `query`: String - the GraphQL query to execute
-+ `values`: Map - a map containing the set of variables used in`query`
++ `values`: Map - a map containing the set of variables used in `query`
 
 In the above examples, we have just used GraphQL query string. Let's modify the `SetBookInfo` function with Map values.
 
@@ -220,8 +283,8 @@ type Mutation {
 ```
 Notice few changes here:
 
-+ Replaced the`\"""`with just`'''`. Using three`'`in Groovy, we have the same effect as`"""`. without string interpolation. It means that`$a`is not evaluated as a Groovy variable and remains as a part of the string.
-+ Added GraphQL variables`CreateBook($p: String, $q: Float, $r: Int)`
-+ Added variable values`['p':a, 'q': b, 'r': c]` in the map. Now, the variables`$p`,`$q`and`$r`are GraphQL variables not Groovy variables.
++ Replaced the `\"""` with just `'''` . Using three `'` in Groovy, we have the same effect as `"""`. without string interpolation. It means that `$a` is not evaluated as a Groovy variable and remains as a part of the string.
++ Added GraphQL variables `CreateBook($p: String, $q: Float, $r: Int)`
++ Added variable values `['p':a, 'q': b, 'r': c]` in the map. Now, the variables `$p` , `$q` and `$r` are GraphQL variables not Groovy variables.
 
 With these changes, the result is the same as the previous example!

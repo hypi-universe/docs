@@ -11,9 +11,21 @@ GraphQL queries return only the data you define. To construct a query, you must 
 
 ## GraphQL API
 
-The GraphQL API has a single endpoint:`https://api.hypi.app/graphql`You should construct queries like this:
+The GraphQL API has a single endpoint: `https://api.hypi.app/graphql` You should construct queries like this:
 
 > Note:  Arcql is Hypi's SQL-like query language used to filter, sort and paginate data in the platform.
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs
+  defaultValue="query"
+  values={[
+    {label: 'GraphQL Query', value: 'query'},
+    {label: 'Input Data', value: 'data'},
+    {label: 'Response', value: 'response'},
+  ]}>
+<TabItem value="query">
 
 ```java
 query getMyTodos($arcql:String) {
@@ -26,12 +38,20 @@ query getMyTodos($arcql:String) {
      completed
    }
 }
-# Variables
+```
+
+</TabItem>
+<TabItem value="data">
+
+```java
 {
     "arcql": "* SORT hypi.updated DESC"
  }
 ```
-Result:
+</TabItem>
+
+<TabItem value="response">
+
 ```json
 {
        "data": {
@@ -49,9 +69,12 @@ Result:
  }
 ```
 
+</TabItem>
+</Tabs>
+
 ## Authorization
 
-**Note:**  You need to pass the Authorization`token`header before querying to get the results. Here's Example of setting up your header with auth token.
+**Note:**  You need to pass the Authorization `token` header before querying to get the results. Here's Example of setting up your header with auth token.
 
 ```json
 {
@@ -86,12 +109,12 @@ variables {
 
 There are three steps to using variables:
 
-+ Create the variable outside the operation in a`variables`object:
++ Create the variable outside the operation in a `variables` object:
 
 + The variable needs to be pass to the operation as an argument: `query($arcql:String!){`
 
-+ Use the variable within the operation:`todos(arcql: $arcql) {`
++ Use the variable within the operation: `todos(arcql: $arcql) {`
 
-This process makes the query argument dynamic. You can change the value in the`variables`object and keep the foundation of the query the same.
+This process makes the query argument dynamic. You can change the value in the `variables` object and keep the foundation of the query the same.
 
-Using variables as arguments lets you dynamically update values in the variables object without changing the query and using the Hypi`arcql`variable lets you filter, sort and paginate data in the platform.
+Using variables as arguments lets you dynamically update values in the variables object without changing the query and using the Hypi `arcql` variable lets you filter, sort and paginate data in the platform.

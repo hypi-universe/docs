@@ -46,7 +46,7 @@ Please note the following points:
 
 The API URLs you use depend on how you intend to work with your app. You make requests to these URLs to access the APIs. For the platform to know which of your instances it should route your request to, you must provide the `hypi-domain` header.
 
-+ `[https://api.hypi.app/graphql]`- allows you to execute GraphQL queries against your instance. This unique URL is an endpoint that represents an object or collection of objects within the Hypi domain. You will point your HTTP client at this endpoint to interact with Hypi data resources.
++ [https://api.hypi.app/graphql](https://api.hypi.app/graphql) - allows you to execute GraphQL queries against your instance. This unique URL is an endpoint that represents an object or collection of objects within the Hypi domain. You will point your HTTP client at this endpoint to interact with Hypi data resources.
 
      Check the curl request below that access this URL.
       
@@ -54,6 +54,6 @@ The API URLs you use depend on how you intend to work with your app. You make re
 curl -v 'https://api.hypi.app/graphql' -H 'Content-Type: application/json' -H 'Authorization: &lt;auth-token-here&gt;' -H 'hypi-domain: my-instance.apps.hypi.app' --data-binary '&lt;graphql-query-here&gt;' --compressed
 ```
 
-+ `https://api.hypi.app/rest](https://api.hypi.app/rest)`- allows you to use standard REST-like requests to execute queries against your instance. Check out RESTful APIs [here](rest-apis.md).
++ [https://api.hypi.app/rest](https://api.hypi.app/rest) - allows you to use standard REST-like requests to execute queries against your instance. Check out RESTful APIs [here](rest-apis.md).
 
-+ `wss://api.hypi.app` - allows you to subscribe to updates via WebSockets. Establishing a WebSocket connection provides a persistent connection between client and server and facilitates message passing between them.
++ [wss://api.hypi.app](#) - allows you to subscribe to updates via WebSockets. Establishing a WebSocket connection provides a persistent connection between client and server and facilitates message passing between them.

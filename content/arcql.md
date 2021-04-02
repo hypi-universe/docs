@@ -82,7 +82,11 @@ You may frame a query like this:
 
 Here, `a` is the field name. `b` is an object and `c` is the field in object b.
 
-> If ASC/DESC order is not specified, hypi performs DESC order by default.
+:::info
+
+If ASC/DESC order is not specified, hypi performs DESC order by default.
+
+:::info
 
 Let’s consider few examples with the inserted data:
 
@@ -90,6 +94,18 @@ Let’s consider few examples with the inserted data:
 
 Query Statement: 
 `arcql: "* SORT title ASC"`
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs
+  defaultValue="query"
+  values={[
+    {label: 'GraphQL Query', value: 'query'},
+    {label: 'Response', value: 'response'},
+  ]}>
+<TabItem value="query">
+
 ```java
 {
  find(type: Book, arcql: "* SORT title ASC") {
@@ -104,7 +120,11 @@ Query Statement:
   }
 }
 ```
-Result:
+
+</TabItem>
+
+<TabItem value="response">
+
 ```json
 {
  "data": {
@@ -158,11 +178,26 @@ Result:
 }
 ```
 
+</TabItem>
+</Tabs>
+
+
 #### SORT EXAMPLE 2
 
+Query Statement:
 `arcql: "* SORT price DESC"`
 
-Query Statement: 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs
+  defaultValue="query"
+  values={[
+    {label: 'GraphQL Query', value: 'query'},
+    {label: 'Response', value: 'response'},
+  ]}>
+<TabItem value="query">
+
 ```java
  find(type: Book, arcql: "* SORT price DESC") {
      edges {
@@ -176,7 +211,11 @@ Query Statement:
      }
 }
 ```
-Result:
+
+</TabItem>
+
+<TabItem value="response">
+
 ```json
 {
  "data": {
@@ -230,6 +269,9 @@ Result:
 }
 ```
 
+</TabItem>
+</Tabs>
+
 ***
 
 ### Term Query
@@ -248,6 +290,18 @@ Boolean Logic is possible on all query types. As specified in the third statemen
 
 Query Statement:
 `arcql: "title='Wise and Otherwise'"`
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs
+  defaultValue="query"
+  values={[
+    {label: 'GraphQL Query', value: 'query'},
+    {label: 'Response', value: 'response'},
+  ]}>
+<TabItem value="query">
+
 ```java
 {
   find(type: Book, arcql: "title='Wise and Otherwise'") {
@@ -264,7 +318,11 @@ Query Statement:
 }
 
 ```
-Result:
+
+</TabItem>
+
+<TabItem value="response">
+
 ```json
 {
   "data": {
@@ -282,10 +340,26 @@ Result:
   }
 }
 ```
+
+</TabItem>
+</Tabs>
+
 #### TERM QUERY EXAMPLE 2
 
 Query Statement: 
 `price=5.99 AND authorid = 2`
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs
+  defaultValue="query"
+  values={[
+    {label: 'GraphQL Query', value: 'query'},
+    {label: 'Response', value: 'response'},
+  ]}>
+<TabItem value="query">
+
 ```java
 {
   find(type: Book, arcql: "price=5.99 AND authorid = 2") {
@@ -303,7 +377,11 @@ Query Statement:
 }
 
 ```
-Result:
+
+</TabItem>
+
+<TabItem value="response">
+
 ```json
 {
   "data": {
@@ -322,10 +400,26 @@ Result:
   }
 }
 ```
+
+</TabItem>
+</Tabs>
+
+
 #### TERM QUERY EXAMPLE 3
 
 Query Statement: 
 `(price=5.99 AND authorid = 1) OR authorid = 2`
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs
+  defaultValue="query"
+  values={[
+    {label: 'GraphQL Query', value: 'query'},
+    {label: 'Response', value: 'response'},
+  ]}>
+<TabItem value="query">
 
 ```java
 {
@@ -343,7 +437,11 @@ Query Statement:
   }
 }
 ```
-Result:
+
+</TabItem>
+
+<TabItem value="response">
+
 ```json
 {
   "data": {
@@ -378,6 +476,10 @@ Result:
   }
 }
 ```
+
+</TabItem>
+</Tabs>
+
 ***
 
 ### Phrase Query
@@ -396,6 +498,18 @@ Here `a` is any field from the data type. Consider the third statement. Here, th
 
 Query Statement: 
 `name ~ 'sudha'`
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs
+  defaultValue="query"
+  values={[
+    {label: 'GraphQL Query', value: 'query'},
+    {label: 'Response', value: 'response'},
+  ]}>
+<TabItem value="query">
+
 ```java
 {
   find(type: Author, arcql: "name ~ 'sudha'" ) {
@@ -410,7 +524,11 @@ Query Statement:
   }
 }
 ```
-Result:
+
+</TabItem>
+
+<TabItem value="response">
+
 ```json
 {
   "data": {
@@ -427,10 +545,26 @@ Result:
   }
 }
 ```
+
+</TabItem>
+</Tabs>
+
 #### PHRASE QUERY EXAMPLE 2
 
 Query Statement: 
 `name ~ 'sudha' OR age ~ 56`
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs
+  defaultValue="query"
+  values={[
+    {label: 'GraphQL Query', value: 'query'},
+    {label: 'Response', value: 'response'},
+  ]}>
+<TabItem value="query">
+
 ```java
 {
   find(type: Author, arcql: "name ~ 'sudha' OR age ~ 56" ) {
@@ -445,7 +579,11 @@ Query Statement:
   }
 }
 ```
-Result:
+
+</TabItem>
+
+<TabItem value="response">
+
 ```json
 {
   "data": {
@@ -469,6 +607,9 @@ Result:
 }
 ```
 
+</TabItem>
+</Tabs>
+
 ***
 
 ### EXIST
@@ -476,6 +617,18 @@ Result:
 + EXIST a
 
 This query returns records that have non-null data in the field `a`.
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs
+  defaultValue="query"
+  values={[
+    {label: 'GraphQL Query', value: 'query'},
+    {label: 'Response', value: 'response'},
+  ]}>
+<TabItem value="query">
+
 ```java
 {
   find(type: Author, arcql: "EXIST age") {
@@ -491,7 +644,11 @@ This query returns records that have non-null data in the field `a`.
   }
 }
 ```
-Result:
+
+</TabItem>
+
+<TabItem value="response">
+
 ```json
 {
   "data": {
@@ -525,6 +682,9 @@ Result:
 }
 ```
 
+</TabItem>
+</Tabs>
+
 ***
 
 ### NOT EXIST
@@ -532,6 +692,17 @@ Result:
 This query returns records that have null data in the field `a`.
 
 + NOT EXIST a
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs
+  defaultValue="query"
+  values={[
+    {label: 'GraphQL Query', value: 'query'},
+    {label: 'Response', value: 'response'},
+  ]}>
+<TabItem value="query">
 
 ```java
 {
@@ -548,7 +719,11 @@ This query returns records that have null data in the field `a`.
   }
 }
 ```
-Result:
+
+</TabItem>
+
+<TabItem value="response">
+
 ```json
 {
   "data": {
@@ -567,6 +742,9 @@ Result:
 }
 ```
 
+</TabItem>
+</Tabs>
+
 ***
 
 ### Prefix Query
@@ -582,6 +760,18 @@ The last statement returns the records from the field `a` that start with ‘som
 
 Query Statement: 
 `name ^ 'Paulo' OR age ^ 5`
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs
+  defaultValue="query"
+  values={[
+    {label: 'GraphQL Query', value: 'query'},
+    {label: 'Response', value: 'response'},
+  ]}>
+<TabItem value="query">
+
 ```java
 {
   find(type: Author, arcql: "name ^ 'Paulo' OR age ^ 5" ) {
@@ -596,7 +786,11 @@ Query Statement:
   }
 }
 ```
-Result:
+
+</TabItem>
+
+<TabItem value="response">
+
 ```json
 {
   "data": {
@@ -620,6 +814,9 @@ Result:
 }
 ```
 
+</TabItem>
+</Tabs>
+
 ***
 
 ### Wildcard Query
@@ -636,6 +833,18 @@ The first statement searches words with ‘some’ like someone, somewhere, some
 
 Query Statement: 
 `name * 'P*'`
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs
+  defaultValue="query"
+  values={[
+    {label: 'GraphQL Query', value: 'query'},
+    {label: 'Response', value: 'response'},
+  ]}>
+<TabItem value="query">
+
 ```java
 {
   find(type: Author, arcql: "name * 'P*'" ) {
@@ -650,7 +859,11 @@ Query Statement:
   }
 }
 ```
-Result:
+
+</TabItem>
+
+<TabItem value="response">
+
 ```json
 {
   "data": {
@@ -669,12 +882,27 @@ Result:
 
 ```
 
+</TabItem>
+</Tabs>
+
 ***
 
 #### WILDCARD QUERY EXAMPLE 2
 
 Query Statement: 
 `age * '?6'`
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs
+  defaultValue="query"
+  values={[
+    {label: 'GraphQL Query', value: 'query'},
+    {label: 'Response', value: 'response'},
+  ]}>
+<TabItem value="query">
+
 ```java
 {
   find(type: Author, arcql: "age * '?6'" ) {
@@ -689,7 +917,10 @@ Query Statement:
   }
 }
 ```
-Result:
+</TabItem>
+
+<TabItem value="response">
+
 ```json
 {
   "data": {
@@ -706,6 +937,9 @@ Result:
   }
 }
 ```
+
+</TabItem>
+</Tabs>
 
 ***
 
@@ -732,6 +966,18 @@ The strings work in alphabetical order. The query returns the values that start 
 
 Query Statement: 
 `age IN (50, 70)`
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs
+  defaultValue="query"
+  values={[
+    {label: 'GraphQL Query', value: 'query'},
+    {label: 'Response', value: 'response'},
+  ]}>
+<TabItem value="query">
+
 ```java
 {
   find(type: Author, arcql: "age IN (50, 70)") {
@@ -746,7 +992,12 @@ Query Statement:
   }
 }
 ```
-Result:
+
+
+</TabItem>
+
+<TabItem value="response">
+
 ```json
 {
   "data": {
@@ -763,10 +1014,26 @@ Result:
   }
 }
 ```
+
+
+</TabItem>
+</Tabs>
+
 #### RANGE QUERY EXAMPLE 2
 
 Query Statement: 
 `age IN (50, 70]`
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs
+  defaultValue="query"
+  values={[
+    {label: 'GraphQL Query', value: 'query'},
+    {label: 'Response', value: 'response'},
+  ]}>
+<TabItem value="query">
 
 ```java
 {
@@ -781,7 +1048,11 @@ Query Statement:
     }
   }
 ```
-Result:
+
+</TabItem>
+
+<TabItem value="response">
+
 ```json
 {
   "data": {
@@ -810,10 +1081,25 @@ Result:
   }
 }
 ```
+
+</TabItem>
+</Tabs>
+
 #### RANGE QUERY EXAMPLE 3
 
 Query Statement: 
 `title IN ['Da Vinci Code','Inferno']`
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs
+  defaultValue="query"
+  values={[
+    {label: 'GraphQL Query', value: 'query'},
+    {label: 'Response', value: 'response'},
+  ]}>
+<TabItem value="query">
 
 ```java
 {
@@ -829,7 +1115,11 @@ Query Statement:
   }
 }
 ```
-Result:
+
+</TabItem>
+
+<TabItem value="response">
+
 ```json
 {
   "data": {
@@ -859,11 +1149,26 @@ Result:
 }
 ```
 
+</TabItem>
+</Tabs>
+
 ***
 
 ### Match All Query
 
 A match all query is a query with the value **“\*”**. It returns all the data from all the fields.
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs
+  defaultValue="query"
+  values={[
+    {label: 'GraphQL Query', value: 'query'},
+    {label: 'Response', value: 'response'},
+  ]}>
+<TabItem value="query">
+
 ```java
 {
   find(type: Author, arcql: "*" ) {
@@ -878,7 +1183,11 @@ A match all query is a query with the value **“\*”**. It returns all the dat
   }
 }
 ```
-Result:
+
+</TabItem>
+
+<TabItem value="response">
+
 ```json
 {
   "data": {
@@ -913,6 +1222,9 @@ Result:
   }
 }
 ```
+
+</TabItem>
+</Tabs>
 
 ***
 
@@ -964,6 +1276,18 @@ mutation {
 }
 ```
 Now we can locate the objects within a given radius.
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs
+  defaultValue="query"
+  values={[
+    {label: 'GraphQL Query', value: 'query'},
+    {label: 'Response', value: 'response'},
+  ]}>
+<TabItem value="query">
+
 ```java
 {
  find(type: GPS, arcql: "geo(0.55835374214,0.60852837672,0.5,'x','y')") {
@@ -978,7 +1302,11 @@ Now we can locate the objects within a given radius.
      }
 }
 ```
-Result:
+
+</TabItem>
+
+<TabItem value="response">
+
 ```json
 {
  "data": {
@@ -1001,6 +1329,11 @@ Result:
    }
 }
 ```
+
+</TabItem>
+</Tabs>
+
+
 ### TYPE IN-FIELD IN Queries
 
 Both forms of queries `<fieldExr> TYPE IN` and `<fieldExpr> FIELD IN` are translated to SQL sub-queries with the `IN` clause. These forms of queries act only on scalar fields.
@@ -1078,23 +1411,39 @@ In the above ArcQL query, Book table performs `SELF JOIN` combining all the auth
 
 Let’s look into the entire query and results.
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs
+  defaultValue="query"
+  values={[
+    {label: 'GraphQL Query', value: 'query'},
+    {label: 'Response', value: 'response'},
+  ]}>
+<TabItem value="query">
+
 ```java
-{                                                                       find(type: Book, arcql: "authorinfo.name TYPE IN Author:booklist.authorinfo.name WHERE hypi.id = 'Author2'") {
+{
+  find(type: Book, arcql: "authorinfo.name TYPE IN Author:booklist.authorinfo.name WHERE hypi.id = 'Author2'") {
     edges {
-        node {
-            ... on Book {
-                    title
-                    authorinfo{
-                        name
-                    }
-                }
-            }
-        cursor
+      node {
+        ... on Book {
+         title
+          authorinfo{
+            name          
+          }
         }
+      }
+      cursor
     }
+  }
 }
 ```
-Result :
+
+</TabItem>
+
+<TabItem value="response">
+
 ```json
 {
  "data": {
@@ -1133,6 +1482,10 @@ Result :
      }
 }
 ```
+
+</TabItem>
+</Tabs>
+
 Thus we get books by `Author2` from both tables using `TYPE IN`. Frame your own query using TYPE IN.
 
 #### FIELD IN
@@ -1155,7 +1508,19 @@ The query says:
 
 First the query will perform self join on Books table to get all the author names excluding Author2 from left hand side. Then it does a SQL `IN` on the results of the query on the right hand side. 
 
-Here Names of Author1, 2 and 3 are the common author names from both sides. Author4 would be skipped from the list.
+Here Names of Author1, 2 and 3 are the common author names from both sides. Author4 would be skipped from the list. So this list returns all the books (Books by Author2 as well as books not written by Author2).
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs
+  defaultValue="query"
+  values={[
+    {label: 'GraphQL Query', value: 'query'},
+    {label: 'Response', value: 'response'},
+  ]}>
+<TabItem value="query">
+
 ```java
 {
  find(type: Book, arcql: "hypi.id != 'Author2' AND Author:booklist.authorinfo.name FIELD IN Author:booklist.authorinfo.name WHERE hypi.id = 'Author2'") {
@@ -1173,6 +1538,11 @@ Here Names of Author1, 2 and 3 are the common author names from both sides. Auth
      }
 }
 ```
+
+</TabItem>
+
+<TabItem value="response">
+
 ```json
 {
  "data": {
@@ -1266,4 +1636,6 @@ Here Names of Author1, 2 and 3 are the common author names from both sides. Auth
      }
 }
 ```
-So this list returns all the books (Books by Author2 as well as books not written by Author2).
+
+</TabItem>
+</Tabs>
