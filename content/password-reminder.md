@@ -111,9 +111,9 @@ Include the code in this URL e.g. https://my-app.com/reset-password?code=$!{pare
 
 When the user gets to this page, you will have the password reset code in the URL query string. Get this code from the URL and when the user enters the new password, make a POST request to the Hypi API as follows.
 
-`POST  <hypi-domain>/email/reset/<domain>`
+`POST  <hypi-domain>/email/reset/\<domain\>`
 
-Here \<domain> is app instance domain and hypi domain is \`https://api.hypi.app\`.
+Here \<domain\> is app instance domain and hypi domain is \`https://api.hypi.app\`.
 
 E.g.  [https://api.hypi.app/email/reset/scalability.apps.hypi.app](https://api.hypi.app/email/reset/scalability.apps.hypi.app)
 
@@ -123,8 +123,8 @@ In the body of the request send a JSON like this:
 
 ```json
 {
-    "code": "<the-code-from-the-URL>", 
-    "password": "<the-user's-new-password>"
+    "code": "\<the-code-from-the-URL>", 
+    "password": "\<the-user's-new-password>"
 }
 ```
 Send curl Query to reset password:
