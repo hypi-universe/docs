@@ -151,6 +151,123 @@ module.exports = {
             to: '/docs/arcql',
             from: ['/references/arcql'],
           },
+	  {
+            to: '/docs/crud',
+            from: ['/references/crud'],
+          },
+	  {
+            to: '/docs/authorisation',
+            from: ['/references/authorisation'],
+          },
+          {
+            to: '/docs/apigateway',
+            from: ['/references/api-gateway'],
+          },
+          {
+            to: '/docs/aggregation',
+            from: ['/references/aggregations-api'],
+          },
+          {
+            to: '/docs/rest-apis',
+            from: ['/references/rest-api'],
+          },
+	  {
+            to: '/docs/workflow',
+            from: ['/references/workflow'],
+          },
+          {
+            to: '/docs/webhooks',
+            from: ['/references/webhooks'],
+          },
+	  {
+            to: '/docs/maths-api',
+            from: ['/references/math-api'],
+          },
+          {
+            to: '/docs/triggers',
+            from: ['/references/triggers'],
+          },
+          {
+            to: '/docs/serverlessfunction',
+            from: ['/references/serverless-functions'],
+          },
+	  {
+            to: '/docs/user-defined-function',
+            from: ['/references/user-defined-functions'],
+          },
+          {
+            to: '/docs/fileupload',
+            from: ['/references/file-upload'],
+          },
+          {
+            to: '/docs/oauth2login',
+            from: ['/references/oauth2-login'],
+          },
+          {
+            to: '/docs/graphql',
+            from: ['/tutorials/graphql'],
+          },
+          {
+            to: '/docs/gql-introduction',
+            from: ['/tutorials/graphql/intro'],
+          },
+          {
+            to: '/docs/gql-queries',
+            from: ['/tutorials/graphql/query'],
+          },
+          {
+            to: '/docs/gql-mutations',
+            from: ['/tutorials/graphql/mutation'],
+          },
+          {
+            to: '/docs/references',
+            from: ['/tutorials/graphql/subscription'],
+          },
+          {
+            to: '/docs/magic-hypi-object',
+            from: ['/tutorials/graphql/hypi-object'],
+          },
+          {
+            to: '/docs/gql-directives',
+            from: ['/tutorials/graphql/directives'],
+          },
+          {
+            to: '/docs/gql-interfaces',
+            from: ['/tutorials/graphql/interfaces'],
+          },
+          {
+            to: '/docs/gql-schema-types',
+            from: ['/tutorials/graphql/schema-and-types'],
+          },
+          {
+            to: '/docs/gql-crud-tutorial',
+            from: ['/tutorials/crud'],
+          },
+          {
+            to: '/docs/time-series-aggregations',
+            from: ['/tutorials/dateGranularity'],
+          },
+          {
+            to: '/docs/references',
+            from: ['/tutorials/graph'],
+          },
+          {
+            to: '/docs/hypi-angular',
+            from: ['/getting-started/angular'],
+          },
+          {
+            to: '/docs/',
+            from: ['/introduction'],
+          },
+ 	  {
+            to: 'docs/get-started',
+            from: ['/getting-started/scratch'],
+          },
+  	  {
+            to: '/docs/overview',
+            from: ['/references/app'],
+          },
+          
         ],
       },
     ],
