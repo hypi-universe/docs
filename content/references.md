@@ -39,6 +39,7 @@ unlink(
 | **Via**         | The field of object ‘to’ in the object ‘from’                                              | Booklist       |
 | **whereFromID** | Hypi ID of the Object of type ‘from’ that needs an entry of object ‘to’                    | ‘Author1’      |
 | **andToID**     | Hypi ID of the Object of type ‘to’ that needs to be entered into the object of type ‘from’ | ‘Book1’        |
+
 ## Examples
 
 To go through examples, we will need below schema.
@@ -61,6 +62,17 @@ Here, the field `bestbook` will be used to generate `one-to-one reference` betwe
 
 Let’s add data in the table Author and table Book as follows.
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs
+  defaultValue="query"
+  values={[
+    {label: 'GraphQL Query', value: 'query'},
+    {label: 'Input Data', value: 'data'},
+ ]}>
+<TabItem value="query">
+
 ```java
 
 mutation Upsert($values: HypiUpsertInputUnion!) {
@@ -68,6 +80,13 @@ mutation Upsert($values: HypiUpsertInputUnion!) {
     id
   }
 }
+```
+
+</TabItem>
+
+<TabItem value="data">
+
+```java
 //Author Table
 {
   "data": {
@@ -112,14 +131,24 @@ mutation Upsert($values: HypiUpsertInputUnion!) {
     ]
   }
 }      
-
-
-
 ```
+</TabItem>
+</Tabs>
 
 ### One-to-One Reference
 
 If you want to enter `Book1` as the bestbook of Author1, you may link Author1 with Book1 via field `bestbook`.
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs
+  defaultValue="query"
+  values={[
+    {label: 'GraphQL Query', value: 'query'},
+    {label: 'Response', value: 'response'},
+  ]}>
+<TabItem value="query">
 
 ```java
 mutation {
@@ -127,7 +156,10 @@ mutation {
     via:"bestbook",whereFromID:"Author1",andToID:"Book1")
 }
 ```
-Result:
+
+</TabItem>
+<TabItem value="response">
+
 ```json
 {
   "data": {
@@ -135,6 +167,10 @@ Result:
   }
 }
 ```
+
+</TabItem>
+</Tabs>
+
 Linking the tables results in the insertion of data from Book1 into the field Bestbook of Author1. Now, retrieve data of Author using find function and verify.
 
 ```json
@@ -170,18 +206,38 @@ Linking the tables results in the insertion of data from Book1 into the field Be
 }
 ```
 You may remove the reference using the unlink function.
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs
+  defaultValue="query"
+  values={[
+    {label: 'GraphQL Query', value: 'query'},
+    {label: 'Response', value: 'response'},
+  ]}>
+<TabItem value="query">
+
 ```java
 mutation{
     unlink(from:Author,to:Book,
     via:"bestbook",whereFromID:"Author1",andToID:"Book1")
 }
-//Result
+```
+</TabItem>
+<TabItem value="response">
+
+```json
 {
   "data": {
     "unlink": true
   }
 }
 ```
+
+</TabItem>
+</Tabs>
+
 This results in the setting of the value of bestbook as null. Book1 data remains as it is. But the object simply gets removed from the field bestbook of object Author1.
 ```json
 {
@@ -220,18 +276,39 @@ This results in the setting of the value of bestbook as null. Book1 data remains
 ### Many-to-One Reference:
 
 The `link` function works on an array as well. You may link to the booklist field from the Author1 object to Book1. So an entry of Book1 gets added into the booklist array of Author1.
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs
+  defaultValue="query"
+  values={[
+    {label: 'GraphQL Query', value: 'query'},
+    {label: 'Response', value: 'response'},
+  ]}>
+<TabItem value="query">
+
 ```java
 mutation{
     link(from:Author,to:Book,
     via:"booklist",whereFromID:"Author1",andToID:"Book1")
 }
-//Result
+```
+
+</TabItem>
+<TabItem value="response">
+
+```json
 {
   "data": {
     "link": true
   }
 }
 ```
+
+</TabItem>
+</Tabs>
+
 You may retrieve data from Author1 using find function.
 ```json
 {
@@ -268,18 +345,38 @@ You may retrieve data from Author1 using find function.
 ```
 Unlinking the reference would simply remove the entry Book1 from the booklist. The Book1 object would not get deleted from the platform. But its entry would be removed from the array. 
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs
+  defaultValue="query"
+  values={[
+    {label: 'GraphQL Query', value: 'query'},
+    {label: 'Response', value: 'response'},
+  ]}>
+<TabItem value="query">
+
 ```java
 mutation{
     unlink(from:Author,to:Book,
     via:"booklist",whereFromID:"Author1",andToID:"Author1Book1")
 }
-//Result
+```
+
+</TabItem>
+<TabItem value="response">
+
+```json
 {
   "data": {
     "unlink": true
   }
 }
 ```
+
+</TabItem>
+</Tabs>
+
 Retrieve Author1 data to get following result.
 ```json
 {
@@ -309,6 +406,7 @@ Retrieve Author1 data to get following result.
 }      
 
 ```
+
 Using link and unlink function you may add or remove objects from the array of objects.
 
 ***
@@ -322,7 +420,7 @@ You may add the `subscription` to any field of any data type. The subscription w
 
 ### Example
 
-Here, we are configuring the subscription on the`name` field of the `Author` type. This switches on the listener mode of the receiver. This works as a listener/receiver socket.
+Here, we are configuring the subscription on the `name`  field of the `Author` type. This switches on the listener mode of the receiver. This works as a listener/receiver socket.
 
 ```json
 subscription {
@@ -333,7 +431,9 @@ subscription {
   }
 }
 ```
+
 Open second Hypi GraphQL editor on another tab of the browser selecting the same release and same instance. This works as a sender socket. Insert data in the name field.
+
 ```json
 mutation Upsert($values: HypiUpsertInputUnion!) {
   upsert(values: $values) {
@@ -351,7 +451,9 @@ mutation Upsert($values: HypiUpsertInputUnion!) {
   }
 }  
 ```
+
 You will get the notification of this insertion into the previous socket that was listening to this event.
+
 ```json
 {
   "data": {
@@ -364,7 +466,9 @@ You will get the notification of this insertion into the previous socket that wa
   "errors": null
 }
 ```
+
 You may perform any number of upsert operation. The upsert event would be notified in the listener tab.
+
 ```json
 {
   "data": {
@@ -388,4 +492,5 @@ You may perform any number of upsert operation. The upsert event would be notifi
   "errors": null
 }    
 ```
+
 Please note that you insert data in the `age` field of Author1, the insertion notification would not be received.

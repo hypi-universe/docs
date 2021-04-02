@@ -17,7 +17,7 @@ module.exports = {
     {
       type: 'category',
       label: 'API & References',
-      items: ['apisetup','authentication','arcql','hypiobject','crud','createdata','updatedata','readdata','deletedata','authorisation','apigateway','aggregation','mathsapi','userdefinedfunctions','workflow','triggers','webhooks','serverlessfunction','fileupload','rest-apis','oauth2login'],
+      items: ['apisetup','authentication','arcql','hypiobject','crud','createdata','updatedata','readdata','deletedata','references','authorisation','apigateway','aggregation','mathsapi','userdefinedfunctions','workflow','triggers','webhooks','serverlessfunction','fileupload','rest-apis','oauth2login','password-reminder'],
     },
     {
       type: 'category',
@@ -46,21 +46,23 @@ module.exports = {
       label: 'User Interface Guide',
       items: [],
     },
-	
-    {
-      type: 'category',
-      label: 'Glossary',
-      items: ['glossary'],
-    },
+    'glossary',
+    'get-involved',
+    	
+//    {
+//      type: 'category',
+//      label: 'Glossary',
+ //     items: ['glossary'],
+ //   },
     {
       type: 'category',
       label: 'Release Notes',
       items: [],
     },
-    {
-      type: 'category',
-      label: 'Get Involved',
-      items: ['get-involved'],
-    },
+ //   {
+ //     type: 'category',
+ //     label: 'Get Involved',
+ //     items: ['get-involved'],
+ //   },
   ],
 };
