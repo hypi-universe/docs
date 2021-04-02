@@ -65,17 +65,14 @@ mutation Upsert($values: HypiUpsertInputUnion!) {
 
     "values": {
     "PasswordReminder": [
-    {
-      "code": "abc",
-      "valid" : true,
-      "to" : {
-        "value": "abc@gmail.com",
-        "type": "work"
-      },
-      "subject": "Change Password",
-      "plainTextMessage": "Hi"
-    }
-    ]
+        {
+          "to" : {
+            "value": "abc@gmail.com",
+            "type": "work"
+          },
+          "subject": "Change Password",     
+        }
+     ]
   }
 }
 ```
@@ -108,7 +105,7 @@ Your password reset code is 01F21B593SD5VKJQYWS8N38H1F.
 
 :::
 
-In the message, you should also provide a link to a URL where the user can enter their new password.
+In the HTML / Plain message, you should also provide a link to a URL where the user can enter their new password.
 
 Include the code in this URL e.g. https://my-app.com/reset-password?code=$!{parent.code}.
 
@@ -147,7 +144,7 @@ The `passwordReminder` object becomes invalid with this.
       "edges": [
         {
           "node": {
-            "code": "01F21EH11ZJ11228FFE9M68C9G",
+            "code": "01F21B593SD5VKJQYWS8N38H1F",
             "valid": false,
             "htmlMessage": "  Hi ,<br />\n Your password reset code is .\n  "
           },
