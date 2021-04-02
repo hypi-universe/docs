@@ -53,6 +53,7 @@ type Hypi {
 | **created**    | DateTime      | The date when the object was created.                        |
 | **createdBy**  | String        | The ID of the User Account which created the object.         |
 | **instanceId** | String        | The ID of the app instance which created and owns the object |
+
 Hypi updates some of the fields automatically like `trashed`, `updated`, `created`,`createdBy`.
 
 A field like ‘id’ may get generated automatically. But you may set it as well. ’impl’ field value has to be set. Let’s look at these two fields in detail.

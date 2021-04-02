@@ -91,9 +91,6 @@ login(username:String!,password:String!): AccessToken
 ```
  It takes a username and password as inputs. Successful login generates session token. The user has to use the session token to perform various actions. This function also returns the session expiry time. If any error comes during login, you may also get an error code and error message.
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 <Tabs
   defaultValue="query"
   values={[
@@ -139,9 +136,6 @@ import TabItem from '@theme/TabItem';
 ## loginByEmail:
 
 Users may log in using the `loginByEmai` function. This function takes email-id and password as inputs. It also generates session-token and provides error code and error message if any.
-
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
 
 <Tabs
   defaultValue="query"

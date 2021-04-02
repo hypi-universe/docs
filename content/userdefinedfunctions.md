@@ -157,9 +157,6 @@ type Query {
 
 `SetBookInfo` is a user defined function to set parameter values inside the table `Book`. Upon successful creation of the object, the `hypi.id` is returned.
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 <Tabs
   defaultValue="query"
   values={[
@@ -201,9 +198,6 @@ mutation {
 </Tabs>
 
 Let's retrieve `Author` table data using `GetAthorInfo`. Pass the Author id as `Author1` .It returns the author infomation with id 'Author1'
-
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
 
 <Tabs
   defaultValue="query"

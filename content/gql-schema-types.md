@@ -133,9 +133,6 @@ schema {
 ```
 Every GraphQL service has a query type and may or may not have a mutation type. These types are the same as a regular object type, but they are special because they define the entry point of every GraphQL query. So if you see a query that looks like:
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 <Tabs
   defaultValue="query"
   values={[
@@ -192,9 +189,6 @@ It's important to remember that other than the special status of being the "entr
 A GraphQL object type has a name and fields, but at some point those fields have to resolve to some concrete data. That's where the scalar types come in: they represent the leaves of the query.
 
 In the following query, the name and appearsIn fields will resolve to scalar types:
-
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
 
 <Tabs
   defaultValue="query"

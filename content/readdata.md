@@ -122,9 +122,6 @@ This function has many parameters. Let’s look at this table to understand them
 
 Let’s check the below example. Records from an `Author` object are received using the `find` function. Records of Hypi IDs, updated date, name of the authors, and count of books are returned.
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 <Tabs
   defaultValue="query"
   values={[

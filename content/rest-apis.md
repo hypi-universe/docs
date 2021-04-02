@@ -74,9 +74,6 @@ $ curl --location --request GET
 
 The second is the login using the email method.
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 <Tabs
   defaultValue="query"
   values={[
@@ -120,9 +117,6 @@ Authentication can also be performed using POST method.
 #### Username
 
 The first is the login using the username method.
-
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
 
 <Tabs
   defaultValue="query"
@@ -168,9 +162,6 @@ $ curl --location --request POST '/rest/v1/login' \
 #### Email
 
 The second is the login using the email method.
-
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
 
 <Tabs
   defaultValue="query"
@@ -219,9 +210,6 @@ The four basic CRUD operations **C**reate,**R**ead,**U**pdate, and **D**elete ca
 ### POST
 
 In order to create a resource, send a POST request to the`/rest/v1`endpoint with the body containing the resource signature as defined by the GraphQL types.
-
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
 
 <Tabs
   defaultValue="query"
@@ -284,9 +272,6 @@ $ curl --location --request POST '/rest/v1' \
 
 In order to make an update request, the same endpoint and the payload can be used, however, the HTTP method should be`PUT`.
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 <Tabs
   defaultValue="query"
   values={[
@@ -347,9 +332,6 @@ $ curl --location --request PUT '/rest/v1' \
 ### GET by ID
 
 In order to access a resource, replace`URL/url1`with {{aggregate}}/{{identifier}} where {{aggregate}} is the GraphQL type name from your app's schema and {{identifier}} is the ID of the object to get.
-
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
 
 <Tabs
   defaultValue="query"
@@ -422,9 +404,6 @@ GraphQL find method can be used to access a resource, so replace`URL`with {{aggr
 
 > The ArcQL parameter accepts any valid filter supported by [ArcQL](arcql.md). The example here uses`hypi.id = 'url1'`only for simplicity.
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 <Tabs
   defaultValue="query"
   values={[
@@ -495,9 +474,6 @@ $ curl --location --request GET "/rest/v1/URL?first=2&arcql=hypi.id='url1'" \
 
 In order to delete a resource, replace`URL/url1`with {{aggregate}}/{{identifier}}
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 <Tabs
   defaultValue="query"
   values={[
@@ -531,9 +507,6 @@ $ curl --location --request DELETE '/rest/v1/URL/url1' \
 ### DELETE by ArcQL
 
 The same can be achieved using GraphQL by passing the identifier as a query parameter`?id=xx`and replace`URL`with {{aggregate}}
-
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
 
 <Tabs
   defaultValue="query"
@@ -576,9 +549,6 @@ Any arbitrary GraphQL function can be triggered using the following endpoint.
 #### POST
 
 `POST`can be used to create resources on the server. This is equivalent to calling the Hypi`upsert`function in GraphQL.
-
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
 
 <Tabs
   defaultValue="query"
@@ -640,9 +610,6 @@ $ curl --location --request POST '/rest/v1/fn/mutation/upsert' \
 #### PUT
 
 Similar to`POST`,`PUT`is used to update/modify existing resources.
-
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
 
 <Tabs
   defaultValue="query"
@@ -708,9 +675,6 @@ For further flexibility the**R**ead requests discussed above can be rephrased as
 #### Find
 
 The`GET`,`PUT`,`POST`and`DELETE`methods above are all semantics to make the API more familiar and inline with existing common practice but the same thing can be done by explicitly calling the appropriate function by passing the`aggregate`to`type`query parameter when using`find`GraphQL function. Unlike the`GET`function, this returns a list of objects matching the filter provided.
-
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
 
 <Tabs
   defaultValue="query"

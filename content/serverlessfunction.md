@@ -169,9 +169,6 @@ Observe here how the @tan directive is instructed to return payload of user-defi
 
 It is now time to run the function and pass some real values and obtain the results. Using a query like this.
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 <Tabs
   defaultValue="query"
   values={[
