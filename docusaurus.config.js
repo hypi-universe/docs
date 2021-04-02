@@ -267,6 +267,26 @@ module.exports = {
             to: '/docs/overview',
             from: ['/references/app'],
           },
+          {
+            to: '/docs/tutorials',
+            from: ['/tutorials/'],
+          },
+	  {
+            to: '/docs/get-started',
+            from: ['/getting-started/'],
+          },
+          {
+            to: '/docs/faq',
+            from: ['/faq'],
+          },
+          {
+            to: '/docs/api-references',
+            from: ['/reference'],
+          },
+          {
+            to: '/docs/api-references',
+            from: ['/references/'],
+          },
           
         ],
       },
