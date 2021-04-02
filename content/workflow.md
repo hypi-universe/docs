@@ -334,7 +334,8 @@ query Q($a: String, $b: String){BorrowBook1(a: $a, b:$b){
 
 </TabItem>
 <TabItem value="data">
-```
+
+```json
 {
  "a": "Author1",
  "b": "Inferno"

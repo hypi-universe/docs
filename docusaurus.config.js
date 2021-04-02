@@ -260,7 +260,7 @@ module.exports = {
             from: ['/introduction'],
           },
  	  {
-            to: 'docs/get-started',
+            to: '/docs/get-started',
             from: ['/getting-started/scratch'],
           },
   	  {
