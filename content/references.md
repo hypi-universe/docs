@@ -267,7 +267,7 @@ This results in the setting of the value of bestbook as null. Book1 data remains
 }
 ```
 
-### Many-to-One Reference:
+### One-to-Many Reference:
 
 The `link` function works on an array as well. You may link to the booklist field from the Author1 object to Book1. So an entry of Book1 gets added into the booklist array of Author1.
 

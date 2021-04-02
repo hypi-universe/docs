@@ -12,12 +12,12 @@ module.exports = {
     {
       type: 'category',
       label: 'Welcome',
-      items: ['introduction', 'overview', 'get-started'],
+      items: ['introduction', 'overview', 'get-started','faq'],
     },
     {
       type: 'category',
       label: 'API & References',
-      items: ['apisetup','authentication','arcql','hypiobject','crud','createdata','updatedata','readdata','deletedata','references','authorisation','apigateway','aggregation','mathsapi','userdefinedfunctions','workflow','triggers','webhooks','serverlessfunction','fileupload','rest-apis','oauth2login','password-reminder'],
+      items: ['api-references','apisetup','authentication','arcql','hypiobject','crud','createdata','updatedata','readdata','deletedata','references','authorisation','apigateway','aggregation','mathsapi','userdefinedfunctions','workflow','triggers','webhooks','serverlessfunction','fileupload','rest-apis','oauth2login','password-reminder'],
     },
     {
       type: 'category',
@@ -28,6 +28,7 @@ module.exports = {
       type: 'category',
       label: 'Tutorial',
       items: [
+	'tutorials',
 	'graphql',
         {
 	  'GraphQL Features': ['gql-introduction','gql-queries','gql-mutations','gql-directives','gql-interfaces','gql-schema-types'],
@@ -48,21 +49,11 @@ module.exports = {
     },
     'glossary',
     'get-involved',
-    	
-//    {
-//      type: 'category',
-//      label: 'Glossary',
- //     items: ['glossary'],
- //   },
-    {
+   {
       type: 'category',
       label: 'Release Notes',
       items: [],
     },
- //   {
- //     type: 'category',
- //     label: 'Get Involved',
- //     items: ['get-involved'],
- //   },
+
   ],
 };
