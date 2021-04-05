@@ -19,11 +19,7 @@ module.exports = {
       label: 'API & References',
       items: ['api-references','apisetup','authentication','arcql','hypiobject','crud','createdata','updatedata','readdata','deletedata','references','authorisation','apigateway','aggregation','mathsapi','userdefinedfunctions','workflow','triggers','webhooks','serverlessfunction','fileupload','rest-apis','oauth2login','password-reminder'],
     },
-    {
-      type: 'category',
-      label: 'Hypi + Angular',
-      items: ['hypi-angular'],
-    },
+    'hypi-angular',
     {
       type: 'category',
       label: 'Tutorial',

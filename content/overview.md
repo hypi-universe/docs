@@ -87,7 +87,7 @@ Within each release, you can define one or more variables and later populate val
 
 ## Instance
 
-An instance is an isolated copy of your app. Isolated copy means data created in one instance is not accessible by default from another instance. Only someone with permission can grant access between instances. Check here about the [permissions](#).
+An instance is an isolated copy of your app. Isolated copy means data created in one instance is not accessible by default from another instance. Only someone with permission can grant access between instances. Check here about the [permissions](authorisation.md).
 
 Data stored in the database at a particular time is called an instance of a database. Think of an app as a template and an instance as a deployed version of that template. A release may have one or more instances.
 

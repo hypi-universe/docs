@@ -42,7 +42,7 @@ enum Episode{
 
 Now, with a created instance of the app, navigate to the Api Editor of the instance, or do it programmatically with a http request to:
 
-[https://api.hypi.app/graphql](https://api.hypi.app/graphql)
+[https://api.hypi.app/graphql](#)
 
 with the http headers
 ```java
@@ -73,7 +73,7 @@ mutation {
 }
 ```
 
-As you can see, if you are familiar with **GraphQL** , the call is pretty simple, you pass in the object that you want to create as a `values`parameter to the `upsert` mutation, and specify what fields of the **Magic Hypi object** you want in the response.
+As you can see, if you are familiar with **GraphQL** , the call is pretty simple, you pass in the object that you want to create as a `values` parameter to the `upsert` mutation, and specify what fields of the **Magic Hypi object** you want in the response.
 
 You can look into all of the fields that the **Magic Hypi object** contains under its section in the Hypi GraphQL API documentation, here we just return the `id`.
 
@@ -125,7 +125,7 @@ hypi: {
 }
 ```
 
-Which is the`id`that we got back in the create response. As expected, the response remains the same as create.
+Which is the `id` that we got back in the create response. As expected, the response remains the same as create.
 
 ## Read
 
@@ -133,7 +133,7 @@ For reading the data, we will show you two queries that Hypi provides out of the
 
 **1\. get()**
 
-The **get** `query`provides a way to get a single object by its`hypi.id`. The query will like this.
+The **get** `query` provides a way to get a single object by its `hypi.id`. The query will like this.
 
 ```java
 query {
@@ -146,7 +146,7 @@ query {
 }
 ```
 
-As you can see the get query accepts`type`and`id`as parameters and it returns whatever fields you specify for the type that you are using it for.
+As you can see the get query accepts `type` and `id` as parameters and it returns whatever fields you specify for the type that you are using it for.
 
 The response from this query will be
 
@@ -160,19 +160,19 @@ The response from this query will be
   }
 }
 ```
-As we expected, we got the`name`and the`age`of the`Actor`with`id`“01ED4X75AG1G96PDC8A231KTC8”.
+As we expected, we got the `name` and the `age` of the `Actor` with `id` “01ED4X75AG1G96PDC8A231KTC8”.
 
 **2\. find()**
 
-The**find**`query`is used to search through your data, for the purpose of this tutorial we’ve created a few more actors in the database.
+The**find** `query` is used to search through your data, for the purpose of this tutorial we’ve created a few more actors in the database.
 
-The find query accepts two mandatory parameters`Type`and`arcql`, the`Type`is the type of object you want to query, and the`arcql`parameter is the query that you want to use for searching though the data.
+The find query accepts two mandatory parameters `Type` and `arcql`, the `Type` is the type of object you want to query, and the `arcql` parameter is the query that you want to use for searching though the data.
 
 To learn more about **Arcql** , please refer to the **Developer Hub** under the section**“Arc Query Language”**.
 
-In this tutorial we will cover listing of all of the actors and searching them by`name`.
+In this tutorial we will cover listing of all of the actors and searching them by `name`.
 
-For getting all of the actors we will send the wildcard “\*” as the`arcql`parameter, indicating that I want all of the actors. In the response, we want the`name`of the actor along with his`hypi.id`. The query will look like this.
+For getting all of the actors we will send the wildcard “\*” as the `arcql` parameter, indicating that I want all of the actors. In the response, we want the `name` of the actor along with his `hypi.id`. The query will look like this.
 
 ```java
 query {
@@ -193,7 +193,7 @@ query {
 }
 ```
 
-As expected, the response is a list of all of the edges of type`Actor`
+As expected, the response is a list of all of the edges of type `Actor`
 
 ```json
 {
@@ -230,7 +230,7 @@ As expected, the response is a list of all of the edges of type`Actor`
 }
 ```
 
-Next, we will use **Arcql** to create a typical auto-complete query for the`name`field. The arcql will look like this.
+Next, we will use **Arcql** to create a typical auto-complete query for the `name` field. The arcql will look like this.
 
     “name ^ ‘Will’”
 
@@ -294,7 +294,7 @@ Soft deleting an object in the **Hypi Universe** , is referred to as  ‘trashin
 
 The field “trashed”, which is a part of the **Magic Hypi object** is used to track that.
 
-The **trash** `mutation`accepts two parameters, the`Type`of the object and an`arcql`query. It will trash up to 25 of the objects that match the query. The mutation call looks like this.
+The **trash** `mutation` accepts two parameters, the `Type` of the object and an `arcql` query. It will trash up to 25 of the objects that match the query. The mutation call looks like this.
 
 ```java
 mutation {
@@ -311,13 +311,13 @@ The trash mutation returns the number of trashed items
   }
 }
 ```
-We can verify that the item has been trashed by calling the **get** query with the`id`of the trashed object.
+We can verify that the item has been trashed by calling the **get** query with the `id` of the trashed object.
 
 It should not return any data.
 
 You can find include the trashed items in searches by calling find with the parameter`“includeTrashed: True”`
 
-The **untrash** `mutation`accepts two parameters, the`Type`of the object and an`arcql`query. It will untrash all of the objects that match the query.
+The **untrash** `mutation` accepts two parameters, the `Type` of the object and an `arcql` query. It will untrash all of the objects that match the query.
 
 The mutation call looks like this.
 ```java
@@ -338,7 +338,7 @@ The untrash mutation returns the number of untrashed items
 
 **2\. Hard Delete**
 
-Hard delete is done by calling the **delete** `mutation`. The delete mutation accepts two parameters, the`Type`of the object and an`arcql`query. It will delete up to 25 of the objects that match the query. The mutation call looks like this.
+Hard delete is done by calling the **delete** `mutation`. The delete mutation accepts two parameters, the`Type`of the object and an `arcql` query. It will delete up to 25 of the objects that match the query. The mutation call looks like this.
 ```java
 mutation {
     delete(type: Actor, arcql: "hypi.id='01ED4X75AG1G96PDC8A231KTC8'")

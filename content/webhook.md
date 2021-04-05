@@ -32,7 +32,9 @@ A function must be defined which will process the Webhook request. Hypi defines 
 
 :::caution
 
-The function signature MUST be `(payload: WebhookPayload): WebhookResponse` for the webhook to work correctly.
+The function signature MUST be 
+`(payload: WebhookPayload): WebhookResponse`
+for the webhook to work correctly.
 
 :::
 
@@ -83,6 +85,6 @@ mutation Upsert($values: HypiUpsertInputUnion!) {
 
 Once a Webhook is created, it can be called by making a request to:
 
-* [https://api.hypi.app/webhook/{domain}/{webhookname}](https://api.hypi.app/webhook/domain/webhookname)
+* [https://api.hypi.app/webhook/{domain}/{webhookname}](#)
 
 where `{domain}` is the instance domain for you app and `{webhook name}` is the name of the webhook to be executed. In the example on this page, the name is `wh1`.

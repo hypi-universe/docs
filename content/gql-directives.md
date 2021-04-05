@@ -85,3 +85,19 @@ Check if the field's value is valid email
 ### @unique
 
 Adding this to any keyword indexed field ensures that no duplicates can be inserted for that field
+
+### @computed 
+
+Allows the value of a field to be calculated using an ArcQL query
+
+###  @notable 
+ 
+ Tells Hypi not to generate a table for the type it is attached to. Instead, the user will use a serverless function or some other method to produce objects of this type.
+ 
+###  @noinput 
+ 
+ Tells Hypi not to generate an input type for this type. This prevents objects of this type from being used in upsert and other functions.  
+ 
+###  @nomath 
+ 
+ Tells Hypi not to generate aggregation fields for the type this is attached to.

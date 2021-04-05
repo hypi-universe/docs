@@ -107,15 +107,16 @@ Your password reset code is 01F21B593SD5VKJQYWS8N38H1F.
 
 In the HTML / Plain message, you should also provide a link to a URL where the user can enter their new password.
 
-Include the code in this URL e.g. https://my-app.com/reset-password?code=$!{parent.code}.
+Include the code in this URL e.g. 
+`https://my-app.com/reset-password?code=$!{parent.code}`.
 
 When the user gets to this page, you will have the password reset code in the URL query string. Get this code from the URL and when the user enters the new password, make a POST request to the Hypi API as follows.
 
 `POST  <hypi-domain>/email/reset/\<domain\>`
 
-Here \<domain\> is app instance domain and hypi domain is \`https://api.hypi.app\`.
+Here \<domain\> is app instance domain and hypi domain is [https://api.hypi.app](#).
 
-E.g.  [https://api.hypi.app/email/reset/scalability.apps.hypi.app](https://api.hypi.app/email/reset/scalability.apps.hypi.app)
+E.g.  [https://api.hypi.app/email/reset/scalability.apps.hypi.app](#)
 
 `scalability.apps.hypi.app` is the instance domain on Hypi.
 

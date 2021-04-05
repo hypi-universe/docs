@@ -5,7 +5,7 @@ sidebar_label: RESTful APIs
 slug: /rest-apis
 ---
 
-Hypi platform provides APIs with multiple flavors that suit different developers' tastes. The RESTful APIs are no different and at the same time they were redesigned to abide by the HATEOS code of conduct for better semantics and easier interpretation. The API endpoints available are documented in [Hypi Platform API Documentation](apisetup.md).
+Hypi platform provides APIs with multiple flavors that suit different developers' tastes. The RESTful APIs are no different and at the same time they were redesigned to abide by the HATEOS code of conduct for better semantics and easier interpretation. The API endpoints available are documented in [Hypi Platform API Documentation](api-references.md).
 
 The examples use the following GraphQL schema as an example.
 
@@ -23,7 +23,7 @@ type URL  @indices(sets: [
 
 ## Authentication
 
-Users can login either by username or email and logins can be triggered either by`GET`or`POST`.
+Users can login either by username or email and logins can be triggered either by `GET` or `POST`.
 
 ### GET
 
@@ -205,11 +205,11 @@ $ curl --location --request POST '/rest/v1/login' \
 
 ## CRUD Operations
 
-The four basic CRUD operations **C**reate,**R**ead,**U**pdate, and **D**elete can be performed using the semantics of **P**ost,**G**et,**P**ut,and **D**elete HTTP methods. Furthermore, the APIs endpoints can be mapped to resources using the /{{aggregate}} or /{{aggregate}}/{{identifier}} for both GET and DELETE whilst POST and PUT will capture the identifiers from the GraphQL request body to avoid redundancy. Hereby, the RESTful APIs explained herein allow the same functionality as the CRUD operations manifested under [Hypi Platform CRUD Documentation](crud.md)
+The four basic CRUD operations **C**reate, **R**ead, **U**pdate, and **D**elete can be performed using the semantics of **P**ost, **G**et, **P**ut,and **D**elete HTTP methods. Furthermore, the APIs endpoints can be mapped to resources using the /{{aggregate}} or /{{aggregate}}/{{identifier}} for both GET and DELETE whilst POST and PUT will capture the identifiers from the GraphQL request body to avoid redundancy. Hereby, the RESTful APIs explained herein allow the same functionality as the CRUD operations manifested under [Hypi Platform CRUD Documentation](crud.md)
 
 ### POST
 
-In order to create a resource, send a POST request to the`/rest/v1`endpoint with the body containing the resource signature as defined by the GraphQL types.
+In order to create a resource, send a POST request to the `/rest/v1` endpoint with the body containing the resource signature as defined by the GraphQL types.
 
 <Tabs
   defaultValue="query"
@@ -270,7 +270,7 @@ $ curl --location --request POST '/rest/v1' \
 
 ### PUT
 
-In order to make an update request, the same endpoint and the payload can be used, however, the HTTP method should be`PUT`.
+In order to make an update request, the same endpoint and the payload can be used, however, the HTTP method should be `PUT`.
 
 <Tabs
   defaultValue="query"
@@ -331,7 +331,7 @@ $ curl --location --request PUT '/rest/v1' \
 
 ### GET by ID
 
-In order to access a resource, replace`URL/url1`with {{aggregate}}/{{identifier}} where {{aggregate}} is the GraphQL type name from your app's schema and {{identifier}} is the ID of the object to get.
+In order to access a resource, replace `URL/url1` with {{aggregate}}/{{identifier}} where {{aggregate}} is the GraphQL type name from your app's schema and {{identifier}} is the ID of the object to get.
 
 <Tabs
   defaultValue="query"
@@ -400,7 +400,7 @@ $ curl --location --request GET '/rest/v1/URL/url1' \
 
 ### GET by ArcQL
 
-GraphQL find method can be used to access a resource, so replace`URL`with {{aggregate}}.
+GraphQL find method can be used to access a resource, so replace `URL` with {{aggregate}}.
 
 > The ArcQL parameter accepts any valid filter supported by [ArcQL](arcql.md). The example here uses`hypi.id = 'url1'`only for simplicity.
 
@@ -472,7 +472,7 @@ $ curl --location --request GET "/rest/v1/URL?first=2&arcql=hypi.id='url1'" \
 
 ### DELETE by ID
 
-In order to delete a resource, replace`URL/url1`with {{aggregate}}/{{identifier}}
+In order to delete a resource, replace `URL/url1` with {{aggregate}}/{{identifier}}
 
 <Tabs
   defaultValue="query"
@@ -506,7 +506,7 @@ $ curl --location --request DELETE '/rest/v1/URL/url1' \
 
 ### DELETE by ArcQL
 
-The same can be achieved using GraphQL by passing the identifier as a query parameter`?id=xx`and replace`URL`with {{aggregate}}
+The same can be achieved using GraphQL by passing the identifier as a query parameter `?id=xx` and replace `URL` with {{aggregate}}
 
 <Tabs
   defaultValue="query"
@@ -543,12 +543,12 @@ $ curl --location --request DELETE "/rest/v1/URL?arcql=hypi.id='url1'" \
 Any arbitrary GraphQL function can be triggered using the following endpoint.
 
 + Endpoints: /rest/v1/fn/{root}/{fn}
-+ Replace {root} with either of`query`or`mutation`
++ Replace {root} with either of `query` or `mutation`
 + Replace {fn} with ArcQL functions such as get, find, login, or your own GraphQL function that you defined in your app's schema.
 
 #### POST
 
-`POST`can be used to create resources on the server. This is equivalent to calling the Hypi`upsert`function in GraphQL.
+`POST` can be used to create resources on the server. This is equivalent to calling the Hypi `upsert` function in GraphQL.
 
 <Tabs
   defaultValue="query"
@@ -609,7 +609,7 @@ $ curl --location --request POST '/rest/v1/fn/mutation/upsert' \
 
 #### PUT
 
-Similar to`POST`,`PUT`is used to update/modify existing resources.
+Similar to `POST` , `PUT` is used to update/modify existing resources.
 
 <Tabs
   defaultValue="query"
@@ -670,11 +670,11 @@ $ curl --location --request PUT '/rest/v1/fn/mutation/upsert' \
 
 #### GET
 
-For further flexibility the**R**ead requests discussed above can be rephrased as arbitrary GraphQL functions by using`query/get`or`query/fin`.
+For further flexibility the **R**ead requests discussed above can be rephrased as arbitrary GraphQL functions by using `query/get` or `query/fin`.
 
 #### Find
 
-The`GET`,`PUT`,`POST`and`DELETE`methods above are all semantics to make the API more familiar and inline with existing common practice but the same thing can be done by explicitly calling the appropriate function by passing the`aggregate`to`type`query parameter when using`find`GraphQL function. Unlike the`GET`function, this returns a list of objects matching the filter provided.
+The `GET` , `PUT` , `POST` and `DELETE` methods above are all semantics to make the API more familiar and inline with existing common practice but the same thing can be done by explicitly calling the appropriate function by passing the `aggregate` to `type` query parameter when using `find` GraphQL function. Unlike the `GET` function, this returns a list of objects matching the filter provided.
 
 <Tabs
   defaultValue="query"

@@ -105,7 +105,7 @@ type Aggregated Policy implementsPolicy {
 ```
 ## Permission
 
-Permission encapsulates the object involved in the authorisation. You may check out the parameters in the [example](#example) section.
+Permission encapsulates the object involved in the authorisation. You may check out the parameters in the [Permission APIs](#permission-apis) section.
 ```java
 type Permission {
     hypi: Hypi
