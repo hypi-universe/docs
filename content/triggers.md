@@ -69,6 +69,6 @@ type Mutation {
 
 You can see the error message here `Pre-condition given by Query.deny2 failed`. The function `deny1` has a `before` trigger which calls `deny2`. Since `deny2` returns false, the function is not executed.
 
-#### Function overriding
+## Function overriding
 
 The `upsert` function is overriden in the schema above so that a `@trigger` could be attached. Function overriding is allowed so long as all parameters of the new function match the original exactly. In this case, the built in `upsert` function had a trigger added to it. This can be used to arbitrarily allow or deny access as your app see fit to the function. Care must be taken when overriding functions, upsert for example is used everywhere - breaking it will cause many things to fail.

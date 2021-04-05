@@ -465,3 +465,4 @@ You may group the fields based upon the `dateTime` field. Hypi object has the da
 </TabItem>
 </Tabs>
 
+You can know more about dateGranularity in [this](time-series-aggregations.md) tutorial.

@@ -17,7 +17,7 @@ Serverless technology are a means of adding custom behaviour without having to w
 
 ### Create an App
 
-App is the basic building block of Hypi platform. Check more about App [here](overview.md). Create an App using [this](apisetup.md) guide.
+App is the basic building block of Hypi platform. Check more about App [here](overview.md). Create an App using [this](get-started.md) guide.
 
 ### Get App ID
 
@@ -58,7 +58,6 @@ import TabItem from '@theme/TabItem';
   values={[
     {label: 'GraphQL Query', value: 'query'},
     {label: 'Input Data', value: 'data'},
-    {label: 'Response', value: 'response'},
   ]}>
 <TabItem value="query">
 
