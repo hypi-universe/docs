@@ -14,7 +14,7 @@ The App encapsulates a collection of data structures and serverless functions. Y
 
 An app is a way to implement group-related behavior and add resources. It is quite similar to a micro-service that handles its own data and functionalities. You may have more than one App in your product to implement different modules.
 
-[Create An App](#)
+[Create An App](ui-create-app.md)
 
 Let's look deep inside the Hypi 'App'. It consists of the below components.
 
@@ -36,7 +36,7 @@ A Release represents a version of your app. You may create independent releases 
 
 Let’s say you have releases `alpha`, `rc-1`, `prod-1`. The `alpha` release is for development, `rc-1` for release candidate, and `prod-1` for production release. An App will have different releases under its belt.
 
-[Create a Release](#)
+[Create a Release](ui-create-release.md)
 
 ***
 
@@ -48,7 +48,7 @@ Have a robust schema that caters to the functionalities of the backend services 
 
 [https://blog.logrocket.com/simplifying-the-graphql-data-model/](https://blog.logrocket.com/simplifying-the-graphql-data-model/)
 
-[Model A Schema](#)
+[Model A Schema](ui_create_table_vb.md)
 
 ***
 
@@ -62,7 +62,7 @@ Imagine creating an app like Twitter. You could break this into multiple smaller
 
 After identifying modular parts, it is up to you how to utilize them. Hypi lets you configure the dependency and avoids the repetition of software patterns.
 
-[Add Dependencies](#)
+[Add Dependencies](ui-add-dependencies.md)
 
 ***
 
@@ -81,7 +81,7 @@ Within each release, you can define one or more variables and later populate val
 
 [https://www.ge.com/digital/documentation/historian/version23/r\_public\_rest\_apis\_env_variables.html](https://www.ge.com/digital/documentation/historian/version23/r_public_rest_apis_env_variables.html)
 
-[Add Environment Settings](#)
+[Add Environment Settings](ui-add-environment-var.md)
 
 ***
 
@@ -95,4 +95,4 @@ Every instance gets a domain. Hypi generates one by default. But, you are free t
 
 Check more about [Domains](apisetup.md) provided by Hypi.
 
-[Add Instance](#)
+[Add Instance](ui-create-instance.md)
