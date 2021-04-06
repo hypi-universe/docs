@@ -41,7 +41,7 @@ module.exports = {
     {
       type: 'category',
       label: 'User Interface Guide',
-      items: [],
+      items: ['ui-create-app','ui-create-release','ui_create_table_vb','ui_create_table_vb','ui_create_table_vb','ui_create_table_vb','ui_create_table_vb','ui-create-instance','ui-view-instance','ui-instance-api-config','ui-gql-config','ui-gql-playground'],
     },
     'glossary',
     'get-involved',
