@@ -11,9 +11,9 @@ As a complete platform we focus not just on querying but creating and updating y
 
 You must specify three things when defining a mutation:
 
-1. `Name of the mutation`, typically named after the type of modification you want to perform e.g.`CreateItem`...but it can be anything you want.
+1. `Name of the mutation`, typically named after the type of modification you want to perform e.g.`CreateToDo`...but it can be anything you want.
 
-2. The`Input variable`. This should be passed as an argument to the mutation name as the data you want to send to the server.
+2. The`Input variable`, passed as an argument to the mutation name that contains the data you want to send to the server.
 
 3. `Payload object`, The data you want to send to the server.
 

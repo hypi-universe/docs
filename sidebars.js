@@ -27,7 +27,7 @@ module.exports = {
 	'tutorials',
 	'graphql',
         {
-	  'GraphQL Features': ['gql-introduction','gql-queries','gql-mutations','gql-directives','gql-interfaces','gql-schema-types'],
+	  'GraphQL Features': ['gql-introduction','gql-schema-types','gql-queries','gql-mutations','gql-directives','gql-interfaces'],
 	},
 	'gql-crud-tutorial',
 	'time-series-aggregations',

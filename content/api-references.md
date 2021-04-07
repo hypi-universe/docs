@@ -37,13 +37,13 @@ Imagine creating an app like Twitter. You could break this into multiple smaller
 
 How you choose to break your app down into modular parts is up to you, Hypi provides the facilities that make it possible and then gets out of the way.
 
-See [App dependencies](overview.md)
+See [App dependencies](ui-add-dependencies.md)
 
 ## Environment variables
 
 Many applications require settings at run time which change depending on some criteria specific to the app or its users/environment. When you create a release, Hypi let's you define one or more fields which can be populated when an instance of the app is created. These become accessible at runtime.
 
-See [Environment variables](overview.md)
+See [Environment variables](ui-add-environment-var.md)
 
 ## Workflows
 

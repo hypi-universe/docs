@@ -5,11 +5,11 @@ sidebar_label: GraphQL Interfaces
 slug: /gql-interfaces
 ---
 
-Similar to other type systems, GraphQL supports interfaces. Interfaces are abstract types that holds a certain set of fields that a type must include to implement the interface.
+GraphQL supports `interfaces` similar to other type systems. Interfaces are abstract types that hold a certain set of fields. A type must include these fields to implement the interface.
 
-Interfaces are powerful, and a great way to build and use GraphQL schemas through the use of abstract types. Abstract types can't be used directly in schema, but can be used as building blocks for creating explicit types.
+Interfaces are powerful, and a great way to build and use GraphQL schemas through the use of abstraction. Abstract types can't be used directly in schema, but can be used as building blocks for creating explicit types.
 
-Example, you could have an interface Car that represents any Car in a trade show:
+Example, you could have an interface Car that represents any model of a Car in a trade show:
 
 ```java
 interface Car {
@@ -27,12 +27,12 @@ For example, here are some types of brands that might implement Car:
 type Audi implements Car {
   id: ID!
   name: String!
-  model: string
+  model: String
 }
 type Bentley implements Car {
   id: ID!
   name: String!
-  model: string
+  model: String
 }
 ```
 Now it can be used in another type like this:
@@ -41,10 +41,107 @@ type Customer {
     owns: [Car!]
 }
 ```
-The `owns` field uses the `Car` interface. This allows `owns` to have values of type `Audi` and `Bently`.
+The `owns` field uses the `Car` interface. This allows `owns` to have values of type `Audi` and  `Bently`.
 
 :::tip IMPORTANT
 
-When creating or updating a customer object, the `hypi.impl` field MUST be specified on each object in the `owns` field. Each object must tell Hypi if it is an Audi or a Bently.
+When creating or updating a customer object, the `hypi.impl` field MUST be specified on each object in the `owns` array.  Each object of type `owns` must tell Hypi if it is an Audi or a Bently. 
+
+The`hypi.impl`field is needed for upsert, not for queries. For queries on each implementation, you MUST use an inline fragment i.e.`... on <Impl> { <impl specific fields> }`
+
+:::
+
+Here follows the example that inserts data in Customer object using an interface Car.
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs
+  defaultValue="query"
+  values={[
+    {label: 'GraphQL Query', value: 'query'},
+    {label: 'Input Data', value: 'data'},
+    {label: 'Response', value: 'response'},
+  ]}>
+<TabItem value="query">
+
+```java
+mutation Upsert($values: HypiUpsertInputUnion!) {
+    upsert(values: $values) {
+      id
+    }
+}
+```
+
+</TabItem>
+<TabItem value="data">
+
+```
+{
+  "values": {
+      "Customer": {
+        "owns": [
+          { 
+            "hypi": 
+            { 
+                "impl": "Audi" 
+            },
+            "id": 1, 
+            "name": "Audi Class", 
+            "model": "aux" 
+          },
+          {
+            "hypi": 
+            	{ 
+                "impl": "Bentley" 
+              },
+            "id": 2,
+            "name": "Bentley Class",
+            "model": "vx"
+          }
+        ]
+      }
+    }
+}
+```
+</TabItem>
+<TabItem value="response">
+
+```java
+{
+  "data": {
+    "upsert": [
+      {
+        "id": "01F2NDF0BJ8T5YK8SW1JWKX8QW"
+      }
+    ]
+  }
+}
+```
+Check the use of inline fragments to retrieve interface data. (... on Audi { model })
+
+```java
+{
+  find(type: Customer, arcql: "*") {
+    edges {
+      node {
+        ... on Customer {
+         owns {
+             //Retrieve data from interfaces
+            ... on Audi { model }
+            ... on Bentley { model }
+            name
+          }
+        }
+      }
+      cursor
+    }
+  }
+}
+```
+
+:::caution
+
+There is a limitation that sub-queries cannot be used on interface fields. (arcql: "owns.model = 'vx'"" is not valid). So, arcql statements cannot be framed with types that implement interfaces.
 
 :::
