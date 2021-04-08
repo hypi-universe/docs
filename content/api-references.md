@@ -10,9 +10,9 @@ Hypi's platform tries to include the features most modern applications need to g
 1.  [CRUD](#crud)
 2.  [App dependencies](#app-dependencies)
 3.  [Environment variables](#environment-variables)
-4.  [Workflows](#Workflows)
-5.  [Webhooks](#Webhooks)
-6.  [Triggers](#Triggers)
+4.  [Workflows](#workflows)
+5.  [Webhooks](#webhooks)
+6.  [Triggers](#triggers)
 7.  [User defined functions](#user-defined-functions)
 8.  [Serverless functions](#serverless-functions)
 9.  [Authorisation and Permission policies](#authorisation-and-permission-policies)
@@ -37,13 +37,13 @@ Imagine creating an app like Twitter. You could break this into multiple smaller
 
 How you choose to break your app down into modular parts is up to you, Hypi provides the facilities that make it possible and then gets out of the way.
 
-See [App dependencies](overview.md)
+See [App dependencies](ui-add-dependencies.md)
 
 ## Environment variables
 
 Many applications require settings at run time which change depending on some criteria specific to the app or its users/environment. When you create a release, Hypi let's you define one or more fields which can be populated when an instance of the app is created. These become accessible at runtime.
 
-See [Environment variables](overview.md)
+See [Environment variables](ui-add-environment-var.md)
 
 ## Workflows
 

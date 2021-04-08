@@ -5,7 +5,9 @@ sidebar_label: Timeseries Aggregations with Date Granularity
 slug: /time-series-aggregations
 ---
 
-In this tutorial, we will work with the following schema to demonstrate how to use the`dateGranularity`parameter to group numeric fields over time.
+Timeseries Aggregations can be performed on the `dateTime` field. So, you may group the records based upon the`dateTime`field and perform aggregations on them. Hypi object has the dateTime fields like`hypi_created` or `hypi_updated`. You may use these fields for timeseries aggregations.
+
+In this tutorial, we will work with the following schema to demonstrate how to use the `dateGranularity` parameter to group numeric fields over time.
 
 ```java
 type ActorRatings {
@@ -18,11 +20,11 @@ enum Gender {
     NotSpecified
 }
 ```
-First is looking into the aggregate types for the type that you want to aggregate.
+First is looking into the types that you want to aggregate.
 
 ## Aggregation Types
 
-For each type in our schema, we have two aggregations that we can perform on them. The first one is named "\[our\_type\]" and the second one is named "\[our\_type\]With".
+For each type in our schema, we have two aggregations that we can perform on them. The first one is named "\[our\_type\]" and the second one is named "\[our\_type\]With". Check more about Aggregations [here](aggregation.md).
 
 Looking at our schema, our aggregations will be
 
@@ -50,7 +52,7 @@ In this tutorial we will focus on using`actorRatingsWith`since it is the one tha
 
 Now, let's get into some examples.
 
-Let's say I want to get the **average** `rating` **for each day** for the actor with`hypi.id='actor1'`. The aggregation looks like this.
+Let's retrieve the **average** `rating` **for each day** for the actor with`hypi.id='actor1'`. The aggregation looks like this.
 ```java
 {
   aggregate {
@@ -135,7 +137,7 @@ In conclusion, aggregations using `dateGranularity` boils down to:
 
 1.  Using the right aggregation type - which is named "\[your_type\]With".
 2.  Using`groupBy`to specify which **field** and `dateGranularity` you would like to group by. In our example `hypi_created` , `DAYS`.
-3.  Using `where` if you want to filter before calculating - it is an [ArcQL](arcql.md) string. In our example -`hypi.id='actor1'`.
+3.  Using `where` if you want to filter before calculating.  (It is an [ArcQL](arcql.md) string. In our example -`hypi.id='actor1'`.)
 4.  Adding the field that you want to aggregate. In our example `rating`.
 5.  Choosing what you want to calculate. In our example `avg`(others include `count` , `min` , `max` and `sum`)
 6.  Adding `groupValues` so you can see the **value of the field** that you grouped by in the **result set**.

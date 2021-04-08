@@ -1,6 +1,6 @@
 ---
 id: introduction
-title: Introduction
+title: Welcome to Hypi!
 sidebar_label: Introduction
 slug: /
 ---
