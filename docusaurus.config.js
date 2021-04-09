@@ -9,6 +9,14 @@ module.exports = {
   organizationName: 'hypi-universe', // Usually your GitHub org/user name.
   projectName: 'docs', // Usually your repo name.
   themeConfig: {
+    algolia: {
+      apiKey: '9ae9d65b23569334296974ce321050b6',
+      indexName: 'hypi',
+      // Optional: see doc section below
+      contextualSearch: true,
+      // Optional: Algolia search parameters
+      searchParameters: {},
+    },
     navbar: {
       title: 'Hypi',
       logo: {
