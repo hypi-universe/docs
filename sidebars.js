@@ -41,7 +41,7 @@ module.exports = {
     {
       type: 'category',
       label: 'User Interface Guide',
-      items: ['ui-create-app','ui-create-release','ui_create_table_vb','ui_create_table_vb','ui_create_table_vb','ui_create_table_vb','ui_create_table_vb','ui-create-instance','ui-view-instance','ui-instance-api-config','ui-gql-config','ui-gql-playground'],
+      items: ['ui-create-app','ui-create-release','ui-create-table-vb','ui-create-table-gse','ui-add-environment-var','ui-add-dependencies','ui-deprecate-publish','ui-create-instance','ui-view-instance','ui-instance-api-config','ui-gql-config','ui-gql-playground'],
     },
     'glossary',
     'get-involved',
@@ -49,7 +49,7 @@ module.exports = {
       type: 'category',
       label: 'Release Notes',
       items: [],
-    },
+    },'
 
   ],
 };
