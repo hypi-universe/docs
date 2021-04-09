@@ -48,7 +48,7 @@ Have a robust schema that caters to the functionalities of the backend services 
 
 [https://blog.logrocket.com/simplifying-the-graphql-data-model/](https://blog.logrocket.com/simplifying-the-graphql-data-model/)
 
-[Model A Schema](ui_create_table_vb.md)
+[Model A Schema](ui-create-table-vb.md)
 
 ***
 

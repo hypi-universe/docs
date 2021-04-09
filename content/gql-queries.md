@@ -76,7 +76,7 @@ query getMyTodos($arcql:String) {
 
 ## Authorization
 
-**Note:**  You need to pass the Authorization `token` header before querying to get the results. Here's Example of setting up your header with auth token. Read more about Authorization [here](authorization.md).
+**Note:**  You need to pass the Authorization `token` header before querying to get the results. Here's Example of setting up your header with auth token. Read more about Authorization [here](authorisation.md).
 
 ```json
 {

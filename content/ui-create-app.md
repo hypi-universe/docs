@@ -6,11 +6,11 @@ slug: /ui-create-app
 ---
 1. Register on [https://hypi.io/](https://hypi.io/) using an email id.
 
-![Registration](/img/UI-CreateApp-Registration-1.png)
+![AppRegistration](/img/UI-CreateApp-Registration-1.png) 
 
 2. You may create an account using `Gmail/Github/Facebook` account.
 
-![Registration](/img/UI-CreateApp-Registration-2.png)
+![AppRegistration](/img/UI-CreateApp-Registration-2.png)
 
 3. Hypi is an App-based account. `App` is the building block that you will deploy in your application. Know more about App [here](overview.md). Create an app using the `Create an App` or  `+New App` button.
 
