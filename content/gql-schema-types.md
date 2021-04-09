@@ -93,7 +93,7 @@ type Character
 ```
 The language is pretty readable, but let's go over it so that we can have a shared vocabulary:
 
-+ `Character` is a GraphQL Object Type, meaning it's a type with some fields. Most of the types in your schema will be object types. On the Hypi platform, you may build the Schema by adding this object type in the form of a table using Visual builder. (See [Create Table](ui_create_table_vb.md)) . Consider `Character` as a table and its fields as columns.
++ `Character` is a GraphQL Object Type, meaning it's a type with some fields. Most of the types in your schema will be object types. On the Hypi platform, you may build the Schema by adding this object type in the form of a table using Visual builder. (See [Create Table](ui-create-table-vb.md)) . Consider `Character` as a table and its fields as columns.
 
 + `name` and `appearsIn` are fields on the `Character` type. That means that `name` and `appearsIn` are the only fields that can appear in any part of a GraphQL query that operates on the `Character` type.
 

@@ -118,6 +118,10 @@ mutation Upsert($values: HypiUpsertInputUnion!) {
   }
 }
 ```
+
+</TabItem>
+</Tabs>
+
 Check the use of inline fragments to retrieve interface data. (... on Audi { model })
 
 ```java
@@ -142,6 +146,6 @@ Check the use of inline fragments to retrieve interface data. (... on Audi { mod
 
 :::caution
 
-There is a limitation that sub-queries cannot be used on interface fields. (arcql: "owns.model = 'vx'"" is not valid). So, arcql statements cannot be framed with types that implement interfaces.
+There is a limitation that sub-queries cannot be used on interface fields. (arcql: "owns.model = 'vx'" is not valid). So, arcql statements cannot be framed with types that implement interfaces.
 
 :::

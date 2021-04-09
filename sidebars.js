@@ -49,7 +49,6 @@ module.exports = {
       type: 'category',
       label: 'Release Notes',
       items: [],
-    },'
-
+    },
   ],
 };
