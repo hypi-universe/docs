@@ -1,7 +1,7 @@
 ---
 id: graphql
-title: GraphQL 
-sidebar_label: GraphQL 
+title: GraphQL Overview
+sidebar_label: GraphQL Overview
 slug: /graphql
 ---
 

@@ -19,19 +19,20 @@ module.exports = {
       label: 'API & References',
       items: ['api-references','apisetup','authentication','arcql','hypiobject','crud','createdata','updatedata','readdata','deletedata','references','authorisation','apigateway','aggregation','mathsapi','userdefinedfunctions','workflow','triggers','webhooks','serverlessfunction','fileupload','rest-apis','oauth2login','password-reminder'],
     },
+    {
+      type: 'category',
+      label: 'GraphQL',
+      items: ['graphql', 'gql-introduction', 'gql-schema-types','gql-queries','gql-mutations','gql-directives','gql-interfaces'],
+    },
     'hypi-angular',
     {
       type: 'category',
       label: 'Tutorial',
       items: [
 	'tutorials',
-	'graphql',
-        {
-	  'GraphQL Features': ['gql-introduction','gql-schema-types','gql-queries','gql-mutations','gql-directives','gql-interfaces'],
-	},
 	'gql-crud-tutorial',
 	'time-series-aggregations',
-	], //GraphQL, ArcQL
+	], 
     },
     {
       type: 'category',
