@@ -1,7 +1,7 @@
 module.exports = {
   title: 'Hypi Platform Documentation',
   tagline: 'Lowcode application development platform',
-  url: 'https://docs.hypi.io',
+  url: 'https://docs.hypi.app',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
