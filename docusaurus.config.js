@@ -13,7 +13,7 @@ module.exports = {
       apiKey: '9ae9d65b23569334296974ce321050b6',
       indexName: 'hypi',
       // Optional: see doc section below
-      contextualSearch: true,
+      contextualSearch: false,
       // Optional: Algolia search parameters
       searchParameters: {},
     },
