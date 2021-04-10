@@ -4,8 +4,8 @@
   <ShortName>Hypi Platform Documentation</ShortName>
   <Description>Search Hypi Platform Documentation</Description>
   <InputEncoding>UTF-8</InputEncoding>
-  <Image width="16" height="16" type="image/x-icon">https://docs.hypi.io/img/favicon.ico</Image>
-  <Url type="text/html" method="get" template="https://docs.hypi.io/search?q={searchTerms}"/>
-  <Url type="application/opensearchdescription+xml" rel="self" template="https://docs.hypi.io/opensearch.xml" />
-  <moz:SearchForm>https://docs.hypi.io/</moz:SearchForm>
+  <Image width="16" height="16" type="image/x-icon">https://docs.hypi.app/img/favicon.ico</Image>
+  <Url type="text/html" method="get" template="https://docs.hypi.app/search?q={searchTerms}"/>
+  <Url type="application/opensearchdescription+xml" rel="self" template="https://docs.hypi.app/opensearch.xml" />
+  <moz:SearchForm>https://docs.hypi.app/</moz:SearchForm>
 </OpenSearchDescription>
