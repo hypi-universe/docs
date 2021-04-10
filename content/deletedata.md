@@ -108,10 +108,26 @@ mutation {
 ## delete
 
 If you want to delete data permanently, use the `delete` function.
+
+```java
+
+delete(type: HypiMutationType!, arcql: String!,clearArrayReferences:Boolean=false): Int!
+
 ```
-delete(type: HypiMutationType!, arcql: String!): Int!
-```
-The function returns the number of records that were marked deleted.
+
+The function returns the number of records that were marked deleted. You may delete the records using the ArcQL query. The `arcql` parameter takes the query. Maximum 25 records will be deleted in one request.
+
+`clearArrayReferences` parameter is used to implement deletion of the array fields with one-to-many references. (See [References](references.md).)
+
+Hypi supports “lightweight” [Referential Integrity](https://en.wikipedia.org/wiki/Referential_integrity) on array fields. The referential integrity check can be forcibly disabled by setting the `clearArrayReferences` to `true` when deleting objects. The default is set to 'false' which means if there are existing references to an object, you cannot delete it. But setting `clearArrayReferences` to true removes the references by unlinking the referenced objects and then deletes the object specified by 'arcql' query.
+
+:::note
+
+Setting `clearArrayReferences` to true only removes references to data in array fields as the name implies and it does not delete the referenced objects in the array. Only the object specified by the 'arcql' field will get deleted.
+
+:::
+
+Let's look at the example from our Author and Books data types now. If you try to delete data from Books without setting `clearArrayReferences` values, it would result in an error. As the references exist between Author and Books table through the 'booklist' field, the Books records cannot be deleted without removing the references.
 
 <Tabs
   defaultValue="query"
@@ -123,8 +139,53 @@ The function returns the number of records that were marked deleted.
 
 ```
 mutation {
-  delete(type: Author, 
-  arcql: "hypi.id = '01F0DVHM2AZCGM0JSR9QRNBWZY'")
+  delete(type: Books, arcql: "hypi.id = '01F2X8203XKRFR7G62T6SP1MW4'")
+}
+```
+
+</TabItem>
+
+<TabItem value="response">
+
+```json
+{
+  "data": null,
+  "errors": [
+    {
+      "message": "There are at least 1 references to the data being deleted. A sample of references found is included.",
+      "extensions": {}
+    },
+    {
+      "message": "Author.booklist links to Books. Use unlink to remove the reference before deleting",
+      "extensions": {}
+    },
+    {
+      "message": "Cannot return null for non-nullable type: 'Int' within parent 'Mutation' (/delete)",
+      "path": [
+        "delete"
+      ]
+    }
+  ]
+}
+```
+
+</TabItem>
+</Tabs>
+
+Setting parameter `clearArrayReferences` to `true` will remove the object. 
+
+<Tabs
+  defaultValue="query"
+  values={[
+    {label: 'GraphQL Query', value: 'query'},
+    {label: 'Response', value: 'response'},
+  ]}>
+<TabItem value="query">
+
+```
+mutation {
+  delete(type: Books, arcql: "hypi.id = '01F2X8203XKRFR7G62T6SP1MW4'",
+  clearArrayReferences:true)
 }
 ```
 
@@ -143,7 +204,13 @@ mutation {
 </TabItem>
 </Tabs>
 
-You may delete more records using the ArcQL query. Maximum 25 records will be deleted in one request.
+:::caution
+
+`clearArrayReferences` can lead to an inconsistent state if your app re-uses object IDs. Hypi never re-use an object ID but if you specify your IDs manually make sure not to re-use them. Otherwise using `clearArrayReferences` and then using an ID that was deleted will result in the new object reappearing on non-array fields but pointing to the new data. This is because `clearArrayReferences` only removes references to data in array fields as the name implies.
+
+:::
+
+Please note that you may remove the references using the [unlink](references.md) function and then delete the object without setting `clearArrayReferences` field.  You may not set `clearArrayReferences` if you are deleting objects that do not deal with an object- array or have one-to-many references.
 
 ***
 
