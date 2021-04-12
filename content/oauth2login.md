@@ -179,7 +179,7 @@ Hypi will add a query parameter `token` to the redirectUri that can be used to c
 
 In order to start the authorization process, send the user to the following URL
 
-`https://api.hypi.app/oauth2/authorization/${registrationId`
+`https://api.hypi.app/oauth2/authorization/${registrationId}`
 
 The `registrationId` is constructed as`instanceId`-`OAuthProviderId`.`instanceId` is the Hypi App Instance ID and `OAuthProviderId` is the ID of the `OAuthProvider` which is created in the first step. 
 
