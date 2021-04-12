@@ -236,7 +236,7 @@ module.exports = {
             from: ['/tutorials/graphql/hypi-object'],
           },
           {
-            to: '/docs/gql-directives',
+            to: '/docs/hypi-directives',
             from: ['/tutorials/graphql/directives'],
           },
           {

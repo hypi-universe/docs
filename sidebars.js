@@ -17,12 +17,12 @@ module.exports = {
     {
       type: 'category',
       label: 'API & References',
-      items: ['api-references','apisetup','authentication','arcql','hypiobject','crud','createdata','updatedata','readdata','deletedata','references','authorisation','apigateway','aggregation','mathsapi','userdefinedfunctions','workflow','triggers','webhooks','serverlessfunction','fileupload','rest-apis','oauth2login','password-reminder'],
+      items: ['api-references','apisetup','authentication','arcql','hypiobject','crud','createdata','updatedata','readdata','deletedata','references','authorisation','apigateway','aggregation','mathsapi','hypi-directives','userdefinedfunctions','workflow','triggers','webhooks','serverlessfunction','fileupload','rest-apis','oauth2login','password-reminder'],
     },
     {
       type: 'category',
       label: 'GraphQL',
-      items: ['graphql', 'gql-introduction', 'gql-schema-types','gql-queries','gql-mutations','gql-directives','gql-interfaces'],
+      items: ['graphql', 'gql-introduction', 'gql-schema-types','gql-queries','gql-mutations','gql-interfaces'],
     },
     'hypi-angular',
     {

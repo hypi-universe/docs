@@ -32,3 +32,7 @@ slug: /ui-instance-api-config
 Click the check box to enable the setting.
 
 ![APIConfig](/img/UI-Instance-API-Config-5.PNG)
+
+6. You may `Enforce Referential Integrity On Deletes` by clicking the below check box. It enables deletion of the array fields with one-to-many references. It sets the value of `clearArrayReferences` to true in the [delete](deletedata.md) function.
+
+![APIConfig](/img/UI-Instance-API-Config-6.png)
