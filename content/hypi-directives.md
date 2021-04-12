@@ -498,7 +498,7 @@ Hypi automatically generates certain data types when you declare a type. These g
 
 Let’s say you declared the following data type.
 ```java
-typeAWithNoDirs {
+type AWithNoDirs {
     f1: String
 }
 ```
@@ -515,19 +515,19 @@ You may check the details of these types under the documentation on the Hypi pla
 
 Now, declare the same data type like this:
 ```java
-typeAWithNoDirs @noagg @notable @noinput @nomath {
+type AWithNoDirs @noagg @notable @noinput @nomath {
     f1: String
 }
 ```
-When you save the above data type, only the AWithNoDirs table will get generated. Other tables will not be generated and the user will not be able to perform associated functions.
+When you save the above data type, only the `AWithNoDirs` table will get generated. Other tables will not be generated and the user will not be able to perform associated functions.
 
-@noinput tells Hypi not to generate an input type for this type. This prevents objects of this type from being used in upsert and other functions. So, you may not be able to perform mutations on this data type.
+@noinput tells Hypi not to generate an input type for this type. This prevents objects of this type from being used in upsert and other functions. So, you will not be able to perform mutations on this data type.
 
-@notable tells Hypi not to generate a table for the type it is attached to (AWithNoDirs here). Instead, the user will use a serverless function or some other method to produce objects of this type. So, you may not be able to create objects of this type.
+@notable tells Hypi not to generate a table for the type it is attached to (`AWithNoDirs` here). Instead, the user will use a serverless function or some other method to produce objects of this type. So, you will not be able to create objects of this type.
 
-@noagg Tells Hypi not to generate aggregation fields for the type this is attached to. So you may not be able to perform aggregation functions on AWithNoDirs
+@noagg Tells Hypi not to generate aggregation fields for the type this is attached to. So you will not be able to perform aggregation functions on  `AWithNoDirs`
 
-@nomath Tells Hypi not to generate Maths fields for the type this is attached to. So you may not be able to perform Mathematical functions on AWithNoDirs
+@nomath Tells Hypi not to generate Maths fields for the type this is attached to. So you will not be able to perform Mathematical functions on  `AWithNoDirs`
 
 ### @http
 
