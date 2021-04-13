@@ -1,5 +1,5 @@
 ---
-id: webhook
+id: webhooks
 title: Webhooks
 sidebar_label: Webhooks
 slug: /webhooks
