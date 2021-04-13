@@ -521,13 +521,13 @@ type AWithNoDirs @noagg @notable @noinput @nomath {
 ```
 When you save the above data type, only the `AWithNoDirs` table will get generated. Other tables will not be generated and the user will not be able to perform associated functions.
 
-@noinput tells Hypi not to generate an input type for this type. This prevents objects of this type from being used in upsert and other functions. So, you will not be able to perform mutations on this data type.
+`@noinput` tells Hypi not to generate an input type for this type. This prevents objects of this type from being used in upsert and other functions. So, you will not be able to perform mutations on this data type.
 
-@notable tells Hypi not to generate a table for the type it is attached to (`AWithNoDirs` here). Instead, the user will use a serverless function or some other method to produce objects of this type. So, you will not be able to create objects of this type.
+`@notable` tells Hypi not to generate a table for the type it is attached to (`AWithNoDirs` here). Instead, the user will use a serverless function or some other method to produce objects of this type. So, you will not be able to create objects of this type.
 
-@noagg Tells Hypi not to generate aggregation fields for the type this is attached to. So you will not be able to perform aggregation functions on  `AWithNoDirs`
+`@noagg` tells Hypi not to generate aggregation fields for the type it is attached to. So you will not be able to perform aggregation functions on  `AWithNoDirs`
 
-@nomath Tells Hypi not to generate Maths fields for the type this is attached to. So you will not be able to perform Mathematical functions on  `AWithNoDirs`
+`@nomath` tells Hypi not to generate Maths fields for the type it is attached to. So you will not be able to perform Mathematical functions on  `AWithNoDirs`
 
 ### @http
 
@@ -535,7 +535,7 @@ When this directive is applied, the value of the applied field gets resolved usi
 
 ### @tan
 
-This directive is used to implement serverless functions. . (See more about @tan directive [here](serverlessfunction.md))
+This directive is used to implement serverless functions. (See more about @tan directive [here](serverlessfunction.md))
 
 ### @secret
 
