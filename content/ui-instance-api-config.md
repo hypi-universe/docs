@@ -33,6 +33,6 @@ Click the check box to enable the setting.
 
 ![APIConfig](/img/UI-Instance-API-Config-5.PNG)
 
-6. You may `Enforce Referential Integrity On Deletes` by clicking the below check box. It enables deletion of the array fields with one-to-many references. It sets the value of `clearArrayReferences` to true in the [delete](deletedata.md) function.
+6. You may `Enforce Referential Integrity On Deletes` by clicking the below check box.  It causes an error to be returned if an attempt is made to delete data that is being referenced by other tables. The errors can be avoided at runtime by setting the `clearArrayReferences` to true when you call the [delete](deletedata.md) API.
 
 ![APIConfig](/img/UI-Instance-API-Config-6.png)
