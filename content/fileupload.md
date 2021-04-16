@@ -47,7 +47,7 @@ type File {
 | **content**     | String     | For the virtual file system upload, the content of the file would be set to a String value. Otherwise, the content would be null. |
 | **children**    | File       | For the virtual file system, the directory can have sub-files                                                                     |
 
-### Upload endpoint
+## Upload endpoint
 
 To upload a file (any file can be uploaded, image, pdf, etc), use the following endpoint
 

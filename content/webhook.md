@@ -38,6 +38,7 @@ type Query {
 }
 ```
 Let's go through the data types related to Webhook.
+
 ```java
 type WebhookPayload {
     url: URLInput!
@@ -45,14 +46,18 @@ type WebhookPayload {
     body: String
 }
 ```
+
 `Webhookpayload` data type stores the data of a payload. A payload has url string along with a header and body.
+
 
 | Parameter   | Type     | Description                                 |
 |-------------|----------|---------------------------------------------|
 | **url**     | URLInput | Input URL provided by the payload           |
 | **headers** | JSON     | Header of the Payload HTTP request/response |
 | **body**    | String   | Data Attached to Payload                    |
+
 Input url contains url information like `url path`, `query parameters`, `port`, `host`, etc.
+
 ```java
 type WebhookResponse {
     status: Int
@@ -80,6 +85,7 @@ Webhook type is defined in Hypi as above. A webhook object needs to be created i
 | **name**   | String     | The name of the webhook. It is referenced in the URL by this name. If missing the webhook is only addressable by ID                                  |
 | **as**     | Account    | Defaults to the account creating the Webhook. Hypi will generate an authorization token automatically for the account when the webhook is triggered. |
 | **query**  | GraphQLRef | This refers to a GraphQL function to process webhook requests. The function can trigger a workflow or operate on the payload itself.                 |
+
 Let’s check GraphQLRef type as well
 ```java
 type GraphQLRef {
@@ -89,11 +95,12 @@ type GraphQLRef {
 }
 ```
 
-| Parameters | Type   | Description                                                                                                           |
-|------------|--------|-----------------------------------------------------------------------------------------------------------------------|
-| type       | OpType | Query/Mutation/Subscription                                                                                           |
-| field      | String | The name of the function that processes the webhook request.                                                          |
-| selection  | String | If present this is a set of GraphQL fields that will be selected from the results of the function that is referenced. |
+| Parameters    | Type   | Description                                                                                                           |
+|---------------|--------|-----------------------------------------------------------------------------------------------------------------------|
+| **type**      | OpType | Query/Mutation/Subscription                                                                                           |
+| **field**     | String | The name of the function that processes the webhook request.                                                          |
+| **selection** | String | If present this is a set of GraphQL fields that will be selected from the results of the function that is referenced. |
+
 A simple webhook example looks like this.
 
 import Tabs from '@theme/Tabs';
@@ -141,7 +148,7 @@ mutation Upsert($values: HypiUpsertInputUnion!) {
 
 Once a Webhook is created, it can be called by making an HTTP request to:
 
-* [https://api.hypi.app/webhook/{domain}/{webhookname}\](#)
+* [https://api.hypi.app/webhook/{domain}/{webhookname}](#)
 
 where `{domain}` is the instance domain for your app and `{webhook name}` is the name of the webhook to be executed. In the example on this page, the name is `wh1`.
 
