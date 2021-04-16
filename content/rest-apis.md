@@ -327,6 +327,7 @@ $ curl --location --request POST '/rest/v1' \
     }
 } 
 ```
+
 </TabItem>
 </Tabs>
 
@@ -336,7 +337,7 @@ $ curl --location --request POST '/rest/v1' \
 To make an [update request](updatedata.md), the same endpoint and the payload can be used.  However, the HTTP method should be `PUT`. 
 
 <Tabs
-  defaultValwhipcord.apps.hypi.appue="query"
+  defaultValue="query"
   values={[
     {label: 'Request', value: 'query'},
     {label: 'Response', value: 'response'},
@@ -585,7 +586,7 @@ $ curl --location
 ```
 
 </TabItem>
-<TabItem value="response">whipcord.apps.hypi.app
+<TabItem value="response">
 
 ```json
 {
