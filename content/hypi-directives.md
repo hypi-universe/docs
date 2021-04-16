@@ -41,6 +41,15 @@ type Message {
     email: String @email
     email1: String @email
     email2: String @email
+    //@indices directive
+    type CheckIndex @indices(sets:[  
+        ["name"],
+        ["age","id"]           
+    ]){
+        name: String      
+        age: Int
+        id: Int
+    }
     //@secret directive
     sha: String @secret(hash: SHA3) #adslkjkjwdksjcfjskdjh
     bcrypt: String @secret(hash: BCRYPT) #lkdfjfeijewkllkjwekjf
@@ -536,6 +545,41 @@ When this directive is applied, the value of the applied field gets resolved usi
 ### @tan
 
 This directive is used to implement serverless functions. (See more about @tan directive [here](serverlessfunction.md))
+
+### @indices
+
+In relational databases like SQL server, Oracle, MySQL or Postgres, you can create a data structure in the database that allows it to perform query on your fields in a performant way. So if you know that you won’t be able to query your data using `hypi.id` then it is a good idea to create an index on the fields that you will use to query - otherwise your queries will get slower and slower as the amount of data grows..
+
+In the following example, an index is created on the`path`  field because it will be used for queries instead of`hypi.id`.  
+
+You can create one or more indices on one or more fields.  
+
+```
+@indices (sets: [  
+  ["path"],  
+  ["host","port"]  
+])
+```
+This example create two indices, one on path and a composite index on both `host` and `port`. It allows performant queries on `path` by itself i.e. `path = '/abc'` or on the host and port `host = 'hypi.io' AND port > 79`
+
+In the `CheckIndex` data type declared in the schema, `name` and `[age,id]` are the indices. You may query the data using the 'find' function with arql query. The query will remain the same, but performance will be maintained as the data grows.
+
+```java
+{
+  find(type: CheckIndex, arcql: "age = 17 AND id = 1") {
+    edges {
+      node {
+        ... on CheckIndex {
+          name
+          age
+          id
+        }
+      }
+      cursor
+    }
+  }
+}
+```
 
 ### @secret
 
