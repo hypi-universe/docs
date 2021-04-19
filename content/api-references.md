@@ -10,7 +10,7 @@ Hypi's platform tries to include the features most modern applications need to g
 1.  [CRUD](#crud)
 2.  [App dependencies](#app-dependencies)
 3.  [Environment variables](#environment-variables)
-4.  [Workflows](#workflows)
+4.  [Workflow](#workflow)
 5.  [Webhooks](#webhooks)
 6.  [Triggers](#triggers)
 7.  [User defined functions](#user-defined-functions)
@@ -45,9 +45,9 @@ Many applications require settings at run time which change depending on some cr
 
 See [Environment variables](ui-add-environment-var.md)
 
-## Workflows
+## Workflow
 
-Workflows are a way of letting your app orchestrate the execution of multiple functions in response to a single event.
+Workflow is a way of letting your app orchestrate the execution of multiple functions in response to a single event.
 
 Imagine you were building a web app for a completely automated Pizza service.
 When a user places an order for a Pizza, you want to do a few things:
@@ -74,7 +74,7 @@ See [Workflow](workflow.md)
 Many cloud services provide a mechanism to report ocurrence of certain events in their system.
 One of those mechanisms is called a Webhook. This is where the service will let you specify a URL that they will send a HTTP request to.
 
-Hypi's Webhooks lets you define URLs which can be called by external services.
+Hypi's Webhooks let you define URLs which can be called by external services.
 In response, you can call a user defined function, a serverless function, execute triggers and more.
 
 See [Webhooks](webhook.md)
@@ -137,8 +137,9 @@ See [Maths API](mathsapi.md)
 
 ## Aggregations API
 
-It's often the case that you may want to count or group data in your app.
-Use cases for this are where you want to ask things like, "How many of this thing exist?".
+It's often the case that you may want to count or group data in your app. You may want to ask things like, "How many of this thing exist?".
+
+Use cases for this:
 
 * How many users do i have in my app?
 * How many users exist in each department?

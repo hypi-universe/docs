@@ -71,7 +71,7 @@ To sort data in ascending or descending order, use the SORT clause.
 
 Example:
 
-`{arcql: fieldName SORT hypi.created ASC|DES}`
+`{arcql: fieldName SORT hypi.created ASC|DESC}`
 
 You may frame a query like this:
 
@@ -803,7 +803,7 @@ A wildcard character is used to substitute one or more characters in a string. A
 + a * 123
 + a * 'string_?' OR 123
 
-The first statement searches words with ‘some’ like someone, somewhere, something, etc. Third sting searches phrases with 'string_?. The question mark may carry any alphabet, number, or symbol.
+The first statement searches words with ‘some’ like someone, somewhere, something, etc. Third sting searches phrases with 'string_?'. The question mark may carry any alphabet, number, or symbol.
 
 #### WILDCARD QUERY EXAMPLE 1
 
@@ -917,8 +917,8 @@ Query Statement:
 
 Range queries search for the content that falls within given range.
 
-+ a IN (0, 1] =>  left inclusive, => including 0, excluding 1
-+ a IN \[0, 1) => right inclusive, => excluding 0, including 1
++ a IN (0, 1] =>  left inclusive => including 0, excluding 1
++ a IN \[0, 1) => right inclusive => excluding 0, including 1
 + a IN (0, 1) => exclusive => not including 0 or 1, only those in between
 + a IN \[0, 1\] => inclusive => including both 0, 1 and everything in between
 
@@ -1448,7 +1448,7 @@ Consider below question for Author data.
 
 Simply searching the Author table or Book table will not give us entire list.
 
-Let’s use `FIELD IN` to get results
+Let’s use `FIELD IN` to get results!
 ```java
 arql: “hypi.id != 'Author2' AND Author:booklist.authorinfo.name FIELD IN Author:booklist.authorinfo.name WHERE hypi.id = 'Author2'”
 ```

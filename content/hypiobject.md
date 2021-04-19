@@ -39,6 +39,7 @@ type Hypi {
     updated:DateTime
     trashed:DateTime
     createdBy:ID
+    instanceId:String
 }
 ```
 
@@ -60,7 +61,7 @@ A field like ‘id’ may get generated automatically. But you may set it as wel
 
 ### id
 
-`id:` => Specify the value of this field during mutation. Otherwise, Hypi will generate a unique ID number automatically. It is a mandatory field during ‘upsert’ (update) to locate the object to be updated. Specify it in the ArcQL query to find objects by ID. Check CRUD operations to understand the utilization of an id.
+`id:` => Specify the value of this field during mutation. Otherwise, Hypi will generate a unique ID number automatically. It is a mandatory field during ‘upsert’ (update) to locate the object to be updated. Specify it in the ArcQL query to find objects by ID. Check [CRUD](crud.md) operations to understand the utilization of an id.
 
 ### impl
 

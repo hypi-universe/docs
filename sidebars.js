@@ -17,7 +17,7 @@ module.exports = {
     {
       type: 'category',
       label: 'API & References',
-      items: ['api-references','apisetup','authentication','arcql','hypiobject','crud','createdata','updatedata','readdata','deletedata','references','authorisation','apigateway','aggregation','mathsapi','hypi-directives','userdefinedfunctions','workflow','triggers','webhooks','serverlessfunction','fileupload','rest-apis','oauth2login','password-reminder'],
+      items: ['api-references','apisetup','authentication','hypiobject','crud','createdata','updatedata','readdata','deletedata','arcql','references','authorisation','apigateway','aggregation','mathsapi','hypi-directives','userdefinedfunctions','workflow','triggers','webhooks','serverlessfunction','fileupload','rest-apis','oauth2login','password-reminder'],
     },
     {
       type: 'category',
