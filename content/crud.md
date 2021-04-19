@@ -22,7 +22,7 @@ Let’s look at `CRUD` operations in detail. While you perform Query operations 
 
 ```java
   
-  type Books {
+  type Book {
       title: String
       publication: String
       available: Boolean
@@ -32,12 +32,12 @@ Let’s look at `CRUD` operations in detail. While you perform Query operations 
       name: String!
       age: Int
       count: Int
-      booklist: [Books!]
+      booklist: [Book!]
   }
 
 ```
 
-Data type `Books` holds the information of a book like a title, publication, etc. It checks its availability in the library with the help of Boolean value. Data type `Author` holds data of an Author like name, age, count of books, and list of books.
+Data type `Book` holds the information of a book like a title, publication, etc. It checks its availability in the library with the help of Boolean value. Data type `Author` holds data of an Author like name, age, count of books, and list of books.
 
 > Now take a look at the below operations one by one!
 

@@ -8,7 +8,7 @@ Read the inserted data by using query functions. `get` and `find` are the two fu
 
 ## Get
 
-The `get` function returns a single record using the ‘id’ of an object. You may use the ‘id’ received after creating the record. The magic hypi object also contains the ‘id’ of the object (`hypi.id`).
+The `get` function returns a single record using the ‘id’ of an object. You may use the ‘id’ received after creating the record. The [magic hypi object](hypiobject.md) also contains the ‘id’ of the object (`hypi.id`).
 
 ```java
 get(type: HypiMutationType!, id: String!): HypiRootAggregate

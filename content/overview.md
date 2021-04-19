@@ -14,7 +14,7 @@ The App encapsulates a collection of data structures and serverless functions. Y
 
 An app is a way to implement group-related behavior and add resources. It is quite similar to a micro-service that handles its own data and functionalities. You may have more than one App in your product to implement different modules.
 
-[Create An App](ui-create-app.md)
+[Create an App](ui-create-app.md)
 
 Let's look deep inside the Hypi 'App'. It consists of the below components.
 
@@ -48,7 +48,7 @@ Have a robust schema that caters to the functionalities of the backend services 
 
 [https://blog.logrocket.com/simplifying-the-graphql-data-model/](https://blog.logrocket.com/simplifying-the-graphql-data-model/)
 
-[Model A Schema](ui-create-table-vb.md)
+[Model a Schema](ui-create-table-vb.md)
 
 ***
 
@@ -95,4 +95,4 @@ Every instance gets a domain. Hypi generates one by default. But, you are free t
 
 Check more about [Domains](apisetup.md) provided by Hypi.
 
-[Add Instance](ui-create-instance.md)
+[Add an Instance](ui-create-instance.md)

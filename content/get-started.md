@@ -7,7 +7,7 @@ slug: /get-started
 
 Hypi platform is easy to use! A quick way to get started using the platform is to skim through references below. Also try out examples on usage of Hypi APIs in GraphQL editor.
 
-[API and References](apisetup.md) – Comprehensive Guide to use various Hypi APIs 
+[API and References](api-references.md) – Comprehensive Guide to use various Hypi APIs 
 
 [GraphQL](graphql.md) – Concise tutorial to understand GraphQL
 

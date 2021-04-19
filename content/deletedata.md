@@ -127,7 +127,7 @@ Setting `clearArrayReferences` to true only removes references to data in array 
 
 :::
 
-Let's look at the example from our Author and Books data types now. If you try to delete data from Books without setting `clearArrayReferences` values, it would result in an error. As the references exist between Author and Books table through the 'booklist' field, the Books records cannot be deleted without removing the references.
+Let's look at the example from our `Author` and `Book` data types now. If you try to delete data from Book table without setting `clearArrayReferences` values, it would result in an error. As the references exist between Author and Book tables through the 'booklist' field, the Book records cannot be deleted without removing the references.
 
 <Tabs
   defaultValue="query"
@@ -139,7 +139,7 @@ Let's look at the example from our Author and Books data types now. If you try t
 
 ```
 mutation {
-  delete(type: Books, arcql: "hypi.id = '01F2X8203XKRFR7G62T6SP1MW4'")
+  delete(type: Book, arcql: "hypi.id = '01F2X8203XKRFR7G62T6SP1MW4'")
 }
 ```
 
@@ -156,7 +156,7 @@ mutation {
       "extensions": {}
     },
     {
-      "message": "Author.booklist links to Books. Use unlink to remove the reference before deleting",
+      "message": "Author.booklist links to Book. Use unlink to remove the reference before deleting",
       "extensions": {}
     },
     {
@@ -184,7 +184,7 @@ Setting parameter `clearArrayReferences` to `true` will remove the object.
 
 ```
 mutation {
-  delete(type: Books, arcql: "hypi.id = '01F2X8203XKRFR7G62T6SP1MW4'",
+  delete(type: Book, arcql: "hypi.id = '01F2X8203XKRFR7G62T6SP1MW4'",
   clearArrayReferences:true)
 }
 ```

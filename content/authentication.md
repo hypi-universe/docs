@@ -9,7 +9,7 @@ Authentication involves verifying the identification of a user. The credentials 
 
 Authentication is important. It keeps the resources secure from unauthenticated users. The resources may include networks, databases, websites, and other applications. 
 
-Hypi provides authentication functions to its users. The functions are easy-to-use. You can [create a password-protected account](#createAccount) with a user name or an email. You can [log in to the account](#login) with saved credentials.
+Hypi provides authentication functions to its users. The functions are easy-to-use. You can [create a password-protected account](#createaccount) with a user name or an email. You can [log in to the account](#login) with saved credentials.
 
 ## createAccount
 
@@ -34,7 +34,7 @@ type Account {
     remoteLogins(...): [RemoteLogin!]
 }
 ```
-You may pass on parameters to the Account object to store Account information. E.g. username, password, emails, phone contacts, group details, role details. Hypi also stores the login attempts in this table. The Person type (owner parameter) stores the information of the user like name, address, date of birth, gender, etc. It also keeps the information whether the user has been authenticated in the Boolean fields `verified` and `enable`.
+You may pass on parameters to the Account object to store Account information. E.g. username, password, emails, phone contacts, group details, role details. Hypi also stores the login attempts in this table. The Person type (owner parameter) stores the information of the user like name, address, date of birth, gender, etc. It also keeps the information whether the user has been authenticated in the Boolean fields `verified` and `enabled`.
 
 Create a user account as shown in the below example. You may pass more parameters as required. The  function returns the account id, the date of creation, and created by information from the created Account object.
 
@@ -135,7 +135,7 @@ login(username:String!,password:String!): AccessToken
 
 ## loginByEmail:
 
-Users may log in using the `loginByEmai` function. This function takes email-id and password as inputs. It also generates session-token and provides error code and error message if any.
+Users may log in using the `loginByEmail` function. This function takes email-id and password as inputs. It also generates session-token and provides error code and error message if any.
 
 <Tabs
   defaultValue="query"
