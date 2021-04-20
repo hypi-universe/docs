@@ -9,8 +9,9 @@ In many databases and some other systems, it is possible to define a trigger tha
 
 In Hypi, triggers are supported with both a `before` and `after` semantics by adding the `@trigger` directive to a function.
 
-The `before` function gets executed before the triggering function. It usually does a validation check.
-The `after` function gets executed alongside the triggering function. It is an after-response to an event.
+The `before` function gets executed before the function being called. It can be used for validation or calling other services. If it fails, it prevents the execution of the function being called.
+
+The `after` function gets executed after the called function. It cannot affect the results of the function being called. It can be used to notify another service of an operation being compelted.
 
 > Important points to remember
 
@@ -201,9 +202,9 @@ We have added `AfterResult` just for demonstration puropse. It indicates how Aft
 
 ## Function overriding
 
-The in-built function of Hypi can be overriden using Trigger. Function overriding is allowed so long as all parameters of the new function match the original exactly. This can be used to arbitrarily allow or deny access to a functionality depending upon the event to be handled by your App.
+The in-built function of Hypi can be overriden using Trigger. Function overriding is allowed so long as all parameters of the new function exactly match the original parameters. This can be used to arbitrarily allow or deny access to a functionality depending upon the event to be handled by your App.
 
-caution:::
+:::caution
 
 Care must be taken when overriding functions. `upsert` for example is used everywhere - breaking it will cause many things to fail.
 

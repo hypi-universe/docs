@@ -9,7 +9,7 @@ A `directive` allows you to customise the behaviour of your data model. Hypi's b
 
 ## What is a directive
 
-A `@` character followed by a series of characters identifies a directive. It is optionally followed by a list of named arguments, which can appear after almost any form of syntax in the GraphQL query or schema languages.
+An `@` character followed by a series of characters identifies a directive. It is optionally followed by a list of named arguments, which can appear after almost any form of syntax in the GraphQL query or schema languages.
 
 `strl: String @length(min: 1, max: 5)`
 
@@ -79,7 +79,7 @@ type AWithNoDirs @noagg @notable @noinput @nomath {
 ```
 ## Built-in directives
 
-Let’s look at Hypi's built-in directives one by one. You may refer to the schema above for reference. The examples given for using the directives are self-explanatory. You may dsiable a directive by adding #
+Let’s look at Hypi's built-in directives one by one. You may refer to the schema above for reference. The examples given for using the directives are self-explanatory. You may disable a directive by adding #
 in front of it.
 
 ### @length
@@ -264,8 +264,9 @@ This directive checks if a date specified in a ‘DateTime’ field is a past da
 
 This directive checks if a date specified in a ‘DateTime’ field is a future date. If it is not, it returns an error. Te format accepted by the field is ISO 8601 standard – UTC date format.
 
-`past: DateTime@past
-future: DateTime@future`
+`past: DateTime@past`
+
+`future: DateTime@future`
 
 Example of @past and @future directives:
 
@@ -324,7 +325,7 @@ mutation {
 
 This directive checks if the field's value matches the given regular expression (regex). It takes regex values within brackets as an input. There is another Boolean parameter `allMustMatch` that defaults to false. If it is ‘true’ it means the value in the field must match both the regular expressions in the bracket (AND condition). If it is false, the field value may match with any of the two expressions(OR condition).
 
-`pattern: String@pattern(regex: ["^test.*$"])`
+`pattern: String @pattern(regex: ["^test.*$"])`
 
 Check the guideline for framing Regex: [https://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html](https://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html)
 
@@ -548,7 +549,7 @@ This directive is used to implement serverless functions. (See more about @tan d
 
 ### @indices
 
-In relational databases like SQL server, Oracle, MySQL or Postgres, you can create a data structure in the database that allows it to perform query on your fields in a performant way. So if you know that you won’t be able to query your data using `hypi.id` then it is a good idea to create an index on the fields that you will use to query - otherwise your queries will get slower and slower as the amount of data grows..
+In relational databases like SQL server, Oracle, MySQL or Postgres, you can create a data structure in the database that allows it to perform query on your fields in a performant way. So if you know that you won’t be able to query your data using `hypi.id` then it is a good idea to create an index on the fields that you will use to query - otherwise your queries will get slower and slower as the amount of data grows.
 
 In the following example, an index is created on the`path`  field because it will be used for queries instead of`hypi.id`.  
 

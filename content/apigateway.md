@@ -13,7 +13,7 @@ Hypi's features such as [authorisation](authorisation.md), [workflows](workflow.
 
 ### Using the API gateway
 
-To use the API gateway, you must add a dependency `gateway` to the App . As a reminder, a dependency is referenced by the app name, realm and release. Check more about [dependencies](overview.md) here. 
+API gateway is a part of App-core. It is available to use by default. 
 
 ### @http directive
 
@@ -60,7 +60,7 @@ In the Hypi schema editor (or via the API), you may annotate any query or mutati
 ```java
 type Query {
  getUser(includeAge: Boolean): User @http(
-    url: "https://api.my-domain.com/users/${settings.userId} includeAge=${vars.includeAge}",
+    url: "https://api.my-domain.com/users/${settings.userId} &includeAge=${vars.includeAge}",
     headers: """{"Authorization":"Bearer ${settings.apiToken}"}"""
   )
 }
