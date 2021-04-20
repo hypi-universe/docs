@@ -28,7 +28,7 @@ An object or a resource is the thing being protected. In Hypi, two primary thing
 
 ## Policy
 
-A policy is an interface with two fields that contain important pieces of information. It has the name of the `subject` to provide authorisation. And it holds the logic of granting or denying access. The values of the logic can be Positive or Negative.
+A `policy` is an interface with two fields that contain important pieces of information. It has the `name` of the `subject` to provide authorisation. And it holds the Enum `logic` of granting or denying access. The values of the logic can be Positive or Negative.
 ```java
 interface Policy {
     hypi: Hypi
@@ -176,10 +176,10 @@ Let's check the parameters.
 
 | Parameter              | Type             | Description                                                                                                            |
 |------------------------|------------------|------------------------------------------------------------------------------------------------------------------------|
-| **Name**               | String           | The description of the permission                                                                                      |
+| **name**               | String           | The description of the permission                                                                                      |
 | **decisionStrategy**   | DecisionStrategy | Defines how the policy arrives at a decision, defaults to Unanimous                                                    |
 | **type**               | String           | The type or an object that this permission applies to                                                                  |
-| **resource**           | String           | If present then the scopes in this permission will have the given policies applied to this resource.                   |
+| **resource**           | String           | If present, then the given policies gets applied to this resource. Provide Hypi ID of the resource.                    |
 | **operationType**      | OpType           | Query, Mutation, or Subscription                                                                                       |
 | **includeAllAccounts** | Boolean          | If true, this permission grants/denies access to all accounts (including anonymous account)                            |
 | **policies**           | Policy           | Give access to specific users, groups, etc instead of to all accounts                                                  |
@@ -247,17 +247,17 @@ type PermissionDescription {
 You may simply use the fields of PermissionDescription to access permission details. Information about the group/organization/role should have been stored while [creating the user account](authentication.md). Otherwise, the fields would return a null value.
 ```json
 {
-   me{
-        roles{
+   me {
+        roles {
             name
         }
-        organisations{
+        organisations {
             name
-            phones{
-            number
+            phones {
+                number
             }
         }
-        permissions{
+        permissions {
             operations
             operationType
         }

@@ -314,7 +314,7 @@ You may select matching rows ( records with the specific field value) and perfor
 
 ### Aggregate with groupBy
 
-You may make specific groups of records and perform aggregate operations on them. Use `groupBy` clause as a filter. The below example makes two groups by specifying `authorid` as groupBy field. There are two groups of books with 2 distinct authorids. So, authorid is a key with values 1 and 2.
+You may make specific groups of records and perform aggregate operations on them. Use `groupBy` clause as a filter. The below example makes two groups by specifying `authorid` as groupBy field. There are two groups of books with 2 distinct authorids. So, authorid is a key with values 1 and 2. `groupValues` povide the key (groupBy field) and the value of the key.
 
 ‘With’ gets attached to the data type to form the aggregate query function. Use the function `bookWith` for using the groupby clause. (Here data type is `book`). You may specify the order to sort the key values,i.e. ascending or descending. (ASC/DESC). The `bookWith` function returns the aggregate prices of books of two authors.
 

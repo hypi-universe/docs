@@ -5,7 +5,7 @@ sidebar_label: RESTful APIs
 slug: /rest-apis
 ---
 
-Hypi platform provides APIs with multiple flavors that suit different developers' tastes. The RESTful APIs are no different and at the same time, they were redesigned to abide by the HATEOS code of conduct for better semantics and easier interpretation.
+Hypi platform provides APIs with multiple flavors that suit different developers' tastes. The RESTful APIs are no different and at the same time, they were redesigned to abide by the [HATEOS](https://en.wikipedia.org/wiki/HATEOAS) code of conduct for better semantics and easier interpretation.
 
 REST APIs conform to the constraints of the **REST** architectural style and allows for interaction with RESTful web services. The endpoint  `https://api.hypi.app/rest` allows you to use standard REST-like requests to execute queries against your instance.
 

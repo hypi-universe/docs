@@ -9,7 +9,7 @@ User Defined functions provide a lightweight way to implement custom behaviour o
 
 Currently, you may use two programming language for the user defined functions.
 
-+ Groovy: The entire Groovy syntax is available on the hypi platform. Groovy is general a general programming language. Adding custom behaviour using Groovy becomes quick, easy and performant.
++ Groovy: The entire Groovy syntax is available on the hypi platform. Groovy is a general programming language. Adding custom behaviour using Groovy becomes quick, easy and performant.
 
 + Velocity: The velocity template language is in place to output text. This text may execute dynamic behaviour. E.g., customizing the body of an email, substituting receiver’s name from a variable etc.
 

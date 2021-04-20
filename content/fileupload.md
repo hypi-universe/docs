@@ -212,7 +212,7 @@ mutation {
    
 Note:  `resource` field has the hypi id of the file uploaded.
     
-In this example we explicitly give anonymous users access to the file uploaded. This could also have been done by giving access to_all_accounts in the app instance by setting `includeAllAccounts` to true.
+In this example, we explicitly give anonymous users access to the file uploaded. This could also have been done by giving access to_all_accounts in the app instance by setting `includeAllAccounts` to true.
 
 Due to the permission above, the curl request can now be made without any authorisation headers.
 

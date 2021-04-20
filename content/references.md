@@ -9,7 +9,7 @@ Hypi can provide `one-to-one` or `one-to-many` references for tables.
 
 Let’s say you want to connect Table A to Table B through one common field ‘C’. So, table A has this field C of type B. This is the one-to-one reference. If field C is an array or list of type B, it is a one-to-many kind of reference.
 
-For creating a reference, Hypi has the built-in function `link`. The references can also be removed and data in the referenced table can be deleted using the `unlink` function.
+For creating a reference, Hypi has the built-in function `link`. The references can be removed using the `unlink` function.
 
 Let’s check the signatures of link and unlink functions.
 
@@ -34,9 +34,9 @@ unlink(
 
 | **Parameter**   | **Description**                                                                            | **Example**    |
 |-----------------|--------------------------------------------------------------------------------------------|----------------|
-| **From**        | The data type from where reference needs to be created                                     | from: ‘Author’ |
+| **from**        | The data type from where reference needs to be created                                     | from: ‘Author’ |
 | **to**          | The data type to be referred                                                               | to: ‘Book’     |
-| **Via**         | The field of object ‘to’ in the object ‘from’                                              | Booklist       |
+| **via**         | The field of object ‘to’ in the object ‘from’                                              | Booklist       |
 | **whereFromID** | Hypi ID of the Object of type ‘from’ that needs an entry of object ‘to’                    | ‘Author1’      |
 | **andToID**     | Hypi ID of the Object of type ‘to’ that needs to be entered into the object of type ‘from’ | ‘Book1’        |
 
@@ -45,13 +45,13 @@ unlink(
 To go through examples, we will need below schema.
 
 ```java
-typeBook {
+type Book {
     title: String
     authorid: Int
     price: Float
 }
 
-typeAuthor {
+type Author {
     name: String
     age: Int
     bestbook: Book
@@ -420,7 +420,7 @@ subscription {
 }
 ```
 
-Open second Hypi GraphQL editor on another tab of the browser selecting the same release and same instance. This works as a sender socket. Insert data in the name field.
+Open second [Hypi GraphQL Playground](ui-gql-playground.md) (editor) on another tab of the browser selecting the same release and same instance. This works as a sender socket. Insert data in the name field.
 
 ```json
 mutation Upsert($values: HypiUpsertInputUnion!) {
@@ -481,4 +481,4 @@ You may perform any number of upsert operation. The upsert event would be notifi
 }    
 ```
 
-Please note that you insert data in the `age` field of Author1, the insertion notification would not be received.
+Please note that if you insert data in the `age` field of Author1, the insertion notification will not be received.
