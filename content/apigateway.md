@@ -26,23 +26,28 @@ Once you have added the directive to a function, it can be treated like any othe
 ```java
 directive @http(  method: HttpMethod! = GET,  url: String!,  headers: String,  requestTemplate: String,  saveAs: String) on FIELD_DEFINITION
 ```
-When applied causes the value of the field it is applied to to be resolved using an HTTP query configured with the given parameters
+HTTP query gets configured with the following parameters.
 
 
-| Parameter           | Description                                                                                                                                                                                               | Example                                                                                                                                                                      |
-|---------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **method**          | One of the available HTTP methods                                                                                                                                                                         | GET, PUT, POST, DELETE, PATCH, OPTIONS, HEAD, TRACE                                                                                                                          |
-| **url**             | The URL template to use to make the request                                                                                                                                                               | [https://api.my-domain.com/users/${settings.userId}?includeAge=${vars.includeAge}](https://api.my-domain.com/users/$%7Bsettings.userId%7D?includeAge=$%7Bvars.includeAge%7D) |
-| **headers**         | The string formatted JSON object which sets the headers sent in the HTTP request. A JSON object where ALL entries MUST be strings or convertible to strings (basically numbers) #e.g. {"a": "v1", "b": 2} | {"Authorization":"Bearer ${settings.apiToken}"}                                                                                                                              |
-| **requestTemplate** | The name of the request template which defines how the request body and response should be handled                                                                                                        |                                                                                                                                                                              |
-| **saveAs**          | If present, the HTTP response will be stored in Hypi as the given type. The type must exist in the current instance                                                                                       |                                                                                                                                                                              |
+| Parameter           | Description                                                                                                                                                                                               | Example                                             |
+|---------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------|
+| **method**          | One of the available HTTP methods                                                                                                                                                                         | GET, PUT, POST, DELETE, PATCH, OPTIONS, HEAD, TRACE |
+| **url**             | The URL template to make the request                                                                                                                                                                      | URL to make request to                              |
+| **headers**         | The string formatted JSON object which sets the headers sent in the HTTP request. A JSON object where ALL entries MUST be strings or convertible to strings (basically numbers) #e.g. {"a": "v1", "b": 2} | {"Authorization":"Bearer ${settings.apiToken}"}     |
+| **requestTemplate** | The name of the request template which defines how the request body and response should be handled                                                                                                        |                                                     |
+| **saveAs**          | If present, the HTTP response will be stored in Hypi as the given type. The type must exist in the current instance                                                                                       |                                                     |
+
+A sample URL could be as follows:
+https://api.my-domain.com/users?${settings.userId}&includeAge=${vars.includeAge}
+
+Here query parameters could be passed using variables 'vars' and 'settings'. Utilities like JSON and MAP are available to use in all the templates like Groovy or Velocity.
 
 ### Variables
 
 Each argument is a valid Velocity template meaning you can use dynamic parameters. The following may be referenced "vars", "settings".
 
-+  **vars** refers to any arguments on the field the directive is applied to.   `${vars.firstName}` refers to the firstName argument of the field
-+ **settings** refers to any instance settings provided in the app
++  **vars** refers to any arguments on the field the directive is applied to.   `${vars.firstName}` refers to the firstName argument of the field. So, pass on the variables through 'vars'.
++ **settings** refers to any instance settings provided in the app. You may save specific settings in the form of Environment Variable. And then use it in the HTTP request. `${settings.APITOKEN` refers to environment variable settings `APITOKEN` .
 
 ### Utilities
 
@@ -51,23 +56,182 @@ JSON and Map utilities are available for use in all templates.
 + JsonNode JSON.parseJSON(String)
 + Map<String, Object>; JSON.parse(String)
 
-Map is the standard Java Map interface containing static util methods e.g. Map.of(...) JsonNode is a class used to represent JSON values by the Jackson JSON library.
+Map is the standard Java Map interface containing static util methods e.g. Map.of(...) 
+JsonNode is a class used to represent JSON values by the [Jackson JSON library](https://www.baeldung.com/jackson).
+
+### RequestTemplate
+
+`RequestTemplate` data type defines the templates that should be applied to a given HTTP request. It contains the name of the request and formats of the request and response. Sometimes the url has a specific request format. You may match that format using the Request Template. Similarly, you may tailor the response received. You may create an object of RequestTemplate in the GraphQL editor and then execute HTTP request or you may specify the RequestTemplate inline in the Schema using variable `requestTemplate`. We will look at both these use-cases in the Example. Please note you may run the HTTP request without this template if there is no specific requirement.
+
+```java
+type RequestTemplate{
+    name:String!
+    request:String
+    response:String
+}
+```
 
 ### Example
 
-In the Hypi schema editor (or via the API), you may annotate any query or mutation with this directive.
+Let's use directive `@http` and send an HTTP request to the website `https://httpbin.org/`.  It echos the HTTP request back as a response.
+
+#### Use-Case:1
+
+In this use-case, we will create the RequestTemplate object in the GraphQL editor and format the request. Let's create requestTemplate - `httpbin-post`. 
 
 ```java
-type Query {
- getUser(includeAge: Boolean): User @http(
-    url: "https://api.my-domain.com/users/${settings.userId} &includeAge=${vars.includeAge}",
-    headers: """{"Authorization":"Bearer ${settings.apiToken}"}"""
+mutation{  
+  upsert(values:{  
+    RequestTemplate:[  
+      {  
+        name:"httpbin-post",  
+        request: """{"id": "${vars.emailid}"}"""  
+      }  
+    ]  
+  }){  
+    id  
+  }  
+}
+```
+Here is the schema for the HTTP request.  It sends the http POST message to the url containing the username. 
+
+```java
+type HttpBinResponse2 {
+  args: Json
+  data: String
+  headers: Json
+  files: Json
+  form: Json
+  json: Json
+  origin: String
+  url: String
+}
+
+type Mutation {
+ setEmail(emailid: String, user: String): Json @http(
+    method: POST,
+    headers: """{"Content-Type": "application/json"}"""
+    url: "https://httpbin.org/post?user=$vars.user&emailid=$vars.emailid",
+    requestTemplate: "httpbin-post",
+    saveAs: "HttpBinResponse2"    
   )
 }
 ```
 
-You can then call this function via HTTP or GraphQL in your app. Note here that the response from the API must match the structure of the `User` object you specified as the return type.
+`$vars.emailid` holds the input email id to be sent across. The same has been used in the requestTemplate -`httpbin-post`. So only `emailid` will be echoed back and not the user string as we have omitted it in the requestTemplate. `HttpBinResponse2` is the data type that holds the response of the website to the http request. 
 
-If you're making a request to an API which doesn't directly match your type i.e. `User` in this case, you can use the `requestTemplate` parameter.  It transforms the API response by extracting fields from it and constructs an object which matches your declared return type.
+Let's run the HTTP request now by executing the `setEmail` function. The response gets saved in the `HttpBinResponse2` object. Notice the `headers` setting echoed in the response.
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
+<Tabs
+  defaultValue="query"
+  values={[
+    {label: 'GraphQL Query', value: 'query'},
+    {label: 'Response', value: 'response'},
+  ]}>
+<TabItem value="query">
+
+```java
+mutation{
+  setEmail(emailid: "example@http.com", user: "abc3")
+}
+```
+
+</TabItem>
+<TabItem value="response">
+
+```java
+{
+  "data": {
+    "setEmail": {
+      "args": {
+        "emailid": "example@http.com",
+        "user": "abc3"
+      },
+      "data": "{\"id\": \"example@http.com\"}",
+      "files": {},
+      "form": {},
+      "headers": {
+        "Content-Length": "26",
+        "Content-Type": "application/json",
+        "Host": "httpbin.org",
+        "User-Agent": "Apache-HttpAsyncClient/4.1.4 (Java/11.0.10)",
+        "X-Amzn-Trace-Id": "Root=1-607fc4ba-32fdf04c146a3f453474be30"
+      },
+      "json": {
+        "id": "example@http.com"
+      },
+      "origin": "51.210.125.224",
+      "url": "https://httpbin.org/post?user=abc3&emailid=example%40http.com"
+    }
+  }
+}
+```
+
+</TabItem>
+</Tabs>
+
+You may cross-check the response in the `HttpBinResponse2` object by using the find function.
+
+#### Use-Case:2 
+
+In this use-case, we will define requestTemplate and responseTemplate inline. Go through following schema and notics the changes in the `setEmail` function.
+```java
+type Mutation {
+   # {emailid: "value emailid", user: "value user"}
+ setEmail(emailid: String, user: String): Json @http(
+    
+    method: POST,
+    url: "https://httpbin.org/post?user=$vars.user&emailid=$vars.emailid",
+    headers: """{"Content-Type": "application/json", 
+             "Authorization": "${settings.APITOKEN}"}"""
+    inline: {
+      requestTemplate: """{"email": "${vars.emailid}"}""",
+//#Notice the use of .textValue() method-this gets the string value without quotes
+      responseTemplate: """{"value": "$!{response.json.email.textValue()}"}"""
+//#OR - the below - notice there is no quote around the variable 
+//#Hypi uses the Java Jackson JSON library which will automatically include quotes like this "<value here>"
+      #responseTemplate: """{"value": $!{response.json.email}}"""
+    },
+    saveAs: "Email"    
+  )
+}
+```
+
+The `requestTemplate` has the same `${vars.emailid}` value as the previous use-case. But it is defined with Groovy inline format. The `responseTemplate` extracts the echoed email value from the`json` field of the response and saves it in the `value` field of the `Email` data type. Notice the use of APITOKEN environment variable. The value of this field has to be set at runtime and the same gets sent over in the HTTP request header.
+
+Let's run the http request now by executing the `setEmail` function. The response gets saved in the `Email` object.
+
+<Tabs
+  defaultValue="query"
+  values={[
+    {label: 'GraphQL Query', value: 'query'},
+    {label: 'Response', value: 'response'},
+  ]}>
+<TabItem value="query">
+
+```java
+mutation{
+  setEmail(emailid: "test1@abc.com", user: "abc3")
+}
+```
+
+</TabItem>
+<TabItem value="response">
+
+```json
+{
+  "data": {
+    "setEmail": {
+      "value": "test1@abc.com"
+    }
+  }
+}
+```
+
+</TabItem>
+</Tabs>
+
+You may cross-check the response in the `Email` object by using the `find` function.
