@@ -121,3 +121,10 @@ wsk namespace list
 namespaces
 01F2GA50PHFK7BAE9FZTPSPBK3
 ```
+7. Verify that the action was invoked by checking the activations list:
+```
+wsk activation list
+Datetime            Activation ID                    Kind      Start Duration   Status  Entity
+2021-04-19 18:57:33 6955a0e828af40a195a0e828afe0a128 nodejs:10 cold  40ms       success 01F2GA50PH...TPSPBK3/hithere:0.0.1
+2021-04-19 16:34:31 26285233eaba4960a85233eaba4960aa nodejs:10 cold  36ms       success 01F2GA50PH...TPSPBK3/serverlessFun:0.0.1
+```
