@@ -1,8 +1,8 @@
 ---
-id: openwhisk-action
+id: openwhisk-actions
 title: OpenWhisk Actions
 sidebar_label: OpenWhisk Actions
-slug: /openwhisk-action
+slug: /openwhisk-actions
 ---
 
 # OpenWhisk Actions
@@ -25,8 +25,6 @@ While the actual function code will be specific to a language and runtime, the O
       *  [Listing actions](#listing-actions)
       *  [Deleting actions](#deleting-actions)
 * [Accessing action metadata within the action body](#accessing-action-metadata-within-the-action-body)
-* [Securing your action](security.md)
-* [Concurrency in actions](concurrency.md)
 
 ## The basics
 
