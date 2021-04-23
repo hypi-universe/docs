@@ -14,7 +14,7 @@ type Query{
     f1(a: Int,b: String): Json @tan(type:OpenWhisk, name:"hithere")
 }
 ```
-Here, `f1` [User Defined Function](userdefinedfunctions.md) has been defined with input parameters `a` and `b`and it returns a JSON value. It uses @tan directive to access serverless function `hithere` (Check [this](create-serverless.md) guide on how to create serverless function). 
+Here, function `f1`  has been defined with input parameters `a` and `b`and it returns a JSON value. It uses @tan directive to access serverless function `hithere` (Check [this](create-serverless.md) guide on how to create serverless function). 
 
 ### @tan Directive
 
