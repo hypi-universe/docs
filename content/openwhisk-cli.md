@@ -20,7 +20,7 @@ https://openwhisk.apache.org/documentation.html#wsk-cli
 Make sure to set PATH environmental variable pointing towards wsk binary file. Verify the installation using the following command. You may get the 
 
 ```
-$ wsk --help
+wsk --help
 ```
 
 ### Configure OpenWhisk 

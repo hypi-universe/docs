@@ -5,8 +5,6 @@ sidebar_label: Web Actions
 slug: /openwhisk-webactions
 ---
 
-# Web Actions
-
 Web actions are OpenWhisk actions annotated to quickly enable you to build web based applications. This allows you to program backend logic which your web application can access anonymously without requiring an OpenWhisk authentication key. It is up to the action developer to implement their own desired authentication and authorization (i.e. OAuth flow).
 
 Web action activations will be associated with the user that created the action. This actions defers the cost of an action activation from the caller to the owner of the action.
@@ -112,7 +110,7 @@ The default content-type for an HTTP response is `application/json` and the body
 
 It is important to be aware of the response size limit for actions since a response that exceeds the predefined system limits will fail. Large objects should not be sent inline through OpenWhisk, but instead deferred to an object store, for example.
 
-## Handling HTTP requests with actions
+### Handling HTTP requests with actions
 
 An OpenWhisk action that is not a web action requires both authentication and must respond with a JSON object. In contrast, web actions may be invoked without authentication, and may be used to implement HTTP handlers that respond with _headers_, _statusCode_, and _body_ content of different types. The web action must still return a JSON object, but the OpenWhisk system (namely the `controller`) will treat a web action differently if its result includes one or more of the following as top level JSON properties:
 
@@ -124,7 +122,7 @@ The `body` is considered empty if it is `null`, the empty string `""` or undefin
 
 The controller will pass along the action-specified headers, if any, to the HTTP client when terminating the request/response. Similarly the controller will respond with the given status code when present. Lastly, the body is passed along as the body of the response. If a `content-type header` is not declared in the action result’s `headers`, the body is interpreted as `application/json` for non-string values, and `text/html` otherwise. When the `content-type` is defined, the controller will determine if the response is binary data or plain text and decode the string using a base64 decoder as needed. Should the body fail to decoded correctly, an error is returned to the caller.
 
-## HTTP Context
+### HTTP Context
 
 All web actions, when invoked, receives additional HTTP request details as parameters to the action input argument. They are:
 
@@ -139,7 +137,7 @@ A request may not override any of the named `__ow_` parameters above; doing so w
 
 The `__ow_user` is only present when the web action is [annotated to require authentication](openwhisk-annotations.md#annotations-specific-to-web-actions) and allows a web action to implement its own authorization policy. The `__ow_query` is available only when a web action elects to handle the ["raw" HTTP request](#raw-http-handling). It is a string containing the query parameters parsed from the URI (separated by `&`). The `__ow_body` property is present either when handling "raw" HTTP requests, or when the HTTP request entity is not a JSON object or form data. Web actions otherwise receive query and body parameters as first class properties in the action arguments with body parameters taking precedence over query parameters, which in turn take precedence over action and package parameters.
 
-## Additional features
+### Additional features
 
 Web actions bring some additional features that include:
 
@@ -255,12 +253,11 @@ $ curl https://${APIHOST}/api/v1/web/guest/demo/hello.json -H 'Content-Type: tex
 }
 ```
 
-
-## Content extensions
+### Content extensions
 
 A content extension is generally required when invoking a web action; the absence of an extension assumes `.http` as the default. The fully qualified name of the action must include its package name, which is `default` if the action is not in a named package.
 
-## Protected parameters
+### Protected parameters
 
 Action parameters are protected and treated as immutable. Parameters are automatically finalized when enabling web actions.
 
@@ -272,7 +269,7 @@ $ wsk action create /guest/demo/hello hello.js \
 
 The result of these changes is that the `name` is bound to `Jane` and may not be overridden by query or body parameters because of the final annotation. This secures the action against query or body parameters that try to change this value whether by accident or intentionally.
 
-## Securing web actions
+### Securing web actions
 
 By default, a web action can be invoked by anyone having the web action's invocation URL. Use the `require-whisk-auth` [web action annotation](openwhisk-annotations.md#annotations-specific-to-web-actions) to secure the web action. When the `require-whisk-auth` annotation is set to `true`, the action will authenticate the invocation request's Basic Authorization credentials to confirm they represent a valid OpenWhisk identity.  When set to a number or a case-sensitive string, the action's invocation request must include a `X-Require-Whisk-Auth` header having this same value. Secured web actions will return a `Not Authorized` when credential validation fails.
 
@@ -292,7 +289,7 @@ $ curl https://${APIHOST}/api/v1/web/guest/demo/hello.json?name=Jane -X GET -H "
 
 It's important to note that the owner of the web action owns all of the web action's activations records and will incur the cost of running the action in the system regardless of how the action was invoked.
 
-## Disabling web actions
+### Disabling web actions
 
 To disable a web action from being invoked via web API (`https://APIHOST/api/v1/web/`), pass a value of `false` or `no` to the `--web` flag while updating an action with the CLI.
 
@@ -300,7 +297,7 @@ To disable a web action from being invoked via web API (`https://APIHOST/api/v1/
 $ wsk action update /guest/demo/hello hello.js --web false
 ```
 
-## Raw HTTP handling
+### Raw HTTP handling
 
 A web action may elect to interpret and process an incoming HTTP body directly, without the promotion of a JSON object to first class properties available to the action input (e.g., `args.name` vs parsing `args.__ow_query`). This is done via a `raw-http` [annotation](openwhisk-annotations.md). Using the same example show earlier, but now as a "raw" HTTP web action receiving `name` both as a query parameters and as JSON value in the HTTP request body:
 ```bash
@@ -326,7 +323,7 @@ $ curl https://${APIHOST}/api/v1/web/guest/demo/hello.json?name=Jane -X POST -H 
 OpenWhisk uses the [Akka Http](http://doc.akka.io/docs/akka-http/current/scala/http/) framework to [determine](http://doc.akka.io/api/akka-http/10.0.4/akka/http/scaladsl/model/MediaTypes$.html) which content types are binary and which are plain text.
 
 
-### Enabling raw HTTP handling
+#### Enabling raw HTTP handling
 
 Raw HTTP web actions are enabled via the `--web` flag using a value of `raw`.
 
@@ -334,7 +331,7 @@ Raw HTTP web actions are enabled via the `--web` flag using a value of `raw`.
 $ wsk action create /guest/demo/hello hello.js --web raw
 ```
 
-### Disabling raw HTTP handling
+#### Disabling raw HTTP handling
 
 Disabling raw HTTP can be accomplished by passing a value of `false` or `no` to the `--web` flag.
 
@@ -342,7 +339,7 @@ Disabling raw HTTP can be accomplished by passing a value of `false` or `no` to 
 $ wsk update create /guest/demo/hello hello.js --web false
 ```
 
-### Decoding binary body content from Base64
+#### Decoding binary body content from Base64
 
 When using raw HTTP handling, the `__ow_body` content will be encoded in Base64 when the request content-type is binary.
 Below are functions demonstrating how to decode the body content in Node, Python, Swift and PHP. Simply save a method shown below to file, create a raw HTTP web action utilizing the saved artifact, and invoke the web action.
@@ -412,7 +409,7 @@ $ curl -k -H "content-type: application" -X POST -d "Decoded body" https://${API
   "body": "Decoded body"
 }
 ```
-## Options Requests
+### Options Requests
 
 By default, an OPTIONS request made to a web action will result in CORS headers being automatically added to the response headers. These headers allow all origins and the options, get, delete, post, put, head, and patch HTTP verbs.
 
@@ -424,8 +421,7 @@ Access-Control-Allow-Methods: OPTIONS, GET, DELETE, POST, PUT, HEAD, PATCH
 Access-Control-Allow-Headers: Authorization, Origin, X-Requested-With, Content-Type, Accept, User-Agent
 ```
 
-Alternatively, OPTIONS requests can be handled manually by a web action. To enable this option add a
-`web-custom-options` annotation with a value of `true` to a web action. When this feature is enabled, CORS headers will not automatically be added to the request response. Instead, it is the developer's responsibility to append their desired headers programmatically. Below is an example of creating custom responses to OPTIONS requests.
+Alternatively, OPTIONS requests can be handled manually by a web action. To enable this option add a `web-custom-options` annotation with a value of `true` to a web action. When this feature is enabled, CORS headers will not automatically be added to the request response. Instead, it is the developer's responsibility to append their desired headers programmatically. Below is an example of creating custom responses to OPTIONS requests.
 
 ```
 function main(params) {
@@ -454,13 +450,13 @@ $ curl https://${APIHOST}/api/v1/web/guest/default/custom-options.http -kvX OPTI
 < Access-Control-Allow-Origin: example.com
 ```
 
-## Web Actions in Shared Packages
+### Web Actions in Shared Packages
 
 A web action in a shared (i.e., public) package is accessible as a web action either directly via the package's fully qualified name, or via a package binding. It is important to note that a web action in a public package will be accessible for all bindings of the package even if the binding is private. This is because the web action annotation is carried on the action and cannot be overridden. If you do not wish to expose a web action through your package bindings, then you should clone-and-own the package instead.
 
 Action parameters are inherited from its package, and the binding if there is one. You can make package parameters [immutable](openwhisk-annotations.md#protected-parameters) by defining their values through a package binding.
 
-## Error Handling
+### Error Handling
 
 When an OpenWhisk action fails, there are two different failure modes. The first is known as an _application error_ and is analogous to a caught exception: the action returns a JSON object containing a top level `error` property. The second is a _developer error_ which occurs when the action fails catastrophically and does not produce a response (this is similar to an uncaught exception). For web actions, the controller handles application errors as follows:
 
@@ -469,7 +465,7 @@ When an OpenWhisk action fails, there are two different failure modes. The first
 
 Developers should be aware of how web actions might be used and generate error responses accordingly. For example, a web action that is used with the `.http` extension should return an HTTP response, for example: `{error: { statusCode: 400 }`. Failing to do so will in a mismatch between the implied content-type from the extension and the action content-type in the error response. Special consideration must be given to web actions that are sequences, so that components that make up a sequence can generate adequate errors when necessary.
 
-## Vanity URL
+### Vanity URL
 
 Web actions may be accessed via an alternate URL which treats the OpenWhisk namespace as a subdomain to the API host. This is suitable for developing web actions that use cookies or local storage so that data is not inadvertently made visible to other web actions in other namespaces. The namespaces must match the regular expression `[a-zA-Z0-9-]+` (and should be 63 characters or fewer) for the edge router to rewrite the subdomain to the corresponding URI. For a conforming namespace, the URL `https://guest.openwhisk-host/public/index.html` becomes a alias for `https://openwhisk-host/api/v1/web/guest/public/index.html`.
 
@@ -485,6 +481,8 @@ $ curl -k https://guest.openwhisk-host --resolve guest.openwhisk-host:443:127.0.
 ```
 You also need to generate an edge router configuration (and SSL certificate) that uses the proper hostname. 
 
-=================================================================
+:::note
 
 Large portions of this page is copied from the Apache OpenWhisk documentation in [https://github.com/apache/openwhisk/tree/master/docs](https://github.com/apache/openwhisk/tree/master/docs) on April 23rd 2021 - where there have been customisations to match Hypi's deployment this has been noted. Apache OpenWhisk and the Apache name are the property of the Apache Foundation and licensed under the [Apache V2 license](https://github.com/apache/openwhisk/blob/master/LICENSE.txt) .
+
+:::

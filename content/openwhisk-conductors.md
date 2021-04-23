@@ -5,8 +5,6 @@ sidebar_label: Conductors
 slug: /openwhisk-conductors
 ---
 
-# Conductor Actions
-
 Conductor actions make it possible to build and invoke a series of actions, similar to sequences. However, whereas the components of a sequence action must be specified before invoking the sequence, conductor actions can decide the series of actions to invoke at run time.
 
 In this document, we specify conductor actions and illustrate them with a simple example: a _tripleAndIncrement_ action.
@@ -28,7 +26,7 @@ We create the action _increment_:
 wsk action create increment increment.js
 ```
 
-## Conductor annotation
+### Conductor annotation
 
 We define the _tripleAndIncrement_ action in a source file `tripleAndIncrement.js`:
 
@@ -61,7 +59,7 @@ In essence, the _tripleAndIncrement_ action builds a sequence of two actions by 
 
 At each step, the conductor action specifies how to continue or terminate the execution by means of a _continuation_. We explain continuations after discussing invocation and activations.
 
-## Invocation
+### Invocation
 
 A conductor action is invoked like a regular [action](openwhisk-actions.md), for instance:
 ```
@@ -74,7 +72,7 @@ wsk action invoke tripleAndIncrement -r -p value 3
 ```
 Blocking and non-blocking invocations are supported. As usual, a blocking invocation may timeout before the completion of the invocation.
 
-## Activations
+### Activations
 
 One invocation of the conductor action results in multiple activations, for instance:
 ```
@@ -104,13 +102,13 @@ The five additional activations are:
 - one activation of the _increment_ action with input `{ value: 9 }` and output `{ value: 10 }`,
 - three _secondary_ activations of the _tripleAndIncrement_ action.
 
-### Causality
+#### Causality
 
 We say the invocation of the conductor action is the _cause_ of _component_ action invocations as well as _secondary_ activations of the conductor action. These activations are _derived_ activations.
 
 The cause field of the _derived_ activation records is set to the id for the _primary_ activation record.
 
-### Primary activations
+#### Primary activations
 
 The primary activation record for the invocation of a conductor action is a synthetic record similar to the activation record of a sequence action. The primary activation record summarizes the series of derived activations:
 
@@ -180,7 +178,7 @@ ok: got activation 4f91f9ed0d874aaa91f9ed0d87baaa07
 
 If a component action itself is a sequence or conductor action, the logs contain only the id for the component activation. They do not contain the ids for the activations caused by this component. This is different from nested sequence actions.
 
-### Secondary activations
+#### Secondary activations
 
 The secondary activations of the conductor action are responsible for orchestrating the invocations of the component actions.
 
@@ -196,13 +194,13 @@ Intuitively, secondary activations of the conductor action decide which componen
 
 Only an internal error (invocation failure or timeout) may result in an even number of derived activations.
 
-### Annotations
+#### Annotations
 
 Primary activation records include the annotations `{ key: "conductor", value: true }` and `{ key: "kind", value: "sequence" }`. Secondary activation records and activation records for component actions include the annotation `{ key: "causedBy", value: "sequence" }`.
 
 The memory limit annotation in the primary activation record reflects the maximum memory limit across the conductor action and the component actions.
 
-## Continuations
+### Continuations
 
 A conductor action should return either an _error_ dictionary, i.e., a dictionary with an _error_ field, or a _continuation_, i.e., a dictionary with up to three fields `{ action, params, state }`. In essence, a continuation specifies what component action to invoke if any, as well as the parameters for this invocation, and the state to preserve until the next secondary activation of the conductor action.
 
@@ -215,7 +213,7 @@ The execution flow in our example is the following:
  5. The _tripleAndIncrement_ action is automatically reactivated on dictionary `{ value: 10, $step: 2 }` returning `{ params: { value: 10 } }`.
  6. Because the output of the last secondary _tripleAndIncrement_ activation specifies no further action to invoke, this completes the execution resulting in the recording of the primary activation. The result of the primary activation is obtained from the result of the last secondary activation by extracting the value of the _params_ field: `{ value: 10 }`.
 
-### Detailed specification
+#### Detailed specification
 
 If a secondary activation returns an error dictionary, the conductor action invocation ends and the result of this activation (output and status code) are those of this secondary activation.
 
@@ -236,7 +234,7 @@ In the first three failures scenarios, the conductor action is activated again. 
 
 On the other hand, if the _action_ field is not defined in the output of the conductor action, the conductor action invocation ends. The output for the conductor action invocation is either the value of the _params_ field in the output dictionary of the last secondary activation if defined (auto boxed if necessary) or if absent the complete output dictionary.
 
-## Limits
+### Limits
 
 There are limits on the number of component action activations and secondary conductor activations in a conductor action invocation. These limits are assessed globally, i.e., if some components of a conductor action invocation are themselves conductor actions, the limits apply to the combined counts of activations across all the conductor action invocations.
 
@@ -246,7 +244,8 @@ If the maximum number of permitted component activations is exceeded the conduct
 
 If the maximum number of secondary conductor activations is exceeded, the conductor action invocation ends with an _application error_ status code and an error message describing the reason for the failure.
 
-=================================================================
+:::note 
 
 Large portions of this page is copied from the Apache OpenWhisk documentation in [https://github.com/apache/openwhisk/tree/master/docs](https://github.com/apache/openwhisk/tree/master/docs) on April 23rd 2021 - where there have been customisations to match Hypi's deployment this has been noted. Apache OpenWhisk and the Apache name are the property of the Apache Foundation and licensed under the [Apache V2 license](https://github.com/apache/openwhisk/blob/master/LICENSE.txt) .
 
+:::
