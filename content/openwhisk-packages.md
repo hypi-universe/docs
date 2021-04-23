@@ -5,8 +5,6 @@ sidebar_label: Packages
 slug: /openwhisk-packages
 ---
 
-# Using and creating OpenWhisk packages
-
 In OpenWhisk, you can use packages to bundle together a set of related actions, and share them with others.
 
 A package can include *actions* and *feeds*.
@@ -17,7 +15,7 @@ Every OpenWhisk entity, including packages, belongs in a *namespace*, and the fu
 
 The following sections describe how to browse packages and use the triggers and feeds in them. In addition, if you are interested in contributing your own packages to the catalog, read the sections on creating and sharing packages.
 
-## Browsing packages
+### Browsing packages
 
 Several packages are registered with OpenWhisk. You can get a list of packages in a namespace, list the entities in a package, and get a description of the individual entities in a package.
 
@@ -79,7 +77,7 @@ action /whisk.system/cloudant/read: Read document from database
 This output shows that the Cloudant `read` action lists eight parameters, seven of which are predefined. These include the database and document ID to retrieve.
 
 
-## Invoking actions in a package
+### Invoking actions in a package
 
 You can invoke actions in a package, just as with other actions. The next few steps show how to invoke the `greeting` action in the `/whisk.system/samples` package with different parameters.
 
@@ -122,7 +120,7 @@ $ wsk action invoke --result /whisk.system/samples/greeting --param name Mork --
 Notice that the output uses the `name` and `place` parameters that were passed to the action.
 
 
-## Creating and using package bindings
+### Creating and using package bindings
 
 Although you can use the entities in a package directly, you might find yourself passing the same parameters to the action every time. You can avoid this by binding to a package and specifying default parameters. These parameters are inherited by the actions in the package.
 
@@ -184,7 +182,7 @@ $ wsk action invoke --result valhallaSamples/greeting --param name Odin --param 
 ```
 Notice that the `place` parameter value that is specified with the action invocation overwrites the default value set in the `valhallaSamples` package binding.
 
-## Creating and using trigger feeds
+### Creating and using trigger feeds
 
 Feeds offer a convenient way to configure an external event source to fire these events to a OpenWhisk trigger. This example shows how to use a feed in the Alarms package to fire a trigger every second, and how to use a rule to invoke an action every second.
 
@@ -252,7 +250,7 @@ $ wsk activation poll
 You should see activations every eight seconds for the trigger, the rule, and the action. The action receives the parameters `{"name":"Mork", "place":"Ork"}` on every invocation.
 
 
-## Creating a package
+### Creating a package
 
 A package is used to organize a set of related actions and feeds.
 It also allows for parameters to be shared across all entities in the package.
@@ -395,9 +393,7 @@ $ wsk action invoke --result custom/identity --param city Dallas --param state T
   "state": "Texas"
 }
 ```
-
-
-## Sharing a package
+### Sharing a package
 
 After the actions and feeds that comprise a package are debugged and tested, the package can be shared with all OpenWhisk users. Sharing the package makes it possible for the users to bind the package, invoke actions in the package, and author OpenWhisk rules and sequence actions.
 
@@ -436,6 +432,8 @@ action /myNamespace/custom/identity
 ```
 In the previous example, you're working with the `myNamespace` namespace, and this namespace appears in the fully qualified name.
 
-=================================================================
+:::note
 
 Large portions of this page is copied from the Apache OpenWhisk documentation in [https://github.com/apache/openwhisk/tree/master/docs](https://github.com/apache/openwhisk/tree/master/docs) on April 23rd 2021 - where there have been customisations to match Hypi's deployment this has been noted. Apache OpenWhisk and the Apache name are the property of the Apache Foundation and licensed under the [Apache V2 license](https://github.com/apache/openwhisk/blob/master/LICENSE.txt) .
+
+:::

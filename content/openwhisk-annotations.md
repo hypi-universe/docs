@@ -5,8 +5,6 @@ sidebar_label: Annotations
 slug: /openwhisk-annotations
 ---
 
-# Annotations on OpenWhisk assets
-
 OpenWhisk actions, triggers, rules and packages (collectively referred to as assets) may be decorated with `annotations`. Annotations are attached to assets just like parameters with a `key` that defines a name and `value` that defines the value. It is convenient to set them from the command line interface (CLI) via `--annotation` or `-a` for short.
 
 Rationale: Annotations were added to OpenWhisk to allow for experimentation without making changes to the underlying asset schema. We had, until the writing of this document, deliberately not defined what `annotations` are permitted. However as we start to use annotations more heavily to impart semantic changes, it's important that we finally start to document them.
@@ -46,13 +44,13 @@ The annotations we have used for describing parameters include:
 
 The annotations are _not_ checked. So while it is conceivable to use the annotations to infer if a composition of two actions into a sequence is legal, for example, the system does not yet do that.
 
-# Annotations for all actions
+### Annotations for all actions
 
 The following annotations on an action are available.
 
 * `provide-api-key`: This annotation may be attached to actions which require an API key, for example to make REST API calls to the OpenWhisk host. For newly created actions, if not specified, it defaults to a false value. For existing actions, the absence of this annotation, or its presence with a value that is not _falsy_ (i.e., a value that is different from zero, null, false, and the empty string) will cause an API key to be present in the action execution context.
 
-# Annotations specific to web actions
+### Annotations specific to web actions
 
 Web actions are enabled with explicit annotations which decorate individual actions. The annotations only apply to the [web actions](openwhisk-webactions.md) API, and must be present and explicitly set to `true` to have an affect. The annotations have no meaning otherwise in the system. The annotations are:
 
@@ -62,7 +60,7 @@ Web actions are enabled with explicit annotations which decorate individual acti
 * `web-custom-options`: When set, this annotation enables a web action to respond to OPTIONS requests with customized headers, otherwise a [default CORS response](openwhisk-webactions.md#options-requests) applies.
 * `require-whisk-auth`: This annotation protects the web action so that it is only invoked by requests that provide appropriate authentication credentials. When set to a boolean value, it controls whether or not the request's Basic Authentication value (i.e. Whisk auth key) will be authenticated - a value of `true` will authenticate the credentials, a value of `false` will invoke the action without any authentication. When set to a number or a string, this value must match the request's `X-Require-Whisk-Auth` header value. In both cases, it is important to note that the _owner_ of the web action will still incur the cost of running them in the system (i.e., the _owner_ of the action also owns the activations record).
 
-# Annotations specific to activations
+### Annotations specific to activations
 
 The system decorates activation records with annotations as well. They are:
 
@@ -112,5 +110,8 @@ An example of these annotations as they would appear in an activation record is 
 ]
 ```
 
-=================================================================
+:::note
+
 Large portions of this page is copied from the Apache OpenWhisk documentation in [https://github.com/apache/openwhisk/tree/master/docs](https://github.com/apache/openwhisk/tree/master/docs) on April 23rd 2021 - where there have been customisations to match Hypi's deployment this has been noted. Apache OpenWhisk and the Apache name are the property of the Apache Foundation and licensed under the [Apache V2 license](https://github.com/apache/openwhisk/blob/master/LICENSE.txt) .
+
+:::

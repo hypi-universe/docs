@@ -1,11 +1,9 @@
 ---
 id: openwhisk-sequences
-title: Sequences
-sidebar_label: Sequences
+title: Action Sequences
+sidebar_label: Action Sequences
 slug: /openwhisk-sequences
 ---
-
-## Creating action sequences
 
 A powerful feature of the OpenWhisk programming model is the ability to compose actions together. A common composition is a sequence of actions, where the result of one action becomes the input to the next action in the sequence.
 
@@ -56,7 +54,8 @@ The result of the first action in the sequence becomes the input JSON object to 
 
 Input parameters to an action are merged with the action's default parameters, with the former taking precedence and overriding any matching default parameters. For more information about invoking action sequences with multiple named parameters, learn about [setting default parameters](openwhisk-parameters.md).
 
-=================================================================
+:::note
 
 Large portions of this page is copied from the Apache OpenWhisk documentation in [https://github.com/apache/openwhisk/tree/master/docs](https://github.com/apache/openwhisk/tree/master/docs) on April 23rd 2021 - where there have been customisations to match Hypi's deployment this has been noted. Apache OpenWhisk and the Apache name are the property of the Apache Foundation and licensed under the [Apache V2 license](https://github.com/apache/openwhisk/blob/master/LICENSE.txt) .
 
+:::

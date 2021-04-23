@@ -5,8 +5,6 @@ sidebar_label: OpenWhisk Actions
 slug: /openwhisk-actions
 ---
 
-# OpenWhisk Actions
-
 Actions are stateless functions that run on the OpenWhisk platform. For example, an action can
 be used to detect the faces in an image, respond to a database change, respond to an API call,
 or post a Tweet. In general, an action is invoked in response to an event and produces some
@@ -20,10 +18,10 @@ While the actual function code will be specific to a language and runtime, the O
 
 * [The basics of working with actions](#the-basics) (_start here_)
 * Common `wsk` CLI operations and tips
-      *  [Watching action output](#watching-action-output)
-      *  [Getting actions](#getting-actions)
-      *  [Listing actions](#listing-actions)
-      *  [Deleting actions](#deleting-actions)
+    - [Watching action output](#watching-action-output)
+    - [Getting actions](#getting-actions)
+    - [Listing actions](#listing-actions)
+    - [Deleting actions](#deleting-actions)
 * [Accessing action metadata within the action body](#accessing-action-metadata-within-the-action-body)
 
 ## The basics
@@ -510,6 +508,8 @@ Node.js, Python, Swift, Java and Docker actions when using the OpenWhisk Docker 
 * `__OW_DEADLINE` the approximate time when this action will have consumed its entire duration quota (measured in epoch milliseconds).
 
 
-=================================================================
+:::note
 
 Large portions of this page is copied from the Apache OpenWhisk documentation in [https://github.com/apache/openwhisk/tree/master/docs](https://github.com/apache/openwhisk/tree/master/docs) on April 23rd 2021 - where there have been customisations to match Hypi's deployment this has been noted. Apache OpenWhisk and the Apache name are the property of the Apache Foundation and licensed under the [Apache V2 license](https://github.com/apache/openwhisk/blob/master/LICENSE.txt) .
+
+:::

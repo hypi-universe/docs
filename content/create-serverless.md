@@ -23,7 +23,7 @@ function main(args) {
 ```
 2. Create an action called `hithere` using action.js. 
 ```
-$ wsk action create hithere action.js
+wsk action create hithere action.js
 ok: created action
 ```
 The docker image of the javascript function 'Hello World' gets created by OpenWhisk. `hithere` gets listed on a namespace on the Hypi platform.
