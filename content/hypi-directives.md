@@ -545,7 +545,7 @@ When this directive is applied, the value of the applied field gets resolved usi
 
 ### @tan
 
-This directive is used to implement serverless functions. (See more about @tan directive [here](serverlessfunction.md))
+This directive is used to implement serverless functions. (See more about @tan directive [here](use-serverless.md#@tan-directive))
 
 ### @indices
 
