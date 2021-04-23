@@ -26,6 +26,11 @@ module.exports = {
     },
     {
       type: 'category',
+      label: 'Serverless: Language Support',
+      items: ['actions-nodejs','actions-python','actions-java','actions-swift','actions-go','actions-php','actions-ruby','actions-rust','actions-dotnet','actions-docker'],
+    },
+    {
+      type: 'category',
       label: 'GraphQL',
       items: ['graphql', 'gql-introduction', 'gql-schema-types','gql-queries','gql-mutations','gql-interfaces'],
     },
