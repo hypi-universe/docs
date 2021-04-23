@@ -145,7 +145,7 @@ Using the `--result` flag means that the value returned from the action is shown
 }
 ```
 
-This example also passed a parameter to the action by using the `--param` flag and a value that can be changed each time the action is invoked. Find out more about parameters in the [Working with parameters](./parameters.md) section.
+This example also passed a parameter to the action by using the `--param` flag and a value that can be changed each time the action is invoked. Find out more about parameters in the [Working with parameters](openwhisk-parameters.md) section.
 
 ### Packaging actions as Node.js modules with NPM libraries
 

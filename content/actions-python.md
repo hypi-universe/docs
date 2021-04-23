@@ -40,7 +40,7 @@ wsk action invoke --result helloPython --param name World
       "greeting": "Hello World!"
   }
 ```
-Find out more about parameters in the [Working with parameters](./parameters.md) section.
+Find out more about parameters in the [Working with parameters](openwhisk-parameters.md) section.
 
 ### Packaging Python actions in zip files
 

@@ -47,7 +47,7 @@ wsk action create helloPHP hello.php
 The CLI automatically infers the type of the action from the source file extension.
 For `.php` source files, the action runs using a PHP 7.4 runtime.
 
-Action invocation is the same for PHP actions as it is for [any other action](actions.md#the-basics).
+Action invocation is the same for PHP actions as it is for [any other action](openwhisk-actions.md#the-basics).
 ```
 wsk action invoke --result helloPHP --param name World
 ```

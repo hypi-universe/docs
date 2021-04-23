@@ -90,7 +90,7 @@ wsk action invoke --result helloSwift --param name World
 }
 ```
 
-Find out more about parameters in the [Working with parameters](./parameters.md) section.
+Find out more about parameters in the [Working with parameters](openwhisk-parameters.md) section.
 
 ### Packaging an action as a Swift executable
 
