@@ -22,7 +22,7 @@ module.exports = {
     {
       type: 'category',
       label: 'Serverless',
-      items: ['serverless', 'openwhisk-cli', 'create-serverless','use-serverless','openwhisk-action','openwhisk-parameters','openwhisk-annotations','openwhisk-triggers','openwhisk-sequences','openwhisk-conductors','openwhisk-packages','openwhisk-webactions'],
+      items: ['serverless', 'openwhisk-cli', 'create-serverless','use-serverless','openwhisk-actions','openwhisk-parameters','openwhisk-annotations','openwhisk-triggers','openwhisk-sequences','openwhisk-conductors','openwhisk-packages','openwhisk-webactions'],
     },
     {
       type: 'category',
