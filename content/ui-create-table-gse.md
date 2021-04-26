@@ -27,4 +27,12 @@ slug: /ui-create-table-gse
 
 6. Table2 schema entry gets reflected on the UI.
 
-![CreateTable1](/img/UI-CreateTable-GE-5.PNG)
+![CreateTable1](/img/UI-CreateTable-GE-6.PNG)
+
+7. If there is a syntax error in the schema, the editor highlights it. Hover over the highlight to get the pop up.
+
+![CreateTable1](/img/UI-CreateTable-GE-7.PNG)
+
+8. You may click Peek Problem to get the details of the error. 
+
+![CreateTable1](/img/UI-CreateTable-GE-8.PNG)
