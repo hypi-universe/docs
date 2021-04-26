@@ -593,3 +593,139 @@ Fields annotated with the`@secret`directive are encrypted using one of the three
 Hence, the values of these fields do not remain in a human-readable format. Out of the three algorithms, the encrypted values of SHA3 and BCRYPT can never be retrieved back. You can only run queries if the values match. These encryptions are good for password fields. However, PKCS5 values may be decrypted when necessary.
 
 `sha: String@secret(hash: SHA3)`
+
+### @deprecated
+
+Deprecated fields on a type or Enum values can be marked as deprecated in the Schema using the `@deprecated` directive. A `reason` for deprecation has to be included. The reason is formatted using Markdown syntax.
+```
+directive @deprecated(
+      reason: String = "No longer supported"
+) on FIELD_DEFINITION | ENUM_VALUE
+```
+In the below example, the `someTest` field has been marked as deprecated. If you use the field within a query in the [GraphQL editor](ui-gql-playground.md), it highlights the field with a popped up message with the reason for deprecation.
+
+```java
+type checkSkip{
+    someTest: Boolean@deprecated(reason: "Use `check`.")
+    check: String
+}
+```
+
+###  @skip
+
+The`@skip`directive may be used for fields, fragment spreads, and inline fragments, and allows for conditional exclusion during execution of a `query` as described by the `if` argument. Please note this directive is used while executing query in GraphQL editor and not in the schema editor like other directives.
+
+```
+directive @skip(if: Boolean!) on FIELD | FRAGMENT_SPREAD | INLINE_FRAGMENT
+```   
+In the below example, `check` field will only be queried if the variable`$someTest`has the value `false`. If the value is `true`, the field will be skipped from the query execution.
+
+```java
+query($someTest: Boolean!){
+  find(type: checkSkip, arcql: "*") {
+    edges {
+      node {
+        ... on checkSkip {
+          check @skip(if:$someTest)
+        }
+      }
+      cursor
+    }
+  }
+}
+
+```
+
+```
+{
+  "someTest": true
+}
+OR
+{
+  "someTest": false
+}
+```
+
+```json
+//someTest = true
+{
+  "data": {
+    "find": {
+      "edges": [
+        {
+          "node": {},
+          "cursor": "01F46X1DC10TFB9ZT2EKGGK51H"
+        }
+      ]
+    }
+  }
+}
+//someTest = false
+{
+  "data": {
+    "find": {
+      "edges": [
+        {
+          "node": {
+            "check": "abc"
+          },
+          "cursor": "01F46X1DC10TFB9ZT2EKGGK51H"
+        }
+      ]
+    }
+  }
+}
+```
+
+###  @include
+
+Similar to the @skip directive, The`@include`directive may be used for fields, fragment spreads, and inline fragments. It allows conditional inclusion during the execution of a `query` as described by the `if` argument. 
+```
+ directive @include(if: Boolean!) on FIELD | FRAGMENT_SPREAD | INLINE_FRAGMENT
+```
+In the below example, `check` field will only be queried if the variable`$someTest`has the value `true`. If the value is `false`, the field will not be included in the query execution.
+
+```
+{
+  "someTest": true
+}
+OR
+{
+  "someTest": false
+}
+```
+
+```json
+//someTest = true
+{
+  "data": {
+    "find": {
+      "edges": [
+        {
+          "node": {
+            "check": "abc"
+          },
+          "cursor": "01F46X1DC10TFB9ZT2EKGGK51H"
+        }
+      ]
+    }
+  }
+}
+//someTest = false
+{
+  "data": {
+    "find": {
+      "edges": [
+        {
+          "node": {},
+          "cursor": "01F46X1DC10TFB9ZT2EKGGK51H"
+        }
+      ]
+    }
+  }
+}
+```
+
+### @specifiedBy
+
+Hypi does not support this directive at the moment.
