@@ -22,7 +22,6 @@ interface Car {
 This means that any type that implements Car needs to have these exact fields, with these arguments and return types.
 
 For example, here are some types of brands that might implement Car:
-
 ```java
 type Audi implements Car {
   id: ID!
@@ -47,11 +46,13 @@ The `owns` field uses the `Car` interface. This allows `owns` to have values of 
 
 When creating or updating a customer object, the `hypi.impl` field MUST be specified on each object in the `owns` array.  Each object of type `owns` must tell Hypi if it is an Audi or a Bently. 
 
-The`hypi.impl`field is needed for upsert, not for queries. For queries on each implementation, you MUST use an inline fragment i.e.`... on <Impl> { <impl specific fields> }`
+The `hypi.impl` field is needed for upsert, not for queries. For queries on each implementation, you MUST use an inline fragment i.e. 
+
+`... on <Impl> { <impl specific fields> }`
 
 :::
 
-Here follows the example that inserts data in Customer object using an interface Car.
+Here follows the example that inserts data in the Customer object using an interface Car.
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -143,9 +144,59 @@ Check the use of inline fragments to retrieve interface data. (... on Audi { mod
   }
 }
 ```
+You may use sub-queries on the interface fields. (arcql: "owns.model = 'vx'").  Check the below example.
 
-:::caution
+<Tabs
+  defaultValue="query"
+  values={[
+    {label: 'GraphQL Query', value: 'query'},
+     {label: 'Response', value: 'response'},
+  ]}>
+<TabItem value="query">
 
-There is a limitation that sub-queries cannot be used on interface fields. (arcql: "owns.model = 'vx'" is not valid). So, arcql statements cannot be framed with types that implement interfaces.
+```java
+{  
+  find(type: Customer, arcql: "*") {  
+    edges {  
+      node {  
+        ... on Customer {  
+         owns(arcql: "model = 'vx'") {  
+             #Retrieve data from interfaces  
+            ... on Audi { model }  
+            ... on Bentley { model }  
+            name  
+          }  
+        }  
+      }  
+      cursor  
+    }  
+  }  
+}
+```
 
-:::
+</TabItem>
+<TabItem value="response">
+
+```
+{  
+  "data": {  
+    "find": {  
+      "edges": [  
+        {  
+          "node": {  
+            "owns": [  
+              {  
+                "model": "vx",  
+                "name": "Bentley Class"  
+              }  
+            ]  
+          },  
+          "cursor": "01F45A70PJ8DDPSPHEYNEFH513"  
+        }  
+      ]  
+    }  
+  }  
+}
+```
+</TabItem>
+</Tabs>

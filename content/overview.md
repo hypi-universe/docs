@@ -10,7 +10,7 @@ There are certain concepts which are backbone of Hypi. It is better to know them
 
 Hypi `App` is the building block that you will deploy in your application. It covers all the functionalities you want to carry out using Hypi. Hence, the concept of `App` is the heart of Hypi.
 
-The App encapsulates a collection of data structures and serverless functions. You may also add other resources that your app may need to serve its purpose. It will have data models written in `GraphQL`. Serverless functions may be written in `JavaScript`, `Go`, `Java`, `Kotlin`, `Node.js`, `PHP`, `Python`, `Ruby`, `Scala & Shell`. Hypi App is compatible with most programming languages.
+The App encapsulates a collection of data structures and serverless functions. You may also add other resources that your app may need to serve its purpose. It will have data models written in `GraphQL`. Serverless functions may be written in `JavaScript`, `Swift`, `Go`, `PHP`, `Python`, `Ruby`, `Rust`, `.NET`, `Docker`, `Java (Scala, Kotlin, Groovy and other JVM languages)`. Hypi App is compatible with most programming languages.
 
 An app is a way to implement group-related behavior and add resources. It is quite similar to a micro-service that handles its own data and functionalities. You may have more than one App in your product to implement different modules.
 
