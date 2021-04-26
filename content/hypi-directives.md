@@ -620,6 +620,15 @@ directive @skip(if: Boolean!) on FIELD | FRAGMENT_SPREAD | INLINE_FRAGMENT
 ```   
 In the below example, `check` field will only be queried if the variable`$someTest`has the value `false`. If the value is `true`, the field will be skipped from the query execution.
 
+<Tabs
+  defaultValue="query"
+  values={[
+    {label: 'GraphQL Query', value: 'query'},
+    {label: 'Input Data', value: 'data'},
+    {label: 'Response', value: 'response'},
+  ]}>
+<TabItem value="query">
+
 ```java
 query($someTest: Boolean!){
   find(type: checkSkip, arcql: "*") {
@@ -633,8 +642,10 @@ query($someTest: Boolean!){
     }
   }
 }
-
 ```
+
+</TabItem>
+<TabItem value="data">
 
 ```
 {
@@ -645,6 +656,9 @@ OR
   "someTest": false
 }
 ```
+
+</TabItem>
+<TabItem value="response">
 
 ```json
 //someTest = true
@@ -676,6 +690,9 @@ OR
   }
 }
 ```
+
+</TabItem>
+</Tabs>
 
 ###  @include
 
@@ -685,6 +702,33 @@ Similar to the @skip directive, The`@include`directive may be used for fields, f
 ```
 In the below example, `check` field will only be queried if the variable`$someTest`has the value `true`. If the value is `false`, the field will not be included in the query execution.
 
+<Tabs
+  defaultValue="query"
+  values={[
+    {label: 'GraphQL Query', value: 'query'},
+    {label: 'Input Data', value: 'data'},
+    {label: 'Response', value: 'response'},
+  ]}>
+<TabItem value="query">
+
+```java
+query($someTest: Boolean!){
+  find(type: checkSkip, arcql: "*") {
+    edges {
+      node {
+        ... on checkSkip {
+          check @include(if:$someTest)
+        }
+      }
+      cursor
+    }
+  }
+}
+```
+
+</TabItem>
+<TabItem value="data">
+
 ```
 {
   "someTest": true
@@ -694,6 +738,8 @@ OR
   "someTest": false
 }
 ```
+</TabItem>
+<TabItem value="response">
 
 ```json
 //someTest = true
@@ -725,6 +771,8 @@ OR
   }
 }
 ```
+</TabItem>
+</Tabs>
 
 ### @specifiedBy
 
