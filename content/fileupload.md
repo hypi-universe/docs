@@ -82,6 +82,17 @@ curl -v https://api.hypi.app/upload/ -H "Accept: application/json" -H "Authoriza
 ```
 The URL Path could be `https://api.hypi.app/upload/mydir` if you want to upload the file under `mydir` directory.
 
+Here, we have uploaded an image file. So, an `Image` object also gets created that has details of the uploaded image. It contains the File object with file details. 
+
+```
+type Image {
+    name: String!
+    file: File!
+    description: String
+    location: Geo
+}
+```
+
 After executing curl command, let's retrieve the details of the file object.
 
 import Tabs from '@theme/Tabs';
