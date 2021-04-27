@@ -21,7 +21,7 @@ Enter Release notes to save details about the release.
 ![NewRelease](/img/UI-CreateRelease-2.PNG)
 
 
-3. The new release (release-1) can be seen under the Releases tab
+3. The new release (release-1) can be seen under the Releases tab.
 
 ![NewRelease](/img/UI-CreateRelease-3.PNG)
 
@@ -29,10 +29,10 @@ Enter Release notes to save details about the release.
 
 ![NewRelease](/img/UI-CreateRelease-4.PNG)
 
-5. Different configurations like Environment Settings, Dependencies, Serverless functions can be done under the '`Configuration` setting
+5. Different configurations like [Environment Settings](overview.md#environment-settings), [Dependencies](overview.md#dependencies) can be done under the `Configuration` setting.
 
 ![NewRelease](/img/UI-CreateRelease-5.PNG)
 
-6. Schema can be added under the `Console` tab.
+6. [Schema](overview.md#schema) can be added under the `Console` tab.
 
 ![NewRelease](/img/UI-CreateRelease-6.PNG)

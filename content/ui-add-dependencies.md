@@ -31,7 +31,7 @@ A Hypi App may have a functional dependency on one or more apps. Borrow the func
 
 ![Dependencies](/img/UI-Dependencies-6.PNG)
 
-7. Here, you need to enter `Release ID` to add a release as a dependency. You may copy the Release ID from the configuration section of the release to be added.
+7. Here, you need to enter `Release ID` to add a release as a dependency. You may copy the Release ID from the [configuration section of the release](ui-create-release.md) to be added.
 
 ![Dependencies](/img/UI-Dependencies-7.PNG)
 

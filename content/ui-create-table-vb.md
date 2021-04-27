@@ -5,11 +5,11 @@ sidebar_label: Create a table using Visual Builder
 slug: /ui-create-table-vb
 ---
 
-1. Click `Console` under `Releases` tab to add Tables to schema
+1. Click `Console` under `Releases` tab to add Tables to the [schema](overview.md#schema).
 
 ![CreateTable](/img/UI-CreateTable-VB-1.PNG)
 
-2. Under the `Visual Builder` tab, you will be to create a Table adding the entries visually through UI. Click on `+Add Table` to add a new table.
+2. Under the `Visual Data Builder` tab, you will be able to create a Table adding the entries visually through UI. Click on `+Add Table` to add a new table.
 
 ![CreateTable](/img/UI-CreateTable-VB-2.PNG)
 
@@ -17,11 +17,11 @@ slug: /ui-create-table-vb
 
 ![CreateTable](/img/UI-CreateTable-VB-3.PNG)
 
-4. Click on `+Add` Fields to add fields/columns to the table.
+4. Click on `+Add Fields` to add fields/columns to the table.
 
 ![CreateTable](/img/UI-CreateTable-VB-4.PNG)
 
-5. Using this UI you will be able to enter various data types like string, integer, float, ID, Boolean, etc.
+5. Using this UI, you will be able to enter various data types like string, integer, float, ID, Boolean, etc.
 
 ![CreateTable](/img/UI-CreateTable-VB-5.PNG)
 
@@ -53,7 +53,7 @@ slug: /ui-create-table-vb
 
 ![CreateTable](/img/UI-CreateTable-VB-12.PNG)
 
-13. There are some in builts tables from Hypi called `Core Tables`. They are automatically added as a dependency in the schema. You can check these tables by clicking on Core Tables under `Dependencies`.
+13. There are some in-built tables from Hypi called `Core Tables`. They are automatically added as a dependency in the schema. You can check these tables by clicking on Core Tables under `Dependencies`.
 
 ![CreateTable](/img/UI-CreateTable-VB-13.PNG)
 
