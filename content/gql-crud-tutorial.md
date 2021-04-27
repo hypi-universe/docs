@@ -164,7 +164,7 @@ As expected, we got the `name` and the `age` of the `Actor` with `id` “01ED4X7
 
 2. **find()**
 
-The**find** `query` is used to search through your data.  For the purpose of this tutorial, we’ve created a few more actors in the database.
+The **find** `query` is used to search through your data.  For the purpose of this tutorial, we’ve created a few more actors in the database.
 
 The find query accepts two mandatory parameters `Type` and `arcql`.  The `Type` is the type of object you want to query, and the `arcql` parameter is the query that you want to use for searching though the data.
 
