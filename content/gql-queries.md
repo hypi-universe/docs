@@ -111,7 +111,7 @@ variables {
 
 There are three steps to using variables:
 
-+ Create the variable outside the operation in a `variables` object. You can provide variables in the variables box on user interface of Hypi. You need not specify 'variables' keyword for that.
++ Create the variable outside the operation in a `variables` object. You can provide variables in the [QUERY VARIABLES](ui-gql-playground.md) box on the user interface of Hypi. You need not specify 'variables' keyword for that.
 
 + The variable needs to be pass to the operation as an argument: `query($arcql:String!){`
 

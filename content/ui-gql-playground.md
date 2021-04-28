@@ -13,7 +13,7 @@ slug: /ui-gql-playground
 
 ![GQLPlay](/img/UI-GQL-Play-2.PNG)
 
-3. Note that `HTTP request headers` get automatically added. The same request headers are present in [API configurations] of the instance.
+3. Note that `HTTP request headers` get automatically added. The same request headers are present in the [API configurations](ui-instance-api-config.md) of the instance.
 
 ![GQLPlay](/img/UI-GQL-Play-3.PNG)
 
@@ -37,7 +37,7 @@ slug: /ui-gql-playground
 
 ![GQLPlay](/img/UI-GQL-Play-8.PNG)
 
-9. You may see the endpoint in a box to make an HTTP request. Click `Copy CURL` to copy the HTTP request.
+9. You may see the endpoint in a box to make an HTTP request. You may refresh the instance by clicking refresh symbol in front of it. Click `Copy CURL` to copy the HTTP request.
 
 ![GQLPlay](/img/UI-GQL-Play-9.PNG)
 

@@ -76,7 +76,7 @@ follows:
 ```
 wsk action create helloSwift hello.swift
 ```
-See the Swift [reference](#reference.md) for more information about the Swift runtime.
+See the Swift [reference](#reference) for more information about the Swift runtime.
 
 Action invocation is the same for Swift actions as it is for JavaScript actions:
 

@@ -5,7 +5,7 @@ sidebar_label: Publish / Deprecate Release
 slug: /ui-deprecate-publish
 ---
 
-1. There may be three statuses of releases; `Draft`, `Deprecated`, `Published`. You may see these different statuses as highlighted.
+1. There may be three types of releases; `Draft`, `Deprecated`, `Published`. You may see these different types as highlighted.
 
 ![publish](/img/UI-Publish-1.PNG)
 

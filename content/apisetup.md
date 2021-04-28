@@ -15,9 +15,9 @@ Configure APIs as per your requirements with the following settings:
 
 + **Enable Anonymous requests**: If anonymous requests are enabled, any user may access the APIs without any authentication token.
 
-+ **Enable Anonymous Registrations**: If enabled, Accounts can be created by anonymous users by calling the [createAccount](authentication.md) function.
++ **Enable Anonymous Registrations**: If enabled, Accounts can be created by anonymous users by calling the [createAccount](authentication.md#createaccount) function.
 
-+ **Enable Account verification**: If enabled, Accounts must be verified before the [login](authentication.md).
++ **Enable Account verification**: If enabled, Accounts must be verified before the [login](authentication.md#login).
 
 ### Domain Name
 

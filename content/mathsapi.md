@@ -22,7 +22,7 @@ Mathematical operations can only be performed on an existing object. The precede
 +  Addition
 +  Subtraction
 
-Let’s perform a mathematical operation as shown in the below code. We are carrying out the operations on hypi id - `Author2Book1` generated during [Aggregate APIs example](aggregation.md).
+Let’s perform a mathematical operation as shown in the below code. We are carrying out the operations on hypi id - `Author2Book1` generated during [Aggregate APIs example](aggregation.md#examples).
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
