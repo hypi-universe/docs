@@ -9,7 +9,7 @@ Many applications need to upload the file to the backend. Hypi provides a simple
 
 Hypi’s core App has a type definition called `File`. A file can be uploaded using an endpoint. Once it is uploaded an object of `File` type gets created. The information about the file gets extracted and stored as a `File` object. The definition includes metadata about the file, the URL to download it, and more. You may place these file objects within your data model. For example, profile picture of a user with his personal information.
 
-The file can be downloaded from the URL given in the object using an authorization token. Anonymous users cannot download the file. To allow access to other users, [permission](authorisation.md) can be granted to download the file.
+The file can be downloaded from the URL given in the object using an authorization token. Anonymous users cannot download the file. To allow access to other users, [permission](authorisation.md#permission) can be granted to download the file.
 
 With this preliminary information, let’s get inside the `File` type definition.
 ```java

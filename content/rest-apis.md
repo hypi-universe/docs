@@ -410,7 +410,7 @@ In order to access a resource with a particular hypi ID, the endpoint  `/rest/v1
 
 E.g. GET /rest/v1/Author/Author3. 
 
-This will [retrieve the data](readdata.md) from Author3 object. 
+This will [retrieve the data](readdata.md#get) from Author3 object. 
 
 <Tabs
   defaultValue="query"
@@ -567,7 +567,7 @@ In order to delete a resource, enter {aggregate}/{identifier} as explained earli
 
 As Author and Book tables are linked with one-to-many references, you will not be able to delete data without unlinking the references. Hence, pass on `clearArrayReferences=true` in the query parameter. 
 
-Check more about Delete function [here](deletedata.md).
+Check more about Delete function [here](deletedata.md#delete).
 
 <Tabs
   defaultValue="query"

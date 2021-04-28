@@ -541,11 +541,11 @@ When you save the above data type, only the `AWithNoDirs` table will get generat
 
 ### @http
 
-When this directive is applied, the value of the applied field gets resolved using an HTTP query configured with the given parameters. (See more about @http directive [here](apigateway.md))
+When this directive is applied, the value of the applied field gets resolved using an HTTP query configured with the given parameters. (See more about @http directive [here](apigateway.md#http-directive))
 
 ### @tan
 
-This directive is used to implement serverless functions. (See more about @tan directive [here](use-serverless.md#@tan-directive))
+This directive is used to implement serverless functions. (See more about @tan directive [here](use-serverless.md#tan-directive))
 
 ### @indices
 
