@@ -1,12 +1,3 @@
-// module.exports = {
-//   someSidebar: {
-//     'Getting Started': ['introduction', 'overview'],
-//     'API References': ['authentication','hypiobject','createdata','updatedata','readdata','deletedata','crud','authorisation','mathsapi','aggregation'],
-//     'Sample App': ['mdx'],
-//     'User Interface': ['mdx'],
-//   },
-// };
-
 module.exports = {
   docs: [
     {
@@ -17,7 +8,7 @@ module.exports = {
     {
       type: 'category',
       label: 'API & References',
-      items: ['api-references','apisetup','authentication','hypiobject','crud','createdata','updatedata','readdata','deletedata','arcql','references','authorisation','realtime-db','apigateway','aggregation','mathsapi','hypi-directives','userdefinedfunctions','workflow','triggers','webhooks','fileupload','rest-apis','oauth2login','password-reminder'],
+      items: ['api-references','apisetup','authentication','scalars','hypiobject','crud','createdata','updatedata','readdata','deletedata','arcql','references','authorisation','realtime-db','apigateway','aggregation','mathsapi','hypi-directives','userdefinedfunctions','workflow','triggers','webhooks','fileupload','rest-apis','oauth2login','password-reminder'],
     },
     {
       type: 'category',
