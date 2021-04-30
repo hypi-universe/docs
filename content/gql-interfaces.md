@@ -7,9 +7,9 @@ slug: /gql-interfaces
 
 GraphQL supports `interfaces` similar to other type systems. Interfaces are abstract types that hold a certain set of fields. A type must include these fields to implement the interface.
 
-Interfaces are powerful, and a great way to build and use GraphQL schemas through the use of abstraction. Abstract types can't be used directly in schema, but can be used as building blocks for creating explicit types.
+Interfaces are powerful, and a great way to build and use GraphQL schemas through the use of abstraction. Abstract types can't be used directly in the schema, but can be used as building blocks for creating explicit types.
 
-Example, you could have an interface Car that represents any model of a Car in a trade show:
+For example, you could have an interface Car that represents any model of a Car in a trade show:
 
 ```java
 interface Car {
