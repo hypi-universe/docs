@@ -62,4 +62,7 @@ jobs:
             ],
             "nb_hits": 16653
           }
+    steps:
+    #https://hub.docker.com/layers/algolia/docsearch-scraper/v1.13.0/images/sha256-ca909fe6ac9757eb200dbf0e4eca068a9d2cd904273fb7f113264acc0635f0eb?context=explore
+    - run: pipenv run python
 
