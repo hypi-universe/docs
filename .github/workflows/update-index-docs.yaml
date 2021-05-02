@@ -11,7 +11,7 @@ jobs:
       image: algolia/docsearch-scraper:v1.13.0
       env:
         APPLICATION_ID: OR6SSGNSLB
-        API_KEY: {{ secrets.ALGOLIA_API_KEY }}
+        API_KEY: ${{ secrets.ALGOLIA_API_KEY }}
         #Based on https://github.com/algolia/docsearch-configs/blob/master/configs/docusaurus-2.json
         #See https://docsearch.algolia.com/docs/run-your-own/
         #and https://docsearch.algolia.com/docs/config-file/
@@ -62,6 +62,7 @@ jobs:
             ],
             "nb_hits": 16653
           }
+    runs-on: ubuntu-latest
     steps:
     #https://hub.docker.com/layers/algolia/docsearch-scraper/v1.13.0/images/sha256-ca909fe6ac9757eb200dbf0e4eca068a9d2cd904273fb7f113264acc0635f0eb?context=explore
     - run: pipenv run python
