@@ -23,19 +23,24 @@ function main({name}) {
 
 You may create a _web action_ `hello` in the package `demo` for the namespace `guest` using the CLI's `--web` flag with a value of `true` or `yes`:
 ```bash
-$ wsk package create demo
+wsk package create demo
+```
+```
 ok: created package demo
 ```
 ```
-$ wsk action create /guest/demo/hello hello.js --web true
+wsk action create /guest/demo/hello hello.js --web true
+```
+```
 ok: created action /guest/demo/hello
 ```
 ```
-$ wsk action get /guest/demo/hello --url
+wsk action get /guest/demo/hello --url
+```
+```
 ok: got action hello
 https://${APIHOST}/api/v1/web/guest/demo/hello
 ```
-
 Using the `--web` flag with a value of `true` or `yes` allows an action to be accessible via REST interface without the need for credentials. To configure a web action with credentials refer to [Securing web actions](#securing-web-actions). A web action can be invoked using a URL that is structured as follows:
 
 `https://{APIHOST}/api/v1/web/{QUALIFIED ACTION NAME}.{EXT}`. The fully qualified name of an action consists of three parts: the namespace, the package name, and the action name.
@@ -94,7 +99,6 @@ function main() {
              body: png };
 }
 ```
-
 Or returns `application/json`:
 ```javascript
 function main(params) {
@@ -286,7 +290,6 @@ $ wsk action update /guest/demo/hello hello.js --web true -a require-whisk-auth 
 ```bash
 $ curl https://${APIHOST}/api/v1/web/guest/demo/hello.json?name=Jane -X GET -H "X-Require-Whisk-Auth: my-secret"
 ```
-
 It's important to note that the owner of the web action owns all of the web action's activations records and will incur the cost of running the action in the system regardless of how the action was invoked.
 
 ### Disabling web actions
@@ -321,7 +324,6 @@ $ curl https://${APIHOST}/api/v1/web/guest/demo/hello.json?name=Jane -X POST -H 
 ```
 
 OpenWhisk uses the [Akka Http](http://doc.akka.io/docs/akka-http/current/scala/http/) framework to [determine](http://doc.akka.io/api/akka-http/10.0.4/akka/http/scaladsl/model/MediaTypes$.html) which content types are binary and which are plain text.
-
 
 #### Enabling raw HTTP handling
 
@@ -483,6 +485,6 @@ You also need to generate an edge router configuration (and SSL certificate) tha
 
 :::note
 
-Large portions of this page is copied from the Apache OpenWhisk documentation in [https://github.com/apache/openwhisk/tree/master/docs](https://github.com/apache/openwhisk/tree/master/docs) on April 23rd 2021 - where there have been customisations to match Hypi's deployment this has been noted. Apache OpenWhisk and the Apache name are the property of the Apache Foundation and licensed under the [Apache V2 license](https://github.com/apache/openwhisk/blob/master/LICENSE.txt) .
+Large portions of this page is copied from the [Apache OpenWhisk documentation](https://github.com/apache/openwhisk/tree/master/docs) on April 23rd 2021 - where there have been customisations to match Hypi's deployment this has been noted. Apache OpenWhisk and the Apache name are the property of the Apache Foundation and licensed under the [Apache V2 license](https://github.com/apache/openwhisk/blob/master/LICENSE.txt) .
 
 :::

@@ -185,64 +185,7 @@ It's important to remember that other than the special status of being the "entr
 
 ### Scalar types
 
-A GraphQL object type has a name and contain fields, but at some point, those fields have to resolve to some concrete data. That's where the scalar types come in: they represent the leaves of the query.
-
-In the following query, the name and appearsIn fields will resolve to scalar types:
-
-<Tabs
-  defaultValue="query"
-  values={[
-    {label: 'GraphQL Query', value: 'query'},
-    {label: 'Response', value: 'response'},
-  ]}>
-<TabItem value="query">
-
-```java
-  {
-    hero {
-      name
-      appearsIn
-    }
-  }
-```
-
-</TabItem>
-
-<TabItem value="response">
-
-```json
-{
-   "data": {
-     "hero": {
-       "name": "R2-D2",
-       "appearsIn": [
-         "NEWHOPE",
-         "EMPIRE",
-         "JEDI"
-       ]
-     }
-   }
- }
-```
-
-</TabItem>
-</Tabs>
-
-The scalar fields don't have any sub-fields - they are the leaves of the query.
-
-GraphQL comes with a set of default scalar types out of the box:
-
-+ `Int`: A signed 32‐bit integer.
-+ `Float`: A signed double-precision floating-point value.
-+ `String`: A UTF‐8 character sequence.
-+ `Boolean`:  'true' or  'false'
-+ `ID`: The ID scalar type represents a unique identifier, often used to re-fetch an object or as the key for a cache. The ID type is serialized in the same way as a String; however, defining it as an \`ID\` signifies that it is not intended to be human‐readable.
-
-In most GraphQL service implementations, there is also a way to specify custom scalar types. For example, we could define a Date type:
-
-`scalar Date`
-
-Then it's up to our implementation to define how that type should be serialized, deserialized, and validated. For example, you could specify that the Date type should always be serialized into an integer timestamp, and your client should know to expect that format for any date fields.
+Check about GraphQL scalar types [here](scalars.md).
 
 ### Enumeration types
 
@@ -261,13 +204,13 @@ enum Episode {
 }
 ```
 
-This means that wherever we use the type `Episode` in our schema, we expect it to be exactly one of `NEWHOPE`,`EMPIRE`, or`JEDI`.
+This means that wherever we use the type `Episode` in our schema, we expect it to be exactly one of `NEWHOPE`,`EMPIRE`, or `JEDI`.
 
 Note that GraphQL service implementations in various languages will have their own language-specific way to deal with enums. In languages that support enums as a first-class citizen, the implementation might take advantage of that; in a language like JavaScript with no enum support, these values might be internally mapped to a set of integers. However, these details don't leak out to the client, which can operate entirely in terms of the string names of the enum values.
 
 ### Lists and Non-Null
 
-Object types, scalars, and enums are the only kinds of types you can define in GraphQL. But when you use the types in other parts of the schema, or in your query variable declarations, you can apply additional type modifiers that affect validation of those values. Let's look at an example:
+Object types, scalars, and enums are the only kinds of types you can define in GraphQL. But when you use the types in other parts of the schema, or your query variable declarations, you can apply additional type modifiers that affect the validation of those values. Let's look at an example:
 
 ```java
 type Character {
@@ -279,4 +222,4 @@ Here, we're using a String type and marking it as Non-Null by adding an exclamat
 
 The Non-Null type modifier can also be used when defining arguments for a field, which will cause the GraphQL server to return a validation error if a null value is passed as that argument, whether in the GraphQL string or the variables.
 
-The type name within square brackets indicate that the field is a list. Hence `appearIn` is a list of objects of type Episode. Each list item will contain the fields of object `Episode`.
+The type name within square brackets indicates that the field is a list. Hence `appearIn` is a list of objects of type Episode. Each list item will contain the fields of object `Episode`.

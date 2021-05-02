@@ -24,6 +24,8 @@ function main(args) {
 2. Create an action called `hithere` using action.js. 
 ```
 wsk action create hithere action.js
+```
+```
 ok: created action
 ```
 The docker image of the javascript function 'Hello World' gets created by OpenWhisk. `hithere` gets listed on a namespace on the Hypi platform.
@@ -46,7 +48,8 @@ wsk action invoke hithere --param x 1 --param y hi --result
 4. If you invoke the function without `--result` parameter, you will get the activation `id` of the action `hithere`
 ```
 wsk action invoke hithere --param x 1 --param y hi
-
+```
+```
 ok: invoked /_/hithere with id ee11ee981b984c1b91ee981b98cc1b48
 ```
 5. You may get activation details of the action using the `id` received in the previous step.
@@ -112,19 +115,25 @@ wsk activation get ee11ee981b984c1b91ee981b98cc1b48
 6. You may retrieve the action list and namespace list with the following commands.
 ```
 wsk action list
+```
+```
 actions
 /01F2GA50PHFK7BAE9FZTPSPBK3/hithere                                    private nodejs:10
 /01F2GA50PHFK7BAE9FZTPSPBK3/serverlessFun                              private nodejs:10
 ```
 ```
 wsk namespace list
+```
+```
 namespaces
 01F2GA50PHFK7BAE9FZTPSPBK3
 ```
 7. Verify that the action was invoked by checking the activations list:
 ```
 wsk activation list
-Datetime            Activation ID                    Kind      Start Duration   Status  Entity
+```
+```
+Datetime Activation ID     Kind      Start Duration   Status  Entity
 2021-04-19 18:57:33 6955a0e828af40a195a0e828afe0a128 nodejs:10 cold  40ms       success 01F2GA50PH...TPSPBK3/hithere:0.0.1
 2021-04-19 16:34:31 26285233eaba4960a85233eaba4960aa nodejs:10 cold  36ms       success 01F2GA50PH...TPSPBK3/serverlessFun:0.0.1
 ```

@@ -244,8 +244,8 @@ If the maximum number of permitted component activations is exceeded the conduct
 
 If the maximum number of secondary conductor activations is exceeded, the conductor action invocation ends with an _application error_ status code and an error message describing the reason for the failure.
 
-:::note 
+:::note
 
-Large portions of this page is copied from the Apache OpenWhisk documentation in [https://github.com/apache/openwhisk/tree/master/docs](https://github.com/apache/openwhisk/tree/master/docs) on April 23rd 2021 - where there have been customisations to match Hypi's deployment this has been noted. Apache OpenWhisk and the Apache name are the property of the Apache Foundation and licensed under the [Apache V2 license](https://github.com/apache/openwhisk/blob/master/LICENSE.txt) .
+Large portions of this page is copied from the [Apache OpenWhisk documentation](https://github.com/apache/openwhisk/tree/master/docs) on April 23rd 2021 - where there have been customisations to match Hypi's deployment this has been noted. Apache OpenWhisk and the Apache name are the property of the Apache Foundation and licensed under the [Apache V2 license](https://github.com/apache/openwhisk/blob/master/LICENSE.txt) .
 
 :::

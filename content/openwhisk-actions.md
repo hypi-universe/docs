@@ -10,7 +10,7 @@ be used to detect the faces in an image, respond to a database change, respond t
 or post a Tweet. In general, an action is invoked in response to an event and produces some
 observable output.
 
-An action may be created from a function programmed using a number of supported languages and runtimes, or from a binary-compatible executable, or even executables packaged as Docker cov ntainers.
+An action may be created from a function programmed using a number of supported languages and runtimes, or from a binary-compatible executable, or even executables packaged as Docker containers.
 
 * The OpenWhisk CLI [`wsk`](https://github.com/apache/openwhisk-cli/releases) makes it easy to create and invoke actions. Instructions for configuring the CLI are available [here](openwhisk-cli.md).
 
@@ -52,6 +52,8 @@ utility actions, and later you'll learn how to explore the platform to discover 
 Let's take a look at the action body by saving the function locally:
 ```
 wsk action get /whisk.system/samples/greeting --save
+```
+```
 ok: saved action code to /path/to/openwhisk/greeting.js
 ```
 This is a JavaScript function, which is indicated by the `.js` extension. It will run using a [Node.js](http://nodejs.org/) runtime.
@@ -101,6 +103,8 @@ The `/whisk.system/samples/greeting` action accepts two optional input arguments
 
 ```
 wsk action invoke /whisk.system/samples/greeting --result --param name Dorothy --param place Kansas
+```
+```
 {
   "msg": "Hello, Dorothy from Kansas!"
 }
@@ -115,11 +119,15 @@ for rapid iteration and development.
 You can invoke an action asynchronously as well, by dropping the `--result` command line option. In this case the action is invoked, and the OpenWhisk platform returns an activation ID which you can use later to retrieve the activation record.
 ```
 wsk action invoke /whisk.system/samples/greeting
+```
+```
 ok: invoked /whisk.system/samples/greeting with id 5a64676ec8aa46b5a4676ec8aaf6b5d2
 ``` 
 To retrieve the activation record, you use the `wsk activation get <id>` command, as in:
 ```
 wsk activation get 5a64676ec8aa46b5a4676ec8aaf6b5d2
+```
+```
 ok: got activation 5a64676ec8aa46b5a4676ec8aaf6b5d2
 {
   "activationId": "5a64676ec8aa46b5a4676ec8aaf6b5d2",
@@ -133,12 +141,12 @@ ok: got activation 5a64676ec8aa46b5a4676ec8aaf6b5d2
   }, ...
 }
 ```
-
 Sometimes it is helpful to invoke an action in a blocking style and receiving the activation record entirely
 instead of just the result. This is achieved using the `--blocking` command line parameter.
-
 ```
 wsk action invoke /whisk.system/samples/greeting --blocking
+```
+```
 ok: invoked /whisk.system/samples/greeting with id 5975c24de0114ef2b5c24de0118ef27e
 {
   "activationId": "5975c24de0114ef2b5c24de0118ef27e",
@@ -247,6 +255,8 @@ Each action invocation results in an activation record which contains the follow
 Earlier we saved the code from the `greeting` action locally. We can use it to create our own version of the action in our own namespace.
 ```
 wsk action create greeting greeting.js
+```
+```
 ok: created action greeting
 ```
 For convenience, you can omit the namespace when working with actions that belong to you. Also if there
@@ -257,6 +267,8 @@ If you modify the code and want to update the action, you can use `wsk action up
 
 ```
 wsk action update greeting greeting.js
+```
+```
 ok: updated action greeting
 ```
 
@@ -266,9 +278,10 @@ Sometimes it is necessary or just convenient to provide values for function para
 defaults, or as a way of reusing an action but with different parameters. Parameters can be bound to an action and unless overridden later by an invocation, they will provide the specified value to the function.
 
 Here is an example.
-
 ```
 wsk action invoke greeting --result
+```
+```
 {
   "msg": "Hello, stranger from somewhere!"
 }
@@ -279,11 +292,12 @@ ok: updated action greeting
 ```
 ```
 wsk action invoke greeting --result
+```
+```
 {
   "msg": "Hello, Toto from somewhere!"
 }
 ```
-
 You may still provide additional parameters, as in the `place`:
 ```
 wsk action invoke greeting --result --param place Kansas
@@ -352,6 +366,8 @@ Similarly, whenever you run the poll utility, you see in real time the logs for 
 Metadata that describes existing actions can be retrieved via the `wsk action get` command.
 ```
 wsk action get hello
+```
+```
 ok: got action hello
 {
     "namespace": "guest",
@@ -380,7 +396,6 @@ ok: got action hello
 
 An action can be invoked through the REST interface via an HTTPS request.
 To get an action URL, execute the following command:
-
 ```
 wsk action get greeting --url
 ```
@@ -396,20 +411,25 @@ Another way of invoking an action which does not require authentication is via [
 
 Any action may be exposed as a web action, using the `--web true` command line option at action
 creation time (or later when updating the action).
-
 ```
 wsk action update greeting --web true
+```
+```
 ok: updated action greeting
 ```
 The resource URL for a web action is different:
 ```
 wsk action get greeting --url
+```
+```
 ok: got action greeting
 https://${APIHOST}/api/v1/web/${NAMESPACE}/${PACKAGE}/greeting
 ```
 You can use `curl` or wget to invoke the action.
 ```
 curl `wsk action get greeting --url | tail -1`.json
+```
+```
 {
   "payload": "Hello, Toto from somewhere!"
 }
@@ -422,11 +442,15 @@ Code associated with an existing action may be retrieved and saved locally. Savi
 1. Save action code to a filename that corresponds with an existing action name in the current working directory. A file extension that corresponds to the action kind is used, or an extension of `.zip` will be used for action code that is a zip file.
 ```
 wsk action get /whisk.system/samples/greeting --save
+```
+```
 ok: saved action code to /path/to/openwhisk/greeting.js
 ```
 2. You may provide your own file name and extension as well using the `--save-as` flag.
 ```
 wsk action get /whisk.system/samples/greeting --save-as hello.js
+```
+```
 ok: saved action code to /path/to/openwhisk/hello.js
 ```
 
@@ -456,7 +480,6 @@ Notice that the list is now sorted alphabetically by namespace, then package nam
 **Note**: The printed list is sorted alphabetically after it is received from the platform. Other list flags such as `--limit` and `--skip` will be applied to the block of actions before they are received for sorting. To list actions in order by creation time, use the flag `--time`.
 
 As you write more actions, this list gets longer and it can be helpful to group related actions into [packages](openwhisk-packages.md). To filter your list of actions to just those within a specific package, you can use:
-
 ```
 wsk action list /whisk.system/utils
 ```
@@ -480,6 +503,8 @@ You can clean up by deleting actions that you do not want to use.
 1. Run the following command to delete an action:  
 ```
 wsk action delete greeting
+```
+```
   ok: deleted greeting
 ```
 2. Verify that the action no longer appears in the list of actions.
@@ -510,6 +535,6 @@ Node.js, Python, Swift, Java and Docker actions when using the OpenWhisk Docker 
 
 :::note
 
-Large portions of this page is copied from the Apache OpenWhisk documentation in [https://github.com/apache/openwhisk/tree/master/docs](https://github.com/apache/openwhisk/tree/master/docs) on April 23rd 2021 - where there have been customisations to match Hypi's deployment this has been noted. Apache OpenWhisk and the Apache name are the property of the Apache Foundation and licensed under the [Apache V2 license](https://github.com/apache/openwhisk/blob/master/LICENSE.txt) .
+Large portions of this page is copied from the [Apache OpenWhisk documentation](https://github.com/apache/openwhisk/tree/master/docs) on April 23rd 2021 - where there have been customisations to match Hypi's deployment this has been noted. Apache OpenWhisk and the Apache name are the property of the Apache Foundation and licensed under the [Apache V2 license](https://github.com/apache/openwhisk/blob/master/LICENSE.txt) .
 
 :::
