@@ -1,33 +1,13 @@
-# Website
+# Hypi Documentation
 
-This website is built using [Docusaurus 2](https://v2.docusaurus.io/), a modern static website generator.
+See [https://docs.hypi.app/docs](https://docs.hypi.app/docs)
 
-## Installation
+## Building
 
-```console
-yarn install
-```
+`npm run build`
 
-## Local Development
+## Search
 
-```console
-yarn start
-```
+The search is powered by Algolia. A Github action executes the following command after a push to master
 
-This command starts a local development server and open up a browser window. Most changes are reflected live without having to restart the server.
-
-## Build
-
-```console
-yarn build
-```
-
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
-
-## Deployment
-
-```console
-GIT_USER=<Your GitHub username> USE_SSH=true yarn deploy
-```
-
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+`docker run -it -e APPLICATION_ID=OR6SSGNSLB -e API_KEY=<API KEY HERE> -e "CONFIG=$(cat algolia.json | jq -r tostring)" algolia/docsearch-scraper`
