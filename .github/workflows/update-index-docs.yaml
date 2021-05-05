@@ -7,7 +7,7 @@ on:
 
 jobs:
   build:
-    if: github.repository == `hypi-universe/docs`
+    if: github.repository == 'hypi-universe/docs'
     container:
       image: algolia/docsearch-scraper:v1.13.0
       env:
