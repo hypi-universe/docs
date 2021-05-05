@@ -7,7 +7,7 @@ on:
 
 jobs:
   build:
-    if: github.repository == `hypi-universe/docs`
+    if: github.repository == 'hypi-universe/docs'
 
     runs-on: ubuntu-latest
 
