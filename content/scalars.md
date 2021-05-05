@@ -5,7 +5,8 @@ sidebar_label: Scalars
 slug: /scalars
 ---
 
-A GraphQL object type has a name and contains fields. But at some point, those fields have to resolve to some concrete data. That's where the scalar types come in: they represent the leaves of the query.
+A GraphQL object type has a name and cont
+ains fields. But at some point, those fields have to resolve to some concrete data. That's where the scalar types come in: they represent the leaves of the query.
 
 In the following query, the `name` and `appearsIn` fields will resolve to scalar types:
 ```java
@@ -79,13 +80,13 @@ Hypi supports custom scalar types in addition to the built-in scalars.
 
 ### DateTime
 
-`DateTime` represents valid [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) date time value.  DateTime type accepts only valid ISO 8601 date-time values while entering input or returning a value.
+`DateTime` represents valid [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) date time value.`DateTime` type accepts only valid ISO 8601 date-time values while entering input or returning a value.
 
 ### Any
 
 `Any` represents any possible value without any specific format. Use of this data type is highly discouraged. This data type must be serialized to String and it is internally stored as String. No queries or operations are possible on it. It can be used in extremely rare cases where the existing type system makes something impossible.
 
-::: note
+:::note
 
 Hypi CRUD APIs do not support [Unions](http://spec.graphql.org/draft/#sec-Unions).  But they can be used in custom serverless functions which do not depend on Hypi’s CRUD APIs
 
