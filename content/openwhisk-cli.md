@@ -31,8 +31,8 @@ Before using OpenWhisk, you must configure it to point towards Hypi's API endpoi
 Run the follwing command to set Hypi Instance Domain as OpenWhisk Host.
 
 ```java
-wsk property set --apihost "https://api.hypi.app/fn" --auth "<InstanceDomain\>:<Auth_Key>"
+wsk property set --apihost "https://fn.hypi.app" --auth "<InstanceDomain\>:<Auth_Key>"
 ```
 Here \<InstanceDomain\>  is App Instance Domain, e.g. `proudest.apps.hypi.app` and \<Auth_Key> is the Authorization token of that domain.
 
-API endpoint to implement serverless functionality with Hypi is `https://api.hypi.app/fn`
+API endpoint to implement serverless functionality with Hypi is `https://fn.hypi.app`
