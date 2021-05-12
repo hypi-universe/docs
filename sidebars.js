@@ -25,6 +25,11 @@ module.exports = {
       label: 'GraphQL',
       items: ['graphql', 'gql-introduction', 'gql-schema-types','gql-queries','gql-mutations','gql-interfaces'],
     },
+    {
+      type: 'category',
+      label: 'System Apps',
+      items: ['core'],
+    },
     'hypi-angular',
     {
       type: 'category',
