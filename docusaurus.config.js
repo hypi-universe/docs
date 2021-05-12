@@ -10,7 +10,8 @@ module.exports = {
   projectName: 'docs', // Usually your repo name.
   themeConfig: {
     algolia: {
-      apiKey: '9ae9d65b23569334296974ce321050b6',
+      appId: 'OR6SSGNSLB',
+      apiKey: 'f2021f6bbd08d39e9e43d2ca10092b37',
       indexName: 'hypi',
       // Optional: see doc section below
       contextualSearch: false,
