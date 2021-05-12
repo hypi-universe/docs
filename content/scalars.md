@@ -82,12 +82,24 @@ Hypi supports custom scalar types in addition to the built-in scalars.
 
 `DateTime` represents valid [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) date time value.`DateTime` type accepts only valid ISO 8601 date-time values while entering input or returning a value.
 
+DateTime scalar supports following ISO 8601 date-time notations.
+
+| Date/Time        | Format                             | Example                   |
+|------------------|------------------------------------|---------------------------|
+| Date             | yyyy-mm-dd                         | 2008-09-15                |
+| Datetime         | yyyy-mm-ddThh:mm:ss.ffffff         | 2008-09-15T15:53:00       |
+| UTC zone         | yyyy-mm-ddThh:mm:ss.nnnnnn+\-hh:mm | 2008-09-15T15:53:00+05:00 |
+| Date Time in UTC | yyyy-mm-ddThh:mm:ssZ               | 2021-05-10T02:43:42Z      |
+
 ### Any
 
-`Any` represents any possible value without any specific format. Use of this data type is highly discouraged. This data type must be serialized to String and it is internally stored as String. No queries or operations are possible on it. It can be used in extremely rare cases where the existing type system makes something impossible.
+
+`Any` represents any possible value without any specific format. Use of this data type is highly discouraged. This data type must be serialized to String and it is internally stored as
+String. No queries or operations are possible on it. It can be used in extremely rare cases where the existing type system makes something impossible.
 
 :::note
 
 Hypi CRUD APIs do not support [Unions](http://spec.graphql.org/draft/#sec-Unions).  But they can be used in custom serverless functions which do not depend on Hypi’s CRUD APIs
 
 :::
+

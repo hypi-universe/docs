@@ -14,8 +14,9 @@ Notice the argument ‘values’ is plural because it allows you to create or up
 > Let’s go through an example. 
 
 You may use the below example to insert data into an instance (Information related to Authors)
-Run `upsert` GraphQL mutation. Provide input data values in Query variables. ‘id’ value from the magic hypi object gets returned, when the data gets added successfully.
+Run `upsert` GraphQL mutation in the [GraphQL Playground](ui-gql-playground.md) query section. Provide input data values in `Query variables` section. 
 
+The result can be seen in response section. `id` value from the magic hypi object gets returned, when the data gets added to the tables successfully. You can see that data goes to `data` root as shown in the response. 
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
