@@ -11,11 +11,11 @@ slug: /core
 
 > Let’s look at different data types available in the Core.
 
-### Data Types in Core
+## Data Types in Core
 
 In built data types help in building the application quickly.  Below is the list of data types under `Core` system app.
 
-#### AccessToken 
+### AccessToken 
 
 When the user logs into his account, the AccessToken object gets generated holding session details.
 
@@ -26,7 +26,7 @@ When the user logs into his account, the AccessToken object gets generated holdi
 | **errorCode**      | String         | Login Error Code                                                          |
 | **errorMsg**       | String         | Login Error Message                                                       |
 
-#### Account
+### Account
 
 This data type holds the account details. When a user creates an account, he can store his account details.
 
@@ -44,7 +44,7 @@ This data type holds the account details. When a user creates an account, he can
 | **attempts**     | LoginAttempt   | The login attempts to the account get updated                       |
 | **remoteLogins** | RemoteLogin    | Remote Login Status                                                 |
 
-#### Password
+### Password
 
 Password details of an account.
 
@@ -53,7 +53,7 @@ Password details of an account.
 | **value**      | String         | Password value stored with Encryption |
 | **expired**    | Boolean        | Password Expiry status                |
 
-#### Person
+### Person
 
 Personal Details of an Account.
 
@@ -70,7 +70,7 @@ Personal Details of an Account.
 
 `PersonName`, `Address`, `Country`, `Language`, `Currency`, `Phone data` types are also available. The fields of these tables are self-explanatory. You may check the field details on the user interface.
 
-#### URL
+### URL
 
 Details of a URL
 
@@ -81,7 +81,7 @@ Details of a URL
 | **port**        | Int            | Port details                |
 | **host**        | String         | Host of the url             |
 
-#### GeoEnvelope
+### GeoEnvelope
 
 Latitude and Longitude details of a location.
 
@@ -90,7 +90,7 @@ Latitude and Longitude details of a location.
 | **p1**         | Coordinate     | Latitude coordinates  |
 | **p2**         | Coordinate     | Longitude coordinates |
 
-#### Coordinate
+### Coordinate
 
 Coordinates of a location.
 
@@ -99,7 +99,7 @@ Coordinates of a location.
 | **x**          | Float          | x coordinates   |
 | **y**          | Float          | y coordinates   |
 
-#### Pair
+### Pair
 
 This data type acts as a mapping between key-value pairs.
 
@@ -108,7 +108,7 @@ This data type acts as a mapping between key-value pairs.
 | **key**        | String         | key of the pair   |
 | **value**      | String         | Value of the pair |
 
-#### Counter
+### Counter
 
 This data type provides Counter functionality.
 
@@ -119,7 +119,7 @@ This data type provides Counter functionality.
 | **value**      | Float          | Value                |
 | **tags**       | String         | Associated tags      |
 
-#### Email
+### Email
 
 This data type holds the Email details of an account. When the Email value is entered, it provides an internal validation to check for proper Email format.
 
@@ -128,7 +128,7 @@ This data type holds the Email details of an account. When the Email value is en
 | **value**      | String         | Email Address value               |
 | **type**       | String         | Type of Email: Work/Personal etc. |
 
-#### EmailMessage
+### EmailMessage
 
 This data type holds the content of an Email Message.
 
@@ -153,7 +153,7 @@ This data type holds the content of an Email Message.
 | **tags**               | String              | Tags of the Email                     |
 | **responses**          | EmailSendingAttempt | Email response                        |
 
-#### LogMessage
+### LogMessage
 
 Logs of the messages can be stored in this data type.
 
@@ -166,7 +166,7 @@ Logs of the messages can be stored in this data type.
 | **type**       | String         | Type of Log                                      |
 | **workflow**   | String         | Workflow associated with Log                     |
 
-### Enumerations
+## Enumerations
 
 The core system app also contains in-built Enumerations types. Few enums are described below.
 
