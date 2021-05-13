@@ -17,7 +17,7 @@ Check out the concepts involved in the authorisation.
 
 #### Subject
 
-A subject is an entity trying to perform an action or gain access to a resource.
+A subject is an entity trying to perform an action like query or mutation or gain access to a resource.
 
 #### Object
 
@@ -28,17 +28,22 @@ An object or a resource is the thing being protected. In Hypi, two primary thing
 
 ## Policy
 
-A `policy` is an interface with two fields that contain important pieces of information. It has the `name` of the `subject` to provide authorisation. And it holds the Enum `logic` of granting or denying access. The values of the logic can be Positive or Negative.
+A `policy` is an interface with two fields that contain important pieces of information. It has the `name` of the `subject` to provide authorisation. And it holds the Enum `logic` of granting or denying access. The values of the logic can be `Positive` or `Negative`. The interface `Policy` comes in built in [Core](core.md) System App.
 ```java
 interface Policy {
-    hypi: Hypi
     name: String!
     logic: AuthLogic
 }
 ```
+
+| **Field Name** | **Field type** | **Description**     |
+|----------------|----------------|---------------------|
+| **name**       | String         | Name of the policy  |
+| **logic**      | AuthLogic      | Positive / Negative |
+
 There are several parameters to decide the policy of authorisation. One of the main purposes of a policy is to promote re-use. Policies are intended to be created and re-used so that they can be kept as simple as possible.
 
-Hypi has various policy types for different kinds of subjects. Various groups, accounts, roles, realms, clients have individual policy objects. A time-bound access policy is also in place. You can also group various policies with Aggregate policy. 
+Hypi has various policy types for different kinds of subjects. Various groups, accounts, roles, realms, clients have individual policy objects. A time-bound access policy is also in place. You can also group various policies with Aggregate policy.  These policies are derived from main Policy Iterface.
 
 +  GroupPolicy - Applies to a list of Accounts or Organisations in the groups.
 ```java
@@ -48,7 +53,24 @@ type GroupPolicy implements Policy {
     groups(...):[Group!]
 }
 ```
-+  RolePolicy - Applies to a list of Roles.
+The group may have list of accounts, list of organizations or other list of groups.
+```java
+type Group {
+    name: String!
+    accounts(...): [Account!]
+    children(...): [Group!]
+    organisations(...): [Organisation!]
+}
+```
+
+| **Field Name**    | **Field type** | **Description**                     |
+|-------------------|----------------|-------------------------------------|
+| **name**          | String         | Name of the Group                   |
+| **accounts**      | Account        | List of Accounts to be grouped      |
+| **children**      | Group          | Other Children Groups               |
+| **organisations** | Organisation   | List of Organizations to be grouped |
+
++  RolePolicy - A user with an account may play various kinds of role like Manager/Owner etc. RolePolicy  applies to a list of Roles.
 ```java
 type RolePolicy implements Policy {
     name:String!
@@ -56,7 +78,13 @@ type RolePolicy implements Policy {
     roles(...):[Role!]!
 }
 ```
-+  AccountPolicy - Applies to a set of Accounts.
+A Role data type has list of accounts.
+
+| **Field Name** | **Field type** | **Description**  |
+|----------------|----------------|------------------|
+| **name**       | String         | Name of the Role |
+| **accounts**   | Account        | List of accounts |
++  AccountPolicy - Applies to a set of User Accounts.
 ```java
 type AccountPolicy implements Policy {
     name:String!
@@ -64,15 +92,9 @@ type AccountPolicy implements Policy {
     accounts(...):[Account!]
 }
 ```
-+  RealmPolicy - Applies to a set of Realms.
-```java
-type RealmPolicy implements Policy {
-    name:String!
-    logic:AuthLogic
-    realms(...):[RealmLink!]
-}
-```
-+  TimePolicy – Allows time-bound access to groups, roles, accounts, realms, and clients.
+Please know more about Account data type [here](authentication.md).
+
++  TimePolicy – Allows time-bound access to groups, roles, accounts, realms, and clients. `from` and `to` dates are mentioned to specify the the duration.
 ```java
 type TimePolicy implements Policy {
     from:DateTime
@@ -94,13 +116,35 @@ type ClientPolicy implements Policy {
     clients(...):[AuthClient!]
 }
 ```
-+  AggregatePolicy - Allows grouping one or more policies.
+`AuthClient` stores the information of Client.
+
+| **Field Name** | **Field type** | **Description**     |
+|----------------|----------------|---------------------|
+| **name**       | String         | Name of the Client  |
+| **secret**     | String         | Verification String |
++  AggregatePolicy - Allows grouping one or more policies. 
 ```java
 type Aggregated Policy implementsPolicy {
     decisionStrategy:DecisionStrategy
     name:String!
     logic:AuthLogic
     policies(...):[Policy!]!
+}
+```
+
+The decision strategy `DecisionStrategy` dictates how the policies associated with a given permission are evaluated and how a final decision is obtained.  
+
+`Affirmative` means that at least one policy must evaluate to a positive decision in order for the final decision to be also positive. 
+
+`Unanimous` means that all policies must evaluate to a positive decision in order for the final decision to be also positive. 
+
+`Consensus` means that the number of positive decisions must be greater than the number of negative decisions. If the number of positive and negative is the same, the final decision will be negative.
+
+```java
+enum DecisionStrategy{
+    Unanimous
+    Affirmative
+    Consensus
 }
 ```
 ## Permission
@@ -154,7 +198,7 @@ mutation {
           scopes: ["*"]
           operationType: Query
           operations: ["find"]
-          #includeAllAccounts: true, //wildcard so all accounts can access
+          #includeAllAccounts: true, 
           policies: [
             {
               hypi: { impl: "AccountPolicy" }
