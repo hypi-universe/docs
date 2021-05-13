@@ -36,10 +36,11 @@ interface Policy {
 }
 ```
 
-| **Field Name** | **Input type** | **Description**     |
+| **Field Name** | **Field type** | **Description**     |
 |----------------|----------------|---------------------|
 | **name**       | String         | Name of the policy  |
 | **logic**      | AuthLogic      | Positive / Negative |
+
 There are several parameters to decide the policy of authorisation. One of the main purposes of a policy is to promote re-use. Policies are intended to be created and re-used so that they can be kept as simple as possible.
 
 Hypi has various policy types for different kinds of subjects. Various groups, accounts, roles, realms, clients have individual policy objects. A time-bound access policy is also in place. You can also group various policies with Aggregate policy.  These policies are derived from main Policy Iterface.
@@ -62,12 +63,13 @@ type Group {
 }
 ```
 
-| **Field Name**    | **Input type** | **Description**                     |
+| **Field Name**    | **Field type** | **Description**                     |
 |-------------------|----------------|-------------------------------------|
 | **name**          | String         | Name of the Group                   |
 | **accounts**      | Account        | List of Accounts to be grouped      |
 | **children**      | Group          | Other Children Groups               |
 | **organisations** | Organisation   | List of Organizations to be grouped |
+
 +  RolePolicy - A user with an account may play various kinds of role like Manager/Owner etc. RolePolicy  applies to a list of Roles.
 ```java
 type RolePolicy implements Policy {
@@ -78,7 +80,7 @@ type RolePolicy implements Policy {
 ```
 A Role data type has list of accounts.
 
-| **Field Name** | **Input type** | **Description**  |
+| **Field Name** | **Field type** | **Description**  |
 |----------------|----------------|------------------|
 | **name**       | String         | Name of the Role |
 | **accounts**   | Account        | List of accounts |
@@ -116,7 +118,7 @@ type ClientPolicy implements Policy {
 ```
 `AuthClient` stores the information of Client.
 
-| **Field Name** | **Input type** | **Description**     |
+| **Field Name** | **Field type** | **Description**     |
 |----------------|----------------|---------------------|
 | **name**       | String         | Name of the Client  |
 | **secret**     | String         | Verification String |
@@ -196,7 +198,7 @@ mutation {
           scopes: ["*"]
           operationType: Query
           operations: ["find"]
-          #includeAllAccounts: true, //wildcard so all accounts can access
+          #includeAllAccounts: true, 
           policies: [
             {
               hypi: { impl: "AccountPolicy" }

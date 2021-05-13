@@ -19,17 +19,18 @@ In built data types help in building the application quickly.  Below is the list
 
 When the user logs into his account, the AccessToken object gets generated holding session details.
 
-| **Field Name**     | **Input type** | **Description**                                                           |
+| **Field Name**     | **Field type** | **Description**                                                           |
 |--------------------|----------------|---------------------------------------------------------------------------|
-| **sessionToken**   | **String**     | Authorization Token needed to perform various actions like Query/Mutation |
-| **sessionExpires** | **Long**       | Session Expiry Time                                                       |
-| **errorCode**      | **String**     | Login Error Code                                                          |
-| **errorMsg**       | **String**     | Login Error Message                                                       |
+| **sessionToken**   | String         | Authorization Token needed to perform various actions like Query/Mutation |
+| **sessionExpires** | Long           | Session Expiry Time                                                       |
+| **errorCode**      | String         | Login Error Code                                                          |
+| **errorMsg**       | String         | Login Error Message                                                       |
+
 #### Account
 
 This data type holds the account details. When a user creates an account, he can store his account details.
 
-| **Field Name**   | **Input type** | **Description**                                                     |
+| **Field Name**   | **Field type** | **Description**                                                     |
 |------------------|----------------|---------------------------------------------------------------------|
 | **verified**     | Boolean        | Account is verified or not                                          |
 | **enabled**      | Boolean        | Account enable/disable                                              |
@@ -47,7 +48,7 @@ This data type holds the account details. When a user creates an account, he can
 
 Password details of an account.
 
-| **Field Name** | **Input type** | **Description**                       |
+| **Field Name** | **Field type** | **Description**                       |
 |----------------|----------------|---------------------------------------|
 | **value**      | String         | Password value stored with Encryption |
 | **expired**    | Boolean        | Password Expiry status                |
@@ -56,7 +57,7 @@ Password details of an account.
 
 Personal Details of an Account.
 
-| **Field Name**  | **Input type** | **Description**    |
+| **Field Name**  | **Field type** | **Description**    |
 |-----------------|----------------|--------------------|
 | **dob**         | DateTime       | Date of Birth      |
 | **gender**      | Gender         | Gender             |
@@ -73,7 +74,7 @@ Personal Details of an Account.
 
 Details of a URL
 
-| **Field Name**  | **Input type** | **Description**             |
+| **Field Name**  | **Field type** | **Description**             |
 |-----------------|----------------|-----------------------------|
 | **path**        | String         | URL path                    |
 | **queryParams** | JSON           | Query Parameters of the URL |
@@ -84,7 +85,7 @@ Details of a URL
 
 Latitude and Longitude details of a location.
 
-| **Field Name** | **Input type** | **Description**       |
+| **Field Name** | **Field type** | **Description**       |
 |----------------|----------------|-----------------------|
 | **p1**         | Coordinate     | Latitude coordinates  |
 | **p2**         | Coordinate     | Longitude coordinates |
@@ -93,7 +94,7 @@ Latitude and Longitude details of a location.
 
 Coordinates of a location.
 
-| **Field Name** | **Input type** | **Description** |
+| **Field Name** | **Field type** | **Description** |
 |----------------|----------------|-----------------|
 | **x**          | Float          | x coordinates   |
 | **y**          | Float          | y coordinates   |
@@ -102,7 +103,7 @@ Coordinates of a location.
 
 This data type acts as a mapping between key-value pairs.
 
-| **Field Name** | **Input type** | **Description**   |
+| **Field Name** | **Field type** | **Description**   |
 |----------------|----------------|-------------------|
 | **key**        | String         | key of the pair   |
 | **value**      | String         | Value of the pair |
@@ -111,7 +112,7 @@ This data type acts as a mapping between key-value pairs.
 
 This data type provides Counter functionality.
 
-| **Field Name** | **Input type** | **Description**      |
+| **Field Name** | **Field type** | **Description**      |
 |----------------|----------------|----------------------|
 | **name**       | String         | Name of the Counter  |
 | **label**      | String         | Label of the counter |
@@ -122,7 +123,7 @@ This data type provides Counter functionality.
 
 This data type holds the Email details of an account. When the Email value is entered, it provides an internal validation to check for proper Email format.
 
-| **Field Name** | **Input type** | **Description**                   |
+| **Field Name** | **Field type** | **Description**                   |
 |----------------|----------------|-----------------------------------|
 | **value**      | String         | Email Address value               |
 | **type**       | String         | Type of Email: Work/Personal etc. |
@@ -131,7 +132,7 @@ This data type holds the Email details of an account. When the Email value is en
 
 This data type holds the content of an Email Message.
 
-| **Field Name**         | **Input type**      | **Description**                       |
+| **Field Name**         | **Field type**      | **Description**                       |
 |------------------------|---------------------|---------------------------------------|
 | **from**               | Email               | Email Message from (Email ID)         |
 | **subject**            | String              | Subject of the Email                  |
@@ -156,7 +157,7 @@ This data type holds the content of an Email Message.
 
 Logs of the messages can be stored in this data type.
 
-| **Field Name** | **Input type** | **Description**                                  |
+| **Field Name** | **Field type** | **Description**                                  |
 |----------------|----------------|--------------------------------------------------|
 | **level**      | LogLevel       | Log Level                                        |
 | **message**    | String         | Log message                                      |
@@ -164,10 +165,12 @@ Logs of the messages can be stored in this data type.
 | **releaseId**  | String         | releaseId of the application logging the message |
 | **type**       | String         | Type of Log                                      |
 | **workflow**   | String         | Workflow associated with Log                     |
+
 ### Enumerations
 
 The core system app also contains in-built Enumerations types. Few enums are described below.
-```
+
+```java
 enum Gender {
     MALE
     FEMALE
