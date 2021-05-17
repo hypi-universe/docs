@@ -22,6 +22,11 @@ module.exports = {
     },
     {
       type: 'category',
+      label: 'Hyoi CLI',
+      items: ['hypi-cli'],
+    },
+    {
+      type: 'category',
       label: 'GraphQL',
       items: ['graphql', 'gql-introduction', 'gql-schema-types','gql-queries','gql-mutations','gql-interfaces'],
     },
