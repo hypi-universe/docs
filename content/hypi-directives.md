@@ -502,7 +502,7 @@ This directive allows the value of a field to be calculated using an ArcQL query
 </TabItem>
 </Tabs>
 
-### @noinput / @nomath / @noaggs / @nomath
+### @noinput / @nomath / @noagg / @notable
 
 Hypi automatically generates certain data types when you declare a type. These generated types are used to implement functionalities like CRUD, Aggregations, Maths functions, etc.
 
