@@ -22,7 +22,7 @@ module.exports = {
     },
     {
       type: 'category',
-      label: 'Hyoi CLI',
+      label: 'Hypi CLI',
       items: ['hypi-cli'],
     },
     {
