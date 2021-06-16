@@ -22,8 +22,8 @@ module.exports = {
     },
     {
       type: 'category',
-      label: 'Hyoi CLI',
-      items: ['hypi-cli'],
+      label: 'Hypi CLI',
+      items: ['hypi-cli-intro','hypi-cli-flutter'],
     },
     {
       type: 'category',
