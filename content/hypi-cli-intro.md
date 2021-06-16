@@ -24,13 +24,15 @@ After this, you should have a new `hypi` command available to run. If you do not
 ### Mac
 
 + Add Hypi CLI folder to the bin folder of Home directory , i.e.` ~/bin`. If this directory doesn't exist then create it.
-+ Update the PATH environment variable in `profile` file.  Insert Home directory `@home-dir`. 
++ Update the PATH environment variable in `profile` file. 
 ```
 vim ~/.profile
 ```
 ```
-export PATH="/home-dir/bin/hypi:$PATH"
+export PATH="/<PATH TO BIN>/bin/hypi:$PATH"
 ```
+* Replace`<PATH TO BIN>`with the real path to your bin directory where you saved the Hypi binary.
+
 - Open new shell. Provide command `hypi` to verify the installation.
 ```
 hypi
@@ -66,13 +68,15 @@ which hypi
 ### Linux
 
 + Add Hypi CLI folder to the bin folder of Home directory , i.e.`/home/username`. If this directory doesn't exist then create it.
-+ Update the PATH environment variable in `. bashrc` file.  Insert Home directory `@home-dir`. 
++ Update the PATH environment variable in `. bashrc` file.  
 ```
 vim ~/.bashrc
 ```
 ```
-export PATH="/home-dir/bin/hypi:$PATH"
+export PATH="/<PATH TO BIN>/bin/hypi:$PATH"
 ```
+* Replace`<PATH TO BIN>`with the real path to your bin directory where you saved the Hypi binary.
+
 - Open new shell. Provide command `hypi` to verify the installation.
 ```
 hypi
@@ -111,9 +115,9 @@ which hypi
 + Open Environment Variables settings with command `Windows Key + env + Enter`
 + Add new variable name `path` with following value. If 'path' variable is already present, edit it to add new value.
 ```
-C:\Users\user\hypi-v1.0.0-win32-x64\hypi\bin
+<PATH TO BIN>\hypi\bin
 ```
-* Replace home directory name @ `C:\Users\user` and add downloaded hypi cli folder @ `hypi-v1.0.0-win32-x64`
+* Replace`<PATH TO BIN>`with the real path to your bin directory where you saved the Hypi binary.
 
 + Open new command prompt with `cmd`. Provide command `hypi` to verify the installation.
 ```
