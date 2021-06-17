@@ -1,48 +1,9 @@
 ---
-id: hypi-cli
-title: Using Hypi CLI with Flutter App
-sidebar_label: Using Hypi CLI with Flutter App
-slug: /hypi-cli
+id: hypi-cli-flutter
+title: Use Hypi in a Flutter Project
+sidebar_label: Flutter
+slug: /hypi-cli-flutter
 ---
-
-Hypi has its own Command Line Interface(CLI) to facilitate using Hypi APIs with Client Applications. Instead of making an HTTP request to Hypi Endpoint, developers can include Hypi as a part of their applications.
-
-CLI synchronizes Hypi APIs with client applications and developers can use them within their own workspace!
-
-## Install Hypi CLI
-
-First, download Hypi CLI for your operating system from the [this](https://github.com/hypi-universe/cli/releases) link. Make sure to set PATH environmental variable pointing towards hypi binary file.
-
-Install Hypi CLI using the following command.
-```
-$ npm install -g @hypi/hypi
-```
-@hypi/hypi => Here, use the entire path of the downloaded Hypi Cli folder
-
-Verify the installation using the following command.
-```
-hypi –help
-```
-```
-Application developer community centred around Hypi's unique low-code, serverless development platform.
-
-VERSION
- @hypi/hypi/1.0.0 win32-x64 node-v14.16.0
-
-USAGE
- $ hypi \[COMMAND\]
-
-COMMANDS
- commands list all the commands
- help display help for hypi
- init Init a hypi app
- login Login to hypi with email and password or domain and token
- sync sync user local schema with hypi
- update update the hypi CLI
-```
-After the installation, hypi CLI is ready to use!
-
-## Use Hypi in a Flutter Project
 
 Flutter is Google’s UI toolkit for building beautiful, natively compiled applications for mobile, web, and desktop from a single codebase. In this guide, we will showcase how to import the Hypi package within the Flutter project using Hypi CLI. After the import, you may use Hypi functionalities to build Flutter Applications.
 
@@ -50,42 +11,10 @@ Flutter is Google’s UI toolkit for building beautiful, natively compiled appli
 
 Follow the below steps to import the Hypi package.
 
-### Hypi Login
+### Login
 
-Login to the Hypi domain using the `login` command. You may login to your Hypi account using your own `email` and `password` or `domain` and `token`.
-```
-    USAGE
-      $ hypi login
-    
-    OPTIONS
-      -d, --domain
-      -h, --help    show CLI help
-    
-    EXAMPLES
-      $ hypi login
-      $ hypi login -d
-      $ hypi login --domain
-```
-Let's login using email and password.
-```
-hypi login
-```
-```
-Enter your email and password
-? Email? flutter-dev@gmail.com
-? Password? [hidden]
-Logged in successfully
-```
-Or you may enter with `Organization Namespace` and `Authorization Token` given on the below link.
-[https://hypi.app/developer-hub](https://hypi.app/developer-hub)
+Login to your Hypi account using [hypi login](hypi-cli-intro.md#hypi-login) command.
 
-```
-hypi login -d
-Enter domain and token
-? Domain?  latest.store.hypi.01f2ga50p2mzkmyqse17gd2bae.hypi.app
-? Token?  <Auth-Token>
-Logged in successfully
-```
 ### Hypi Init
 
 Use the `hypi init` command to initialize a new hypi App and Instance in your flutter project folder.
