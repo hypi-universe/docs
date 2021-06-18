@@ -23,7 +23,7 @@ module.exports = {
     {
       type: 'category',
       label: 'Hypi CLI',
-      items: ['hypi-cli-intro','hypi-cli-flutter'],
+      items: ['hypi-cli-intro','hypi-cli-flutter','hypi-cli-react','hypi-cli-angular'],
     },
     {
       type: 'category',

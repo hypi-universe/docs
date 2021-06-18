@@ -93,10 +93,10 @@ In this case, the existing schema will get imported. You may edit the schema in 
 
 ### Hypi Sync
 
-You need to generate schema dart files to use Hypi APIs within the flutter project. Use the `hypi sync` command for that.
+You need to generate schema dart files to use Hypi APIs within the flutter project. Use the `hypi sync flutter` command for that.
 ```
     USAGE
-      $ hypi sync
+      $ hypi sync flutter
     
     OPTIONS
       -h, --help  show CLI help
@@ -150,9 +150,9 @@ targets:
               - graphql_type: Any
                 dart_type: String
 ```
-Now run `hypi sync` to generate dart files.
+Now run `hypi sync flutter` to generate dart files.
 ```
-hypi sync
+hypi sync flutter
 ```
 ```
 App created with id : 01F4EYDEM7VJ6WZK9BQFFAQ0G5
