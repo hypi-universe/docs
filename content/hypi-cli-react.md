@@ -5,9 +5,9 @@ sidebar_label: ReactJS
 slug: /hypi-cli-react
 ---
 
-ReactJS is a JavaScript library for building user interfaces and UI components. In this guide, we will import the Hypi package within the React Typescript project using Hypi CLI. After the import, you may use Hypi functionalities to build ReactJS applications.
+In this guide, we will access Hypi APIs from the React Typescript project using the Hypi CLI.
 
-**Prerequisite**: Knowledge of application development using ReactJS. Development set up for ReactJS.
+**Prerequisites**: Knowledge of application development using ReactJS. Development set up for ReactJS.
 
 ### Create React Typescript App
 
@@ -22,7 +22,7 @@ In this example, we will use the apollo client as the graphql client. Add the fo
 "@apollo/client": "^3.3.16",
 "graphql": "^15.5.0",
 ```     
-Let's import the Hypi package now.
+Let's start using Hypi CLI now.
 
 ### Login
 
@@ -74,25 +74,31 @@ You should write your schema inside `schema.graphql` file.
 
 ```
 app.yaml
-==============================
-website: https://hypi.app/apps
-name: ReactJSApp
-label: ReactJSApp
+========
+website: https://hypi.app/apps
+name: ReactJSApp
+label: ReactJSApp
 releases:
-  - name: latest
-schema:
-types: schema.graphql
-status: PUBLISHED
-notes: latest version
+  - name: latest
+    schema:
+      types: schema.graphql
+    status: PUBLISHED
+    notes: latest version
+    hypi:
+      id: 01F8EMYY0935THH0GX40K7QESY
+hypi:
+  id: 01F8EMYY01YDD2HB0WH8E1AZJW
 ```
 ```
-domain: engulfs.apps.hypi.app
+instance.yaml
+=============
+domain: engulfs.apps.hypi.app
 release:
-name: latest
+  name: latest
+  hypi:
+    id: 01F8EMYY0935THH0GX40K7QESY
 hypi:
-id: 01F8EMYY0935THH0GX40K7QESY
-hypi:
-id: 01F8EMZ1PN1ANAS1C15K6DD63H
+  id: 01F8EMZ1PN1ANAS1C15K6DD63H
 ```
 The new app gets created on the Hypi account. If an existing domain is not provided then a new domain also gets created.
 
