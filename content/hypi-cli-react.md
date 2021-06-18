@@ -1,8 +1,8 @@
 ---
-id: hypi-cli-reactjs
+id: hypi-cli-react
 title: Use Hypi in a ReactJS Project
 sidebar_label: ReactJS
-slug: /hypi-cli-reactjs
+slug: /hypi-cli-react
 ---
 
 ReactJS is a JavaScript library for building user interfaces and UI components. In this guide, we will import the Hypi package within the React Typescript project using Hypi CLI. After the import, you may use Hypi functionalities to build ReactJS applications.
