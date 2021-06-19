@@ -5,9 +5,9 @@ sidebar_label: Angular
 slug: /hypi-cli-angular
 ---
 
-Angular is a TypeScript-based open-source web application framework. In this guide, we will import the Hypi package within the Angular project using Hypi CLI. After the import, you may use Hypi functionalities to build Angular applications.
+In this guide, we will access Hypi APIs from the Angular project using the Hypi CLI.
 
-**Prerequisite**: Knowledge of application development using Angular. Development set up for Angular.
+**Prerequisites**: Knowledge of application development using Angular. Development set up for Angular.
 
 ### Create Angular App
 
@@ -19,7 +19,7 @@ In this example, we will use the apollo client as the graphql client. Add the fo
 "apollo-angular": "^2.4.0",
 "graphql": "^15.5.0",
 ```     
-Follow the below steps to import the Hypi package.
+Let's start using Hypi CLI now.
 
 ### Login
 
@@ -71,25 +71,31 @@ You should write your schema inside `schema.graphql` file.
 
 ```
 app.yaml
-==============================
-website: https://hypi.app/apps
-name: AngularApp
-label: AngularApp
+========
+website: https://hypi.app/apps
+name: AngularApp
+label: AngularApp
 releases:
-  - name: latest
-schema:
-types: schema.graphql
-status: PUBLISHED
-notes: latest version
+  - name: latest
+    schema:
+      types: schema.graphql
+    status: PUBLISHED
+    notes: latest version
+    hypi:
+      id: 01F8EMYY0935THH0GX40K7QESY
+hypi:
+  id: 01F8EMYY01YDD2HB0WH8E1AZJW
 ```
 ```
-domain: engulfs.apps.hypi.app
+instance.yaml
+=============
+domain: engulfs.apps.hypi.app
 release:
-name: latest
+  name: latest
+  hypi:
+    id: 01F8EMYY0935THH0GX40K7QESY
 hypi:
-id: 01F8EMYY0935THH0GX40K7QESY
-hypi:
-id: 01F8EMZ1PN1ANAS1C15K6DD63H
+  id: 01F8EMZ1PN1ANAS1C15K6DD63H
 ```
 The new app gets created on the Hypi account. If an existing domain is not provided then a new domain also gets created.
 
