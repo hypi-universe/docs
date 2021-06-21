@@ -569,7 +569,7 @@ This example create two indices, one on path and a composite index on both `host
 
 `#hypi:idx:name:`  is a special comment available on each index definition. It allows the user to specify the name of the index. In the above example, `index_path` is the name of the index on the field `path` and `index_host_port` is the name of the index on fields `host` and `port`.
 
-Naming an Index is completely optional. It is useful if you try to create an index on lots of fields.  While creating indices for many fields, Hypi generates an index name that is too long. And there is a limit of 256 characters for an index's name. 
+Naming an Index is completely optional. It is useful if you try to create an index on lots of fields. In this case Hypi can generate an index name that is too long. There is a limit of 256 characters for an index's name which would result in an error when publishing your release.
 
 In the `CheckIndex` data type declared in the schema, `name` and `[age,id]` are the indices. 
 
