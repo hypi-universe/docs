@@ -43,8 +43,10 @@ type Message {
     email2: String @email
     //@indices directive
     type CheckIndex @indices(sets:[  
+        #hypi:idx:name: index_name
         ["name"],
-        ["age","id"]           
+        #hypi:idx:name: index_age_id
+        ["age","id"]               
     ]){
         name: String      
         age: Int
@@ -557,13 +559,21 @@ You can create one or more indices on one or more fields.
 
 ```
 @indices (sets: [  
-  ["path"],  
+  #hypi:idx:name: index_path
+  ["path"],
+  #hypi:idx:name: index_host_port
   ["host","port"]  
 ])
 ```
 This example create two indices, one on path and a composite index on both `host` and `port`. It allows performant queries on `path` by itself i.e. `path = '/abc'` or on the host and port `host = 'hypi.io' AND port > 79`
 
-In the `CheckIndex` data type declared in the schema, `name` and `[age,id]` are the indices. You may query the data using the 'find' function with arql query. The query will remain the same, but performance will be maintained as the data grows.
+`#hypi:idx:name:`  is a special comment available on each index definition. It allows the user to specify the name of the index. In the above example, `index_path` is the name of the index on the field `path` and `index_host_port` is the name of the index on fields `host` and `port`.
+
+In the `CheckIndex` data type declared in the schema, `name` and `[age,id]` are the indices. 
+
+`#hypi:idx:name:`  tells Hypi to give the indices suitable names. ( `index_name`, `index_age_id`  in this example)
+
+You may query the data using the 'find' function with arql query. The query will remain the same, but performance will be maintained as the data grows.
 
 ```java
 {
