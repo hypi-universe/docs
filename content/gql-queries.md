@@ -65,9 +65,9 @@ query getMyTodos($arcql:String) {
                }
               "description": "Buy milk for the office",
               "completed":"false",
-           },
-           ]
-         }
+            },
+        ]
+     }
  }
 ```
 
@@ -84,7 +84,7 @@ query getMyTodos($arcql:String) {
   "headers": {
        "Authorization":
         "Auth Token here. It can be copied from the Developer Hub",
-       "hypi-domain": "my-domain.com" // instance API domain
+       "hypi-domain": "my-domain.com" # instance API domain
   }
 }
 ```

@@ -19,29 +19,29 @@ Below is the schema built using some of the built-in directives.
 
 ```java
 type Message {    
-    //@length directive
+    #@length directive
     strl: String @length(min: 3, max: 5)
     strl1: String @length(min: 1, max: 5)
     strl2: String @length(min: 1, max: 5)
     args: [String] @length(min: 1, max: 5)
-    //@notEmpty directive
+    #@notEmpty directive
     notEmpty: String @notEmpty 
-    //@uniqueVal directive
+    #@uniqueVal directive
     uniqueVal: String @unique
-    //@past and @future directive
+    #@past and @future directive
     past: DateTime @past
     future: DateTime @future
-    //@pattern directive
+    #@pattern directive
     pattern: String @pattern(regex: ["^test.*$"])
     pattern1: String @pattern(regex: ["^test.*$", "^pass.*$"], 
               allMustMatch: true)
     pattern2: String @pattern(regex: ["^test.*$", "^pass.*$"], 
               allMustMatch: false)
-    //@email directive
+    #@email directive
     email: String @email
     email1: String @email
     email2: String @email
-    //@indices directive
+    #@indices directive
     type CheckIndex @indices(sets:[  
         #hypi:idx:name: index_name
         ["name"],
@@ -52,7 +52,7 @@ type Message {
         age: Int
         id: Int
     }
-    //@secret directive
+    #@secret directive
     sha: String @secret(hash: SHA3) #adslkjkjwdksjcfjskdjh
     bcrypt: String @secret(hash: BCRYPT) #lkdfjfeijewkllkjwekjf
      #hello world => dlfjdlkjfejlsldkjfkldnmksjklfjkewjnfk
@@ -62,7 +62,7 @@ type Message {
 }
 
 type Post {
-  //@computed directive
+  #@computed directive
   title: String
   postCreated: DateTime @computed(query: "hypi.id = '${self.hypi.id}'", 
                type: "Post", postQueryFn: "res[0].hypi.created")
@@ -74,7 +74,7 @@ type Post {
                """self.hypi.id + ":" + self.title """)
 }
 
-//Directives to stop generation of tables
+#Directives to stop generation of tables
 type AWithNoDirs @noagg @notable @noinput @nomath {
     f1: String
 }
@@ -109,17 +109,18 @@ import TabItem from '@theme/TabItem';
 
 ```java
 mutation {
-    upsert(values: {
-            Message: {
-            	strl:"12",
-              strl1:"123456",
-              strl2:" ",
-              args:["1","2","3","4","5","6"]
-            }
-        }
-    ) {
-        id
+  upsert(
+    values: {
+      Message: {
+        strl: "12"
+        strl1: "123456"
+        strl2: " "
+        args: ["1", "2", "3", "4", "5", "6"]
+      }
     }
+  ) {
+    id
+  }
 }
 ```
 
@@ -487,7 +488,7 @@ This directive allows the value of a field to be calculated using an ArcQL query
       "edges": [
         {
           "node": {
-            "title": " Hi There!",  // Upserted value of title
+            "title": " Hi There!",  # Upserted value of title
             "postCreated": "2021-04-12T05:23:37Z",
             "augmentedTitle": " Hi There! computed",
             "date": "2021-04-12T05:25:10.922219Z",
@@ -673,7 +674,7 @@ OR
 <TabItem value="response">
 
 ```json
-//someTest = true
+#someTest = true
 {
   "data": {
     "find": {
@@ -686,7 +687,7 @@ OR
     }
   }
 }
-//someTest = false
+#someTest = false
 {
   "data": {
     "find": {
@@ -754,7 +755,7 @@ OR
 <TabItem value="response">
 
 ```json
-//someTest = true
+#someTest = true
 {
   "data": {
     "find": {
@@ -769,7 +770,7 @@ OR
     }
   }
 }
-//someTest = false
+#someTest = false
 {
   "data": {
     "find": {

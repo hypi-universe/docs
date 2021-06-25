@@ -122,7 +122,7 @@ import TabItem from '@theme/TabItem';
           status
           status
           url {
-            path //Path to download file
+            path #Path to download file
           }
           type
           size
@@ -186,6 +186,12 @@ curl -v https://api.hypi.app/file/01F322XSV13R9VAGJXW351PVBT-01F35ZCSYBHTQ4JBWZ1
 ```
 `--ouput filedownload.png` would redirect the data from the file to an output file.
 
+:::note
+
+You need to create the URL to download a file. Copy the `path` from File object and append it to the hypi endpoint.
+
+:::
+
 In this example, we provide an authorisation token. This is because files are private to the account which created it by default. To give access to other users or allow anonymous download, a permission must be created with appropriate policies.
 
 For example, to give the anonymous users access (no token required), use an `AccountPolicy` to grant the `anonymous` user account read access.
@@ -203,7 +209,7 @@ mutation {
           scopes: ["*"]
           operationType: Query
           operations: ["find"]
-          #includeAllAccounts: true, //wildcard so all accounts can access
+          #includeAllAccounts: true, #wildcard so all accounts can access
           policies: [
             {
               hypi: { impl: "AccountPolicy" }
@@ -224,6 +230,12 @@ mutation {
 Note:  `resource` field has the hypi id of the file uploaded.
     
 In this example, we explicitly give anonymous users access to the file uploaded. This could also have been done by giving access to_all_accounts in the app instance by setting `includeAllAccounts` to true.
+
+:::tip IMPORTANT
+
+You need to enable **Anonymous requests** in the [API configurations](https://docs.hypi.app/docs/ui-instance-api-config) for downloading files without authorization headers.
+
+:::
 
 Due to the permission above, the curl request can now be made without any authorisation headers.
 

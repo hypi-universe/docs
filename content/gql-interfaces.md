@@ -132,7 +132,7 @@ Check the use of inline fragments to retrieve interface data. (... on Audi { mod
       node {
         ... on Customer {
          owns {
-             //Retrieve data from interfaces
+             #Retrieve data from interfaces
             ... on Audi { model }
             ... on Bentley { model }
             name

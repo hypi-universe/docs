@@ -149,28 +149,27 @@ The below example demonstrates aggregation without any filters. Here, we are sim
 
 ```json
 {
- aggregate{
-     author{
-         age{
-             avg
-             count
-             max
-             min
-             sum
-         }
-     }
-     book{
-         price{
-             avg
-             count
-             max
-             min
-             sum
-         }
-     }
-   }
+  aggregate {
+    author {
+      age {
+        avg
+        count
+        max
+        min
+        sum
+      }
+    }
+    book {
+      price {
+        avg
+        count
+        max
+        min
+        sum
+      }
+    }
+  }
 }
-
 ```
 
 </TabItem>
@@ -226,15 +225,15 @@ You may aggregate unique rows by specifying the filter ‘distinct’ as true. H
 
 ```json
 {
- aggregate{
-     book{
-         price{
-         avg(distinct: true)
-         count(distinct: true)
-         sum(distinct: true)
-         }
-     }
- }
+  aggregate {
+    book {
+      price {
+        avg(distinct: true)
+        count(distinct: true)
+        sum(distinct: true)
+      }
+    }
+  }
 }
 ```
 
@@ -276,16 +275,15 @@ You may select matching rows ( records with the specific field value) and perfor
 
 ```json
 {
-     aggregate{
-         book(where: "authorid='2'")
-         {
-             price{
-             avg
-             count
-             sum
-             }
-         }
-     }
+  aggregate {
+    book(where: "authorid='2'") {
+      price {
+        avg
+        count
+        sum
+      }
+    }
+  }
 }
 ```
 
@@ -377,7 +375,7 @@ You may make specific groups of records and perform aggregate operations on them
              "key": "authorid",
              "value": "1"
              }
-             ]
+           ]
          }
        }
      ]
@@ -404,20 +402,19 @@ You may group the fields based upon the `dateTime` field. Hypi object has the da
 
 ```json
 {
- aggregate {
-     bookWith(groupBy: [{ field: hypi_created, dateGranularity: MINUTES }]
-     ) {
-         price {
-                 avg
-                 count
-                 sum
-                 groupValues {
-                     key
-                     value
-                 }
-             }
-         }
-     }
+  aggregate {
+    bookWith(groupBy: [{ field: hypi_created, dateGranularity: MINUTES }]) {
+      price {
+        avg
+        count
+        sum
+        groupValues {
+          key
+          value
+        }
+      }
+    }
+  }
 }
 ```
 
@@ -455,9 +452,9 @@ You may group the fields based upon the `dateTime` field. Hypi object has the da
                      }
                  ]
              }
-         }
+          }
        ]
-     }
+    }
   }
 }
 ```
