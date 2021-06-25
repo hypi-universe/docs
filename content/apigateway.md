@@ -120,10 +120,10 @@ type Mutation {
              "Authorization": "${settings.APITOKEN}"}"""
     inline: {
       requestTemplate: """{"email": "${vars.emailid}"}""",
-//#Notice the use of .textValue() method-this gets the string value without quotes
+#Notice the use of .textValue() method-this gets the string value without quotes
       responseTemplate: """{"value": "$!{response.json.email.textValue()}"}"""
-//#OR - the below - notice there is no quote around the variable 
-//#Hypi uses the Java Jackson JSON library which will automatically include quotes like this "<value here>"
+#OR - the below - notice there is no quote around the variable 
+#Hypi uses the Java Jackson JSON library which will automatically include quotes like this "<value here>"
       #responseTemplate: """{"value": $!{response.json.email}}"""
     },
     saveAs: "Email"    

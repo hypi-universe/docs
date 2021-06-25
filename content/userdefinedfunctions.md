@@ -16,6 +16,7 @@ Currently, you may use two programming language for the user defined functions.
 > Let’s check how to implement user defined functions. 
 
 We will start with a simple schema as follows: 
+
 ```java
 type Query {
     inlineGroovyFunction(a: String, b: Int, c: Boolean)
@@ -54,7 +55,6 @@ OR
 {
   inlineVelocityFunction(a:"val1", b:23, c: true)
 }
-
 ```
 
 </TabItem>
@@ -208,7 +208,7 @@ Let's retrieve `Author` table data using `GetAthorInfo`. Pass the Author id as `
 <TabItem value="query">
 
 ```java
-query{
+query {
   GetAuthorInfo(a:"Author1")
 }
 ```

@@ -87,7 +87,7 @@ mutation Upsert($values: HypiUpsertInputUnion!) {
 <TabItem value="data">
 
 ```java
-//Author Table
+#Author Table
 {
   "data": {
     "find": {
@@ -118,7 +118,7 @@ mutation Upsert($values: HypiUpsertInputUnion!) {
   }
 }
 
-//Book Table
+#Book Table
 
 {
   "values": {

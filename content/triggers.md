@@ -31,20 +31,20 @@ type AfterResult {
 }
 
 type Query {
-  // Before/After function
+  # Before/After function
   truereturn:Boolean @tan(type:Groovy, inline: "return true")
-  // Trigger Function 1    
+  # Trigger Function 1    
   functiontrigger1:String @tan(type:Groovy, 
     inline: "return 'Trigger Successful!'") @trigger(config: {
     before: {type: Query, field: "truereturn"},  
     after: {type: Query,field: "truereturn"}
   })
-  // Trigger Function 2    
+  # Trigger Function 2    
   functiontrigger2(trigname:String):String @tan(type:Groovy, 
   inline: "return 'Trigger Successful'") @trigger(config: {
     before: {type: Mutation, field: "falsereturn"},
   })
-  // Trigger Function 3    
+  # Trigger Function 3    
   functiontrigger3(trigname:String):String @tan(type:Groovy, 
   inline: "return 'Trigger Successful'") @trigger(config: {
     before: {type: Query, field: "truereturn"},
@@ -53,7 +53,7 @@ type Query {
 }
 
 type Mutation {
-  //Before/After function  
+  #Before/After function  
   falsereturn(trigname:String):Boolean @tan(type:Groovy, inline:"""
     gql(\"""
     mutation {

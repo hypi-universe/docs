@@ -82,7 +82,7 @@ type Query {
     stepa: String@tan(type:Groovy, inline: "return 'Welcome to Library!'")
     stepb: Json@tan(type:Groovy,inline:"""
       return gql(\"""
-        query{
+        query {
                 find (
                 type: Author, 
                 arcql: "*")
@@ -96,7 +96,7 @@ type Query {
                         }
                         name
                         }
-                    }
+                     }
                   }
                }           
            }  
@@ -108,9 +108,9 @@ type Query {
         query {
             get(type: Author, id: "$a"){
                 ... onAuthor {
-                    hypi{
+                    hypi {
                         id
-                     }
+                    }
                     name
                 booklist{
                     title
@@ -136,11 +136,11 @@ type Query {
                         hypi {
                         id
                         }
-                    }
-                }
-              }
+                     }
+                  }
+               }
             }
-          }
+         }
    \"""
    ) 
    return results.data.find.edges.stream()
@@ -163,7 +163,7 @@ type Query {
 type Mutation {
   # It is entirely up to the author to decide if their custom function 
   is mutation or not
-  stepe(previous:\[String!\]): Json@tan(type:Groovy, inline: """
+  stepe(previous:[String!]): Json@tan(type:Groovy, inline: """
       return gql(\"""
         mutation {
         upsert(
