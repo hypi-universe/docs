@@ -21,6 +21,28 @@ In this example, we will use the apollo client as the graphql client. Add the fo
 ```     
 Let's start using Hypi CLI now.
 
+### Config
+
+At first, configure the API domain of Hypi within your application using following command.
+```
+USAGE
+  $ hypi config [API_DOMAIN]
+
+OPTIONS
+  -a, --api_domain=api_domain
+  -h, --help                   show CLI help
+
+EXAMPLES
+  $ hypi config https://api.my-onpremise-domain.com
+  $ hypi config -a=https://api.my-onpremise-domain.com
+  $ hypi config --api_domain=https://api.my-onpremise-domain.com
+```
+Go to your Angular project folder on the command line and run `hypi config` to set configuration.
+```
+>hypi config https://api.hypi.app
+Done, Please make sure to login again, hypi login and do int and sync your schema
+```
+
 ### Login
 
 On the command line, go to your Angular application folder. Login to your Hypi account using [hypi login](hypi-cli-intro.md#hypi-login) command. After successful login, the user config file will be placed in `~/.config/hypi/config.json` . In case of Windows, the file will be created in `\Users\user\AppData\Local`
@@ -30,7 +52,8 @@ Here, are the contents of the file. It makes the connection between Hypi and Ang
 {
   "domain": "latest.store.hypi.01f2ga50p2mzkmyqse17gd2bae.hypi.app",
   "sessionToken": "Auth-Token",
-  "sessionExpires": 1626580838
+  "sessionExpires": 1626580838,
+  "api_domain": "https://api.hypi.app"
 }
 ```
 
@@ -111,7 +134,7 @@ Init done successfully, Now write your schema then run the hypi sync command to 
 ```
 In this case, the existing schema will get imported. 
 
-###  Hypi GraphQL settings
+###  Schema Edit
 
 You may edit the schema in the `schema.graphql`
 Let's edit the schema, to add the data types. Here, we are adding Product data type.
@@ -123,45 +146,13 @@ type Product {
     price: Float
 }
 ```
-Inside `src/graphql` folder, add files related to GraphQl queries and mutations.
 
-Here is the sample Product Query file : `src/graphql/products.graphql`
-```
-query products($arcql: String!) {
-    find(type: Product, arcql: $arcql) {
-        edges {
-            node {
-               ...ProductFields
-            }
-        }
-    }
-}
-
-fragment ProductFields on Product {
-   hypi {
-        id
-    }
-    title
-    description
-}    
-```
-You may replace the type `Product` with your own data type and fields like `title/description` with your own fields.
-
-Now, add Products Mutation: `src/graphql/products-mutation.graphql`
-```
-mutation upsert($values:HypiUpsertInputUnion!) {
-  upsert(values:$values)
-    {
-        id
-    }
-}
-```
 ### Hypi Sync
 
-You need to generate graphql Angular schema file to use Hypi APIs within the Angular typescript project. Use the `hypi sync angular` command for that.
+You need to sync edited local schema file to get full Hypi schema. Use the `hypi sync` command for that.
 ```
     USAGE
-      $ hypi sync angular
+      $ hypi sync 
     
     OPTIONS
       -h, --help  show CLI help
@@ -169,7 +160,7 @@ You need to generate graphql Angular schema file to use Hypi APIs within the Ang
     EXAMPLE
       $ hypi sync
 ```
-Now run `hypi sync` to generate angular schema file.
+Run `hypi sync` to generate full schema file.
 ```
 hypi sync angular
 App created with id : 01F8EMYY01YDD2HB0WH8E1AZJW
@@ -180,8 +171,86 @@ Introspection done
 Sync Process... done
 The file was succesfully generated!
 ```
-After syncing, `graphql.ts` files get created in the `\src\generated` folder. Also, `generated-schema.graphql` file gets generated in the `.hypi` folder that has full hypi schema.
+After syncing, `generated-schema.graphql` file gets generated in the `.hypi` folder that has full hypi schema.
 
+### Hypi Generate
+
+Now, you need to generate graphql Angular code to use Hypi APIs within the Angular project. 
+
+Inside `src/graphql` folder, add files related to GraphQl queries and mutations.
+
++ Here is the sample Product Query file to find all data : `src/graphql/products.graphql`
+```
+query products($arcql: String!) {
+    find(type: Product, arcql: $arcql) {
+        edges {
+            node {
+                ... on Product {
+                    hypi {
+                        id
+                    }
+                    title
+                    description
+                }
+            }
+        }
+    }
+}    
+```
+You may replace the type `Product` with your own data type and fields like `title/description` with your own fields.
+
++ Now, add Products Mutation: `src/graphql/products-mutation.graphql`
+```
+mutation upsert($values:HypiUpsertInputUnion!) {
+  upsert(values:$values)
+    {
+        id
+    }
+}
+```
++ You may also retrieve a single product using `get` query. Add `get` query:  `src/graphql/get-product.graphql
+```
+query ProductDetails($id: String!){
+  get(type: Product, id: $id) {
+      ... on Product {
+      hypi {
+          id
+        }
+      title
+      description
+      }
+  }
+}
+```
++ Add delete mutation: `src/graphql/delete-product.graphql`
+```
+mutation delete(
+$arcql: String!
+$clearArrayReferences: Boolean = false) {
+  delete(type: Product, arcql: $arcql, clearArrayReferences: $clearArrayReferences)
+}
+```
++ After adding the graphql queries and mutations, use the `generate` command to generate the Angular graphql code so that you can use Hypi APIs within your project.
+```
+USAGE
+  $ hypi generate [PLATFORM]
+
+OPTIONS
+  -h, --help                              show CLI help
+  -p, --platform=flutter|reactjs|angular
+
+EXAMPLES
+  $ hypi generate angular
+  $ hypi generate -p=angular
+  $ hypi generate --platform=angular
+
+```
+After running the command, `graphql.ts` files get created in the `\src\generated` folder. 
+```
+hypi generate angular
+Generate Process... done
+The file was succesfully generated!
+```
 Inside `graphql.ts` file, you will find services for the query and the mutation to be used inside your angular components.
 
 ```typescript
@@ -200,71 +269,34 @@ export class UpsertMutationService extends Apollo.Mutation<UpsertMutation, Upser
     }
   }
 ```
-Now you are ready to create your Angular application using Hypi APIs!
-
-### Using GraphQL hooks
-
-Inside `src/app/products` folder, add Product Component :`products.component.ts` file. This file will access the graphql queries and mutations using the created services.
-
-Here is the content of the entire file. You may modify this file to use your own services.
-
 ```typescript
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
-
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
-
-import { ProductsQueryService, UpsertMutationService } from '../../generated/graphql';
-
-@Component({
-  selector: 'app-products',
-  templateUrl: './products.component.html',
-  styleUrls: ['./products.component.css']
-})
-
-export class ProductsComponent implements OnInit {
-
-  loading!: boolean;
-
-  products!: Observable<any>;
-  productForm = new FormGroup({
-    title: new FormControl(''),
-    description: new FormControl(''),
-    price: new FormControl(0),
-  });
-  constructor(private productsQueryService: ProductsQueryService,
-    private upsertMutationService: UpsertMutationService) { }
-
-  ngOnInit(): void {
-   this.getProducts()
+export class DeleteMutationService extends Apollo.Mutation<DeleteMutation, DeleteMutationVariables> {
+    document = DeleteDocument;
+    constructor(apollo: Apollo.Apollo) {
+      super(apollo);
+    }
   }
-
-  getProducts(){
-    this.products = this.productsQueryService
-    .watch({ arcql: '*' }, { fetchPolicy: 'network-only' })
-    .valueChanges.pipe(map(result => result.data.find.edges));
-  }
-
-  onSubmit() {
-    console.warn('hi');
-    this.upsertMutationService.mutate({
-      values: {
-        Product: [
-          {
-            title: this.productForm.get('title')?.value,
-            description: this.productForm.get('description')?.value,
-            price: this.productForm.get('price')?.value,
-          }
-        ]
-      }
-    }).subscribe(() => {
-      this.getProducts()
-    });
-  }
-
-}
 ```
+```typescript
+ export class ProductDetailsQueryService extends Apollo.Query<ProductDetailsQuery, ProductDetailsQueryVariables> {
+    document = ProductDetailsDocument;
+    constructor(apollo: Apollo.Apollo) {
+      super(apollo);
+    }
+  }
+```
+Now, you are ready to create your Angular application using Hypi APIs!
+
+:::note
+
+To use various Hypi APIs like CRUD, you will have to write the related graphql queries in \*.graphl files inside  `src/graphql` folder. Please check various APIs [here](https://docs.hypi.app/docs/api-references).
+
+:::
+
+### Using GraphQL services
+
+Inside `src/app/products` folder, add Product Component :`products.component.ts` file. This file will access the graphql queries and mutations using the created services. You may modify this file to use your own services.
+
 Let's try to understand the usage of services in the class ProductsComponent.
 
 + First, we import the services from `graphql.ts` file.
@@ -307,13 +339,14 @@ getProducts(){
 To make an HTTP connection to Hypi Endpoint, we use Apollo client. Following code demonstrates how to make this connection. Replace Hypi Authorization Token (Auth-Token) and hypi domain. This code has been added in the `app.module.ts` file.
 
 ```typescript
- providers: [
+  providers: [
     {
       provide: APOLLO_OPTIONS,
       useFactory(httpLink: HttpLink) {
-        const http = httpLink.create({ uri: 'https://api.hypi.app/graphql' });
-        const authToken = 'Auth-Token'
-        const domain = 'teething.apps.hypi.app'
+        const authToken = config.token
+        const domain = config.domain
+        const uri = config.default_api_domain + "/graphql";
+        const http = httpLink.create({ uri: uri });
         const middleware = new ApolloLink((operation, forward) => {
           operation.setContext({
             headers: new HttpHeaders()
