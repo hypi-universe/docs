@@ -24,6 +24,28 @@ In this example, we will use the apollo client as the graphql client. Add the fo
 ```     
 Let's start using Hypi CLI now.
 
+### Config
+
+At first, configure the API domain of Hypi within your application using following command.
+```
+USAGE
+  $ hypi config [API_DOMAIN]
+
+OPTIONS
+  -a, --api_domain=api_domain
+  -h, --help                   show CLI help
+
+EXAMPLES
+  $ hypi config https://api.my-onpremise-domain.com
+  $ hypi config -a=https://api.my-onpremise-domain.com
+  $ hypi config --api_domain=https://api.my-onpremise-domain.com
+```
+Go to your ReactJS project folder on the command line and run `hypi config` to set configuration.
+```
+>hypi config https://api.hypi.app
+Done, Please make sure to login again, hypi login and do int and sync your schema
+```
+
 ### Login
 
 On the command line, go to your ReactJS application folder. Login to your Hypi account using [hypi login](hypi-cli-intro.md#hypi-login) command. After successful login, the user config file will be placed in `~/.config/hypi/config.json` . In case of Windows, the file will be created in `\Users\user\AppData\Local`
@@ -33,10 +55,10 @@ Here, are the contents of the file. It makes the connection between Hypi and Rea
 {
   "domain": "latest.store.hypi.01f2ga50p2mzkmyqse17gd2bae.hypi.app",
   "sessionToken": "Auth-Token",
-  "sessionExpires": 1626580838
+  "sessionExpires": 1626580838,
+  "api_domain": "https://api.hypi.app"
 }
 ```
-
 ### Hypi Init
 
 Use the `hypi init` command to initialize a new hypi App and Instance in your ReactJS project folder.
@@ -114,7 +136,7 @@ Init done successfully, Now write your schema then run the hypi sync command to 
 ```
 In this case, the existing schema will get imported. 
 
-###  Hypi GraphQL settings
+###  Schema Edit
 
 You may edit the schema in the `schema.graphql`
 Let's edit the schema, to add the data types. Here, we are adding Product data type.
@@ -126,9 +148,40 @@ type Product {
     price: Float
 }
 ```
+### Hypi Sync
+
+The next step is to sync the edited local schema and get the full schema of Hypi.
+Use the `hypi sync` command for that.
+```
+    USAGE
+      $ hypi sync 
+    
+    OPTIONS
+      -h, --help  show CLI help
+    
+    EXAMPLE
+      $ hypi sync
+```
+Now run `hypi sync` to generate full schema file.
+```
+hypi sync
+App created with id : 01F8EMYY01YDD2HB0WH8E1AZJW
+Instance created with id : 01F8EMZ1PN1ANAS1C15K6DD63H
+updateAppYamlFile done
+updateInstanceYamlFile done
+Introspection done
+Sync Process... done
+The file was succesfully generated!
+```
+After syncing, `generated-schema.graphql` file gets generated in the `.hypi` folder that has full hypi schema.
+
+### Hypi Generate
+
+Now, you need to generate graphql ReactJS code to use Hypi APIs within the ReactJS typescript project. 
+
 Inside `src/graphql` folder, add files related to GraphQl queries and mutations.
 
-Here is the sample Product Query file : `src/graphql/products.graphql`
++ Here is the sample Product Query file to find all data : `src/graphql/products.graphql`
 ```
 query products($arcql: String!) {
     find(type: Product, arcql: $arcql) {
@@ -150,7 +203,7 @@ fragment ProductFields on Product {
 ```
 You may replace the type `Product` with your own data type and fields like `title/description` with your own fields.
 
-Now, add Products Mutation: `src/graphql/products-mutation.graphql`
++ Now, add Products Mutation: `src/graphql/products-mutation.graphql`
 ```
 mutation upsert($values:HypiUpsertInputUnion!) {
   upsert(values:$values)
@@ -159,32 +212,51 @@ mutation upsert($values:HypiUpsertInputUnion!) {
     }
 }
 ```
-### Hypi Sync
++ You may also retrieve a single product using `get` query. Add `get` query:  `src/graphql/get-product.graphql
+```
+query getProduct($id: String!) {
+    get(type: Product, id: $id) {
+           ...ProductFields
+    }
+}
 
-You need to generate graphql ReactJS schema file to use Hypi APIs within the ReactJS typescript project. Use the `hypi sync reactjs` command for that.
+fragment ProductFields on Product {
+   hypi {
+        id
+    }
+    title
+    description
+}
 ```
-    USAGE
-      $ hypi sync reactjs
-    
-    OPTIONS
-      -h, --help  show CLI help
-    
-    EXAMPLE
-      $ hypi sync
++ Add delete mutation: `src/graphql/delete-product.graphql`
 ```
-Now run `hypi sync` to generate ReactJS schema file.
+mutation delete(
+$arcql: String!
+$clearArrayReferences: Boolean = false) {
+  delete(type: Product, arcql: $arcql, clearArrayReferences: $clearArrayReferences)
+}
 ```
-hypi sync reactjs
-App created with id : 01F8EMYY01YDD2HB0WH8E1AZJW
-Instance created with id : 01F8EMZ1PN1ANAS1C15K6DD63H
-updateAppYamlFile done
-updateInstanceYamlFile done
-Introspection done
-Sync Process... done
++ After adding the graphql queries and mutations, use the `generate` command to generate the Reactjs graphql code so that you can use Hypi APIs within your project.
+```
+USAGE
+  $ hypi generate [PLATFORM]
+
+OPTIONS
+  -h, --help                              show CLI help
+  -p, --platform=flutter|reactjs|angular
+
+EXAMPLES
+  $ hypi generate angular
+  $ hypi generate -p=angular
+  $ hypi generate --platform=angular
+
+```
+After running the command, `graphql.ts` files get created in the `\src\generated` folder. 
+```
+hypi generate reactjs
+Generate Process... done
 The file was succesfully generated!
 ```
-After syncing, `graphql.ts` files get created in the `\src\generated` folder. Also, `generated-schema.graphql` file gets generated in the `.hypi` folder that has full hypi schema.
-
 Inside `graphql.ts` file, you will find hooks for the query and the mutation to be used inside your typescript components.
 
 ```typescript
@@ -193,183 +265,127 @@ export function useProductsQuery(baseOptions: Apollo.QueryHookOptions<ProductsQu
         return Apollo.useQuery<ProductsQuery, ProductsQueryVariables>(ProductsDocument, options);
         }
 ```
-
 ```typescript
 export function useUpsertMutation(baseOptions?: Apollo.MutationHookOptions<UpsertMutation, UpsertMutationVariables>) {
         const options = {...defaultOptions, ...baseOptions}
         return Apollo.useMutation<UpsertMutation, UpsertMutationVariables>(UpsertDocument, options);
       }
 ```
-Now you are ready to create your React TypeScript application using Hypi APIs!
+```typescript
+export function useDeleteMutation(baseOptions?: Apollo.MutationHookOptions<DeleteMutation, DeleteMutationVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useMutation<DeleteMutation, DeleteMutationVariables>(DeleteDocument, options);
+      }
+```
+```typescript
+export function useGetProductQuery(baseOptions: Apollo.QueryHookOptions<GetProductQuery, GetProductQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<GetProductQuery, GetProductQueryVariables>(GetProductDocument, options);
+      }
+```
+Now, you are ready to create your React TypeScript application using Hypi APIs!
+
+:::note
+
+To use various Hypi APIs like CRUD, you will have to write the related graphql queries in \*.graphl files inside  `src/graphql` folder. Please check various APIs [here](https://docs.hypi.app/docs/api-references).
+
+:::
 
 ### Using GraphQL hooks
 
-Inside src/components, add `Product` or your own data type component. Add `ProductList.js` file. This file will access the graphql queries and mutations using the hooks.
+Inside src/components, add `Product` or your own data type component. Add `ProductList.js` / `AddProduc.js` / `EditProduct.js`files. These files will access the graphql queries and mutations using the hooks.
 
-Here is the content of the entire file. You may modify this file to use your own hooks.
-
-```typescript
-import React, { useState } from 'react';
-import { useProductsQuery, useUpsertMutation } from '../../generated/graphql'
-
-const ProductList = (props) => {
-  const [newProduct, setNewProduct] = useState(false)
-  const [productForm, setProductForm] = useState({
-    title: '',
-    description: ''
-  })
-
-  const { loading, error, data } = useProductsQuery({
-    variables: { arcql: '*' },
-  });
-  
-  const [upsertMutation, { upsertData, upsertLoading, upsertError }] = useUpsertMutation()
-
-  const onNewProductHandler = (event) => {
-    event.preventDefault()
-    setNewProduct(true)
-  }
-
-  const inputChangedHandler = (event) => {
-    setProductForm({
-      ...productForm, [event.target.name]: event.target.value
-    })
-  }
-  const submitProductHandler = (event) => {
-    console.log('submit')
-    event.preventDefault()
-    
-      upsertMutation({
-      variables: {
-        values: {
-          Product: {
-            title: productForm.title,
-            description: productForm.description
-          }
-        }
-      }
-    })
-  }
-
-  if (loading) return <p>loading...</p>;
-  if (error) return <p>{error}</p>;
-
-  if (upsertLoading) return <p>loading...</p>;
-  if (upsertError) return <p>{error}</p>;
-  if (upsertData) return <p>{upsertData}</p>;
-
-  let noProductsOutput = null
-  if (data.find.edges.length === 0) {
-    noProductsOutput = (
-      <div>
-        <p>No products found</p>
-      </div>
-    )
-  }
-  let addProductOutput = null;
-  if (newProduct) {
-    addProductOutput = (
-      <form onSubmit={submitProductHandler}>
-        <label htmlFor="title">Title</label>
-        <input
-          className="Input"
-          type="text"
-          id="title"
-          name="title"
-          value={productForm.title}
-          onChange={(event) => inputChangedHandler(event, 'title')}
-          placeholder="Title.." />
-
-        <label htmlFor="description">Description</label>
-        <input
-          className="Input"
-          type="text"
-          id="description"
-          name="description"
-          value={productForm.description}
-          onChange={inputChangedHandler}
-          placeholder="Description.." />
-
-        <button className="Button" > Submit</button>
-
-      </form>
-    )
-  } else {
-    addProductOutput = (
-      <button className="Button" onClick={onNewProductHandler}> New Product</button>
-    )
-  }
-
-  const productsOutput = data.find.edges.map(product => {
-    return (
-      <div>
-        <h1>{product.node.title}</h1>
-        <p>{product.node.description}</p>
-      </div>
-    )
-  })
-
-  return (
-    <div>
-      {noProductsOutput}
-      {productsOutput}
-      {addProductOutput}
-    </div>
-  )
-};
-export default ProductList;
-```
 Let's try to understand the usage of hooks in the ProductList component.
 
 + First, we import the hooks from graphql.ts file.
-```
-import { useProductsQuery, useUpsertMutation } from '../../generated/graphql'
+```javascript
+import { useUpsertMutation } from'../../generated/graphql'
+import { useUpsertMutation, useGetProductQuery } from'../../generated/graphql'
+import { useProductsQuery, useDeleteMutation } from'../../generated/graphql'
 ```
 + Here, you may declare the GraphQL query hook and provide the [arcql statements](https://docs.hypi.app/docs/arcql) under variables.
-```
+```javascript
 const { loading, error, data } = useProductsQuery({
     variables: { arcql: '*' },
 });
 ```
 + Declare the GraphQL mutation hook.
-```
+```javascript
 const [upsertMutation, { upsertData, upsertLoading, upsertError }] = useUpsertMutation()
 ```
-+ Retrieve the data from the `Product` data type. The retrieved title and description get placed on the heading h1 and paragraph. Replace the data type and fields as per your own schema.
++ Declare Delete mutation hook.
+```javascript
+const handleRemove = (event, id) => {
+    deleteMutation({
+      variables: {
+        arcql: "hypi.id = '" + id + "'"
+      }
+    })
+    window.location.reload();
+}
 ```
-  const productsOutput = data.find.edges.map(product => {
-    return (
-      <div>
-        <h1>{product.node.title}</h1>
-        <p>{product.node.description}</p>
-      </div>
-    )
-  })
++ Declare Get Query hook.
+```javascript
+  const { loading, error, data } = useGetProductQuery({
+    variables: { id: id },
+  });
+```
++ Retrieve the data from the `Product` data type. Delete the product on click event.
+```javascript
+const productsOutput = data.find.edges.length === 0 ?
+    <div>
+      <p>No products found</p>
+    </div>
+    : data.find.edges.map((product, index) => {
+      return (
+        <div key={product.node.hypi.id}>
+          <li key={index} >
+            {product.node.title}
+          </li>
+          <button type="button" className={"btn"} onClick={(event) => handleRemove(event, product.node.hypi.id)}>
+            Remove
+          </button>
+          <Link
+            to={"/products/" + product.node.hypi.id}
+            className="badge badge-warning">
+            <button type="button" className={"btn"}>
+              Edit
+            </button>
+          </Link>
+        </div>
+      )
+    })
 ```
 + Insert data using the mutation. Data from the `productForm` gets inserted into the Product table.
-```
-upsertMutation({
+```javascript
+const submitProductHandler = (event) => {
+    event.preventDefault()
+    //call the mutation to send data
+    upsertMutation({
       variables: {
         values: {
           Product: {
+            hypi: {
+              id: productForm.id
+            },
             title: productForm.title,
             description: productForm.description
           }
         }
       }
     })
+    setRedirectToReferrer(true)
+  }
 ```
 + Inside your main `App.js` file, you may access the ProductList.
-```
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <ProductList />
-      </header>
-    </div>
-  );
-}
+```javascript
+<div className="container mt-3">
+        <Switch>
+          <Route exact path={["/", "/products"]} component={ProductList} />
+          <Route exact path="/add" component={AddProduct} />
+          <Route path="/products/:id" component={EditProduct} />
+        </Switch>
+      </div>
 ```
 ### Authentication using Apollo Client
 
@@ -383,13 +399,15 @@ import {
   HttpLink,
 } from "@apollo/client";
 
-const httpLink = new HttpLink({ uri: "https://api.hypi.app/graphql" });
+import config from '../config'
+
+const httpLink = new HttpLink({ uri: config.default_api_domain + "/graphql" });
 
 const authMiddleware = () =>
   new ApolloLink((operation, forward) => {
     // add the authorization to the headers
-    const authToken = 'Auth-Token'
-    const domain = 'teething.apps.hypi.app'
+    const authToken = config.token
+    const domain = config.domain
 
     operation.setContext({
       headers: {
