@@ -102,21 +102,15 @@ inlineGroovyFunction(a: String, b: Int, c: Boolean):Json @tan(type:Groovy, inlin
  """)
 ```
 
-##  Built-in Functions
+##  User Defined Functions using APIs
 
-Hypi has built-in functions to make it easy to call CRUD APIs, Math APIs. It also provides utility functions to parse JSON and XML data. Users can utilise these functions in the schema to implement custom behaviour.
+It is easy to call CRUD APIs, Math APIs, Authentication functions from User Defined Functions. You may parse JSON and XML data inside User Defined Function as well. 
 
-Let's look at these functions one by one!
+Let's check how to implement these functions.
 
-###   groovyUpsert
+###   upsert
 
-`groovyUpsert` function can be used to insert or update data in an object.  Its behaviour is the same as the [upsert](createdata.md) function from [CRUD APIs](crud.md).
-
-```javascript
-groovyUpsert(values: HypiUpsertInputUnion! ): [Hypi!]!
-  @tan(type:Groovy, inline: """return upsert(values)""")
-```
-Let's insert data in the `Author` and `Book` objects using `groovyUpsert`.
+Look at the `groovyUpsert` user defined function below. It can be used to insert or update data in an object.  Its behaviour is the same as the [upsert](createdata.md) function from [CRUD APIs](crud.md). `groovyUpsert` inserts data in the `Author` and `Book` objects. You may use appropriate name for `groovyUpsert` as per its behaviour.
 
 ```javascript
 type Mutation {
@@ -256,9 +250,9 @@ mutation{
 </TabItem>
 </Tabs>
 
-###   groovyFind
+###   find
 
-`groovyFind` function can be used to retrieve all the data from an object.  Its behaviour is the same as the [find](readdata.md#find) function from CRUD APIs. Here is the schema.
+Below user defined function (`groovyFind`) can be used to retrieve all the data from an object.  Its behaviour is the same as the [find](readdata.md#find) function from CRUD APIs.  Use appropriate name for `groovyFind` as per the requirements.
 
 ```
 type Query {
@@ -345,16 +339,7 @@ Let's retrieve the data inserted in the Author object.
             ]
           }
         }
-      ],
-      "pageInfo": {
-        "hasPreviousPage": false,
-        "hasNextPage": false,
-        "startCursor": "FIRST",
-        "endCursor": "LAST",
-        "pageLimit": 1,
-        "previousOffsets": [],
-        "nextOffsets": []
-      }
+      ]
     }
   }
 }
@@ -362,9 +347,9 @@ Let's retrieve the data inserted in the Author object.
 </TabItem>
 </Tabs>
 
-###   groovyGet
+###   get
 
-`groovyGet` function can be used to get data from a single object.  Its behaviour is the same as the [get](readdata.md#get) function from CRUD APIs. Here is the schema.
+Below `groovyGet` user defined function can be used to get data from a single object.  Its behaviour is the same as the [get](readdata.md#get) function from CRUD APIs.  You may choose another name for `groovyGe`
 
 ```
 type Query {
@@ -429,9 +414,9 @@ groovyGet( type: HypiMutationType! id: String! ): HypiRootAggregate
 </TabItem>
 </Tabs>
 
-###   groovyTrash 
+###   trash 
 
-`groovyTrash` function can be used to put unwanted data in a trash.  Its behaviour is the same as the [trash](deletedata.md#trash) function from CRUD APIs. Here is the schema.
+Below `groovyTrash` user defined function can be used to put unwanted data in a trash.  Its behaviour is the same as the [trash](deletedata.md#trash) function from CRUD APIs. You may choose another name for `groovyTrash`
 
 ```
 type Mutation {
@@ -467,9 +452,10 @@ mutation {
 </TabItem>
 </Tabs>
 
-###   groovyUntrash
+###   untrash
 
-`groovyUntrash` function can be used to put unwanted data in a trash.  Its behaviour is the same as the [untrash](deletedata.md#untrash) function from CRUD APIs. Here is the schema.
+Below user defined function (`groovyUntrash`)  can be used to put unwanted data in a trash.  Its behaviour is the same as the [untrash](deletedata.md#untrash) function from CRUD APIs. You may use different name for `groovyUntrash`
+
 ```
 type Mutation {
 groovyUntrash( type: HypiMutationType! arcql: String! ): Int!
@@ -503,9 +489,9 @@ mutation {
 </TabItem>
 </Tabs>
 
-###   groovyDelete
+###   delete
 
-`groovyDelete` function can be used to delete the unwanted data permanently  Its behaviour is the same as the [delete](deletedata.md#delete) function from CRUD APIs. Here is the schema.
+Look at the `groovyDelete` user defined function below. It can be used to delete the unwanted data permanently  Its behaviour is the same as the [delete](deletedata.md#delete) function from CRUD APIs. You may use another name for `groovyDelete`
 
 ```
 type Mutation {
@@ -542,9 +528,9 @@ mutation {
 </TabItem>
 </Tabs>
 
-###   groovyDeleteScalars
+###   deleteScalars
 
-Data in a square array can be permanently deleted using the `groovyDeleteScalars` function. Behaviour is the same as that of [deleteScalars](deletedata.md#deletescalars).
+Data in a square array can be permanently deleted as shown in the `groovyDeleteScalars` user defined function below. Behaviour is the same as that of [deleteScalars](deletedata.md#deletescalars).  You may choose appropriate name for `groovyDeleteScalars`
 
 ```
 type Mutation { 
@@ -584,9 +570,10 @@ mutation{
 </TabItem>
 </Tabs>
 
-###   groovyLink
+###   link
 
-You can create a reference, using the groovyLink function. Two objects can be conneted using one-to-one or one-to-many references.  `groovyLink` function works similar to the [link](references.md) function.
+You can create a reference, using the `link` function. Two objects can be conneted using one-to-one or one-to-many references.  `groovyLink` function below works similar to the [link](references.md) function. You may replace `groovyLink`  with another function name.
+
 ```
 type Mutation {
 groovyLink( from: HypiMutationType! to: HypiMutationType! via: String! whereFromID: String! andToID: String! fromInstanceId: String toInstanceId: String ): Boolean!
@@ -620,9 +607,10 @@ mutation {
 </TabItem>
 </Tabs>
 
-###   groovyUnlink
+###   unlink
 
-You can remove a reference, using the groovyUnlink function.  `groovyUnlink` function works similar to the [unlink](references.md) function.
+You can remove a reference, using the unlink function.  `groovyUnlink` user defined function below works similar to the [unlink](references.md) function.  You may opt to have another name for `groovyUnlink`
+
 ```
 type Mutation {
 groovyUnlink(from: HypiMutationType! to: HypiMutationType! via: String! whereFromID: String! andToID: String! fromInstanceId: String toInstanceId: String ): Boolean!
@@ -655,9 +643,10 @@ mutation {  groovyUnlink(from:Author,to:Book,via:"booklist",whereFromID:"01F9V5Q
 </TabItem>
 </Tabs>
 
-### groovyCreateAccount
+### createAccount
 
-You may create a new user account using `groovyCreateAccount`. The function works similar to the [createAccount](authentication.md#createaccount) function. Here is the schema.
+You may create a new user account using createAccount. The `groovyCreateAccount` user defined function works similar to the [createAccount](authentication.md#createaccount) function. Here is the schema.
+
 ```
 type Mutation {
 groovyCreateAccount( value: AccountInput! ): Hypi
@@ -705,9 +694,9 @@ mutation {
 </TabItem>
 </Tabs>
 
-### groovyLogin / groovyLoginByEmail
+### login / loginByEmail
 
-Users may login with `groovyLogin` or  `groovyLoginByEmail` function. They work similar to [login](authentication.md#login) / [loginByEmail](authentication.md#loginbyemail) functions.
+Users may login with `login` or  `loginByEmail` function. `groovyLogin` /`groovyLoginByEmail`  user defined functions below work similar to [login](authentication.md#login) / [loginByEmail](authentication.md#loginbyemail) functions. You may choose another names for these functions.
 
 ```
 type Query {
@@ -767,9 +756,11 @@ OR
 </TabItem>
 </Tabs>
 
-### groovyMath
+### Maths APIs
 
-groovyMath can be used to perform Mathematical operations. Behaviour is similar to [Maths APIs](mathsapi.md). Here is the schema. Please note the use of square brackets in the syntax. `price` is the float field on which Mathematical operations are carried out.
+Maths APIs can be used to perform Mathematical operations. Behaviour of `groovyMath` user defined function is similar to [Maths APIs](mathsapi.md). 
+
+Here is the schema. Please note the use of square brackets in the syntax. `price` is the float field on which Mathematical operations are carried out. You may have another name for `groovyMath`
 
 ```
 type Mutation {
@@ -833,9 +824,9 @@ mutation{
 </TabItem>
 </Tabs>
 
-### groovyParseJSON
+### parseJSON
 
-You may parse a JSON value using the groovyParseJSON function.  
+You may parse a JSON value inside a user defined function using `parseJSON` function. `groovyParseJSON` function below does the same.  
 
 ```
 groovyParseJSON(value: String): Json
@@ -873,9 +864,9 @@ groovyParseJSON(value: String): Json
 </TabItem>
 </Tabs>
 
-### groovyParseXML
+### parseXML
 
-You may parse an XML data using the groovyParseXML function.  
+You may parse an XML value inside a user defined function using `parseXML` function. `groovyParseXML` function below does the same.  
 ```
 groovyParseXML(value: String): Json
   @tan(type:Groovy, inline: """return parseXML(value)""")

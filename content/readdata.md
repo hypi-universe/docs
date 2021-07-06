@@ -153,15 +153,6 @@ Let’s check the below example. Records from an `Author` object are received us
         }
       }
     }
-    pageInfo {
-      hasPreviousPage
-      hasNextPage
-      startCursor
-      endCursor
-      pageLimit
-      previousOffsets
-      nextOffsets
-    }
   }
 }
 ```
@@ -186,16 +177,7 @@ Let’s check the below example. Records from an `Author` object are received us
             "count": 30
           }
         }
-      ],
-      "pageInfo": {
-        "hasPreviousPage": false,
-        "hasNextPage": false,
-        "startCursor": "FIRST",
-        "endCursor": "LAST",
-        "pageLimit": 25,
-        "previousOffsets": [],
-        "nextOffsets": []
-      }
+      ]
     }
   }
 }
