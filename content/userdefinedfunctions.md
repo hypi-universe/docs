@@ -718,6 +718,7 @@ groovyLoginByEmail(email: String! password: String! ): AccessToken
   @tan(type:Groovy, inline: """return login(username, password)""")
 }
 ```
+
 <Tabs
   defaultValue="query"
   values={[
@@ -725,6 +726,7 @@ groovyLoginByEmail(email: String! password: String! ): AccessToken
     {label: 'Response', value: 'response'},
   ]}>
 <TabItem value="query">
+
 ```
 {
   groovyLogin(username:"test-hypi@hypi.io",password:"test-hypi@hypi.io"){
@@ -744,6 +746,7 @@ OR
     }
 }
 ```
+
 </TabItem>
 
 <TabItem value="response">
@@ -760,6 +763,7 @@ OR
   }
 }
 ```
+
 </TabItem>
 </Tabs>
 
