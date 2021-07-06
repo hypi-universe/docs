@@ -26,7 +26,8 @@ Let's start using Hypi CLI now.
 
 ### Config
 
-At first, configure the API domain of Hypi within your application using following command.
+If you're an on-premise customer, you can use the `hypi config` option to set the hostname of your installation. Configure your domain using following command.
+
 ```
 USAGE
   $ hypi config [API_DOMAIN]
