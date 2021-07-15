@@ -35,6 +35,11 @@ module.exports = {
       label: 'System Apps',
       items: ['core'],
     },
+    {
+      type: 'category',
+      label: 'Example Apps',
+      items: ['react-todo-app'],
+    },
     'hypi-angular',
     {
       type: 'category',
@@ -44,11 +49,6 @@ module.exports = {
 	'gql-crud-tutorial',
 	'time-series-aggregations',
 	], 
-    },
-    {
-      type: 'category',
-      label: 'Case study: Build a social network',
-      items: [],
     },
     {
       type: 'category',
