@@ -57,7 +57,7 @@ You may delete a task as well. The task gets deleted using the [delete](deleteda
 
 **Views/ AddToDOForm.js, Dashboard.js, Login.js, SignUp.js** : Consist of implementation of important functions discussed above.
 
-The full code of React ToDo is available on Github. The live application is embedded here. You can fork and use it as a starting point.
+The full code of React ToDo is available on [Github](https://github.com/hypi-universe/example-apps/tree/main/reactjs/todo/v1). The live application is embedded here. You can fork and use it as a starting point.
 
 
 <iframe src="https://codesandbox.io/embed/hypi-lowcode-todo-app-q6mjs?fontsize=14&hidenavigation=1&theme=dark&view=preview"
