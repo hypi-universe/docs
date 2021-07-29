@@ -5,7 +5,7 @@ sidebar_label: Workflow
 slug: /workflow
 ---
 
-:::caution
+:::danger
 
 Workflow is deprecated and will be removed. Use serverless [sequences](https://docs.hypi.app/docs/openwhisk-sequences/) or [conductors](https://docs.hypi.app/docs/openwhisk-conductors/) instead.
 
