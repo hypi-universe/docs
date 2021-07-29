@@ -5,6 +5,12 @@ sidebar_label: Workflow
 slug: /workflow
 ---
 
+:::caution
+
+Workflow is deprecated and will be removed. Use serverless [sequences](https://docs.hypi.app/docs/openwhisk-sequences/) or [conductors](https://docs.hypi.app/docs/openwhisk-conductors/) instead.
+
+:::
+
 Workflows are useful to handle sequential events. Let’s say you want to execute one function after the other and you need results of the first function to execute the second function. The `workflow` will handle these kinds of events for you.
 
 Design the steps of the workflow and create an order of events. Execute the functions (work) inside the steps. Get the result after sequential processing of steps or functions. You may check the results of individual steps as well.
