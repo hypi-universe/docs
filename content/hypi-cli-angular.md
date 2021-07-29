@@ -162,7 +162,7 @@ You need to sync edited local schema file to get full Hypi schema. Use the `hypi
 ```
 Run `hypi sync` to generate full schema file.
 ```
-hypi sync angular
+hypi sync
 App created with id : 01F8EMYY01YDD2HB0WH8E1AZJW
 Instance created with id : 01F8EMZ1PN1ANAS1C15K6DD63H
 updateAppYamlFile done

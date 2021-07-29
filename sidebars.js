@@ -23,7 +23,7 @@ module.exports = {
     {
       type: 'category',
       label: 'Hypi CLI',
-      items: ['hypi-cli-intro','hypi-cli-flutter','hypi-cli-react','hypi-cli-angular'],
+      items: ['hypi-cli-intro','hypi-cli-flutter','hypi-cli-react','hypi-cli-angular','hypi-cli-vuejs-composition','hypi-cli-vuejs-smartqueries'],
     },
     {
       type: 'category',
