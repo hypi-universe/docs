@@ -1,5 +1,5 @@
 ---
-id: openwhisk-alrams
+id: openwhisk-alarms
 title: Alram Package
 sidebar_label: Alarm Package
 slug: /openwhisk-alarms
