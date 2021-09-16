@@ -5,7 +5,7 @@ sidebar_label: API configurations of an Instance
 slug: /ui-instance-api-config
 ---
 
-1. Select any Instance under the `Instances` tab. Click on `API configuration`. On the left side, you can see list of the `environment variables`.
+1. Select any Instance under the `API Instances` tab. Click on `Configuration`. On the left side, you can see list of the `Environment Settings`. The environment settings saved under the Release are reflected here.
 
 ![APIConfig](/img/UI-Instance-API-Config-1.PNG)
 

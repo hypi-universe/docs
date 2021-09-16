@@ -5,7 +5,7 @@ sidebar_label: Real-time Input Streams
 slug: /ui-real-time-streams
 ---
 
-1. Under the `Data` tab of an instance, you can find `Real-time input streams`. Here, you can retrieve the data from the [Apache Pulsar cluster](https://pulsar.apache.org/).
+1. Under the `Data` option of an API instance, you can find `Streaming`. Here, you can retrieve the data from the [Apache Pulsar cluster](https://pulsar.apache.org/).
 
 ![InputStream](/img/UI-Pulsar-1.PNG)
 

@@ -5,7 +5,7 @@ sidebar_label: GraphQL configuration of an Instance
 slug: /ui-gql-config
 ---
 
-1. Go to the `Instances` tab. Select an Instance from the list. Click on `API Console`. Further, select the `GraphQL Config` tab to check the GraphQL configurations.
+1. Go to the `API Instances` tab. Select an Instance from the list. Select the `Settings` to check the GraphQL configurations.
 
 ![GQLConfig](/img/UI-GraphQLConfig-1.PNG)
 

@@ -5,7 +5,7 @@ sidebar_label: Add Environment Variables
 slug: /ui-add-environment-var
 ---
 
-1. To add [Environment variables](overview.md##environment-settings), click on `Configuration` under the `Releases` tab.
+1. To add [Environment variables](overview.md##environment-settings), click on `Settings` under the `Versions`.
 
 ![EnvironmentVariables](/img/UI-EnvironmentVar-1.PNG)
 
@@ -33,6 +33,6 @@ slug: /ui-add-environment-var
 
 ![EnvironmentVariables](/img/UI-EnvironmentVar-7.PNG)
 
-8. The entry gets added in the`Environment Settings`. You may access the field in the [instance](ui-instance-api-config.md) of the schema.
+8. The entry gets added in the`Environment Settings`. You may access the field in the [instance](ui-instance-api-config.md) of the schema. The settings can be edited/deleted using highlighted buttons.
 
 ![EnvironmentVariables](/img/UI-EnvironmentVar-8.PNG)
