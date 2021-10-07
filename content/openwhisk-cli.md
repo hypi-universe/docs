@@ -15,9 +15,10 @@ OpenWhisk supports a growing set of Programming languages. It has REST API-based
 
 Install the latest version of OpenWhisk CLI (wsk) for your Operating system as per the instructions given in the below link.
 
-[https://github.com/apache/openwhisk-cli/releases](https://github.com/apache/openwhisk-cli/releases)
+https://github.com/apache/openwhisk-cli/releases
 
 Make sure to set PATH environmental variable pointing towards wsk binary file. Verify the installation using the following command. You may get the list of available commands.
+
 ```
 wsk --help
 ```
