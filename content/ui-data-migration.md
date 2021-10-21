@@ -7,7 +7,7 @@ slug: /ui-data-migration
 
 Hypi supports the migration of data from one instance to another instance. You may further change the data types of fields or add new fields with data migration support. Migration makes data available from one instance to the other.
 
-1. Click on the `Data` tab of the new instance in which data needs to be migrated. You can find the `Migration` tab there. Click on `+New Migration` to start data migration.
+1. Select the new instance from `API Instances` in which data needs to be migrated. Select `Data -> Migration` option. Click on `+New Migration` to start data migration.
 
 ![DataMigration](/img/UI-Data-Migration-1.PNG)
 
@@ -19,11 +19,11 @@ Hypi supports the migration of data from one instance to another instance. You m
 
 ![DataMigration](/img/UI-Data-Migration-3.PNG)
 
-4. Data migration starts and gets enlisted on the User Interface. The data migration `status` gets updated. Here, the migration status is `QUEUED`.
+4. Data migration starts and gets enlisted on the User Interface. The data migration `status` gets updated. Here, the migration status is `IN PROGRESS`.
 
 ![DataMigration](/img/UI-Data-Migration-4.PNG)
 
-5. When the data gets migrated successfully, the status changes to FINISHED. And you can also see the number of `records migrated`.
+5. When the data gets migrated successfully, the status changes to `FINISHED`. And you can also see the number of `records migrated`.
 
 ![DataMigration](/img/UI-Data-Migration-5.png)
 

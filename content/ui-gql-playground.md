@@ -5,7 +5,7 @@ sidebar_label: GraphQL Playground
 slug: /ui-gql-playground
 ---
 
-1. On the Hypi platform, you can execute various GraphQL methods with `GraphQL playground`. Click on `Instances`. Select the instance from the list of instances. Click on `API Console`. Select `GraphQL Playground` tab.
+1. On the Hypi platform, you can execute various GraphQL methods with `GraphQL playground`. Click on `API Instances`. Select the instance from the list of instances. Select `Playground` tab.
 
 ![GQLPlay](/img/UI-GQL-Play-1.PNG)
 
@@ -44,5 +44,5 @@ slug: /ui-gql-playground
 Paste the copied `CURL` to verify the request.
 
 ```java
-curl 'https://api.hypi.app/graphql' -H 'Accept-Encoding: gzip, deflate, br' -H 'Content-Type: application/json' -H 'Accept: application/json' -H 'Connection: keep-alive' -H 'DNT: 1' -H 'Origin: https://hypi.app' -H 'Authorization: authorization-token' -H 'hypi-domain: teeming.apps.hypi.app' --data-binary '{"query":"mutation Upsert($values: HypiUpsertInputUnion!) {\n upsert(values: $values) {\n id\n }\n}\n","variables":{"values":{"Table1":[{"email_info":{"value":"abc.gmail.com"}}\]}}}' --compressed
+curl 'https://api.alpha.hypi.dev/graphql' -H 'Accept-Encoding: gzip, deflate, br' -H 'Content-Type: application/json' -H 'Accept: application/json' -H 'Connection: keep-alive' -H 'DNT: 1' -H 'Origin: https://alpha.hypi.dev' -H 'Authorization: <Auth Key>' -H 'hypi-domain: ignorant.apps.hypi.app' --data-binary '{"query":"mutation Upsert($values: HypiUpsertInputUnion!) {\n  upsert(values: $values) {\n    id\n  }\n}\n","variables":{"values":{"Author":[{"name":"Dan Brown","age":56,"booklist":[{"title":"Da Vinci Code","publication":"abc","available":true}]}]}}}' --compressed
 ```

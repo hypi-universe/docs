@@ -5,7 +5,7 @@ sidebar_label: Create Instance
 slug: /ui-create-instance
 ---
 
-1. An `instance` is an isolated copy of your app. Data stored in the database at a particular time is called an instance of a database. Think of an app as a template and an instance as a deployed version of that template. A release may have one or more instances. To create an instance `+Create Instance` under the `Instances` tab.
+1. An `instance` is an isolated copy of your app. Data stored in the database at a particular time is called an instance of a database. Think of an app as a template and an instance as a deployed version of that template. A release may have one or more instances. To create an instance click `+Create Instance` under the `API Instances`.
 
 ![createinstance](/img/UI-CreateInstance-1.PNG)
 

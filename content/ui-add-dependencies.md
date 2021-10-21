@@ -7,7 +7,7 @@ slug: /ui-add-dependencies
 
 A Hypi App may have a functional dependency on one or more apps. Borrow the functionalities from other apps using the `Dependencies` feature. When you add an app as a dependency, your Hypi app will inherit its behavior.
 
-1. To add `Dependencies`, click on `Configuration` under the `Releases` tab. You will find the `Dependencies` section. Click on `+Create` to add a dependency.
+1. To add `Dependencies`, click on `Settings` under the `Versions`. You will find the `Dependencies` section. Click on `+Create` to add a dependency.
 
 ![Dependencies](/img/UI-Dependencies-1.PNG)
 
@@ -31,7 +31,7 @@ A Hypi App may have a functional dependency on one or more apps. Borrow the func
 
 ![Dependencies](/img/UI-Dependencies-6.PNG)
 
-7. Here, you need to enter `Release ID` to add a release as a dependency. You may copy the Release ID from the [configuration section of the release](ui-create-release.md) to be added.
+7. Here, you need to enter `Release ID` to add a release as a dependency. You may copy the Release ID from the [settings section of the release](ui-create-release.md) to be added.
 
 ![Dependencies](/img/UI-Dependencies-7.PNG)
 
@@ -39,7 +39,7 @@ A Hypi App may have a functional dependency on one or more apps. Borrow the func
 
 ![Dependencies](/img/UI-Dependencies-8.PNG)
 
-9. Added dependencies can also be seen under the `Console` tab. Tables from the added Releases get added as dependencies under Table listing. Hence, schema from the added releases gets inherited.
+9. Added dependencies can also be seen under the `Visual Builder` . Tables from the added Releases get added as dependencies under Table listing. Hence, schema from the added releases gets inherited.
 
 ![Dependencies](/img/UI-Dependencies-9.PNG)
 

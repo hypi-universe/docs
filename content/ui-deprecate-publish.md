@@ -9,7 +9,7 @@ slug: /ui-deprecate-publish
 
 ![publish](/img/UI-Publish-1.PNG)
 
-2. You may change the release status under the `Configuration` section of the `Releases` tab. The initial status of the release is `Draft` status. You may Publish the release if the data model has been entered in your schema. Click on `Published` to change the status.
+2. You may change the release status under the `Settings`of the `Versions`. The initial status of the release is `Draft` status. You may Publish the release if the data model has been entered in your schema. Click on `Published` to change the status.
 
 ![publish](/img/UI-Publish-2.PNG)
 
@@ -25,6 +25,6 @@ slug: /ui-deprecate-publish
 
 ![publish](/img/UI-Publish-5.PNG)
 
-6. If the status is `Published`, you can see the change in the Table under the `Console` tab. The fields of the table become `Read-Only.`
+6. If the status is `Published`, you can see the change in the Table under the `Visual Builder`. The fields of the table become `Read-Only.`
 
 ![publish](/img/UI-Publish-6.PNG)

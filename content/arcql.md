@@ -1011,6 +1011,7 @@ Query Statement:
       cursor
     }
   }
+}    
 ```
 
 </TabItem>
@@ -1185,6 +1186,197 @@ A match all query is a query with the value **“\*”**. It returns all the dat
 </Tabs>
 
 ***
+
+###  Comparison Query
+
+Comparison Operators compares the content in a field to a constant value.  `< , >, <=,>=, !` are some of the common comparison operators. They work with integers, floats as well as strings. They can be combined with logical operators to get desired results.
+
++ a < 20
++ a > 'S'
++ a <= 10 AND a >=30
++ a != 10
+
+#### COMPARISON QUERY EXAMPLE 1
+
+Query Statement: 
+`age > 60`
+
+<Tabs
+  defaultValue="query"
+  values={[
+    {label: 'GraphQL Query', value: 'query'},
+    {label: 'Response', value: 'response'},
+  ]}>
+<TabItem value="query">
+
+```java
+{
+  find(type: Author, arcql: "age > 60") {
+    edges {
+      node {
+        ... on Author {
+          name
+          age
+        }
+      }
+      cursor
+    }
+  }
+}
+```
+
+</TabItem>
+
+<TabItem value="response">
+
+```json
+{
+  "data": {
+    "find": {
+      "edges": [
+        {
+          "node": {
+            "name": "Paulo Coelho",
+            "age": 70
+          },
+          "cursor": "01FG1G5G325TJ3TYRHXN153ZYR"
+        },
+        {
+          "node": {
+            "name": "Sudha Murti",
+            "age": 70
+          },
+          "cursor": "01FG1G5G3AJFW1KW0Z5XV3H29Z"
+        }
+      ]
+    }
+  }
+}
+```
+
+</TabItem>
+</Tabs>
+
+#### COMPARISON QUERY EXAMPLE 2
+
+Query Statement: 
+`name < 'P'`
+
+<Tabs
+  defaultValue="query"
+  values={[
+    {label: 'GraphQL Query', value: 'query'},
+    {label: 'Response', value: 'response'},
+  ]}>
+<TabItem value="query">
+
+```java
+{
+  find(type: Author, arcql: "name < 'P'") {
+    edges {
+      node {
+        ... on Author {
+          name
+        }
+      }
+      cursor
+    }
+  }
+}
+```
+
+</TabItem>
+
+<TabItem value="response">
+
+```json
+{
+  "data": {
+    "find": {
+      "edges": [
+        {
+          "node": {
+            "name": "Dan Brown"
+          },
+          "cursor": "01FG1G5G2JDDCHW7CBTCGVS039"
+        }
+      ]
+    }
+  }
+}
+```
+
+</TabItem>
+</Tabs>
+
+#### COMPARISON QUERY EXAMPLE 3
+
+Query Statement: 
+`title != 'Alchemist' AND price <= 5.99`
+
+<Tabs
+  defaultValue="query"
+  values={[
+    {label: 'GraphQL Query', value: 'query'},
+    {label: 'Response', value: 'response'},
+  ]}>
+<TabItem value="query">
+
+```java
+{
+  find(type: Book, arcql: "title != 'Alchemist' AND price <= 5.99") {
+    edges {
+      node {
+        ... on Book {
+          title
+          price
+        }
+      }
+      cursor
+    }
+  }
+}
+```
+
+</TabItem>
+
+<TabItem value="response">
+
+```json
+{
+  "data": {
+    "find": {
+      "edges": [
+        {
+          "node": {
+            "title": "Inferno",
+            "price": 5.99
+          },
+          "cursor": "01FG1G5G2WJYYCMM16N0SNJ6SJ"
+        },
+        {
+          "node": {
+            "title": "Wise and Otherwise",
+            "price": 3.99
+          },
+          "cursor": "01FG1G5G3C0MFJV38RQAZC9EHJ"
+        },
+        {
+          "node": {
+            "title": "How I taught my GrandMother to Read",
+            "price": 2.99
+          },
+          "cursor": "01FG1G5G3PYND0J77G2T2264WZ"
+        }
+      ]
+    }
+  }
+}
+```
+
+</TabItem>
+</Tabs>
+
 
 ### Geo Location
 

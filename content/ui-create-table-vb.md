@@ -5,7 +5,7 @@ sidebar_label: Create a table using Visual Builder
 slug: /ui-create-table-vb
 ---
 
-1. Click `Console` under `Releases` tab to add Tables to the [schema](overview.md#schema).
+1. Click `Visual Builder` under `Versions` to add Tables to the [schema](overview.md#schema).
 
 ![CreateTable](/img/UI-CreateTable-VB-1.PNG)
 
@@ -49,7 +49,7 @@ slug: /ui-create-table-vb
 
 ![CreateTable](/img/UI-CreateTable-VB-11.PNG)
 
-12. You may delete or edit the entries by clicking the highlighted buttons.
+12. You may delete or edit the entries by clicking the highlighted buttons. This option is available only under draft versions. For published versions, the fields will remain read-only.
 
 ![CreateTable](/img/UI-CreateTable-VB-12.PNG)
 

@@ -5,7 +5,7 @@ sidebar_label: Create a table using GraphQL Schema Editor
 slug: /ui-create-table-gse
 ---
 
-1. Apart from Visual Data Builder, you may create a table manually using `GraphQL Schema Editor`. Click on `Console` under Releases Tab and then click on `GraphQL Schema Editor` Tab.
+1. Apart from Visual Data Builder, you may create a table manually using `GraphQL Schema Editor`. Click on `Schema Editor` under `Versions`.
 
 ![CreateTable1](/img/UI-CreateTable-GE-1.PNG)
 
@@ -21,7 +21,7 @@ slug: /ui-create-table-gse
 
 ![CreateTable1](/img/UI-CreateTable-GE-4.PNG)
 
-5. Click on `Reload to See Changes`.
+5. Click on `Visual Builder` to see the changes.
 
 ![CreateTable1](/img/UI-CreateTable-GE-5.PNG)
 
