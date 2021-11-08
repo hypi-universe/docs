@@ -917,8 +917,8 @@ Query Statement:
 
 Range queries search for the content that falls within given range.
 
-+ a IN (0, 1] =>  left inclusive => including 0, excluding 1
-+ a IN \[0, 1) => right inclusive => excluding 0, including 1
++ a IN (0, 1] =>  left inclusive => including 1, excluding 0
++ a IN \[0, 1) => right inclusive => excluding 1, including 0
 + a IN (0, 1) => exclusive => not including 0 or 1, only those in between
 + a IN \[0, 1\] => inclusive => including both 0, 1 and everything in between
 
@@ -1780,3 +1780,5 @@ Here Names of Author1, 2 and 3 are the common author names from both sides. Auth
 
 </TabItem>
 </Tabs>
+
+
