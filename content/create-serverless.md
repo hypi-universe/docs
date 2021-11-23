@@ -5,6 +5,12 @@ sidebar_label: Create Serverless Function
 slug: /create-serverless
 ---
 
+:::note
+
+Serverless function returns any valid JSON value as output. It cannot return arrays. It must return an object at the top level which can have arrays inside it.
+
+:::
+
 The creation of serverless function is effortless! 
 
 After installation of CLI, [configure](openwhisk-cli.md) `OpenWhisk` to point towards Hypi's endpoint. Once it gets configured, you are ready to create a Serverless function.

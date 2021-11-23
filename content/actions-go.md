@@ -5,6 +5,12 @@ sidebar_label: Go actions
 slug: /actions-go
 ---
 
+:::note
+
+Serverless function returns any valid JSON value as output. It cannot return arrays. It must return an object at the top level which can have arrays inside it.
+
+:::
+
 The `action-golang-v1.11` runtime can execute actions written in the Go programming language in OpenWhisk, either as precompiled binary or compiling sources on the fly.
 
 ### Entry Point

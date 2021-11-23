@@ -5,6 +5,12 @@ sidebar_label: JavaScript actions
 slug: /actions-nodejs
 ---
 
+:::note
+
+Serverless function returns any valid JSON value as output. It cannot return arrays. It must return an object at the top level which can have arrays inside it.
+
+:::
+
 The process of creating JavaScript actions is similar to that of [other actions](openwhisk-actions.md#the-basics).
 
 The following sections guide you through creating and invoking a single JavaScript action,

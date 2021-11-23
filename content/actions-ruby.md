@@ -5,6 +5,12 @@ sidebar_label: Ruby actions
 slug: /actions-ruby
 ---
 
+:::note
+
+Serverless function returns any valid JSON value as output. It cannot return arrays. It must return an object at the top level which can have arrays inside it.
+
+:::
+
 The process of creating Ruby actions is similar to that of [other actions](openwhisk-actions.md#the-basics).
 
 The following sections guide you through creating and invoking a single Ruby action, and demonstrate how to bundle multiple Ruby files and third party dependencies.
