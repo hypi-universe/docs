@@ -5,6 +5,12 @@ sidebar_label: Swift actions
 slug: /actions-swift
 ---
 
+:::note
+
+OpenWhisk requires a JSON object as output. Hence, serverless function cannot return arrays. It must return an object at the top level which can have arrays inside it.
+
+:::
+
 The process of creating Swift actions is similar to that of [other actions](openwhisk-actions.md#the-basics).
 The following sections guide you through creating and invoking a single Swift action,
 and demonstrate how to bundle multiple Swift files and third party dependencies.

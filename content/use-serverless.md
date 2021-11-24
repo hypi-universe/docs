@@ -5,6 +5,12 @@ sidebar_label: Use Serverless Function
 slug: /use-serverless
 ---
 
+:::note
+
+OpenWhisk requires a JSON object as output. Hence, serverless function cannot return arrays. It must return an object at the top level which can have arrays inside it.
+
+:::
+
 After the creation of the serverless function on the Hypi namespace, now is the time to use it!
 
 Before you start using the serverless function, you need to define a GraphQL type (Query/Mutation) in the schema like this.
@@ -14,7 +20,7 @@ type Query{
     f1(a: Int,b: String): Json @tan(type:OpenWhisk, name:"hithere")
 }
 ```
-Here, function `f1`  has been defined with input parameters `a` and `b`and it returns a JSON value. It uses @tan directive to access serverless function `hithere` (Check [this](create-serverless.md) guide on how to create serverless function). 
+Here, function `f1`  has been defined with input parameters `a` and `b`and it returns a JSON value. It uses @tan directive to access serverless function `hithere` (Check [this](create-serverless.md) guide on how to create serverless function).
 
 ### @tan Directive
 

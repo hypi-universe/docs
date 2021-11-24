@@ -5,6 +5,12 @@ sidebar_label: .NET actions
 slug: /actions-dotnet
 ---
 
+:::note
+
+OpenWhisk requires a JSON object as output. Hence, serverless function cannot return arrays. It must return an object at the top level which can have arrays inside it.
+
+:::
+
 The following sections guide you through creating and invoking a single .NET Core action.
 
 In order to compile, test and archive .NET Core projects, you must have the [.NET Core SDK](https://www.microsoft.com/net/download) installed locally and the environment variable `DOTNET_HOME` set to the location where the `dotnet` executable can be found.

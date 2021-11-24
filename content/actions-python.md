@@ -5,6 +5,12 @@ sidebar_label: Python actions
 slug: /actions-python
 ---
 
+:::note
+
+OpenWhisk requires a JSON object as output. Hence, serverless function cannot return arrays. It must return an object at the top level which can have arrays inside it.
+
+:::
+
 The process of creating Python actions is similar to that of [other actions](openwhisk-actions.md#the-basics).
 The following sections guide you through creating and invoking a single Python action, and demonstrate how to bundle multiple Python files and third party dependencies.
 

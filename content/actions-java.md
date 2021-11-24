@@ -5,6 +5,12 @@ sidebar_label: Java actions
 slug: /actions-java
 ---
 
+:::note
+
+OpenWhisk requires a JSON object as output. Hence, serverless function cannot return arrays. It must return an object at the top level which can have arrays inside it.
+
+:::
+
 The process of creating Java actions is similar to that of [other actions](openwhisk-actions.md#the-basics).
 The following sections guide you through creating and invoking a single Java action, and demonstrate how to bundle multiple files and third party dependencies.
 

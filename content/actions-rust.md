@@ -5,6 +5,12 @@ sidebar_label: Rust actions
 slug: /actions-rust
 ---
 
+:::note
+
+OpenWhisk requires a JSON object as output. Hence, serverless function cannot return arrays. It must return an object at the top level which can have arrays inside it.
+
+:::
+
 The process of creating Rust actions is similar to that of [other actions](openwhisk-actions.md#the-basics).
 
 The following sections guide you through creating and invoking a single Rust action, and demonstrate how to bundle multiple Rust files and third party dependencies.
