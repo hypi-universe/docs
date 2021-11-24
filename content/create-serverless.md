@@ -7,7 +7,7 @@ slug: /create-serverless
 
 :::note
 
-Serverless function returns any valid JSON value as output. It cannot return arrays. It must return an object at the top level which can have arrays inside it.
+OpenWhisk requires a JSON object as output. Hence, serverless function cannot return arrays. It must return an object at the top level which can have arrays inside it.
 
 :::
 
