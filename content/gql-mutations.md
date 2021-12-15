@@ -76,6 +76,12 @@ mutation CreateTodo( $todos: [TodoInput!]!) {
 </TabItem>
 </Tabs>
 
+:::note
+
+Refer [Create Data](createdata.md) to understand Hypi's mutation functions. 
+
+:::
+
 
 
 

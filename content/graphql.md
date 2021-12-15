@@ -5,6 +5,16 @@ sidebar_label: GraphQL Overview
 slug: /graphql
 ---
 
+
+:::note
+Hypi's low code APIs are based on GraphQL's strongly typed query language. It is not essential to know GraphQL to use Hypi APIs. However, it is good to have basic understanding of GraphQL. 
+
+This section on GraphQL explains basic GraphQL concepts. 
+
+***For using Hypi APIs, please check [API References](api-references.md).
+
+:::
+
 GraphQL is **a syntax that represents how to request data** and is generally used to load data from a server to a client. The GraphQL data query language is:
 
 + **A Specification**, that determines the validity of the schema on the API server. The schema defines the validity of client calls.

@@ -183,6 +183,12 @@ Mutations work similarly - you define fields on the Mutation type, and those are
 
 It's important to remember that other than the special status of being the "entry point" into the schema, the`Query`and`Mutation`types are the same as any other GraphQL object type, and their fields work exactly the same way.
 
+:::note
+
+Refer [CRUD APIs](crud.md) to know how mutations and queries work on Hypi's low code platform.
+
+:::
+
 ### Scalar types
 
 Check about GraphQL scalar types [here](scalars.md).
