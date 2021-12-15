@@ -156,3 +156,9 @@ variables {
 }
 ```
 Here, both `todos` and `listField` have an argument called `arcql` but the variables that set its value are different (`$filer` and `$subQuery`)
+
+:::note
+
+Refer [Read Data](readdata.md) to understand Hypi's query functions. 
+
+:::
