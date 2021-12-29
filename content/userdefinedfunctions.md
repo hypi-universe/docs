@@ -349,7 +349,7 @@ Let's retrieve the data inserted in the Author object.
 
 ###   get
 
-Below `groovyGet` user defined function can be used to get data from a single object.  Its behaviour is the same as the [get](readdata.md#get) function from CRUD APIs.  You may choose another name for `groovyGe`
+Below `groovyGet` user defined function can be used to get data from a single object.  Its behaviour is the same as the [get](readdata.md#get) function from CRUD APIs.  You may choose another name for `groovyGet`
 
 ```
 type Query {
@@ -454,7 +454,7 @@ mutation {
 
 ###   untrash
 
-Below user defined function (`groovyUntrash`)  can be used to put unwanted data in a trash.  Its behaviour is the same as the [untrash](deletedata.md#untrash) function from CRUD APIs. You may use different name for `groovyUntrash`
+Below user defined function (`groovyUntrash`)  can be used to withdraw data marked as trash.  Its behaviour is the same as the [untrash](deletedata.md#untrash) function from CRUD APIs. You may use different name for `groovyUntrash`
 
 ```
 type Mutation {
@@ -530,7 +530,7 @@ mutation {
 
 ###   deleteScalars
 
-Data in a square array can be permanently deleted as shown in the `groovyDeleteScalars` user defined function below. Behaviour is the same as that of [deleteScalars](deletedata.md#deletescalars).  You may choose appropriate name for `groovyDeleteScalars`
+Data in a scalar array can be permanently deleted as shown in the `groovyDeleteScalars` user defined function below. Behaviour is the same as that of [deleteScalars](deletedata.md#deletescalars).  You may choose appropriate name for `groovyDeleteScalars`
 
 ```
 type Mutation { 
