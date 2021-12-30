@@ -110,7 +110,9 @@ Let's check how to implement these functions.
 
 ###   upsert
 
-Look at the `groovyUpsert` user defined function below. It can be used to insert or update data in an object.  Its behaviour is the same as the [upsert](createdata.md) function from [CRUD APIs](crud.md). `groovyUpsert` inserts data in the `Author` and `Book` objects. You may use appropriate name for `groovyUpsert` as per its behaviour.
+Look at the `groovyUpsert` user defined function below. It can be used to insert or update data in an object.  Its behaviour is the same as the [upsert](createdata.md) function from [CRUD APIs](crud.md). `groovyUpsert` inserts data in the `Author` and `Book` objects. 
+
+You may use appropriate name for `groovyUpsert` as per its behaviour. But `inline` parameter of `@tan` directive must use the `upsert` function to insert or update data.
 
 ```javascript
 type Mutation {
@@ -252,7 +254,9 @@ mutation{
 
 ###   find
 
-Below user defined function (`groovyFind`) can be used to retrieve all the data from an object.  Its behaviour is the same as the [find](readdata.md#find) function from CRUD APIs.  Use appropriate name for `groovyFind` as per the requirements.
+Below user defined function (`groovyFind`) can be used to retrieve all the data from an object.  Its behaviour is the same as the [find](readdata.md#find) function from CRUD APIs.  
+
+Use appropriate name for `groovyFind` as per the requirements. But `inline` parameter of `@tan` directive must use the `find` function to retrieve data.
 
 ```
 type Query {
@@ -349,7 +353,7 @@ Let's retrieve the data inserted in the Author object.
 
 ###   get
 
-Below `groovyGet` user defined function can be used to get data from a single object.  Its behaviour is the same as the [get](readdata.md#get) function from CRUD APIs.  You may choose another name for `groovyGe`
+Below `groovyGet` user defined function can be used to get data from a single object.  Its behaviour is the same as the [get](readdata.md#get) function from CRUD APIs.  You may choose another name for `groovyGet`. However, `inline` parameter of `@tan` directive must use the `get` function to get data from a single object.
 
 ```
 type Query {
@@ -416,7 +420,7 @@ groovyGet( type: HypiMutationType! id: String! ): HypiRootAggregate
 
 ###   trash 
 
-Below `groovyTrash` user defined function can be used to put unwanted data in a trash.  Its behaviour is the same as the [trash](deletedata.md#trash) function from CRUD APIs. You may choose another name for `groovyTrash`
+Below `groovyTrash` user defined function can be used to put unwanted data in a trash.  Its behaviour is the same as the [trash](deletedata.md#trash) function from CRUD APIs. You may choose another name for `groovyTrash`. But `inline` parameter of `@tan` directive must use the `trash` function to trash data.
 
 ```
 type Mutation {
@@ -454,7 +458,7 @@ mutation {
 
 ###   untrash
 
-Below user defined function (`groovyUntrash`)  can be used to put unwanted data in a trash.  Its behaviour is the same as the [untrash](deletedata.md#untrash) function from CRUD APIs. You may use different name for `groovyUntrash`
+Below user defined function (`groovyUntrash`)  can be used to withdraw data marked as trash.  Its behaviour is the same as the [untrash](deletedata.md#untrash) function from CRUD APIs. You may use different name for `groovyUntrash`. But `inline` parameter of `@tan` directive must use the `untrash` function to untrash data.
 
 ```
 type Mutation {
@@ -491,7 +495,7 @@ mutation {
 
 ###   delete
 
-Look at the `groovyDelete` user defined function below. It can be used to delete the unwanted data permanently  Its behaviour is the same as the [delete](deletedata.md#delete) function from CRUD APIs. You may use another name for `groovyDelete`
+Look at the `groovyDelete` user defined function below. It can be used to delete the unwanted data permanently  Its behaviour is the same as the [delete](deletedata.md#delete) function from CRUD APIs. You may use another name for `groovyDelete`. Make sure to use `delete` function in the `inline` parameter of `@tan` directive to delete data.
 
 ```
 type Mutation {
@@ -530,7 +534,7 @@ mutation {
 
 ###   deleteScalars
 
-Data in a square array can be permanently deleted as shown in the `groovyDeleteScalars` user defined function below. Behaviour is the same as that of [deleteScalars](deletedata.md#deletescalars).  You may choose appropriate name for `groovyDeleteScalars`
+Data in a scalar array can be permanently deleted as shown in the `groovyDeleteScalars` user defined function below. Behaviour is the same as that of [deleteScalars](deletedata.md#deletescalars).  You may choose appropriate name for `groovyDeleteScalars` Use `deleteScalars` function in the Groovy function of the `inline` parameter of the `@tan` directive.
 
 ```
 type Mutation { 
@@ -572,7 +576,7 @@ mutation{
 
 ###   link
 
-You can create a reference, using the `link` function. Two objects can be conneted using one-to-one or one-to-many references.  `groovyLink` function below works similar to the [link](references.md) function. You may replace `groovyLink`  with another function name.
+You can create a reference, using the `link` function. Two objects can be conneted using one-to-one or one-to-many references.  `groovyLink` function below works similar to the [link](references.md) function. You may replace `groovyLink`  with another function name. But `inline` parameter of `@tan` directive must use the `link` function to link objects.
 
 ```
 type Mutation {
@@ -609,7 +613,7 @@ mutation {
 
 ###   unlink
 
-You can remove a reference, using the unlink function.  `groovyUnlink` user defined function below works similar to the [unlink](references.md) function.  You may opt to have another name for `groovyUnlink`
+You can remove a reference, using the unlink function.  `groovyUnlink` user defined function below works similar to the [unlink](references.md) function.  You may opt to have another name for `groovyUnlink`.But `inline` parameter of `@tan` directive must use the `unlink` function to unlink references.
 
 ```
 type Mutation {
@@ -645,7 +649,7 @@ mutation {  groovyUnlink(from:Author,to:Book,via:"booklist",whereFromID:"01F9V5Q
 
 ### createAccount
 
-You may create a new user account using createAccount. The `groovyCreateAccount` user defined function works similar to the [createAccount](authentication.md#createaccount) function. Here is the schema.
+You may create a new user account using createAccount. The `groovyCreateAccount` user defined function works similar to the [createAccount](authentication.md#createaccount) function. Choose any other name for `groovyCreateAccount`. But `inline` parameter of `@tan` directive must use the `createAccount` function to create an account.
 
 ```
 type Mutation {
@@ -696,7 +700,7 @@ mutation {
 
 ### login / loginByEmail
 
-Users may login with `login` or  `loginByEmail` function. `groovyLogin` /`groovyLoginByEmail`  user defined functions below work similar to [login](authentication.md#login) / [loginByEmail](authentication.md#loginbyemail) functions. You may choose another names for these functions.
+Users may login with `login` or  `loginByEmail` function. `groovyLogin` /`groovyLoginByEmail`  user defined functions below work similar to [login](authentication.md#login) / [loginByEmail](authentication.md#loginbyemail) functions. You may choose another names for these functions.  But `inline` parameter of `@tan` directive must use the `login`/`loginByEmail` function to login.
 
 ```
 type Query {
@@ -760,7 +764,7 @@ OR
 
 Maths APIs can be used to perform Mathematical operations. Behaviour of `groovyMath` user defined function is similar to [Maths APIs](mathsapi.md). 
 
-Here is the schema. Please note the use of square brackets in the syntax. `price` is the float field on which Mathematical operations are carried out. You may have another name for `groovyMath`
+Here is the schema. Please note the use of square brackets in the syntax. `price` is the float field on which Mathematical operations are carried out. You may have another name for `groovyMath`. But use `math` function in the Groovy function of the `inline` parameter of `@tan` directive.
 
 ```
 type Mutation {
@@ -826,7 +830,7 @@ mutation{
 
 ### parseJSON
 
-You may parse a JSON value inside a user defined function using `parseJSON` function. `groovyParseJSON` function below does the same.  
+You may parse a JSON value inside a user defined function using `parseJSON` function. `groovyParseJSON` function below does the same.  You may have another name for `groovyParseJSON`. But use `parseJSON` function in the Groovy function of the `inline` parameter of `@tan` directive.
 
 ```
 groovyParseJSON(value: String): Json
@@ -867,6 +871,8 @@ groovyParseJSON(value: String): Json
 ### parseXML
 
 You may parse an XML value inside a user defined function using `parseXML` function. `groovyParseXML` function below does the same.  
+
+You may have another name for `groovyParseXML`. But use `parseXML` function in the Groovy function of the `inline` parameter of `@tan` directive.
 ```
 groovyParseXML(value: String): Json
   @tan(type:Groovy, inline: """return parseXML(value)""")
