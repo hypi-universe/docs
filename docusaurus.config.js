@@ -114,10 +114,6 @@ module.exports = {
       ],
       copyright: `Copyright © ${new Date().getFullYear()} Hypi.`,
     },
-    gtag: {
-      trackingID: 'UA-120274358-1',
-      anonymizeIP: false, 
-    },
   },
   presets: [
     [
@@ -142,7 +138,8 @@ module.exports = {
           trailingSlash: false,
         },
         gtag: {
-          trackingId: 'UA-120274358-1'
+          trackingID: 'UA-120274358-1',
+          anonymizeIP: false,
         },
       },
     ],
