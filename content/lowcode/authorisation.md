@@ -5,6 +5,12 @@ sidebar_label: Authorisation
 slug: /lowcode/authorisation
 ---
 
+:::danger
+
+Old Authorisation system is deprecated and please use the new one.
+
+:::
+
 [Authorisation](https://en.wikipedia.org/wiki/Authorization) is the process of specifying access/ rights/ privileges to various resources. It provides information security and computer security to systems. Of course, we can control the access to users as well. The authorisation process decides whether access should be given or denied.
 
 Authorisation defers from [Authentication](authentication.md). Authentication verifies the identity of a user. In authorisation, a user or an application gets permission to access a resource. The resource determines the extent of the permissions it should grant.
