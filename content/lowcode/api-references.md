@@ -10,14 +10,13 @@ Hypi platform tries to include the features most modern applications need to get
 1.  [CRUD](#crud)
 2.  [App dependencies](#app-dependencies)
 3.  [Environment variables](#environment-variables)
-4.  [Workflow](#workflow)
-5.  [Webhooks](#webhooks)
-6.  [Triggers](#triggers)
-7.  [User defined functions](#user-defined-functions)
-8.  [Serverless functions](#serverless-functions)
-9.  [Authorisation and Permission policies](#authorisation-and-permission-policies)
-10. [Maths API](#maths-api)
-11. [Aggregations API](#aggregations-api)
+4.  [Webhooks](#webhooks)
+5.  [Triggers](#triggers)
+6.  [User defined functions](#user-defined-functions)
+7.  [Serverless functions](#serverless-functions)
+8.  [Authorisation and Permission policies](#authorisation-and-permission-policies)
+9. [Maths API](#maths-api)
+10. [Aggregations API](#aggregations-api)
 
 ## CRUD
 
@@ -44,30 +43,6 @@ See [App dependencies](ui-add-dependencies.md)
 Many applications require settings at run time which change depending on some criteria specific to the app or its users/environment. When you create a release, Hypi lets you define one or more fields that can be populated when an instance of the app is created. These become accessible at runtime.
 
 See [Environment variables](ui-add-environment-var.md)
-
-## Workflow
-
-Workflow is a way of letting your app orchestrate the execution of multiple functions in response to a single event.
-
-Imagine you were building a web app for a completely automated Pizza service.
-When a user places an order for a Pizza, you want to do a few things:
-
-1. Accept the order
-2. Start the oven
-3. Put the ingredients in the oven
-4. Package the prepared pizza
-5. Hand the Pizza over to the delivery driver
-
-You could write one function which dispatches all of these one at a time. This case is simple enough.
-
-What happens if you need to parallelise some parts of this?
-Or execute some parts synchronously but others asynchronously?
-
-The code will become more and more complex. Instead of taking on this complexity, you could use Hypi's workflows.
-
-A workflow lets you define the order of execution of one or more functions as well as provide facilities for parallel execution of some functions and scheduling some to be executed later. It also lets you conditionally execute any step of the workflow and much more.
-
-See [Workflow](workflow.md)
 
 ## Webhooks
 

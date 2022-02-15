@@ -9,7 +9,7 @@ Hypi's API gateway acts as a middleware that simplifies the integration of your 
 
 Importantly, by using the Hypi gateway, you can integrate external services with your Hypi app as if they were a part of the platform.
 
-Hypi's features such as [authorisation](authorisation.md), [workflows](workflow.md) etc. can all be mixed with gateway functions.
+Hypi's features such as [authorisation](authorisation.md) can all be mixed with gateway functions.
 
 ### Using the API gateway
 
