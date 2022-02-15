@@ -135,7 +135,6 @@ module.exports = {
         sitemap: {
           changefreq: 'weekly',
           priority: 0.5,
-          trailingSlash: false,
         },
         gtag: {
           trackingID: 'UA-120274358-1',
