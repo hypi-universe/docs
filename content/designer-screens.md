@@ -7,9 +7,7 @@ slug: /designer-screens
 
 Using Hypi Tink, you can create, test, deploy apps from a single platform. Hypi Tink supports deploying Apps to multiple devices with various screen sizes.
 
-#### Screen
-
-The first step to creating a user interface is to add a screen. The screen is the interface on which data and images are displayed. You can place [widgets](designer-widgets.md), images over it. The user interacts with the screen of the application.
+The first step to creating a user interface is to add a `screen`. The screen is the interface on which data and images are displayed. You can place [widgets](designer-widgets.md), images over it. The user interacts with the screen of the application.
 
 1. **How to add Screen?**
 

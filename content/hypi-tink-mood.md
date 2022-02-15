@@ -38,30 +38,30 @@ Here are the steps to get you going with the Mood board!
        
 7. Enter the `Video` icon to save a video. Enter or paste the video link in the edit box and click the save button. The Idea gets added to the earlier saved resources.
 
-        ![MoodBoard](/img/Mood-Board-7.PNG)         
+    ![MoodBoard](/img/Mood-Board-6.PNG) 
     
 8. If you click on a saved resource, a new screen opens where you can comment on the resource. You can enter as many comments as needed.  You can also browse through the resources using forward and backward buttons. 
 
-       ![MoodBoard](/img/Mood-Board-8.PNG)
+      ![MoodBoard](/img/Mood-Board-8.PNG)
        
 9. You can delete a comment by hovering the cursor on the comment and clicking `...`. 
 
-        ![MoodBoard](/img/Mood-Board-9.PNG)
+     ![MoodBoard](/img/Mood-Board-9.PNG)
         
 10. If you click on the weblink, the browser opens the link for you.
 
-        ![MoodBoard](/img/Mood-Board-10.PNG)
+      ![MoodBoard](/img/Mood-Board-10.PNG)
         
 11. You can watch the video from the link by clicking on the resource.
 
-        ![MoodBoard](/img/Mood-Board-11.PNG)
+      ![MoodBoard](/img/Mood-Board-11.PNG)
         
 12. Click on the `close` button to close the resource.
 
-        ![MoodBoard](/img/Mood-Board-12.PNG)
+      ![MoodBoard](/img/Mood-Board-12.PNG)
        
 13. Click on the name of the project to go back to the Project screen.
 
-        ![MoodBoard](/img/Mood-Board-13.PNG)
+![MoodBoard](/img/Mood-Board-13.PNG)
        
    

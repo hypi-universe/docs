@@ -177,7 +177,7 @@ module.exports = {
             from: ['/references/rest-api'],
           },
 	  {
-            to: '/docs/lowcode/workflow',
+            to: '/docs/lowcode/serverlessfunction',
             from: ['/references/workflow'],
           },
           {
@@ -293,10 +293,6 @@ module.exports = {
             from: ['/references/'],
           },
           {
-            to: '/docs/hypi-tink-intro', 
-            from: ['/docs/'], 
-          },
-          {
             to: '/docs/lowcode/overview', 
             from: ['/docs/overview'], 
           },
@@ -385,7 +381,7 @@ module.exports = {
             from: ['/docs/user-defined-function'], 
           },
           {
-            to: '/docs/lowcode/workflow', 
+            to: '/docs/lowcode/serverlessfunction', 
             from: ['/docs/workflow'], 
           },
 	  {

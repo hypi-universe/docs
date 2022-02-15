@@ -5,9 +5,7 @@ sidebar_label: Assets
 slug: /designer-assets
 ---
 
-Assets are the resources like images, videos, files to be placed on the screen. You can reuse the assets on various screens. For example, you may want to place your company logo on different screens or applications.
-
-#### Assets
+`Assets` are the resources like images, videos, files to be placed on the screen. You can reuse the assets on various screens. For example, you may want to place your company logo on different screens or applications.
 
 You can upload the assets on the Designer board. As of now, images are the only asset type allowed to upload.
 

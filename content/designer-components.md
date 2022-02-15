@@ -7,9 +7,7 @@ slug: /designer-components
 
 A `Component` is the reusable part of a screen. You can design components of various sizes and place them on different screens.
 
-#### Components
-
-A Component is also made up of data and images just like screens. You can place widgets, images over it. You can move previously designed components over new components as well.
+A `Component` is also made up of data and images just like screens. You can place widgets, images over it. You can move previously designed components over new components as well.
 
 1. **How to add Component?**
 

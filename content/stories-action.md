@@ -9,18 +9,18 @@ After adding the User, the next step is adding probable actions by the User.
 
 Here are a few real-life examples for your reference!
 
-A) For the Patient Information system, 
+**A)  For the Patient Information system, **
 
-A doctor can **search for patient information history.**
-A doctor can **enter the diagnosis.**
-A nurse can **enter the values of health parameters.**
-A receptionist **can enter the next appointment date**.
+* A doctor can **_search for patient information history_.**
+* A doctor can **_enter the diagnosis._**
+* A nurse can **_enter the values of health parameters._**
+* A receptionist **_can enter the next appointment date_**.
 
-B) For Library System,
+**B) For Library System,**
 
-A librarian can **search the subscriber details**.
-A librarian can **make a new book entry**.
-A subscriber can **search books by an Author.**
+* A librarian can **_search the subscriber details_**.
+* A librarian can **_make a new book entry_**.
+* A subscriber can **_search books by an Author._**
 
 Adding an action by the user is easy!
 

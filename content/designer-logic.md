@@ -11,24 +11,26 @@ Suppose you have a dropdown with a list of items. With the help of Logic, a text
 
 There are two steps to bind the two widgets together.
 . 
-[**Output and Attribute Binding**](logic-output-binding.md)
+* [**Output and Attribute Binding**](logic-output-binding.md)
+
 Output and Attribute Binding stores the attribute value from a widget in a variable on the occurrence of an event on the same or another widget. 
 
-[**InputBinding** ](logic-input-binding.md)
+* [**InputBinding** ](logic-input-binding.md)
+
 Input Binding uses the variable to set the property of a widget.
 
 You can store the data in four types of **variables**.
 
-#### Screen Variable
+### Screen Variable
 The scope of this variable is limited to the selected screen only. So, data can be transferred from one widget to another on the same screen. Interchange of data on different screens is not allowed.
 
-#### App Variable
+### App Variable
 Data can be stored on the application level using the App variable. Hence, data can be transferred from one screen to another. However, when the application gets closed, the value stored in this variable gets deleted as well.
 
-#### Device Variable
+### Device Variable
 The scope of this variable is on the device level. Even if the application gets closed, the value of this variable remains unchanged as the variable data gets saved on the device.
 
-#### Static Variable
+### Static Variable
 Static variables store hardcoded values like API URLs, static text, etc. Most of the time, you know these values at the time of development. They remain immutable and don't change with user interactions.
 
 Static variables store the resource data uploaded through Assets. The system automatically assigns a static variable for each asset.  Assets can be referenced through the static variables.

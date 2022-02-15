@@ -5,9 +5,7 @@ sidebar_label: Widgets
 slug: /designer-widgets
 ---
 
-Widget is an important element of interaction on the User Interface. You can use widgets like Buttons, Text, Icons, Lists, Dropdowns to customize the screen. 
-
-#### Widgets
+`Widget` is an important element of interaction on the User Interface. You can use widgets like Buttons, Text, Icons, Lists, Dropdowns to customize the screen. 
 
 The widget either displays the data or carries out the required functionality. You can place widgets on the screen with drag and drop. Hypi Tink supports different kinds of widgets. You can find the exhaustive list [here](widget-groups.md).
 

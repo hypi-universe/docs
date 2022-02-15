@@ -9,18 +9,18 @@ Every action has an outcome. When you add an action, a box to add an outcome wou
 
 Here are a few examples of outcomes of various actions.
 
-A) For Patient Information system, 
+**A) For Patient Information system, **
 
-A doctor can search patient information history to **get patient's previous diagnosis details.**
-A doctor can enter the diagnosis to **update the current diagnosis**.
-A nurse can enter the values of health parameters to **update the details of current health status**. 
-A receptionist can enter the next appointment date to **update the appointment information**.
+* A doctor can search patient information history to **_get patient's previous diagnosis details_.**
+* A doctor can enter the diagnosis to **_update the current diagnosis_**.
+* A nurse can enter the values of health parameters to **_update the details of current health status_**. 
+* A receptionist can enter the next appointment date to **_update the appointment information_**.
 
-B) For Library System,
+**B) For Library System,**
 
-A librarian can search the subscriber details **to issue a book**.
-A librarian can make a new book entry **to update a book database**.
-A subscriber can search books by an Author **to get a list of books**.
+* A librarian can search the subscriber details **_to issue a book_**.
+* A librarian can make a new book entry **_to update a book database_**.
+* A subscriber can search books by an Author **_to get a list of books_**.
 
 Adding an outcome is similar to adding an action!
 
