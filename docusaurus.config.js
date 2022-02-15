@@ -177,7 +177,7 @@ module.exports = {
             from: ['/references/rest-api'],
           },
 	  {
-            to: '/docs/lowcode/workflow',
+            to: '/docs/lowcode/serverlessfunction',
             from: ['/references/workflow'],
           },
           {
@@ -385,7 +385,7 @@ module.exports = {
             from: ['/docs/user-defined-function'], 
           },
           {
-            to: '/docs/lowcode/workflow', 
+            to: '/docs/lowcode/serverlessfunction', 
             from: ['/docs/workflow'], 
           },
 	  {
