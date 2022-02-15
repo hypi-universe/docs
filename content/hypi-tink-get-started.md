@@ -23,7 +23,7 @@ Here is a quick guide to get started with Hypi Tink!
 
 ![GetStarted](/img/Get-Started-4.PNG)
 
-* Add [Data Tables](#) by adding data fields. Create versions of your app by adding releases. Create instances by adding domains to use APIs by Hypi's low code backend.
+* Add [Data Tables](data-tables.md) by adding data fields. Create versions of your app by adding releases. Create instances by adding domains to use APIs by Hypi's low code backend.
 
 ![GetStarted](/img/Get-Started-5.PNG)
 

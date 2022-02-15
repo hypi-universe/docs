@@ -5,7 +5,7 @@ sidebar_label: List
 slug: /widget-list-view
 ---
 
-####  ListView
+##  ListView
 
 * Scrollable list of widgets arranged in a vertical or horizontal direction
 * Puts children alongside in the scroll direction
