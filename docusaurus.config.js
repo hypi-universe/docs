@@ -293,10 +293,6 @@ module.exports = {
             from: ['/references/'],
           },
           {
-            to: '/docs/hypi-tink-intro', 
-            from: ['/docs/'], 
-          },
-          {
             to: '/docs/lowcode/overview', 
             from: ['/docs/overview'], 
           },
