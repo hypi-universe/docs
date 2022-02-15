@@ -1,0 +1,70 @@
+Welcome
+-Introduction
+-Overview
+-Get Started
+-FAQs
+
+Mood Board
+-Overview
+
+Stories Board
+-Overview
+-Users
+-Action
+-Outcome
+
+Data Tables
+-Overview
+-Tables
+-Versions
+-Environments
+-Console
+
+Designer Board
+-Overview
+-Screen
+-Widgets
+-Assets
+-Components
+-Navigator
+-Publish
+
+Widget 
+-Widget Groups
+-Basic
+-Layout
+-Forms
+-Advance
+-List
+
+Widget Properties
+-Common 
+-Column-Row
+-Container
+-Text
+-Elevated Button
+
+
+-Background color, Shadow color, Elevation, Padding, 
+Alignment, Box Fit, width factor, height factor,active color, inactive color
+
+
+
+Logic
+-Overview
+-OutputBinding
+-InputBinding
+
+Workflows
+-Overview
+-?
+-?
+-?
+
+Use Cases
+-1
+-2
+-3
+-4
+
+Glossary
