@@ -149,147 +149,147 @@ module.exports = {
       {
         redirects: [
           {
-            to: '/docs/apisetup', // string
+            to: '/docs/lowcode/apisetup', // string
             from: ['/references/api'], // string | string[]
           },
           {
-            to: '/docs/arcql',
+            to: '/docs/lowcode/arcql',
             from: ['/references/arcql'],
           },
 	  {
-            to: '/docs/crud',
+            to: '/docs/lowcode/crud',
             from: ['/references/crud'],
           },
 	  {
-            to: '/docs/authorisation',
+            to: '/docs/lowcode/authorisation',
             from: ['/references/authorisation'],
           },
           {
-            to: '/docs/apigateway',
+            to: '/docs/lowcode/apigateway',
             from: ['/references/api-gateway'],
           },
           {
-            to: '/docs/aggregation',
+            to: '/docs/lowcode/aggregation',
             from: ['/references/aggregations-api'],
           },
           {
-            to: '/docs/rest-apis',
+            to: '/docs/lowcode/rest-apis',
             from: ['/references/rest-api'],
           },
 	  {
-            to: '/docs/workflow',
+            to: '/docs/lowcode/workflow',
             from: ['/references/workflow'],
           },
           {
-            to: '/docs/webhooks',
+            to: '/docs/lowcode/webhooks',
             from: ['/references/webhooks'],
           },
 	  {
-            to: '/docs/maths-api',
+            to: '/docs/lowcode/maths-api',
             from: ['/references/math-api'],
           },
           {
-            to: '/docs/triggers',
+            to: '/docs/lowcode/triggers',
             from: ['/references/triggers'],
           },
           {
-            to: '/docs/serverlessfunction',
+            to: '/docs/lowcode/serverlessfunction',
             from: ['/references/serverless-functions'],
           },
 	  {
-            to: '/docs/user-defined-function',
+            to: '/docs/lowcode/user-defined-function',
             from: ['/references/user-defined-functions'],
           },
           {
-            to: '/docs/fileupload',
+            to: '/docs/lowcode/fileupload',
             from: ['/references/file-upload'],
           },
           {
-            to: '/docs/oauth2login',
+            to: '/docs/lowcode/oauth2login',
             from: ['/references/oauth2-login'],
           },
           {
-            to: '/docs/graphql',
+            to: '/docs/lowcode/graphql',
             from: ['/tutorials/graphql'],
           },
           {
-            to: '/docs/gql-introduction',
+            to: '/docs/lowcode/gql-introduction',
             from: ['/tutorials/graphql/intro'],
           },
           {
-            to: '/docs/gql-queries',
+            to: '/docs/lowcode/gql-queries',
             from: ['/tutorials/graphql/query'],
           },
           {
-            to: '/docs/gql-mutations',
+            to: '/docs/lowcode/gql-mutations',
             from: ['/tutorials/graphql/mutation'],
           },
           {
-            to: '/docs/references',
+            to: '/docs/lowcode/references',
             from: ['/tutorials/graphql/subscription'],
           },
           {
-            to: '/docs/magic-hypi-object',
+            to: '/docs/lowcode/magic-hypi-object',
             from: ['/tutorials/graphql/hypi-object'],
           },
           {
-            to: '/docs/hypi-directives',
+            to: '/docs/lowcode/hypi-directives',
             from: ['/tutorials/graphql/directives'],
           },
           {
-            to: '/docs/gql-interfaces',
+            to: '/docs/lowcode/gql-interfaces',
             from: ['/tutorials/graphql/interfaces'],
           },
           {
-            to: '/docs/gql-schema-types',
+            to: '/docs/lowcode/gql-schema-types',
             from: ['/tutorials/graphql/schema-and-types'],
           },
           {
-            to: '/docs/gql-crud-tutorial',
+            to: '/docs/lowcode/gql-crud-tutorial',
             from: ['/tutorials/crud'],
           },
           {
-            to: '/docs/time-series-aggregations',
+            to: '/docs/lowcode/time-series-aggregations',
             from: ['/tutorials/dateGranularity'],
           },
           {
-            to: '/docs/references',
+            to: '/docs/lowcode/references',
             from: ['/tutorials/graph'],
           },
           {
-            to: '/docs/hypi-angular',
+            to: '/docs/lowcode/hypi-angular',
             from: ['/getting-started/angular'],
           },
           {
-            to: '/docs/',
+            to: '/docs/lowcode/',
             from: ['/introduction'],
           },
  	  {
-            to: '/docs/get-started',
+            to: '/docs/lowcode/get-started',
             from: ['/getting-started/scratch'],
           },
   	  {
-            to: '/docs/overview',
+            to: '/docs/lowcode/overview',
             from: ['/references/app'],
           },
           {
-            to: '/docs/tutorials',
+            to: '/docs/lowcode/tutorials',
             from: ['/tutorials/'],
           },
 	  {
-            to: '/docs/get-started',
+            to: '/docs/lowcode/get-started',
             from: ['/getting-started/'],
           },
           {
-            to: '/docs/faq',
+            to: '/docs/lowcode/faq',
             from: ['/faq'],
           },
           {
-            to: '/docs/api-references',
+            to: '/docs/lowcode/api-references',
             from: ['/reference'],
           },
           {
-            to: '/docs/api-references',
+            to: '/docs/lowcode/api-references',
             from: ['/references/'],
           },
           {
