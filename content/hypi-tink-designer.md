@@ -11,10 +11,10 @@ Without writing a single piece of code, it is possible to **create User Interfac
 
 > What are the important parts of the Designer board?
 
-[Screen](designer-screens.md)
-[Component](designer-components.md)
-[Widgets](designer-widgets.md)
-[Assets](designer-assets.md)
-[Logic](designer-logic.md)
+* [Screen](designer-screens.md)
+* [Component](designer-components.md)
+* [Widgets](designer-widgets.md)
+* [Assets](designer-assets.md)
+* [Logic](designer-logic.md)
 
 Click each part to know more!

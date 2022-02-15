@@ -9,7 +9,7 @@ After adding the User, the next step is adding probable actions by the User.
 
 Here are a few real-life examples for your reference!
 
-A) For the Patient Information system, 
+A.  For the Patient Information system, 
 
 A doctor can **search for patient information history.**
 A doctor can **enter the diagnosis.**

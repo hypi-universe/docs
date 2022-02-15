@@ -13,11 +13,6 @@ module.exports = {
       {
        type: 'category',
        label: 'Stories Board',
-       items: ['hypi-tink-stories'],
-      },
-      {
-       type: 'category',
-       label: 'Stories Board',
        items: ['hypi-tink-stories','stories-users','stories-action','stories-outcome'],
       },
       {
@@ -45,11 +40,10 @@ module.exports = {
       type: 'category',
       label: 'Lowcode',
       items: [
-     {
-      type: 'category',
-      label: 'Hypi - Low Code Backend',
-      items: ['lowcode/introduction', 'lowcode/overview', 'lowcode/get-started','lowcode/faq'],
-     },
+     'lowcode/introduction',
+     'lowcode/overview',
+     'lowcode/get-started',
+     'lowcode/faq',
      {
       type: 'category',
       label: 'API & References',

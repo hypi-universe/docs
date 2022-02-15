@@ -23,7 +23,7 @@ You can save the data on [Hypi's low code backend](https://docs.hypi.app/docs/).
 
 Check out the below links to know how to use the Stories board and insert Data tables.
 
-[Add Users](stories-users.md)
-[Add an Action](stories-action.md)
-[Add an Outcome](stories-outcome.md)
-[Insert Data Tables](stories-data-tables.md)
+* [Add Users](stories-users.md)
+* [Add an Action](stories-action.md)
+* [Add an Outcome](stories-outcome.md)
+* [Insert Data Tables](stories-data-tables.md)

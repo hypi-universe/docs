@@ -2,7 +2,7 @@
 id: hypi-tink-intro
 title: Welcome to Hypi Tink!
 sidebar_label: Introduction
-slug: /hypi-tink-intro
+slug: /
 ---
 
 **Build Apps faster in Visual and No Code way** - Simply use Hypi Tink!
