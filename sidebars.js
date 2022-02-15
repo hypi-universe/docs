@@ -47,7 +47,7 @@ module.exports = {
       items: [
      {
       type: 'category',
-      label: 'Hypi's Low Code Backend',
+      label: 'Hypi - Low Code Backend',
       items: ['introduction', 'overview', 'get-started','faq'],
      },
      {
