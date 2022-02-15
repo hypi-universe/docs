@@ -1,31 +1,31 @@
-#name: Deploy docs
-#
-#on:
-#  workflow_dispatch:
-#  push:
-#    branches: [ master ]
-#
-#jobs:
-#  build:
-#    if: github.repository == 'hypi-universe/docs'
-#
-#    runs-on: ubuntu-latest
-#
-#    steps:
-#    - uses: actions/checkout@v2
-#    - name: Use Node.js
-#      uses: actions/setup-node@v1
-#      with:
-#        node-version: '14'
-#    - run: npm ci
-#    - run: npm run build
-#    - run: rm -rf docs
-#    - run: mv build docs
-#    - run: cp CNAME docs/CNAME
-#    - run: |
-#            git config --global user.email "github-action@hypi.io"
-#            git config --global user.name "Hypi Github Action"
-#            git add :/ && \
-#            git commit -m "Deploy docs" && \
-#            git push origin master
-#
+name: Deploy docs
+
+on:
+ workflow_dispatch:
+ push:
+   branches: [ master ]
+
+jobs:
+ build:
+   if: github.repository == 'hypi-universe/docs'
+
+   runs-on: ubuntu-latest
+
+   steps:
+   - uses: actions/checkout@v2
+   - name: Use Node.js
+     uses: actions/setup-node@v1
+     with:
+       node-version: '14'
+   - run: npm ci
+   - run: npm run build
+   - run: rm -rf docs
+   - run: mv build docs
+   - run: cp CNAME docs/CNAME
+   - run: |
+           git config --global user.email "github-action@hypi.io"
+           git config --global user.name "Hypi Github Action"
+           git add :/ && \
+           git commit -m "Deploy docs" && \
+           git push origin master
+
