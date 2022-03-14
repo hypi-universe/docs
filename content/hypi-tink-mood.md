@@ -32,11 +32,12 @@ Here are the steps to get you going with the Mood board!
       ![MoodBoard](/img/Mood-Board-5.PNG) 
        
  6. Enter the `Image` icon to save an image. Enter or paste the image link in the edit box and click the save button. The image should be a web link. The Idea gets added to the earlier saved resources.
+ 
 
-
-      ![MoodBoard](/img/Mood-Board-6.PNG) 
-       
-7. Enter the `Video` icon to save a video. Enter or paste the video link in the edit box and click the save button. The Idea gets added to the earlier saved resources.
+![Image not found: /img/Mood-Board-6.PNG](/img/Mood-Board-6.PNG "Image not found: /img/Mood-Board-6.PNG")
+ 
+ 
+ 7. Enter the `Video` icon to save a video. Enter or paste the video link in the edit box and click the save button. The Idea gets added to the earlier saved resources.
 
     ![MoodBoard](/img/Mood-Board-6.PNG) 
     

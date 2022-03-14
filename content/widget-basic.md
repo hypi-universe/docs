@@ -42,7 +42,7 @@ Basic widgets are visible and common widgets that are used to build user interfa
 
 * Display the text with this widget.
 * Text can have different styles.
-* You can change Text Properties like Value, Font, Weight, Size, Alignment, Color, emphasis, etc.
+* You can change [Text Properties](properties-text.md) like Value, Font, Weight, Size, Alignment, Color, emphasis, etc.
 
 ##  Text Button
 

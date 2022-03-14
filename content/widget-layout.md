@@ -23,7 +23,7 @@ Let's look at various Layout widgets and their functions.
 * Accommodates multiple widgets in a vertical array.
 * It does not scroll. You can add child widgets till it fits available space in the column.
 * If you have just one child widget to place, consider using Align or Centre Widget.
-* You can change Vertical and Horizontal positions of child widgets using Column properties. Select the column and the properties are on the right-hand side Properties panel.
+* You can change Vertical and Horizontal positions of child widgets using [Column properties](properties-column-row.md). Select the column and the properties are on the right-hand side Properties panel.
 * When you add widgets to a screen, the widgets are aligned in a Column by default. You may remove the Column and use other Layout widgets.
 
 ##  Aspect Ratio
@@ -105,7 +105,7 @@ Resizes the child widget relative to the dimensions of the screen or the parent 
 
 * Accommodates multiple widgets in a horizontal array.
 * It does not scroll. You can add child widgets till they fill available space in the row.
-* You can change Vertical and Horizontal positions of child widgets using Row properties.
+* You can change Vertical and Horizontal positions of child widgets using [Row properties](properties-column-row.md).
 
 ## Expanded
 
@@ -138,3 +138,16 @@ Resizes the child widget relative to the dimensions of the screen or the parent 
 * Options to fit the child widget within a target box are described [here](https://api.flutter.dev/flutter/painting/BoxFit.html).
 * If a child widget does not fit into a parent or target box, add the Fitted box in between.
 * Target box can be a widget with a fixed size like container, sized box, etc. Put Fitted Box inside a target box. Then add a child widget to the fitted box. You can fit the child inside the target box as per the fit options provided by the Fitted Box.
+
+##  Container
+
+* Container facilitates common painting, decorating, positioning, and sizing its child widget.
+* It accepts just one child widget.
+* You can change the background color and shape of the widget. The shape can be a rectangle or circle.
+* Use the Transform widget to provide the rotation to the container at a certain angle.
+* Gradient colors can be applied to the background at certain angles.
+* Padding provides whitespace around the child widget.
+* Margin provides space around the container widget.
+* Height and Width parameters can be used to size the container.
+* Container is quite useful to style the child widget. Change [the properties of the container](properties-container.md) and design the widget as per the requirements.
+

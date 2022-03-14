@@ -16,8 +16,8 @@ Citizen developers can also use these no-code features to create futuristic appl
 
 > What are the important parts of the Designer board?
 
-* [Screen](designer-screens.md)
-* [Component](designer-components.md)
+* [Screens](designer-screens.md)
+* [Components](designer-components.md)
 * [Widgets](designer-widgets.md)
 * [Assets](designer-assets.md)
 * [Logic](designer-logic.md)
