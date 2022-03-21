@@ -159,9 +159,6 @@ Scope Based permission(SBP) is an access right that protects a method e.g. Query
 
 The below example creates Scope Based Permission to a user account to execute `upsert` mutation on `Book` objects. It means user can create or update objects of Book type. 
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 <Tabs
   defaultValue="query"
   values={[
