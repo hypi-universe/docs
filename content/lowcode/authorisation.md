@@ -44,7 +44,7 @@ The platform uses [ArcQL](arcql.md) query language for finding data. All reque
 
 ### Implicit Access Rights
 
-If no `Access Right` is given explicitly, the platform acts as if one is implicitly created for the `Account` which created the object. So, the creator of an object has complete access to all the resources by default - no one else does.
+If no `Access Right` is given explicitly, the platform acts as if one is implicitly created for the `Account` which created the object. So, the creator of an object has complete access to all its resources by default - no one else does.
 
 ## AccessRight
 
@@ -145,7 +145,7 @@ mutation {
 * After successfully granting the Access Right, member user can see/retrieve data from the `Book` object. (`hypi.id` of the Book object is given in the `resource` field). 
 * You can provide access to multiple users by providing `hypi.id` s of the users in the `members` field.   
 * You can use wild card `*` to provide acces to all users. Use `{ hypi: { id: "*" } }` in the members field to provide access to all users.
-* If you use `*` in the `resource` field, it means that access has been granted to all the objects of `Book` type. So, member user can see details of all the available books. 
+* If you use `*` in the resource field, it means that access has been granted to all the objects of the `Book` type that are owned by the user creating the `AccessRight`. That is to say, a wildcard on a resource can grant access to all my resources but not to the resources of other users.
 
 :::note
 
@@ -207,6 +207,12 @@ mutation {
 
 </TabItem>
 </Tabs>
+
+:::imp
+
+Only a system admin can create scope based permissions. By default, the user that created the Hypi instance is the only system admin.
+
+:::
 
 ###  Check Access Rights
 
