@@ -49,7 +49,7 @@ With Designer board, you can
 
 * [Add different screens](designer-screens.md) with adjusted sizes for various kinds of devices
 * Decorate each screen with different [widgets](designer-widgets.md) or [components](designer-components.md) like text, call-to-action buttons, lists, dropdowns, images, etc.
-* [Assign properties](#) to the widget
+* [Assign properties](widget-properties.md) to the widget
 * Customize widgets using different Themes or Colour Schemes
 * Handle widget events using [logic](designer-logic.md)
 * Link screens to User Stories and Data models 

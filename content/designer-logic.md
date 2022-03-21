@@ -21,39 +21,39 @@ Input Binding uses the variable to set the property of a widget.
 
 You can store the data in four types of **variables**.
 
-### Screen Variable
+#### Screen Variable
 The scope of this variable is limited to the selected screen only. So, data can be transferred from one widget to another on the same screen. Interchange of data on different screens is not allowed.
 
-### App Variable
+#### App Variable
 Data can be stored on the application level using the App variable. Hence, data can be transferred from one screen to another. However, when the application gets closed, the value stored in this variable gets deleted as well.
 
-### Device Variable
+#### Device Variable
 The scope of this variable is on the device level. Even if the application gets closed, the value of this variable remains unchanged as the variable data gets saved on the device.
 
-### Static Variable
+#### Static Variable
 Static variables store hardcoded values like API URLs, static text, etc. Most of the time, you know these values at the time of development. They remain immutable and don't change with user interactions.
 
 Static variables store the resource data uploaded through Assets. The system automatically assigns a static variable for each asset.  Assets can be referenced through the static variables.
 
-1. **How to add Logic?**
+### 1. **How to add Logic?###**
 + Select `Logic` on the top right corner and the Logic screen appears. You can see the list of variables on the left side.
 
 ![Logic](/img/Logic-Overview-1.PNG)
 
-2. **How to change Logic Screen size?**
+### 2. **How to change Logic Screen size?**
 + You can minimize or maximize the Logic screen.
 
-3. **How to add Static Variables?**
+### 3. **How to add Static Variables?**
 + Click `%` to add static variables. Provide Name, Type, and Default value. Static variables can be of type `text`, `bool`, `int`, and ` double`. 
 
 ![Logic](/img/Logic-Overview-2.PNG)
 
-4. **How to add Output and Input Bindings?**
+### 4. **How to add Output and Input Bindings?**
 + Click `+` to add variable. Again click `+` to add bindings. Add [Output Binding](logic-output-binding.md) through `Outputs` and [Input Bindings](logic-input-binding.md) through `Listener`. 
 
 ![Logic](/img/Logic-Overview-3.PNG)
 
-5. **How to change Variable type?**
+### 5. **How to change Variable type?**
 + Click Screen State, App State, and Device State icons to change the variable type.
 
 ![Logic](/img/Logic-Overview-4.PNG)

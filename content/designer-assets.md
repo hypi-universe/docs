@@ -9,7 +9,7 @@ slug: /designer-assets
 
 You can upload the assets on the Designer board. As of now, images are the only asset type allowed to upload.
 
-1. **How to upload Assets?**
+### 1. **How to upload Assets?**
 
 + Go to Assets and click the `+` sign to upload files. 
 + The uploaded files get added to the Asset List.
@@ -17,9 +17,9 @@ You can upload the assets on the Designer board. As of now, images are the only 
 ![Designer-Assets](/img/Designer-Assets-1.PNG)
 
 
-2. **How to use an Asset?**
+### 2. **How to use an Asset?**
 
-+ Drag and drop the asset over the screen or component. It gets added as the [Tink Image](widget-basic.md#tinkimage) widget.
++ Drag and drop the asset over the screen or component. It gets added as the [Tink Image](widget-basic.md#tink-image) widget.
 
 
 

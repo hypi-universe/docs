@@ -32,6 +32,11 @@ module.exports = {
       },
       {
        type: 'category',
+       label: 'Widget Properties',
+       items: ['widget-properties','properties-column-row','properties-text','properties-container'],
+      },
+      {
+       type: 'category',
        label: 'Logic',
        items: ['designer-logic','logic-output-binding','logic-input-binding'],
       },
@@ -94,14 +99,9 @@ module.exports = {
       label: 'User Interface Guide',
       items: ['lowcode/ui-create-app','lowcode/ui-create-release','lowcode/ui-create-table-vb','lowcode/ui-create-table-gse','lowcode/ui-add-environment-var','lowcode/ui-add-dependencies','lowcode/ui-deprecate-publish','lowcode/ui-create-instance','lowcode/ui-view-instance','lowcode/ui-instance-api-config','lowcode/ui-gql-config','lowcode/ui-gql-playground','lowcode/ui-data-migration','lowcode/ui-real-time-streams'],
      },
-     'lowcode/glossary',
-     'lowcode/get-involved',
-    {
-      type: 'category',
-      label: 'Release Notes',
-      items: [],
-     },
+     'lowcode/glossary',   
     ],    
    },
+   'lowcode/get-involved',
   ],
 };
