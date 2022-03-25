@@ -7,7 +7,7 @@ slug: /lowcode/authorisation
 
 [Authorisation](https://en.wikipedia.org/wiki/Authorization) is the process of specifying access/ rights/ privileges to various resources. It provides information security and computer security to systems. Of course, we can control the access to users as well. The authorisation process decides whether access should be given or denied.
 
-Authorisation defers from [Authentication](authentication.md). Authentication verifies the identity of a user. In authorisation, a user or an application gets permission to access a resource. The resource determines the extent of the permissions it should grant.
+Authorisation differs from [Authentication](authentication.md). Authentication verifies the identity of a user. In authorisation, a user or an application gets permission to access a resource. The `AccessRight` object can control access by specifying the resource and the actions allowed on it.
 
 Classic authorisation models consist of a triple; a [subject](#subject), an [object](#object), and an `action`. Hypi adopts this triple with few enhancements.
 
@@ -30,7 +30,7 @@ An object or a resource is the thing being protected. In Hypi, two primary thing
 
 By default, permission is denied to everything and everyone. When a user registers on the platform,  default permissions are granted to him. 
 
-Access Rights can be granted by the `system-admin` [Account ](#)to the users of an instance or domain. 
+Access Rights can be granted by the `system-admin` [Account ](core.md#account)to the users of an instance or domain. A user can also grant other users access to his own data in the same `AppInstance`.
 
 Rights include permission to view or modify a resource/data. The rights are based upon various operations the subject wants to perform on the object.
 
@@ -54,10 +54,6 @@ If no `Access Right` is given explicitly, the platform acts as if one is impli
 type AccessRight {
   resource: String!
   resourceType: String!
-  #By default the user creating the permission, if it is provided and is not the same user then there must be a
-  #AccessRight that exists with the operation name "grantPermission" that was created by the owner of the target resource
-  resourceOwnerId: String
-  resourceOwnerInstanceId: String
   fields: String
   operationType: String!
   operation: String!
@@ -71,18 +67,24 @@ type AccessRight {
 
 Let's check the parameters.
 
-| Parameter          | Type            | Description                                                                                                        |
-|--------------------|-----------------|--------------------------------------------------------------------------------------------------------------------|
-| **members**        | Account         | The `hypi.id` of the Accounts to grant access rights to                                                            |
-| **approved**       | Bool            | Set `true` to grant the access. Set `false` to remove the access                                                   |
-| **permissionType** | AccessRightType | Set to RBP for resource based permission                                        SBP for scope based permission     |
-| **startDate**      | String          | Start date for access rights grant (Optional)                                                                      |
-| **endDate**        | DateTime        | End date for access rights grant (Optional)                                                                        |
-| **operationType**  | OpType          | Query, Mutation, or Subscription                                                                                   |
-| **operation**      | String          | Operation or method associated with operationType e.g. find or get for Query type                                  |
-| **resourceType**   | String          | The type of an object that the access right gets applied to. This field is required only if permissionType is RBP. |
-| **resource**       | String          | The `hypi.id` of the resource to provide the grant. This field is required only if permissionType is RBP.          |
-| **fields**         | String          | Specify the field of a resourceType to grant access only to the field data of the object. (Optional)               |
+| Parameter          | Type            | Description                                                                                                                     |
+|--------------------|-----------------|---------------------------------------------------------------------------------------------------------------------------------|
+| **members**        | Account         | The `hypi.id` of the Accounts to grant access rights to                                                                         |
+| **approved**       | Bool            | Set `true` to grant the access. Set `false` to deny the access                                                                  |
+| **permissionType** | AccessRightType | Set to RBP for resource based permission                                        SBP for scope based permission                  |
+| **startDate**      | String          | Start date for access rights grant (Optional)                                                                                   |
+| **endDate**        | DateTime        | End date for access rights grant (Optional)                                                                                     |
+| **operationType**  | OpType          | Query, Mutation, or Subscription                                                                                                |
+| **operation**      | String          | Operation or method associated with operationType e.g. `find` or `get` for Query type and  `upsert`, `delete` for Mutation type |
+| **resourceType**   | String          | The type of an object that the access right gets applied to. This field is required only if permissionType is RBP.              |
+| **resource**       | String          | The `hypi.id` of the resource to provide the grant. This field is required only if permissionType is RBP.                       |
+| **fields**         | String          | Specify the field of a resourceType to grant access only to the field data of the object. (**To be implemented)                 |
+
+:::note
+
+`operation`, `operationType` , `resource` , `resourceType` fields support wild card (`*`)
+
+:::
 
 ###  Resource Based Permission (RBP)
 
@@ -146,8 +148,9 @@ mutation {
 * You can provide access to multiple users by providing `hypi.id` s of the users in the `members` field.   
 * You can use wild card `*` to provide acces to all users. Use `{ hypi: { id: "*" } }` in the members field to provide access to all users.
 * If you use `*` in the resource field, it means that access has been granted to all the objects of the `Book` type that are owned by the user creating the `AccessRight`. That is to say, a wildcard on a resource can grant access to all my resources but not to the resources of other users.
+* If multiple `AccessRight` objects are created, they must all evaluate as `true` and if at least one evaluates to `false`, then access will be denied.
 
-:::note
+:::tip TIP
 
 To test if the `AccessRight` is working, [login](authentication.md#login) the member user. A new `Authorization Token` will get generated. Using the new token, retrieve the data from the resource using the `get` query.
 
@@ -187,7 +190,6 @@ mutation {
     id
   }
 }
-
 ```
 
 </TabItem>
@@ -208,7 +210,7 @@ mutation {
 </TabItem>
 </Tabs>
 
-:::imp
+:::tip IMPORTANT
 
 Only a system admin can create scope based permissions. By default, the user that created the Hypi instance is the only system admin.
 
@@ -238,3 +240,20 @@ You may check if the user has permission to access an object's details. Use `get
   }
 }
 ```
+
+### Delete Access Rights
+
+System admin can remove all the access rights.  Some cases do not require the default permissions. Hence, the system admin must first create the access right he needs (MUST do this first or he'll lose access) and then delete the old access rights he doesn't need.
+
+```
+mutation {
+  delete(type: AccessRight, arcql: "hypi.id = '01F2X8203XKRFR7G62T6SP1MW4'",
+  clearArrayReferences:true)
+}
+```
+
+:::caution
+
+Delete the Access Rights granted to other users one by one. Don't remove all the Access Rights using wildcard (*).
+
+:::

@@ -11,11 +11,18 @@ Basic widgets are visible and common widgets that are used to build user interfa
 
 * Represents a user of the application. 
 * It is a circle with User initials or Profile images. 
+* Change Background and Foreground color from the Properties panel. Background refers to the Circle and foreground refers to the Text.
+* You may upload Images from the URLs as background and foreground.
+* Change the radius of the circle using a slider or entering the value.
+* Customize the text on the circle. Text Properties open when the text is clicked.
 
 ## Divider
 
-*  A thin horizontal line that divides the screen into horizontal sections. 
-*  Its colour or thickness can be changed.
+*  A thin horizontal line that divides the screen into horizontal sections.
+*  Divider provides a space between two widgets by drawing a line between them.
+*  You can change the height of the divider to create space between the widgets. The horizontal line of the divider gets centered around this height.
+*  You can also change the color or thickness of the line.
+*  Provide leading or trailing indent to adjust the length of the line.
 
 ## DropDown Button
 
@@ -32,6 +39,7 @@ Basic widgets are visible and common widgets that are used to build user interfa
 * Visual representation of program, function, event, or any other important thing.
 * Choose from hundreds of images from Hypi's Tink's icon collection to place on the icon widget. 
 * Icon is generally not interactive unless it is placed on a button. 
+* You can customize the icon by changing its color and size.
 
 ##  Outlined Button
 
