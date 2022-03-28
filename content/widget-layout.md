@@ -95,8 +95,8 @@ Resizes the child widget relative to the dimensions of the screen or the parent 
 
 ## Padding
 
-* Adds padding to create an empty space around the child widget.
-* It shrinks the layout constraints by the given padding. It causes the child to have a smaller size.
+* Add padding to create an empty space around the child widget.
+* It shrinks the layout constraints by the given padding space. It causes the child to have a smaller size.
 * You can have padding on all sides or any one side. 
 * For one side padding, provide top, left, bottom, or right padding value  (in terms of pixels).
 * For all side padding, provide a single padding value (in terms of pixels).
@@ -106,6 +106,14 @@ Resizes the child widget relative to the dimensions of the screen or the parent 
 * Accommodates multiple widgets in a horizontal array.
 * It does not scroll. You can add child widgets till they fill available space in the row.
 * You can change Vertical and Horizontal positions of child widgets using [Row properties](properties-column-row.md).
+
+## Flex
+
+* Accommodates multiple widgets in a horizontal or vertical array.
+* It does not scroll. You can add child widgets till they fill available space in the row.
+* You can specify the main axis along which the children are placed. (Vertical or Horizontal)
+* If you want flexibility of choosing the type of main axis, you can use Flex widget. If you are already know that you want to use Horizontal or Vertical alignment, you can use Row or Colum respectively.
+* You can change Vertical and Horizontal positions of child widgets using [Flex properties](properties-column-row.md).
 
 ## Expanded
 
@@ -150,4 +158,17 @@ Resizes the child widget relative to the dimensions of the screen or the parent 
 * Margin provides space around the container widget.
 * Height and Width parameters can be used to size the container.
 * Container is quite useful to style the child widget. Change [the properties of the container](properties-container.md) and design the widget as per the requirements.
+
+## Safe Area
+
+* The operating system features may obstruct the view of a widget. For example, The Notch iPhone X, or other similar creative physical features of the display.
+* Safe Area widgets provide the child with sufficient padding to avoid intrusion by the operating system.
+* Use Safe Area to avoid the status bar at the top of the screen.
+* Click the side under the properties of Safe Area for which you want to avoid the system intrusion; Left, Top, Right, or Bottom.
+
+
+
+
+
+
 

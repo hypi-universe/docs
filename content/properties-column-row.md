@@ -1,11 +1,11 @@
 ---
 id: properties-column-row
-title: Column/Row Properties
-sidebar_label: Column / Row 
+title: Column/Row/Flex Properties
+sidebar_label: Column / Row / Flex
 slug: /properties-column-row
 ---
 
-Column and Row both accommodate multiple widgets. Column arranges the child widgets vertically and Row arranges the child widgets horizontally. Positions of the child widgets can be adjusted using the below properties. The same properties apply to Row and Column. 
+Column, Row, and Flex widgets accommodate multiple widgets. Column arranges the child widgets vertically and Row arranges the child widgets horizontally. Flex gives you flexibility to choose horizontal or vertical arrangement. Positions of the child widgets can be adjusted using the below properties. The same properties apply to all the three widgets. 
 
 ## Main Axis Size
 
@@ -34,3 +34,7 @@ Cross axis alignment positions the child widgets along the cross axis as per the
 * **End** => Place the children close to the end of the cross axis.
 * **Start** => Place the children with their start edge aligned with the start side of the cross axis.
 * **Stretch** => The children fills entire cross axis.
+
+##  Direction
+
+* Choose Horizontal or Vertical direction as the main axis direction while using Flex widget.
