@@ -67,7 +67,7 @@ module.exports = {
      {
       type: 'category',
       label: 'Serverless: Client Libraries',
-      items: ['nodejs-client-library'],
+      items: ['lowcode/nodejs-client-library'],
      },
      {
       type: 'category',
