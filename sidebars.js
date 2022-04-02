@@ -66,6 +66,11 @@ module.exports = {
      },
      {
       type: 'category',
+      label: 'Serverless: Client Libraries',
+      items: ['nodejs-client-library'],
+     },
+     {
+      type: 'category',
       label: 'Hypi CLI',
       items: ['lowcode/hypi-cli-intro','lowcode/hypi-cli-flutter','lowcode/hypi-cli-react','lowcode/hypi-cli-angular','lowcode/hypi-cli-vuejs-composition','lowcode/hypi-cli-vuejs-smartqueries'],
      },
