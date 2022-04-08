@@ -166,6 +166,14 @@ Resizes the child widget relative to the dimensions of the screen or the parent 
 * Use Safe Area to avoid the status bar at the top of the screen.
 * Click the side under the properties of Safe Area for which you want to avoid the system intrusion; Left, Top, Right, or Bottom.
 
+## Drawer
+
+* Drawer is a left hand side navigation panel that slides in horizontally from the left edge of the screen.
+* Add navigation links for the App in the drawer.
+* Add a component to use as a drawer. Customize it using other widgets like Text buttons, Icons, Pop up menus, etc. Rename the component as `Drawer` or any suitable name.
+* Enable `Drawer Component` from the [Tink Screen Properties](designer-screens.md#3-how-to-change-screen-properties). Choose created `Drawer` from the drop down menu. The Drawer gets automatically added to the screen. You may not be able to see it on the screen.
+* Click `Preview`. Click on the left edge and slide horizontally to check the Drawer component. 
+
 
 
 
