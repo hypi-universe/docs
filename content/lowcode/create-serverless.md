@@ -147,7 +147,7 @@ Datetime Activation ID     Kind      Start Duration   Status  Entity
       
   `args.hypi` object contains the following fields:  
 
-1.  `token` - The token used to [configure the serverless function](/lowcode/openwhisk-cli#configure-openwhisk). It can be null for anonymous requests.
+1.  `token` - The token used to [configure the serverless function](lowcode/openwhisk-cli#configure-openwhisk). It can be null for anonymous requests.
 2.  `instanceId` - The [instance](lowcode/overview.md#instance) ID that the serverless function is executed in.
 3.  `accountId` - The [account](lowcode/core.md#account) ID of the user making the API request.
 4.  `domain` - The domain of the instance the request is made to.
