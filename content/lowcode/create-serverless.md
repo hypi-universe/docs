@@ -143,3 +143,13 @@ Datetime Activation ID     Kind      Start Duration   Status  Entity
 2021-04-19 18:57:33 6955a0e828af40a195a0e828afe0a128 nodejs:10 cold  40ms       success 01F2GA50PH...TPSPBK3/hithere:0.0.1
 2021-04-19 16:34:31 26285233eaba4960a85233eaba4960aa nodejs:10 cold  36ms       success 01F2GA50PH...TPSPBK3/serverlessFun:0.0.1
 ```
+8. Every serverless function has access to `args.hypi` object. You can use this object to connect to [Hypi APIs](lowcode/api-references.md). 
+      
+  `args.hypi` object contains the following fields:  
+
+1.  `token` - The token used to [configure the serverless function](lowcode/openwhisk-cli.md#configure-openwhisk). It can be null for anonymous requests.
+2.  `instanceId` - The [instance](lowcode/overview.md#instance) ID that the serverless function is executed in.
+3.  `accountId` - The [account](lowcode/core.md#account) ID of the user making the API request.
+4.  `domain` - The domain of the instance the request is made to.
+5.  `env` - A map of any environment variables the user has created and set in the instance.
+6.  `adminToken` - An admin token that can be used to perform actions on behalf of users other than the one making the request. This can be used, for example, to create permissions or link data on behalf of other users who wouldn't have permission to do so. 
