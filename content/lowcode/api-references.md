@@ -14,8 +14,8 @@ Hypi platform tries to include the features most modern applications need to get
 5.  [Triggers](#triggers)
 6.  [User defined functions](#user-defined-functions)
 7.  [Serverless functions](#serverless-functions)
-8.  [Authorisation and Permission policies](#authorisation-and-permission-policies)
-9. [Maths API](#maths-api)
+8.  [Authorisation](#authorisation)
+9.  [Maths API](#maths-api)
 10. [Aggregations API](#aggregations-api)
 
 ## CRUD
@@ -89,12 +89,11 @@ Serverless functions in Hypi let you write any custom code you want, wrap it in 
 
 See [Serverless functions](serverless.md)
 
-## Authorisation and Permission policies
+## Authorisation
 
-Many applications require their users to have certain permissions before they can perform a given action.
-Hypi has built-in support for extensive permission and authorisation control.
+Many applications require their users to have certain permissions before they can perform an action or execute a request. Hypi has built-in support for extensive authorisation control.
 
-You can define a Type, Scope, or Resource-based permission that uses different autorisation policies to control who can perform an action and when.
+You can define a Scope-based or Resource-based permission to control who can p and when.
 
 See [Authorisation](authorisation.md)
 
