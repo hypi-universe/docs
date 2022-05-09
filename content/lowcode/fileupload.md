@@ -208,7 +208,7 @@ mutation {
           operation: "*"
           permissionType: RBP
           approved: true
-          members: { hypi: { id: "*" } }
+          members: { hypi: { id: "anonymous" } }
         }
       ]
     }
