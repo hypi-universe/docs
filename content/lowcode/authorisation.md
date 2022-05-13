@@ -67,18 +67,19 @@ type AccessRight {
 
 Let's check the parameters.
 
-| Parameter          | Type            | Description                                                                                                                     |
-|--------------------|-----------------|---------------------------------------------------------------------------------------------------------------------------------|
-| **members**        | Account         | The `hypi.id` of the Accounts to grant access rights to                                                                         |
-| **approved**       | Bool            | Set `true` to grant the access. Set `false` to deny the access                                                                  |
-| **permissionType** | AccessRightType | Set to RBP for resource based permission                                        SBP for scope based permission                  |
-| **startDate**      | String          | Start date for access rights grant (Optional)                                                                                   |
-| **endDate**        | DateTime        | End date for access rights grant (Optional)                                                                                     |
-| **operationType**  | OpType          | Query, Mutation, or Subscription                                                                                                |
-| **operation**      | String          | Operation or method associated with operationType e.g. `find` or `get` for Query type and  `upsert`, `delete` for Mutation type |
-| **resourceType**   | String          | The type of an object that the access right gets applied to. This field is required only if permissionType is RBP.              |
-| **resource**       | String          | The `hypi.id` of the resource to provide the grant. This field is required only if permissionType is RBP.                       |
-| **fields**         | String          | Specify the field of a resourceType to grant access only to the field data of the object. (**To be implemented)                 |
+| Parameter           | Type            | Description                                                                                                                                                                          |
+|---------------------|-----------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **members**         | Account         | The `hypi.id` of the Accounts to grant access rights to                                                                                                                              |
+| **approved**        | Bool            | Set `true` to grant the access. Set `false` to deny the access                                                                                                                       |
+| **permissionType**  | AccessRightType | Set to RBP for resource based permission                                        SBP for scope based permission                                                                       |
+| **startDate**       | String          | Start date for access rights grant (Optional)                                                                                                                                        |
+| **endDate**         | DateTime        | End date for access rights grant (Optional)                                                                                                                                          |
+| **operationType**   | OpType          | Query, Mutation, or Subscription                                                                                                                                                     |
+| **operation**       | String          | Operation or method associated with operationType e.g. `find` or `get` for Query type and  `upsert`, `delete` for Mutation type                                                      |
+| **resourceType**    | String          | The type of an object that the access right gets applied to. This field is required only if permissionType is RBP.                                                                   |
+| **resource**        | String          | The `hypi.id` of the resource to provide the grant. This field is required only if permissionType is RBP.                                                                            |
+| **fields**          | String          | Specify the field of a resourceType to grant access only to the field data of the object. (**To be implemented)                                                                      |
+| **resourceOwnerId** | String          | If the user or system admin granting an access right to a resource is not the owner of the resource, then this field is required. Set it to `hypi.id` of the resource owner Account. |
 
 :::note
 
