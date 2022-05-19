@@ -463,3 +463,14 @@ You may group the fields based upon the `dateTime` field. Hypi object has the da
 </Tabs>
 
 You can know more about dateGranularity in [this](time-series-aggregations.md) tutorial.
+
+:::note Read More...
+
+* [How to calculate an average of the set of values using Aggregation](https://hypi.dev/t/how-to-calculate-an-average-of-the-set-of-values-using-aggregation/86)
+* [How to count the number of records from a field using Aggregation](https://hypi.dev/t/how-to-count-the-number-of-records-from-a-field-using-aggregation/84)
+* [How to calculate a sum of the set of values using Aggregation](https://hypi.dev/t/how-to-calculate-a-sum-of-the-set-of-values-using-aggregation/85)
+* [How to retrieve maximum and minimum values from a field](https://hypi.dev/t/how-to-retrieve-maximum-and-minimum-values-from-a-field/83)
+* [How to group records and execute aggregation queries](https://hypi.dev/t/how-to-group-records-and-execute-aggregation-queries/82)
+* [How to group records based upon the DateTime field](https://hypi.dev/t/how-to-group-the-records-based-upon-the-datetime-field/81)
+
+:::

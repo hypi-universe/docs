@@ -176,3 +176,10 @@ Users may log in using the `loginByEmail` function. This function takes email-id
 </TabItem>
 </Tabs>
 
+:::note Read More...
+
+* [How to register new user accounts](https://hypi.dev/t/how-to-register-new-user-accounts-in-your-lowcode-hypi-app-instance/118) 
+* [How to login to user accounts](https://hypi.dev/t/how-to-login-to-user-accounts-in-your-lowcode-hypi-app-instance/117)
+
+:::
+

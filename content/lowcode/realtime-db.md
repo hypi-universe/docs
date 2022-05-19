@@ -96,4 +96,8 @@ You may perform any number of upsert operation. The upsert event would be notifi
 
 Please note that if you insert data in the `age` field of Author1, the insertion notification will not be received.
 
+:::note Read More...
 
+* [How to monitor the database operation in real-time using a Subscription](https://hypi.dev/t/how-to-monitor-the-database-operation-in-real-time-using-a-subscription/242)
+
+:::

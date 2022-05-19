@@ -134,3 +134,12 @@ Now, query the price value of the book that was originally set to 5.99. Its valu
 
 </TabItem>
 </Tabs>
+
+:::note Read More...
+
+* [How to execute division using Math API](https://hypi.dev/t/how-to-execute-division-using-math-api/80)
+* [How to execute multiplication using Maths API](https://hypi.dev/t/how-to-execute-multiplication-using-maths-api/79)
+* [How to execute subtraction using Maths API](https://hypi.dev/t/how-to-execute-subtraction-using-maths-api/78)
+* [How to execute addition using Maths API](https://hypi.dev/t/how-to-execute-addition-using-maths-api/77)
+
+:::

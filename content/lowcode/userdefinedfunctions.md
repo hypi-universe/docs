@@ -1090,3 +1090,26 @@ Notice few changes here:
 + Added variable values `['p':a, 'q': b, 'r': c]` in the map. Now, the variables `$p` , `$q` and `$r` are GraphQL variables not Groovy variables.
 
 With these changes, the result is the same as the previous example!
+
+:::note Read More...
+
+* [How to implement User Defined Functions](https://hypi.dev/t/how-to-implement-user-defined-functions/57)
+* [How to implement User Defined Functions using Velocity](https://hypi.dev/t/how-to-implement-user-defined-functions-using-velocity/56)
+* [How to use gql function inside User Defined Function](https://hypi.dev/t/how-to-use-gql-function-inside-user-defined-function/42)
+* [How to use gql with a Map inside User Defined Function](https://hypi.dev/t/how-to-use-gql-with-a-map-inside-user-defined-function/41)
+* [How to implement User Defined Functions using upsert API](https://hypi.dev/t/how-to-implement-user-defined-functions-using-upsert-api/55)
+* [How to implement User Defined Functions using find API](https://hypi.dev/t/how-to-implement-user-defined-functions-using-find-api/54)
+* [How to implement User Defined Functions using get API](https://hypi.dev/t/how-to-implement-user-defined-functions-using-get-api/53)
+* [How to implement User Defined Functions using trash API](https://hypi.dev/t/how-to-implement-user-defined-functions-using-trash-api/52)
+* [How to implement User Defined Functions using untrash API](https://hypi.dev/t/how-to-implement-user-defined-functions-using-untrash-api/51)
+* [How to implement User Defined Functions using delete API](https://hypi.dev/t/how-to-implement-user-defined-functions-using-delete-api/50)
+* [How to delete Scalar Array values with User Defined Function](https://hypi.dev/t/how-to-delete-scalar-array-values-with-user-defined-function/45)
+* [How to create a reference with User Defined Function](https://hypi.dev/t/how-to-create-a-reference-with-user-defined-function/44)
+* [How to remove a reference with User Defined Function](https://hypi.dev/t/how-to-remove-a-reference-with-user-defined-function/43)
+* [How to implement User Defined Function using createAccount API](https://hypi.dev/t/how-to-implement-user-defined-function-using-createaccount-api/49)
+* [How to implement User Defined Function using login API](https://hypi.dev/t/how-to-implement-user-defined-function-using-login-api/48)
+* [How to parse JSON value using User Defined Function](https://hypi.dev/t/how-to-parse-json-value-using-user-defined-function/47)
+* [How to parse XML using User Defined Function](https://hypi.dev/t/how-to-parse-xml-using-user-defined-function/46)
+* [‘Friend Requests’ use-case with User-Defined Functions of Hypi](https://hypi.dev/t/friend-requests-use-case-with-user-defined-functions-of-hypi/141)
+
+:::

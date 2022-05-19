@@ -264,3 +264,10 @@ mutation{
 </Tabs>
 
 You may cross-check the response in the `HttpBinResponse2` object by using the `find` function.
+
+:::note Read More...
+
+* [How to configure an HTTP request using Hypi directive (@http)](https://hypi.dev/t/how-to-configure-an-http-request-using-hypi-directive-http/60)
+* [How to configure an HTTP request using requestTemplate parameter](https://hypi.dev/t/how-to-configure-an-http-request-using-requesttemplate-parameter/59)
+
+:::

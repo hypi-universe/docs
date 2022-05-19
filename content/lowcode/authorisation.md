@@ -258,3 +258,13 @@ mutation {
 Delete the Access Rights granted to other users one by one. Don't remove all the Access Rights using wildcard (*).
 
 :::
+
+:::note Read More...
+
+* [How to create Resource Based Permissions](https://hypi.dev/t/how-to-create-resource-based-permissions/223)
+* [How to create Scope Based Permissions](https://hypi.dev/t/how-to-create-scope-based-permissions/226)
+* [How to provide Access Rights to different users](https://hypi.dev/t/how-to-provide-access-rights-to-different-users/235)
+* [How to provide access rights to different users (Part 2)](https://hypi.dev/t/how-to-provide-access-rights-to-different-users-part-2/237)
+* [How to grant access rights to a Room for exchange of Messages among Users](https://hypi.dev/t/how-to-grant-access-rights-to-a-room-for-exchange-of-messages-among-users/246)
+
+:::
