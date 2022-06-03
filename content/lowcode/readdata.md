@@ -204,6 +204,11 @@ Suppose the `book` object has the following records. The `after` parameter has t
 | Sapiens                          | 3           |
 | Hamlet                           | 4           |
 | Merchant of Venice               | 4           |
+:::note
+
+`page` parameter doesn't work with the `before` parameter.
+
+:::
 
  Let's retrieve `page` **3** after the alchemist record. Here is the query.
  
@@ -261,9 +266,11 @@ Suppose the `book` object has the following records. The `after` parameter has t
 
 If the `after` parameter has not been specified, the pagination begins from the first record.
 
-:::note
+:::note Read More...
 
-`page` parameter doesn't work with the `before` parameter.
+*  [How to read data from a single record](https://hypi.dev/t/how-to-read-data-from-a-single-record/112)
+*  [How to read data from multiple records/objects](https://hypi.dev/t/how-to-read-data-from-multiple-records-objects/111)
+*  [How to retrieve records using pagination](https://hypi.dev/t/how-to-retrieve-records-using-pagination/244)
+*  [Find data using lowcode ArcQL filters with Hypi](https://hypi.dev/t/find-data-using-lowcode-arcql-filters-with-hypi/287)
 
 :::
-

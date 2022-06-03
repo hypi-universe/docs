@@ -192,32 +192,23 @@ You need to create the URL to download a file. Copy the `path` from File object 
 
 :::
 
-In this example, we provide an authorisation token. This is because files are private to the account which created it by default. To give access to other users or allow anonymous download, a permission must be created with appropriate policies.
+In the above example, we provide an authorisation token. This is because file resource is private to the account which created it by default. To give access to other users or allow anonymous download, an access grant must be created for the `File` resource.
 
-For example, to give the anonymous users access (no token required), use an `AccountPolicy` to grant the `anonymous` user account read access.
+To give the anonymous users access (no token required), create an [AccessRight](authorisation.md#accessright) as follows.
 
 ```java
 mutation {
   upsert(
     values: {
-      Permission: [
+      AccessRight: [
         {
-          name: "Grant access to anonymous user"
-          decisionStrategy: Unanimous
-          type: "File"
           resource: "01F35ZCSYBHTQ4JBWZ1KFXTDZR"
-          scopes: ["*"]
-          operationType: Query
-          operations: ["find"]
-          #includeAllAccounts: true, #wildcard so all accounts can access
-          policies: [
-            {
-              hypi: { impl: "AccountPolicy" }
-              name: "Grant user anonymous access to my file"
-              logic: Positive
-              accounts: [{ hypi: { id: "anonymous" } }]
-            }
-          ]
+          resourceType: "File"
+          operationType: "Query"
+          operation: "*"
+          permissionType: RBP
+          approved: true
+          members: { hypi: { id: "anonymous" } }
         }
       ]
     }
@@ -227,9 +218,9 @@ mutation {
 }
 ```
    
-Note:  `resource` field has the hypi id of the file uploaded.
+Note:  `resource` field has the `hypi.id` of the file uploaded. To grant access to specific users, provide `hypi.id` s of the user Accounts in the `members` field. 
     
-In this example, we explicitly give anonymous users access to the file uploaded. This could also have been done by giving access to_all_accounts in the app instance by setting `includeAllAccounts` to true.
+In this example, we explicitly give anonymous users access to the file uploaded. 
 
 :::tip IMPORTANT
 
@@ -246,3 +237,13 @@ Now you can download the file without the hassle of providing authorization toke
 ```
 curl -v https://api.hypi.app/file/01F322XSV13R9VAGJXW351PVBT-01F35ZCSYBHTQ4JBWZ1KFXTDZR.png --output file.png
 ```
+
+:::note Read More...
+
+* [How to upload files to Hypi’s low code backend](https://hypi.dev/t/how-to-upload-files-to-hypis-low-code-backend/37)
+* [How to download stored files](https://hypi.dev/t/how-to-download-stored-files/36)
+* [Profile Image upload using Hypi](https://hypi.dev/t/profile-image-upload-using-hypi/140)
+* [Using OpenWhisk Web action and Hypi’s File Upload APIs, manage QR code images](https://hypi.dev/t/using-openwhisk-web-action-and-hypi-s-file-upload-apis-manage-qr-code-images/124)
+* [How to give access to anonymous users to download files](https://hypi.dev/t/how-to-give-access-to-anonymous-users-to-download-files/35)
+
+:::

@@ -93,3 +93,10 @@ If you don’t provide the id, a new object would be created. It may also result
 + There is a limit of 25 records per request.
 
 + There is a request timeout of 2 seconds. The entire operation must complete within this timeframe.
+
+
+:::note Read More...
+
+* [How to update data saved in an object](https://hypi.dev/t/how-to-update-data-saved-in-an-object/113)
+
+:::

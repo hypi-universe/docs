@@ -100,3 +100,11 @@ import TabItem from '@theme/TabItem';
 </Tabs>
 
 For each object i.e. author, an id gets attached automatically. In the above example, we have passed hard-coded data in the form of a query variable. While passing on the data from User Interface, you may pass the data in the form of JSON. Just add JSON data into the variable ‘values’.
+
+
+
+:::note Read More...
+
+* [How to store / save data in an instance](https://hypi.dev/t/how-to-store-save-data-in-an-instance/115)
+
+:::

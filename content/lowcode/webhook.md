@@ -153,3 +153,12 @@ Once a Webhook is created, it can be called by making an HTTP request to:
 where `{domain}` is the instance domain for your app and `{webhook name}` is the name of the webhook to be executed. In the example on this page, the name is `wh1`.
 
 **Ex:**  [https://api.hypi.app/webhook/incineration.apps.hypi.app/wh1](#)
+
+:::note Read More...
+
+* [How to handle events using Hypi’s Webhooks](https://hypi.dev/t/how-to-configure-an-http-request-using-hypi-directive-http/60)
+* [How to configure an HTTP request using requestTemplate parameter](https://hypi.dev/t/how-to-configure-an-http-request-using-requesttemplate-parameter/59)
+* [A lowcode way to handle Twitter feed events with Zapier and Hypi](https://hypi.dev/t/a-lowcode-way-to-handle-twitter-feed-events-with-zapier-and-hypi/136)
+* [Sync Google Sheet and your API’s data with Zapier and Hypi webhooks](https://hypi.dev/t/sync-google-sheet-and-your-apis-data-with-zapier-and-hypi-webhooks/134)
+
+:::

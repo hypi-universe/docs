@@ -57,3 +57,9 @@ curl -v 'https://api.hypi.app/graphql' -H 'Content-Type: application/json' -H 'A
 + [https://api.hypi.app/rest](#) - allows you to use standard REST-like requests to execute queries against your instance. Check out RESTful APIs [here](rest-apis.md).
 
 + [wss://api.hypi.app](#) - allows you to subscribe to updates via WebSockets. Establishing a WebSocket connection provides a persistent connection between client and server and facilitates message passing between them.
+
+:::note Read More...
+
+*  [API Set up to connect with Hypi’s low code platform](https://hypi.dev/t/api-set-up-to-connect-with-hypis-low-code-platform/270)
+
+:::

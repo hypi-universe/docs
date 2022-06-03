@@ -388,6 +388,12 @@ mutation {
 </TabItem>
 </Tabs>
 
+:::note
+
+ While forming regex pattern, `\` must be defined as `\\`.
+ 
+:::
+
 ### @email
 
 This directive checks if the field's value is a valid email address.
@@ -790,3 +796,23 @@ OR
 ### @specifiedBy
 
 Hypi does not support this directive at the moment.
+
+:::note Read More...
+
+* [How to check string length using Hypi Directive(@length)](https://hypi.dev/t/how-to-check-string-length-using-hypi-directive-length/76)
+* [How to check null string using Hypi Directive(@notEmpty)](https://hypi.dev/t/how-to-check-null-string-using-hypi-directive-notempty/74)
+* [How to insert only unique values to a field using Hypi Directive(@unique)](https://hypi.dev/t/how-to-insert-only-unique-values-to-a-field-using-hypi-directive-unique/73)
+* [How to check past and future dates using Hypi Directives](https://hypi.dev/t/how-to-check-past-and-future-dates-using-hypi-directives/72)
+* [How to define pattern for a string using the @pattern directive](https://hypi.dev/t/how-to-define-pattern-for-a-string-using-the-pattern-directive/65)
+* [How to check valid email address using @email directive](https://hypi.dev/t/how-to-check-valid-email-address-using-email-directive/71)
+* [How to use @computed directive to calculate values](https://hypi.dev/t/how-to-use-computed-directive-to-calculate-values/64)
+* [How does @noinput directive work?](https://hypi.dev/t/how-does-noinput-directive-work/69)
+* [How does @noagg directive work?](https://hypi.dev/t/how-does-noagg-directive-work/68)
+* [How does @nomath directive work?](https://hypi.dev/t/how-does-nomath-directive-work/67)
+* [How does @notable directive work?](https://hypi.dev/t/how-does-notable-directive-work/66)
+* [How does @indices directive work?](https://hypi.dev/t/how-does-indices-directive-work/61)
+* [How to mark fields as deprecated using @deprecated directive](https://hypi.dev/t/how-to-mark-fields-as-deprecated-using-deprecated-directive/70)
+* [How to allow conditional exclusion using @skip directive](https://hypi.dev/t/how-to-allow-conditional-exclusion-using-skip-directive/63)
+* [How to allow conditional inclusion using @include directive](https://hypi.dev/t/how-to-allow-conditional-inclusion-using-include-directive/62)
+
+:::

@@ -282,3 +282,14 @@ mutation{
 
 </TabItem>
 </Tabs>
+
+:::note Read More...
+
+*  [How to put unwanted data in the trash](https://hypi.dev/t/how-to-put-unwanted-data-in-the-trash/110)
+*  [How to restore the data marked as trash](https://hypi.dev/t/how-to-restore-the-data-marked-as-trash/109)
+*  [How to hide or unhide trashed object from the find query result](https://hypi.dev/t/how-to-hide-or-unhide-trashed-object-from-the-find-query-result/108)
+*  [How to delete unwanted data permanently](https://hypi.dev/t/how-to-delete-unwanted-data-permanently/107)
+*  [How to delete the objects with references](https://hypi.dev/t/how-to-delete-the-objects-with-references/105)
+*  [How to delete the data from scalar arrays](https://hypi.dev/t/how-to-delete-the-data-from-scalar-arrays/104)
+ 
+:::

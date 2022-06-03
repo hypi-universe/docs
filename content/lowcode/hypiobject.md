@@ -66,3 +66,9 @@ A field like ‘id’ may get generated automatically. But you may set it as wel
 ### impl
 
 `impl:`  => An app may consist of various interfaces. The ‘impl’ field stores value of the name of the implementation of an interface. Let’s say you have social media interfaces like Instagram, Twitter, Facebook. The ‘impl’ field should be set to “Twitter” to use the ‘Twitter’ interface. Hypi cannot automatically decide the implementation of an interface on which you intend to perform a mutation. If you do not provide the ‘impl’ value, the mutation will fail.
+
+:::note Read More...
+
+* [How does the Hypi object work?](https://hypi.dev/t/how-does-the-hypi-object-work/116)
+
+:::

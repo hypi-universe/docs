@@ -284,3 +284,10 @@ mutation {
 
 </TabItem>
 </Tabs>
+
+:::note Read More...
+
+* [How to create a trigger and before/after functions](https://hypi.dev/t/how-to-create-a-trigger-and-before-after-functions/40)
+* [How to execute serverless function inside `after` function](https://hypi.dev/t/how-to-execute-serverless-function-inside-after-function/38)
+
+:::

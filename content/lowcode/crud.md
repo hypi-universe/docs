@@ -48,3 +48,9 @@ Data type `Book` holds the information of a book like a title, publication, etc.
 + [Read](readdata.md)
 
 + [Delete](deletedata.md)
+
+:::note Read More...
+
+* [CRUD operations with Hypi’s low code APIs](https://hypi.dev/t/crud-operations-with-hypi-s-low-code-apis/279)
+
+:::
