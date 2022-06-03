@@ -85,3 +85,9 @@ Hypi CRUD APIs do not support [Unions](http://spec.graphql.org/draft/#sec-Unions
 
 :::
 
+:::note Read More...
+
+*  [Using Scalars on Hypi’s low code platform](https://hypi.dev/t/using-scalars-on-hypis-low-code-platform/266)
+
+:::
+

@@ -388,6 +388,12 @@ mutation {
 </TabItem>
 </Tabs>
 
+:::note
+
+ While forming regex pattern, `\` must be defined as `\\`.
+ 
+:::
+
 ### @email
 
 This directive checks if the field's value is a valid email address.

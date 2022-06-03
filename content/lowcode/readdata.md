@@ -271,5 +271,6 @@ If the `after` parameter has not been specified, the pagination begins from the 
 *  [How to read data from a single record](https://hypi.dev/t/how-to-read-data-from-a-single-record/112)
 *  [How to read data from multiple records/objects](https://hypi.dev/t/how-to-read-data-from-multiple-records-objects/111)
 *  [How to retrieve records using pagination](https://hypi.dev/t/how-to-retrieve-records-using-pagination/244)
+*  [Find data using lowcode ArcQL filters with Hypi](https://hypi.dev/t/find-data-using-lowcode-arcql-filters-with-hypi/287)
 
 :::

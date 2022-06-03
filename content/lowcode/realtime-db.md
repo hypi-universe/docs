@@ -99,5 +99,6 @@ Please note that if you insert data in the `age` field of Author1, the insertion
 :::note Read More...
 
 * [How to monitor the database operation in real-time using a Subscription](https://hypi.dev/t/how-to-monitor-the-database-operation-in-real-time-using-a-subscription/242)
+* [Introduction to Real-time Database queries using Hypi’s low code API](https://hypi.dev/t/introduction-to-real-time-database-queries-using-hypis-low-code-api/284)
 
 :::

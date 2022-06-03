@@ -402,5 +402,6 @@ Using link and unlink function you may add or remove objects from the array of o
 * [How to create a link between two objects using the link function](https://hypi.dev/t/how-to-create-a-link-between-two-objects-using-the-link-function/103)
 * [How to create a link between two objects by using `hypi.id`](https://hypi.dev/t/how-to-create-a-link-between-two-objects-by-using-hypi-id/114)
 * [How to remove a link between two objects using the unlink function](https://hypi.dev/t/how-to-remove-a-link-between-two-objects-using-the-unlink-function/102)
+* [Working with one to one and one to many relationships in Hypi’s low-code platform](https://hypi.dev/t/working-with-one-to-one-and-one-to-many-relationships-in-hypi-s-low-code-platform/282)
 
 :::

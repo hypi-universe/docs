@@ -269,5 +269,7 @@ You may cross-check the response in the `HttpBinResponse2` object by using the `
 
 * [How to configure an HTTP request using Hypi directive (@http)](https://hypi.dev/t/how-to-configure-an-http-request-using-hypi-directive-http/60)
 * [How to configure an HTTP request using requestTemplate parameter](https://hypi.dev/t/how-to-configure-an-http-request-using-requesttemplate-parameter/59)
+* [Web Push Notifications using API Gateway of Hypi](https://hypi.dev/t/web-push-notifications-using-api-gateway-of-hypi/272)
+* [Firebase Web Push notifications using API gateway of Hypi](https://hypi.dev/t/firebase-web-push-notifications-using-api-gateway-of-hypi/275)
 
 :::
