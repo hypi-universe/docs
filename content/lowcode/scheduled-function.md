@@ -338,6 +338,7 @@ Let's check the `ScheduledFunction` data type for the status of execution of the
   }
 }
 ```
+
 </TabItem>
 </Tabs>
 
