@@ -92,7 +92,7 @@ import TabItem from '@theme/TabItem';
   ]}>
 <TabItem value="query">
 
-```java
+```
 mutation {
   upsert(
     values: {
@@ -118,7 +118,7 @@ mutation {
 
 <TabItem value="response">
 
-```json`
+```json
 {
   "data": {
     "upsert": [
@@ -191,7 +191,7 @@ Let's check if the `Pair` object got created to check the execution of the `test
 
 Define the below function in the schema editor. It finds `title` and `price` from `Book` objects and saves a record in the `Counter` object.
 
-```java
+```
 type Mutation {
 testSchedule1(id: String, arcql: String, type: String!): Json @tan(type: Groovy, inline: """   
     def matches = gql(\""" {
