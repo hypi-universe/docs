@@ -80,8 +80,10 @@ Use `upsert` to schedule the function.
 
 We are going to execute it every minute. So, `interval` is `MINUTE` and `intervalFrequency` is `1` as . It creates an object `p1` with key-value pair.  Remember to put `start` time in UTC format as it is a required field.
 
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+
 
 <Tabs
   defaultValue="query"
@@ -134,6 +136,7 @@ mutation {
 </TabItem>
 </Tabs>
 
+
 So, our scheduled function got registered to run!
 
 Let's check if the `Pair` object got created to check the execution of the `testSchedule` function.
@@ -145,6 +148,7 @@ Let's check if the `Pair` object got created to check the execution of the `test
     {label: 'Response', value: 'response'},
   ]}>
 <TabItem value="query">
+
 
 ```
 {
@@ -160,7 +164,6 @@ Let's check if the `Pair` object got created to check the execution of the `test
     }
   }
 }
-
 ```
 
 </TabItem>
@@ -188,12 +191,13 @@ Let's check if the `Pair` object got created to check the execution of the `test
 </TabItem>
 </Tabs>
 
+
 ##  Example 2
 
 Define the below function in the schema editor. It finds `title` and `price` from `Book` objects and saves a record in the `Counter` object.
 
 ```java
-type Mutation {
+type Mutation {
 testSchedule1(id: String, arcql: String, type: String!): Json @tan(type: Groovy, inline: """   
     def matches = gql(\""" {
         find(type: Book, arcql: "$arcql") {
@@ -229,6 +233,7 @@ Use `upsert` to schedule the function.
 
 We are going to execute it every two hours. So, `interval` is `HOUR` and `intervalFrequency` is `2` . It creates an object `Book1` of the `Counter` data type by processing the `arcql` filter on the `Book` data type.
 
+
 <Tabs
   defaultValue="query"
   values={[
@@ -236,6 +241,7 @@ We are going to execute it every two hours. So, `interval` is `HOUR` and `interv
     {label: 'Response', value: 'response'},
   ]}>
 <TabItem value="query">
+
 
 ```java
 mutation {
@@ -264,6 +270,7 @@ mutation {
 
 <TabItem value="response">
 
+
 ```json
 {
   "data": {
@@ -279,7 +286,9 @@ mutation {
 </TabItem>
 </Tabs>
 
+
 Let's check the `ScheduledFunction` data type for the status of execution of the function.
+
 
 <Tabs
   defaultValue="query"
@@ -288,6 +297,7 @@ Let's check the `ScheduledFunction` data type for the status of execution of the
     {label: 'Response', value: 'response'},
   ]}>
 <TabItem value="query">
+
 
 ```java
 {
@@ -315,6 +325,7 @@ Let's check the `ScheduledFunction` data type for the status of execution of the
 
 <TabItem value="response">
 
+
 ```json
 {
   "data": {
@@ -341,6 +352,7 @@ Let's check the `ScheduledFunction` data type for the status of execution of the
 
 </TabItem>
 </Tabs>
+
 
 And the `Book1` object got created!
 
