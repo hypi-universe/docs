@@ -84,7 +84,6 @@ We are going to execute it every minute. So, `interval` is `MINUTE` and `interva
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
 <Tabs
   defaultValue="query"
   values={[
@@ -92,7 +91,6 @@ import TabItem from '@theme/TabItem';
     {label: 'Response', value: 'response'},
   ]}>
 <TabItem value="query">
-
 
 ```java
 mutation {
@@ -120,7 +118,6 @@ mutation {
 
 <TabItem value="response">
 
-
 ```json`
 {
   "data": {
@@ -136,7 +133,6 @@ mutation {
 </TabItem>
 </Tabs>
 
-
 So, our scheduled function got registered to run!
 
 Let's check if the `Pair` object got created to check the execution of the `testSchedule` function.
@@ -148,7 +144,6 @@ Let's check if the `Pair` object got created to check the execution of the `test
     {label: 'Response', value: 'response'},
   ]}>
 <TabItem value="query">
-
 
 ```
 {
@@ -242,7 +237,6 @@ We are going to execute it every two hours. So, `interval` is `HOUR` and `interv
   ]}>
 <TabItem value="query">
 
-
 ```java
 mutation {
   upsert(
@@ -270,7 +264,6 @@ mutation {
 
 <TabItem value="response">
 
-
 ```json
 {
   "data": {
@@ -289,7 +282,6 @@ mutation {
 
 Let's check the `ScheduledFunction` data type for the status of execution of the function.
 
-
 <Tabs
   defaultValue="query"
   values={[
@@ -297,7 +289,6 @@ Let's check the `ScheduledFunction` data type for the status of execution of the
     {label: 'Response', value: 'response'},
   ]}>
 <TabItem value="query">
-
 
 ```java
 {
@@ -324,7 +315,6 @@ Let's check the `ScheduledFunction` data type for the status of execution of the
 </TabItem>
 
 <TabItem value="response">
-
 
 ```json
 {
