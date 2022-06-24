@@ -21,28 +21,6 @@ In this example, we will use the apollo client as the graphql client. Add the fo
 ```     
 Let's start using Hypi CLI now.
 
-### Config
-
-If you're an on-premise customer, you can use the `hypi config` option to set the hostname of your installation. Configure your domain using following command.
-```
-USAGE
-  $ hypi config [API_DOMAIN]
-
-OPTIONS
-  -a, --api_domain=api_domain
-  -h, --help                   show CLI help
-
-EXAMPLES
-  $ hypi config https://api.my-onpremise-domain.com
-  $ hypi config -a=https://api.my-onpremise-domain.com
-  $ hypi config --api_domain=https://api.my-onpremise-domain.com
-```
-Go to your Angular project folder on the command line and run `hypi config` to set configuration.
-```
->hypi config https://api.hypi.app
-Done, Please make sure to login again, hypi login and do int and sync your schema
-```
-
 ### Login
 
 On the command line, go to your Angular application folder. Login to your Hypi account using [hypi login](hypi-cli-intro.md#hypi-login) command. After successful login, the user config file will be placed in `~/.config/hypi/config.json` . In case of Windows, the file will be created in `\Users\user\AppData\Local`
@@ -50,10 +28,11 @@ On the command line, go to your Angular application folder. Login to your Hypi a
 Here, are the contents of the file. It makes the connection between Hypi and Angular app.
 ```
 {
-  "domain": "latest.store.hypi.01f2ga50p2mzkmyqse17gd2bae.hypi.app",
+  "api_domain": "https://api.hypi.app",
+  "fn_domain": "https://fn.hypi.app",
+  "sessionExpires": 1657276287,
   "sessionToken": "Auth-Token",
-  "sessionExpires": 1626580838,
-  "api_domain": "https://api.hypi.app"
+  "domain": "professionally.apps.hypi.app"
 }
 ```
 

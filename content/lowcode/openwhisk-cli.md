@@ -16,46 +16,20 @@ You can configure OpenWhisk using Hypi CLI or [OpenWhisk CLI](#Install-OpenWhisk
 ###  Hypi CLI for OpenWhisk
 
 You can configure OpenWhisk with Hypi CLI. Install Hypi CLI using [this guide](https://docs.hypi.app/docs/lowcode/hypi-cli-intro#install-hypi-cli) for installation. 
+Configure the serverless function domain using Hypi CLI.
 
-Configure Hypi CLI using the `hypi config` command.
-
-```
-USAGE
-  $ hypi config [API_DOMAIN] [FN_DOMAIN]
-
-OPTIONS
-  -a, --api_domain=api_domain
-  -f, --fn_domain=fn_domain
-  -h, --help                   show CLI help
-
-EXAMPLES
-  $ hypi config https://api.my-onpremise-domain.com
-  $ hypi config https://fn.your.domain
-  $ hypi config https://api.my-onpremise-domain.com https://fn.your.domain
-  $ hypi config -a=https://api.my-onpremise-domain.com
-  $ hypi config -f=https://fn.your.domain
-  $ hypi config -a=https://api.my-onpremise-domain.com -f=https://fn.your.domain
-  $ hypi config --api_domain=https://api.my-onpremise-domain.com
-  $ hypi config --fn_domain=https://fn.your.domain
-  $ hypi config --api_domain=https://api.my-onpremise-domain.com --fn_domain=https://fn.your.domain
-  
-```
-
-Go to your project folder command line and run `hypi config` to set configuration. `-a` represents the API hostname. `-f` represents the serverless function domain.
-
-```
-hypi config -a=https://api.staging.hypi.dev -f=https://fn.hypi.app
-Done, Please make sure to login again, hypi login and do init and sync your schema
-```
-
-Now, [Login](hypi-cli-intro.md#hypi-login) to Hypi App Instance.
+[Login](hypi-cli-intro.md#hypi-login) to Hypi App Instance. Enter the API hostname and the serverless function domain.
 
 ```
 hypi login -d
+? Please enter API domain, default  (https://api.hypi.app) : https://api.hypi.app
+? Please enter Fn domain, default  (https://fn.hypi.app) : https://fn.hypi.app
 Enter domain and token
 ? Domain?  professionally.apps.hypi.app
 ? Token?  <Auth-Token>
 Logged in successfully
+ok: whisk auth set. Run 'wsk property get --auth' to see the new value.
+ok: whisk API host set to 'https://fn.hypi.app'
 ```
 
 Run `hypi wsk configure` command to configure OpenWhisk.
