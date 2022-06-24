@@ -146,7 +146,11 @@ COMMANDS
 ## Hypi Login
 
 Login to the Hypi domain using the `login` command. You may login to your Hypi account using your own `email` and `password` or `domain` and `token`.
-```
+
+Also, configure the domains of your installation with the `login`command. 
+Enter the API hostname and the serverless function domain.
+ 
+ ```
     USAGE
       $ hypi login
     
@@ -158,25 +162,36 @@ Login to the Hypi domain using the `login` command. You may login to your Hypi a
       $ hypi login
       $ hypi login -d
       $ hypi login --domain
+      
+      $ API domain =>  https://api.my-onpremise-domain.com
+      $ Fn domain => https://fn.your.domain  
 ```
 Let's login using email and password.
 ```
 hypi login
 ```
 ```
+? Please enter API domain, default  (https://api.hypi.app) : https://api.hypi.app
+? Please enter Fn domain, default  (https://fn.hypi.app) : https://fn.hypi.app
 Enter your email and password
-? Email? hypi-dev@gmail.com
-? Password? [hidden]
+? Email?  asa@hypi.io
+? Password?  [hidden]
 Logged in successfully
+ok: whisk auth set. Run 'wsk property get --auth' to see the new value.
+ok: whisk API host set to 'https://fn.hypi.app'
 ```
 Or you may enter with `Organization Namespace` and `Authorization Token` given on the below link.
 
-[https://hypi.app/developer-hub](https://hypi.app/developer-hub)
+https://console.hypi.app/developer-hub
 
 ```
 hypi login -d
+? Please enter API domain, default  (https://api.hypi.app) : https://api.hypi.app
+? Please enter Fn domain, default  (https://fn.hypi.app) : https://fn.hypi.app
 Enter domain and token
-? Domain?  latest.store.hypi.01f2ga50p2mzkmyqse17gd2bae.hypi.app
+? Domain?  professionally.apps.hypi.app
 ? Token?  <Auth-Token>
 Logged in successfully
+ok: whisk auth set. Run 'wsk property get --auth' to see the new value.
+ok: whisk API host set to 'https://fn.hypi.app'
 ```
