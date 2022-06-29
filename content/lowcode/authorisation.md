@@ -61,25 +61,30 @@ type AccessRight {
   endDate: DateTime
   permissionType: AccessRightType!
   approved: Boolean
+  membersSourceType: String
+  membersSourceField: String
   members: [Account!]
 }
 ```
 
 Let's check the parameters.
 
-| Parameter           | Type            | Description                                                                                                                                                                          |
-|---------------------|-----------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **members**         | Account         | The `hypi.id` of the Accounts to grant access rights to                                                                                                                              |
-| **approved**        | Bool            | Set `true` to grant the access. Set `false` to deny the access                                                                                                                       |
-| **permissionType**  | AccessRightType | Set to RBP for resource based permission                                        SBP for scope based permission                                                                       |
-| **startDate**       | String          | Start date for access rights grant (Optional)                                                                                                                                        |
-| **endDate**         | DateTime        | End date for access rights grant (Optional)                                                                                                                                          |
-| **operationType**   | OpType          | Query, Mutation, or Subscription                                                                                                                                                     |
-| **operation**       | String          | Operation or method associated with operationType e.g. `find` or `get` for Query type and  `upsert`, `delete` for Mutation type                                                      |
-| **resourceType**    | String          | The type of an object that the access right gets applied to. This field is required only if permissionType is RBP.                                                                   |
-| **resource**        | String          | The `hypi.id` of the resource to provide the grant. This field is required only if permissionType is RBP.                                                                            |
-| **fields**          | String          | Specify the field of a resourceType to grant access only to the field data of the object. (**To be implemented)                                                                      |
-| **resourceOwnerId** | String          | If the user or system admin granting an access right to a resource is not the owner of the resource, then this field is required. Set it to `hypi.id` of the resource owner Account. |
+| Parameter              | Type            | Description                                                                                                                                                                          |
+|------------------------|-----------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **members**            | Account         | The `hypi.id` of the Accounts to grant access rights to. This is an array with `hypi.id`s  of the Accounts.                                                                          |
+| **membersSourceType**  | String          | If specified, this data type holds the list of members that the access right applies to.                                                                                             |
+| **membersSourceField** | String          | A field in the `membersSourceType` data type. The field consists of an array of Account objects that this AccessRight applies to.                                                    |
+| **membersSourceId**    | String          | The `hypi.id` of the object of `membersSourceType`. The object has the list of Accounts to grant access rights to.                                                                   |
+| **approved**           | Bool            | Set `true` to grant the access. Set `false` to deny the access                                                                                                                       |
+| **permissionType**     | AccessRightType | Set to RBP for resource based permission                                        SBP for scope based permission                                                                       |
+| **startDate**          | String          | Start date for access rights grant (Optional)                                                                                                                                        |
+| **endDate**            | DateTime        | End date for access rights grant (Optional)                                                                                                                                          |
+| **operationType**      | OpType          | Query, Mutation, or Subscription                                                                                                                                                     |
+| **operation**          | String          | Operation or method associated with operationType e.g. `find` or `get` for Query type and  `upsert`, `delete` for Mutation type                                                      |
+| **resourceType**       | String          | The type of an object that the access right gets applied to. This field is required only if permissionType is RBP.                                                                   |
+| **resource**           | String          | The `hypi.id` of the resource to provide the grant. This field is required only if permissionType is RBP.                                                                            |
+| **fields**             | String          | Specify the field of a resourceType to grant access only to the field data of the object. (**To be implemented)                                                                      |
+| **resourceOwnerId**    | String          | If the user or system admin granting an access right to a resource is not the owner of the resource, then this field is required. Set it to `hypi.id` of the resource owner Account. |
 
 :::note
 
@@ -216,6 +221,131 @@ mutation {
 Only a system admin can create scope based permissions. By default, the user that created the Hypi instance is the only system admin.
 
 :::
+
+###  Add members using `membersSourceId`
+
+Instead of using the `members` field, you can add members to the `AccessRight` object using `membersSourceId`. 
+
++ Create a new data type (with any name) and add any field with the [Account!] type. The data type could be an already existing one.
+```
+type Team {
+  # ... other fields
+  colleagues: [Account!]
+  # ... other fields
+}
+```
++ Add members to the `Team` type using `upsert`.  `membersSourceId` is the `hypi.id` of the created `Team` object.
+
+<Tabs
+  defaultValue="query"
+  values={[
+    {label: 'GraphQL Query', value: 'query'},
+    {label: 'Response', value: 'response'},
+  ]}>
+<TabItem value="query">
+
+```
+mutation {
+  upsert(
+    values: {
+      Team: [
+        {
+          colleagues: [
+            { hypi: { id: "01G6QCNETWAZ33X6877ZW81MFC" } }
+            { hypi: { id: "01G6QCP8D2E2XJMBD4CVQJ3CQ3" } }
+          ]
+        }
+      ]
+    }
+  ) {
+    id
+  }
+}
+```
+
+</TabItem>
+<TabItem value="response">
+
+```
+{
+  "data": {
+    "upsert": [
+      {
+        "id": "01G6QD0ZKSZXPX31W0XT1JG1EJ"
+      }
+    ]
+  }
+}
+```
+
+</TabItem>
+</Tabs>
+
++ Create an access right using `membersSourceId`, `membersSourceType`, and `membersSourceField`. 
+
+``` 
+mutation {
+  upsert(
+    values: {
+      AccessRight: [
+        {
+          resource: "01G6QD42MPA3HDQG5H866W64PQ"
+          resourceType: "Book"
+          operationType: "Query"
+          operation: "get"
+          permissionType: RBP
+          approved: true
+          membersSourceType: "Team",
+          membersSourceField: "colleagues"
+          membersSourceId: "01G6QD0ZKSZXPX31W0XT1JG1EJ"
+        }
+      ]
+    }
+  ) {
+    id
+  }
+}
+```
+
+An access right will be automatically granted to `membersSourceField` Account members. If you add a new member to this field, the member account will also get instantaneous access to the resource.
+
++ To add new `colleagues` to the `Tam`, you can link the `membersSourceType` with member Accounts using the `link` function. 
+
+<Tabs
+  defaultValue="query"
+  values={[
+    {label: 'GraphQL Query', value: 'query'},
+    {label: 'Response', value: 'response'},
+  ]}>
+<TabItem value="query">
+
+```
+mutation {
+  link(
+    from: Team
+    to: Account
+    via: "colleagues"
+    whereFromID: "01G6QD0ZKSZXPX31W0XT1JG1EJ"
+    andToID: "01G6QCP8D2E2XJMBD4CVQJ3CQ3"
+  )
+}
+```
+
+</TabItem>
+<TabItem value="response">
+
+```
+{
+  "data": {
+    "link": true
+  }
+}
+```
+
+</TabItem>
+</Tabs>
+
+Please note that for the above option to work properly, the user performing the Mutation.link should be the system admin or member of an AccessRight allowing him to link to the other account.
 
 ###  Check Access Rights
 
