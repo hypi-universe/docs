@@ -27,14 +27,14 @@ The input parameters are passed as a JSON object parameter to the `main` functio
 2. Update the action so it is ready to use:
 
 ```
-wsk action update hello hello.js
+hypi wsk action update hello hello.js
 ```
 
 3. Parameters can be provided explicitly on the command-line, or by supplying a file containing the desired parameters
 
 To pass parameters directly through the command-line, supply a key/value pair to the `--param` flag:
 ```
-wsk action invoke --result hello --param name Dorothy --param place Kansas
+hypi wsk action invoke --result hello --param name Dorothy --param place Kansas
 ```
 This produces the result:
 ```json
@@ -53,7 +53,7 @@ Additionally, if parameter values specified on the command-line are valid JSON, 
 ```
 Now the action expects a single `person` parameter to have fields `name` and `place`. If we invoke the action with a single `person` parameter that is valid JSON:
 ```
-wsk action invoke --result hello -p person '{"name": "Dorothy", "place": "Kansas"}'
+hypi wsk action invoke --result hello -p person '{"name": "Dorothy", "place": "Kansas"}'
 ```
 The result is the same because the CLI automatically parses the `person` parameter value into the structured object that the action now expects:
 
@@ -73,11 +73,11 @@ Rather than pass all the parameters to an action every time, you can bind certai
 
 To specify default parameters explicitly on the command-line, provide a key/value pair to the `param` flag:
 ```
-wsk action update hello --param place Kansas
+hypi wsk action update hello --param place Kansas
 ```
 2. Invoke the action, passing only the `name` parameter this time.
 ```
-wsk action invoke --result hello --param name Dorothy
+hypi wsk action invoke --result hello --param name Dorothy
 ```
 ```json
   {
@@ -89,7 +89,7 @@ Notice that you did not need to specify the `place` parameter when you invoked t
 
 3. Invoke the action, passing both `name` and `place` values, and observe the output:
 ```
-wsk action invoke --result hello --param name Dorothy --param place "Washington, DC"
+hypi wsk action invoke --result hello --param name Dorothy --param place "Washington, DC"
 ```
 ```json
   {
@@ -110,7 +110,7 @@ The following example sets a default parameter of `name` on the `MyApp` package 
 
 1. Create a package with a parameter set:
 ```
-wsk package update MyApp --param name World
+hypi wsk package update MyApp --param name World
 ```
 2. Create an action in this package:
 ```
@@ -119,11 +119,11 @@ wsk package update MyApp --param name World
     }
 ```
 ```
-wsk action update MyApp/hello hello.js
+hypi wsk action update MyApp/hello hello.js
 ```
 3. Invoke the action, and observe the default package parameter in use:
 ```
-wsk action invoke --result MyApp/hello
+hypi wsk action invoke --result MyApp/hello
 ```
 ```
     {
@@ -142,7 +142,7 @@ It's also possible to put parameters into a file in JSON format, and then pass t
 ```
 2. Update the action with the updated contents of `hello.js`:
 ```
-wsk action update hello hello.js
+hypi wsk action update hello hello.js
 ```
 3. Create a parameter file called `parameters.json` containing JSON-formatted parameters:
 ```json
@@ -153,7 +153,7 @@ wsk action update hello hello.js
 ```
 4. Use the `parameters.json` filename when invoking the action, and observe the output
 ```
-wsk action invoke --result hello --param-file parameters.json
+hypi wsk action invoke --result hello --param-file parameters.json
 ```
 ```json
   {

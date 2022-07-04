@@ -81,12 +81,12 @@ exports.main = nodeJSHypi;
 +  `args.hypi` has the following variables. You can make use of them.
 
 ```
-hypi: {",
-accountId: '01FVW473F5X84GY9XJ919JDRQW',",
-domain: 'telescoped.apps.hypi.app',",
-env: null,",
-instanceId: '01FVW623W74K3KV3DTAWTRP595',",
-token: 'Auth-Token'",
+hypi: {
+    accountId: '01FVW473F5X84GY9XJ919JDRQW',",
+    domain: 'telescoped.apps.hypi.app',",
+    env: null,",
+    instanceId: '01FVW623W74K3KV3DTAWTRP595',",
+    token: 'Auth-Token'",
 }
 ```
 
@@ -103,7 +103,7 @@ npm i @hypi/hypi-client-nodejs
 
 + Create the action from the zip folder.
 ```
-wsk action create packageAction --kind nodejs:12 action.zip
+hypi wsk action create packageAction --kind nodejs:12 action.zip
 ```       
 Explicitly provide a value for the `--kind` flag by using `nodejs:12`, or `nodejs:10`.
 

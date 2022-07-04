@@ -42,7 +42,7 @@ You can create an OpenWhisk action called `helloSwift` from this function as
 follows:
 
 ```
-wsk action create helloSwift hello.swift
+hypi wsk action create helloSwift hello.swift
 ```
 
 #### Swift 4 Codable type
@@ -80,14 +80,14 @@ You can create a OpenWhisk action called `helloSwift` from this function as
 follows:
 
 ```
-wsk action create helloSwift hello.swift
+hypi wsk action create helloSwift hello.swift
 ```
 See the Swift [reference](#reference) for more information about the Swift runtime.
 
 Action invocation is the same for Swift actions as it is for JavaScript actions:
 
 ```
-wsk action invoke --result helloSwift --param name World
+hypi wsk action invoke --result helloSwift --param name World
 ```
 
 ```json
@@ -118,8 +118,8 @@ The docker container reads from stdin the content of the file, and writes to std
 Use the flag `-compile` with the name of the main method.
 The zip archive is ready for deployment and invocation using the kind `swift:4.2`
 ```bash
-wsk action update helloSwiftly hello.zip --kind swift:4.2
-wsk action invoke helloSwiftly -r -p name World
+hypi wsk action update helloSwiftly hello.zip --kind swift:4.2
+hypi wsk action invoke helloSwiftly -r -p name World
 ```
 
 #### Compiling dependencies and multi-file projects for Swift 4.2
@@ -174,8 +174,8 @@ zip - -r * | docker run -i openwhisk/action-swift-v4.2 -compile main >../action-
 
 The zip `action-bin.zip` archive is ready for deployment and invocation using the kind `swift:4.2`
 ```bash
-wsk action update helloSwiftly action-bin.zip --kind swift:4.2
-wsk action invoke helloSwiftly -r
+hypi wsk action update helloSwiftly action-bin.zip --kind swift:4.2
+hypi wsk action invoke helloSwiftly -r
 ```
 
 ### Error Handling in Swift 4

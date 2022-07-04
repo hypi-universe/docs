@@ -14,7 +14,7 @@ Building custom runtime images is a common solution to the issue of having exter
 The [Apache OpenWhisk CLI](https://github.com/apache/openwhisk-cli) has a `--docker` configuration parameter to set a custom runtime for an action.
 
 ```
-wsk action create <ACTION_NAME> --docker <IMAGE> source.js
+hypi wsk action create <ACTION_NAME> --docker <IMAGE> source.js
 ```
 
 *`<IMAGE>` must be an image name for a public Docker image on [Docker Hub](https://hub.docker.com/search?q=&type=image).*
@@ -22,7 +22,7 @@ wsk action create <ACTION_NAME> --docker <IMAGE> source.js
 The `--docker` flag can also be used without providing additional source or archive files for an action.
 
 ```
-wsk action create <ACTION_NAME> --docker <IMAGE>
+hypi wsk action create <ACTION_NAME> --docker <IMAGE>
 ```
 
 In this scenario, action source code will not be injected into the runtime during cold-start initialisation. The runtime container must handle the platform invocation requests directly.
@@ -107,13 +107,13 @@ const main = () => {
 ```
 
 ```
-wsk action create tfjs --docker <USER_NAME>/action-nodejs-v10:tf-js action.js
+hypi wsk action create tfjs --docker <USER_NAME>/action-nodejs-v10:tf-js action.js
 ```
 
 - Invoking the action should return the TensorFlow.js libraries versions available in the runtime.
 
 ```
-wsk action invoke tfjs --result
+hypi wsk action invoke tfjs --result
 ```
 
 ```
@@ -176,13 +176,13 @@ def main(params):
 ```
 
 ```
-wsk action create ml-libs --docker <USER_NAME>/python3action:ml-libs action.py
+hypi wsk action create ml-libs --docker <USER_NAME>/python3action:ml-libs action.py
 ```
 
 - Invoking the action should return the TensorFlow.js library versions available in the runtime.
 
 ```
-wsk action invoke ml-libs --result
+hypi wsk action invoke ml-libs --result
 ```
 
 ```
@@ -198,8 +198,8 @@ Docker support can also be used to run any executable file (from static binaries
 #### Usage
 
 ```
-wsk action create my-action --native source.sh
-wsk action create my-action --native archive.zip
+hypi wsk action create my-action --native source.sh
+hypi wsk action create my-action --native archive.zip
 ```
 
 Executables can either be text or binary files. Text-based executable files (e.g. shell scripts) are passed directly as the action source files. Binary files (e.g. C programs) must be named `exec` and packaged into a zip archive.
@@ -225,13 +225,13 @@ echo "{ \"message\": \"Hello $NAME! It is $DATE.\" }"
 - Create an action from this shell script.
 
 ```
- wsk action create bash script.sh --native
+ hypi wsk action create bash script.sh --native
 ```
 
 - Invoke the action with the `name` parameter.
 
 ```
-wsk action invoke bash --result --param name James
+hypi wsk action invoke bash --result --param name James
 ```
 
 ```
@@ -281,11 +281,11 @@ zip -r action.zip exec
 - Create an action from the zip file containing the binary.
 
 ```
- wsk action create c-binary action.zip --native
+ hypi wsk action create c-binary action.zip --native
 ```
 - Invoke the action with the `name` parameter.
 ```
-wsk action invoke c-binary --result --param name James
+hypi wsk action invoke c-binary --result --param name James
 ```
 ```
 {

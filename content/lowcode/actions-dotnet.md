@@ -81,7 +81,7 @@ The value for `main` needs to be in the following format:
 To use on a deployment of OpenWhisk that contains the runtime as a kind:
 
 ```bash
-wsk action update helloDotNet helloDotNet.zip --main Apache.OpenWhisk.Example.Dotnet::Apache.OpenWhisk.Example.Dotnet.Hello::Main --kind dotnet:2.2
+hypi wsk action update helloDotNet helloDotNet.zip --main Apache.OpenWhisk.Example.Dotnet::Apache.OpenWhisk.Example.Dotnet.Hello::Main --kind dotnet:2.2
 ```
 
 ### Invoke the .NET Core Action
@@ -89,7 +89,7 @@ wsk action update helloDotNet helloDotNet.zip --main Apache.OpenWhisk.Example.Do
 Action invocation is the same for .NET Core actions as it is for Swift and JavaScript actions:
 
 ```bash
-wsk action invoke --result helloDotNet --param name World
+hypi wsk action invoke --result helloDotNet --param name World
 ```
 
 ```json

@@ -47,7 +47,7 @@ the action with the `wsk` CLI using `--main`, as with any other action type.
 You can create an OpenWhisk action called `helloPHP` from this function as follows:
 
 ```
-wsk action create helloPHP hello.php
+hypi wsk action create helloPHP hello.php
 ```
 
 The CLI automatically infers the type of the action from the source file extension.
@@ -55,7 +55,7 @@ For `.php` source files, the action runs using a PHP 7.4 runtime.
 
 Action invocation is the same for PHP actions as it is for [any other action](openwhisk-actions.md#the-basics).
 ```
-wsk action invoke --result helloPHP --param name World
+hypi wsk action invoke --result helloPHP --param name World
 ```
 ```json
 {
@@ -78,7 +78,7 @@ zip -r helloPHP.zip index.php helper.php
 and then create the action:
 
 ```bash
-wsk action create helloPHP --kind php:7.4 helloPHP.zip
+hypi wsk action create helloPHP --kind php:7.4 helloPHP.zip
 ```
 
 ### Including Composer dependencies
@@ -89,7 +89,7 @@ Add this directory to your action's zip file and create the action:
 
 ```bash
 zip -r helloPHP.zip index.php vendor
-wsk action create helloPHP --kind php:7.4 helloPHP.zip
+hypi wsk action create helloPHP --kind php:7.4 helloPHP.zip
 ```
 
 The PHP runtime will automatically include Composer's autoloader for you, so you can immediately

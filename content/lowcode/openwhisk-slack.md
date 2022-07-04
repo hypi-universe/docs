@@ -34,14 +34,14 @@ The following is an example of configuring Slack, creating a package binding, an
 
 2. Create a package binding with your Slack credentials, the channel that you want to post to, and the user name to post as.
   ```
-  wsk package bind /whisk.system/slack mySlack \
+  hypi wsk package bind /whisk.system/slack mySlack \
     --param url "https://hooks.slack.com/services/..." \
     --param username "Bob" \
     --param channel "#MySlackChannel"
   ```
 3. Invoke the `post` action in your package binding to post a message to your Slack channel.
   ```
-  wsk action invoke mySlack/post --blocking --result \
+  hypi wsk action invoke mySlack/post --blocking --result \
     --param text "Hello from OpenWhisk!"
   ```
 ### Using the Slack token-based API

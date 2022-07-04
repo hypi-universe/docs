@@ -57,7 +57,7 @@ the action with the `wsk` CLI using `--main`, as with any other action type.
 You can create an OpenWhisk action called `helloRust` from this function as follows:
 
 ```
-wsk action create helloRust --kind rust:1.34 hello.rs
+hypi wsk action create helloRust --kind rust:1.34 hello.rs
 ```
 The CLI automatically infers the type of the action from the source file extension.
 For `.rs` source files, the action runs using a Rust v1.34 runtime.
@@ -65,7 +65,7 @@ For `.rs` source files, the action runs using a Rust v1.34 runtime.
 Action invocation is the same for Rust actions as it is for any other actions:
 
 ```
-wsk action invoke --result helloRust --param name World
+hypi wsk action invoke --result helloRust --param name World
 ```
 
 ```json
@@ -110,7 +110,7 @@ zip -r helloRust.zip Cargo.toml src
 and then create the action:
 
 ```bash
-wsk action create helloRust --kind rust:1.34 helloRust.zip
+hypi wsk action create helloRust --kind rust:1.34 helloRust.zip
 ```
 
 :::note
