@@ -88,33 +88,28 @@ mutation Upsert($values: HypiUpsertInputUnion!) {
 
 ```java
 #Author Table
+
 {
-  "data": {
-    "find": {
-      "edges": [
-        {
-          "node": {
-            "name": "Dan Brown",
-            "age": 56,
-            "bestbook": {
-              "title": "Inferno",
-              "authorid": 1
-            },
-            "booklist": [
-              {
-                "title": "Da Vinci Code",
-                "authorid": 1
-              },
-              {
-                "title": "The Last Symbol",
-                "authorid": 1
-              }
-            ]
+  "values": {
+    "Author": [
+      {
+        "hypi": {
+          "id": "Author1"
+        },
+        "name": "Dan Brown",
+        "age": 56,
+        "booklist": [
+          {
+            "title": "Da Vinci Code",
+            "authorid": 1
           },
-          "cursor": "Author1"
-        }
-      ]
-    }
+          {
+            "title": "The Last Symbol",
+            "authorid": 1
+          }
+        ]
+      }
+    ]
   }
 }
 
@@ -252,10 +247,6 @@ This results in the setting of the value of bestbook as null. Book1 data remains
               {
                 "title": "The Last Symbol",
                 "authorid": 1
-              },
-              {
-                "title": "Inferno",
-                "authorid": 1
               }
             ]
           },
@@ -347,7 +338,7 @@ Unlinking the reference would simply remove the entry Book1 from the booklist. T
 ```java
 mutation{
     unlink(from:Author,to:Book,
-    via:"booklist",whereFromID:"Author1",andToID:"Author1Book1")
+    via:"booklist",whereFromID:"Author1",andToID:"Book1")
 }
 ```
 
@@ -368,31 +359,32 @@ mutation{
 Retrieve Author1 data to get following result.
 ```json
 {
-  "values": {
-    "Author": [
-      {
-        "hypi": {"id": "Author1"},
-        "name": "Dan Brown",
-        "age": 56,
-        "booklist":[
-          {
-            "hypi": {"id": "Author1Book1"},
-            "title": "Da Vinci Code",
-            "price": 12.99,
-            "authorid": 1
+  "data": {
+    "find": {
+      "edges": [
+        {
+          "node": {
+            "name": "Dan Brown",
+            "age": 56,
+            "bestbook": null,
+            "booklist": [
+              {
+                "title": "Da Vinci Code",
+                "authorid": 1
+              },
+              {
+                "title": "The Last Symbol",
+                "authorid": 1
+              }
+                //Book1 removed from the array
+            ]
           },
-          {
-            "hypi": {"id": "Author1Book2"},
-            "title": "The Last Symbol",
-            "price": 10,
-            "authorid": 1
-          }          
-        ] 
-      }       
-    ]
+          "cursor": "Author1"
+        }
+      ]
+    }
   }
-}      
-
+}
 ```
 
 Using link and unlink function you may add or remove objects from the array of objects.
