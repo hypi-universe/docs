@@ -31,7 +31,7 @@ the action with the `wsk` CLI using `--main`, as with any other action type.
 You can create an OpenWhisk action called `helloPython` from this function as follows:
 
 ```
-wsk action create helloPython hello.py
+hypi wsk action create helloPython hello.py
 ```
 The CLI automatically infers the type of the action from the source file extension.
 For `.py` source files, the action runs using a Python 3.6 runtime.
@@ -39,7 +39,7 @@ For `.py` source files, the action runs using a Python 3.6 runtime.
 Action invocation is the same for Python actions as it is for any other actions:
 
 ```
-wsk action invoke --result helloPython --param name World
+hypi wsk action invoke --result helloPython --param name World
 ```
 ```json
   {
@@ -60,7 +60,7 @@ zip -r helloPython.zip __main__.py helper.py
 and then create the action:
 
 ```bash
-wsk action create helloPython --kind python:3 helloPython.zip
+hypi wsk action create helloPython --kind python:3 helloPython.zip
 ```
 
 ### Packaging Python actions with a virtual environment in zip files
@@ -86,7 +86,7 @@ Below is an example scenario for installing dependencies, packaging them in a vi
 
 3. Create the action:
 ```bash
-wsk action create helloPython --kind python:3 helloPython.zip
+hypi wsk action create helloPython --kind python:3 helloPython.zip
 ```
 
 ### Python 3 actions

@@ -51,7 +51,7 @@ utility actions, and later you'll learn how to explore the platform to discover 
 
 Let's take a look at the action body by saving the function locally:
 ```
-wsk action get /whisk.system/samples/greeting --save
+hypi wsk action get /whisk.system/samples/greeting --save
 ```
 ```
 ok: saved action code to /path/to/openwhisk/greeting.js
@@ -83,7 +83,7 @@ function main(params) {
 
 The command to invoke an action and get its result is `wsk action invoke <name> --result` as in:
 ```
-wsk action invoke /whisk.system/samples/greeting --result
+hypi wsk action invoke /whisk.system/samples/greeting --result
 ```
 This command will print the following result to the terminal:
 ```json
@@ -102,7 +102,7 @@ The `/whisk.system/samples/greeting` action accepts two optional input arguments
 - `place` whose value will replace the word "somewhere".
 
 ```
-wsk action invoke /whisk.system/samples/greeting --result --param name Dorothy --param place Kansas
+hypi wsk action invoke /whisk.system/samples/greeting --result --param name Dorothy --param place Kansas
 ```
 ```
 {
@@ -118,14 +118,14 @@ for rapid iteration and development.
 
 You can invoke an action asynchronously as well, by dropping the `--result` command line option. In this case the action is invoked, and the OpenWhisk platform returns an activation ID which you can use later to retrieve the activation record.
 ```
-wsk action invoke /whisk.system/samples/greeting
+hypi wsk action invoke /whisk.system/samples/greeting
 ```
 ```
 ok: invoked /whisk.system/samples/greeting with id 5a64676ec8aa46b5a4676ec8aaf6b5d2
 ``` 
 To retrieve the activation record, you use the `wsk activation get <id>` command, as in:
 ```
-wsk activation get 5a64676ec8aa46b5a4676ec8aaf6b5d2
+hypi wsk activation get 5a64676ec8aa46b5a4676ec8aaf6b5d2
 ```
 ```
 ok: got activation 5a64676ec8aa46b5a4676ec8aaf6b5d2
@@ -144,7 +144,7 @@ ok: got activation 5a64676ec8aa46b5a4676ec8aaf6b5d2
 Sometimes it is helpful to invoke an action in a blocking style and receiving the activation record entirely
 instead of just the result. This is achieved using the `--blocking` command line parameter.
 ```
-wsk action invoke /whisk.system/samples/greeting --blocking
+hypi wsk action invoke /whisk.system/samples/greeting --blocking
 ```
 ```
 ok: invoked /whisk.system/samples/greeting with id 5975c24de0114ef2b5c24de0118ef27e
@@ -174,15 +174,15 @@ When an action exceeds its configured time limit, the activation record will ind
 ### Working with activations
 
 Some common CLI commands for working with activations are:
-- `wsk activation list`: lists all activations
-- `wsk activation get --last`: retrieves the most recent activation record
-- `wsk activation result <activationId>`: retrieves only the result of the activation (or use `--last` to get the most recent result).
-- `wsk activation logs <activationId>`: retrieves only the logs of the activation.
-- `wsk activation logs <activationId> --strip`: strips metadata from each log line so the logs are easier to read.
+- `hypi wsk activation list`: lists all activations
+- `hypi wsk activation get --last`: retrieves the most recent activation record
+- `hypi wsk activation result <activationId>`: retrieves only the result of the activation (or use `--last` to get the most recent result).
+- `hypi wsk activation logs <activationId>`: retrieves only the logs of the activation.
+- `hypi wsk activation logs <activationId> --strip`: strips metadata from each log line so the logs are easier to read.
 
 #### The `wsk activation list` command
 
-The `activation list` command lists all activations, or activations filtered by namespace or name. The result set can be limited by using several flags:
+The `hypi activation list` command lists all activations, or activations filtered by namespace or name. The result set can be limited by using several flags:
 
 ```
 Flags:
@@ -195,7 +195,7 @@ Flags:
 
 For example, to list the last 6 activations:
 ```
-wsk activation list --limit 6
+hypi wsk activation list --limit 6
 ```
 ```
 Date       time     Activation ID     Kind   Start  Duration   Status  Entity
@@ -254,7 +254,7 @@ Each action invocation results in an activation record which contains the follow
 
 Earlier we saved the code from the `greeting` action locally. We can use it to create our own version of the action in our own namespace.
 ```
-wsk action create greeting greeting.js
+hypi wsk action create greeting greeting.js
 ```
 ```
 ok: created action greeting
@@ -266,7 +266,7 @@ If you modify the code and want to update the action, you can use `wsk action up
 `wsk action create`. The two commands are otherwise the same in terms of their command like parameters.
 
 ```
-wsk action update greeting greeting.js
+hypi wsk action update greeting greeting.js
 ```
 ```
 ok: updated action greeting
@@ -279,7 +279,7 @@ defaults, or as a way of reusing an action but with different parameters. Parame
 
 Here is an example.
 ```
-wsk action invoke greeting --result
+hypi wsk action invoke greeting --result
 ```
 ```
 {
@@ -291,7 +291,7 @@ wsk action update greeting --param name Toto
 ok: updated action greeting
 ```
 ```
-wsk action invoke greeting --result
+hypi wsk action invoke greeting --result
 ```
 ```
 {
@@ -300,14 +300,14 @@ wsk action invoke greeting --result
 ```
 You may still provide additional parameters, as in the `place`:
 ```
-wsk action invoke greeting --result --param place Kansas
+hypi wsk action invoke greeting --result --param place Kansas
 {
   "msg": "Hello, Toto from Kansas!"
 }
 ```
 and even override the `name`:
 ```
-wsk action invoke greeting --result --param place Kansas --param name Dorothy
+hypi wsk action invoke greeting --result --param place Kansas --param name Dorothy
 {
   "msg": "Hello, Dorothy from Kansas!"
 }
@@ -345,13 +345,13 @@ You can use the OpenWhisk CLI to watch the output of actions as they are invoked
 
 1. Issue the following command from a shell:
 ```
-wsk activation poll
+hypi wsk activation poll
 ```
 This command starts a polling loop that continuously checks for logs from activations.
 
 2. Switch to another window and invoke an action:
 ```
-wsk action invoke /whisk.system/samples/helloWorld --param payload Bob
+hypi wsk action invoke /whisk.system/samples/helloWorld --param payload Bob
 ok: invoked /whisk.system/samples/helloWorld with id 7331f9b9e2044d85afd219b12c0f1491
 ```
 3. Observe the activation log in the polling window:
@@ -365,7 +365,7 @@ Similarly, whenever you run the poll utility, you see in real time the logs for 
 
 Metadata that describes existing actions can be retrieved via the `wsk action get` command.
 ```
-wsk action get hello
+hypi wsk action get hello
 ```
 ```
 ok: got action hello
@@ -397,7 +397,7 @@ ok: got action hello
 An action can be invoked through the REST interface via an HTTPS request.
 To get an action URL, execute the following command:
 ```
-wsk action get greeting --url
+hypi wsk action get greeting --url
 ```
 A URL with the following format will be returned for standard actions:
 ```
@@ -412,14 +412,14 @@ Another way of invoking an action which does not require authentication is via [
 Any action may be exposed as a web action, using the `--web true` command line option at action
 creation time (or later when updating the action).
 ```
-wsk action update greeting --web true
+hypi wsk action update greeting --web true
 ```
 ```
 ok: updated action greeting
 ```
 The resource URL for a web action is different:
 ```
-wsk action get greeting --url
+hypi wsk action get greeting --url
 ```
 ```
 ok: got action greeting
@@ -427,7 +427,7 @@ https://${APIHOST}/api/v1/web/${NAMESPACE}/${PACKAGE}/greeting
 ```
 You can use `curl` or wget to invoke the action.
 ```
-curl `wsk action get greeting --url | tail -1`.json
+curl `hypi wsk action get greeting --url | tail -1`.json
 ```
 ```
 {
@@ -441,14 +441,14 @@ Code associated with an existing action may be retrieved and saved locally. Savi
 
 1. Save action code to a filename that corresponds with an existing action name in the current working directory. A file extension that corresponds to the action kind is used, or an extension of `.zip` will be used for action code that is a zip file.
 ```
-wsk action get /whisk.system/samples/greeting --save
+hypi wsk action get /whisk.system/samples/greeting --save
 ```
 ```
 ok: saved action code to /path/to/openwhisk/greeting.js
 ```
 2. You may provide your own file name and extension as well using the `--save-as` flag.
 ```
-wsk action get /whisk.system/samples/greeting --save-as hello.js
+hypi wsk action get /whisk.system/samples/greeting --save-as hello.js
 ```
 ```
 ok: saved action code to /path/to/openwhisk/hello.js
@@ -458,7 +458,7 @@ ok: saved action code to /path/to/openwhisk/hello.js
 
 You can list all the actions that you have created using `wsk action list`:
 ```
-wsk action list
+hypi wsk action list
 ```
 ```
 actions
@@ -467,7 +467,7 @@ actions
 ```
 Here, we see actions listed in order from most to least recently updated. For easier browsing, you can use the flag `--name-sort` or `-n` to sort the list alphabetically:
 ```
-wsk action list --name-sort
+hypi wsk action list --name-sort
 ```
 ```
 actions
@@ -481,7 +481,7 @@ Notice that the list is now sorted alphabetically by namespace, then package nam
 
 As you write more actions, this list gets longer and it can be helpful to group related actions into [packages](openwhisk-packages.md). To filter your list of actions to just those within a specific package, you can use:
 ```
-wsk action list /whisk.system/utils
+hypi wsk action list /whisk.system/utils
 ```
 ```
 actions
@@ -502,14 +502,14 @@ You can clean up by deleting actions that you do not want to use.
 
 1. Run the following command to delete an action:  
 ```
-wsk action delete greeting
+hypi wsk action delete greeting
 ```
 ```
   ok: deleted greeting
 ```
 2. Verify that the action no longer appears in the list of actions.
 ```
-wsk action list
+hypi wsk action list
 ```
 ```
   actions

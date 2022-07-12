@@ -22,7 +22,7 @@ Several packages are registered with OpenWhisk. You can get a list of packages i
 1. Get a list of packages in the `/whisk.system` namespace.
 
 ```
-wsk package list /whisk.system
+hypi wsk package list /whisk.system
 ```
 ```
 packages
@@ -41,7 +41,7 @@ packages
 
 2. Get a list of entities in the `/whisk.system/cloudant` package.
 ```
-wsk package get --summary /whisk.system/cloudant
+hypi wsk package get --summary /whisk.system/cloudant
 ```
 ```
 package /whisk.system/cloudant: Cloudant database service
@@ -63,7 +63,7 @@ The Cloudant package also defines the parameters `username`, `password`, `host`,
 3. Get a description of the `/whisk.system/cloudant/read` action.
 
 ```
-wsk action get --summary /whisk.system/cloudant/read
+hypi wsk actionget --summary /whisk.system/cloudant/read
 ```
 ```
 action /whisk.system/cloudant/read: Read document from database
@@ -82,7 +82,7 @@ You can invoke actions in a package, just as with other actions. The next few st
 1. Get a description of the `/whisk.system/samples/greeting` action.
 
 ```
-wsk action get --summary /whisk.system/samples/greeting
+hypi wsk action get --summary /whisk.system/samples/greeting
 ```
 ```
 action /whisk.system/samples/greeting: Returns a friendly greeting
@@ -94,7 +94,7 @@ Notice that the `greeting` action takes two parameters: `name` and `place`.
 2. Invoke the action without any parameters.
 
 ```
-wsk action invoke --result /whisk.system/samples/greeting
+hypi wsk action invoke --result /whisk.system/samples/greeting
 ```
 ```
 {
@@ -107,7 +107,7 @@ The output is a generic message because no parameters were specified.
 3. Invoke the action with parameters.
 
 ```
-wsk action invoke --result /whisk.system/samples/greeting --param name Mork --param place Ork
+hypi wsk action invoke --result /whisk.system/samples/greeting --param name Mork --param place Ork
 ```
 ```
 {
@@ -129,7 +129,7 @@ In the following simple example, you bind to the `/whisk.system/samples` package
 1. Bind to the `/whisk.system/samples` package and set a default `place` parameter value.
 
 ```
-wsk package bind /whisk.system/samples valhallaSamples --param place Valhalla
+hypi wsk package bind /whisk.system/samples valhallaSamples --param place Valhalla
 ```
 ```
 ok: created binding valhallaSamples
@@ -138,7 +138,7 @@ ok: created binding valhallaSamples
 2. Get a description of the package binding.
 
 ```
-wsk package get --summary valhallaSamples
+hypi wsk package get --summary valhallaSamples
 ```
 ```
 package /namespace/valhallaSamples: Returns a result based on parameter place
@@ -158,7 +158,7 @@ Notice that all the actions in the `/whisk.system/samples` package are available
 3. Invoke an action in the package binding.
 
 ```
-wsk action invoke --result valhallaSamples/greeting --param name Odin
+hypi wsk action invoke --result valhallaSamples/greeting --param name Odin
 ```
 ```
 {
@@ -171,7 +171,7 @@ Notice from the result that the action inherits the `place` parameter you set wh
 4. Invoke an action and overwrite the default parameter value.
 
 ```
-wsk action invoke --result valhallaSamples/greeting --param name Odin --param place Asgard
+hypi wsk action invoke --result valhallaSamples/greeting --param name Odin --param place Asgard
 ```
 ```
 {
@@ -186,7 +186,7 @@ Feeds offer a convenient way to configure an external event source to fire these
 
 1. Get a description of the feed in the `/whisk.system/alarms` package.
 ```
-wsk package get --summary /whisk.system/alarms
+hypi wsk package get --summary /whisk.system/alarms
 ```
 ```
 package /whisk.system/alarms: Alarms and periodic utility
@@ -195,7 +195,7 @@ feed   /whisk.system/alarms/alarm: Fire trigger when alarm occurs
   (parameters: none defined)
 ```
 ```
-wsk action get --summary /whisk.system/alarms/alarm
+hypi wsk action get --summary /whisk.system/alarms/alarm
 ```
 ```
 action /whisk.system/alarms/alarm: Fire trigger when alarm occurs
@@ -227,13 +227,13 @@ function main(params) {
 4. Make sure that the action exists.
 
 ```
-wsk action update hello hello.js
+hypi wsk action update hello hello.js
 ```
 
 5. Create a rule that invokes the `hello` action every time the `everyEightSeconds` trigger fires.
 
 ```
-wsk rule create myRule everyEightSeconds hello
+hypi wsk rule create myRule everyEightSeconds hello
 ```
 ```
 ok: created rule myRule
@@ -242,7 +242,7 @@ ok: created rule myRule
 6. Check that the action is being invoked by polling for activation logs.
 
 ```
-wsk activation poll
+hypi wsk activation poll
 ```
 
 You should see activations every eight seconds for the trigger, the rule, and the action. The action receives the parameters `{"name":"Mork", "place":"Ork"}` on every invocation.
@@ -258,7 +258,7 @@ To create a custom package with a simple action in it, try the following example
 1. Create a package called "custom".
 
 ```
-wsk package create custom
+hypi wsk package create custom
 ```
 ```
 ok: created package custom
@@ -267,7 +267,7 @@ ok: created package custom
 2. Get a summary of the package.
 
 ```
-wsk package get --summary custom
+hypi wsk package get --summary custom
 ```
 ```
 package /myNamespace/custom
@@ -285,7 +285,7 @@ function main(args) { return args; }
 4. Create an `identity` action in the `custom` package.
 
 ```
-wsk action create custom/identity identity.js
+hypi wsk action create custom/identity identity.js
 ```
 ```
 ok: created action custom/identity
@@ -296,7 +296,7 @@ Creating an action in a package requires that you prefix the action name with a 
 5. Get a summary of the package again.
 
 ```
-wsk package get --summary custom
+hypi wsk package get --summary custom
 ```
 ```
 package /myNamespace/custom
@@ -310,7 +310,7 @@ You can see the `custom/identity` action in your namespace now.
 6. Invoke the action in the package.
 
 ```
-wsk action invoke --result custom/identity
+hypi wsk action invoke --result custom/identity
 ```
 ```
 {}
@@ -321,7 +321,7 @@ You can set default parameters for all the entities in a package. You do this by
 1. Update the `custom` package with two parameters: `city` and `country`.
 
 ```
-wsk package update custom --param city Austin --param country USA
+hypi wsk package update custom --param city Austin --param country USA
 ```
 ```
 ok: updated package custom
@@ -330,7 +330,7 @@ ok: updated package custom
 2. Display the parameters in the package and action, and see how the `identity` action in the package inherits parameters from the package.
 
 ```
-wsk package get custom
+hypi wsk package get custom
 ```
 ```
 ok: got package custom
@@ -348,7 +348,7 @@ ok: got package custom
 ...
 ```
 ```
-wsk action get custom/identity
+hypi wsk action get custom/identity
 ```
 ```
 ok: got action custom/identity
@@ -369,7 +369,7 @@ ok: got action custom/identity
 3. Invoke the identity action without any parameters to verify that the action indeed inherits the parameters.
 
 ```
-wsk action invoke --result custom/identity
+hypi wsk action invoke --result custom/identity
 ```
 ```
 {
@@ -381,7 +381,7 @@ wsk action invoke --result custom/identity
 4. Invoke the identity action with some parameters. Invocation parameters are merged with the package parameters; the invocation parameters override the package parameters.
 
 ```
-wsk action invoke --result custom/identity --param city Dallas --param state Texas
+hypi wsk action invoke --result custom/identity --param city Dallas --param state Texas
 ```
 ```
 {
@@ -397,7 +397,7 @@ After the actions and feeds that comprise a package are debugged and tested, the
 1. Share the package with all users:
 
 ```
-wsk package update custom --shared yes
+hypi wsk package update custom --shared yes
 ```
 ```
 ok: updated package custom
@@ -406,7 +406,7 @@ ok: updated package custom
 2. Display the `publish` property of the package to verify that it is now true.
 
 ```
-wsk package get custom
+hypi wsk package get custom
 ```
 ```
 ok: got package custom
@@ -419,7 +419,7 @@ Others can now use your `custom` package, including binding to the package or di
 1. Get a description of the package to show the fully qualified names of the package and action.
 
 ```
-wsk package get --summary custom
+hypi wsk package get --summary custom
 ```
 ```
 package /myNamespace/custom: Returns a result based on parameters city and country

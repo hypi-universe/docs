@@ -51,7 +51,7 @@ func Main(obj map[string]interface{}) map[string]interface{} {
 You can deploy it with just:
 
 ```
-wsk action create hello-go hello.go
+hypi wsk action create hello-go hello.go
 ```
 You can also have multiple source files in an action, packages and vendor folders.
 
@@ -102,7 +102,7 @@ When you send the sources, you will have to zip the content of the `src` folder,
 cd src
 zip -r ../hello.zip *
 cd ..
-wsk action create hellozip hello.zip --kind go:1.11
+hypi wsk action create hellozip hello.zip --kind go:1.11
 ```
 
 #### Using vendor folders
@@ -170,7 +170,7 @@ Note that the output is always a zip file in  Linux AMD64 format so the executab
 
 Here a `Makefile` is helpful. Check the [examples](https://github.com/apache/openwhisk-runtime-go/tree/master/examples) for a collection of tested Makefiles. The  generated executable is suitable to be deployed in OpenWhisk, so you can do:
 
-`wsk action create my-action exec.zip --kind go:1.11`
+`hypi wsk action create my-action exec.zip --kind go:1.11`
 
 You can also use just the `openwhisk/actionloop` as runtime, it is smaller.
 

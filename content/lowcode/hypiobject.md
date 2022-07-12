@@ -57,11 +57,13 @@ type Hypi {
 
 Hypi updates some of the fields automatically like `trashed`, `updated`, `created`,`createdBy`.
 
-A field like ‘id’ may get generated automatically. But you may set it as well. ’impl’ field value has to be set. Let’s look at these two fields in detail.
+A field like `id` may get generated automatically. But you may set it as well. `impl` field value has to be set. Let’s look at these two fields in detail.
 
 ### id
 
 `id:` => Specify the value of this field during mutation. Otherwise, Hypi will generate a unique ID number automatically. It is a mandatory field during ‘upsert’ (update) to locate the object to be updated. Specify it in the ArcQL query to find objects by ID. Check [CRUD](crud.md) operations to understand the utilization of an id.
+
+You may generate your own `hypi.id` as well. Hypi uses[ ULid IDs](https://github.com/ulid/spec) for `hypi.id` generation. ULid IDs are sortable and as unique as UUIDs. 
 
 ### impl
 

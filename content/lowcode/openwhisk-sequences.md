@@ -13,7 +13,7 @@ Here we will use several utility actions that are provided in the `/whisk.system
 1. Display the actions in the `/whisk.system/utils` package.
 
 ```
-  wsk package get --summary /whisk.system/utils
+  hypi wsk package get --summary /whisk.system/utils
   package /whisk.system/utils: Building blocks that format and assemble data
      (parameters: none defined)
    action /whisk.system/utils/split: Split a string into an array
@@ -26,13 +26,13 @@ Here we will use several utility actions that are provided in the `/whisk.system
   
   2. Create an action sequence so that the result of one action is passed as an argument to the next action.
 ```
-wsk action create mySequence --sequence /whisk.system/utils/split,/whisk.system/utils/sort
+hypi wsk action create mySequence --sequence /whisk.system/utils/split,/whisk.system/utils/sort
 ```
 This action sequence converts some lines of text to an array, and sorts the lines.
 
 3. Invoke the action:
 ```
-wsk action invoke --result mySequence --param payload "Over-ripe sushi,\nThe Master\nIs full of regret."
+hypi wsk action invoke --result mySequence --param payload "Over-ripe sushi,\nThe Master\nIs full of regret."
 ```
 ```json
   {

@@ -23,19 +23,19 @@ function main({name}) {
 
 You may create a _web action_ `hello` in the package `demo` for the namespace `guest` using the CLI's `--web` flag with a value of `true` or `yes`:
 ```bash
-wsk package create demo
+hypi wsk package create demo
 ```
 ```
 ok: created package demo
 ```
 ```
-wsk action create /guest/demo/hello hello.js --web true
+hypi wsk action create /guest/demo/hello hello.js --web true
 ```
 ```
 ok: created action /guest/demo/hello
 ```
 ```
-wsk action get /guest/demo/hello --url
+hypi wsk action get /guest/demo/hello --url
 ```
 ```
 ok: got action hello
@@ -266,7 +266,7 @@ A content extension is generally required when invoking a web action; the absenc
 Action parameters are protected and treated as immutable. Parameters are automatically finalized when enabling web actions.
 
 ```bash
-$ wsk action create /guest/demo/hello hello.js \
+$ hypi wsk action create /guest/demo/hello hello.js \
       --parameter name Jane \
       --web true
 ```
@@ -280,11 +280,11 @@ By default, a web action can be invoked by anyone having the web action's invoca
 Alternatively, use the `--web-secure` flag to automatically set the `require-whisk-auth` annotation.  When set to `true` a random number is generated as the `require-whisk-auth` annotation value. When set to `false` the `require-whisk-auth` annotation is removed.  When set to any other value, that value is used as the `require-whisk-auth` annotation value.
 
 ```bash
-$ wsk action update /guest/demo/hello hello.js --web true --web-secure my-secret
+$ hypi wsk action update /guest/demo/hello hello.js --web true --web-secure my-secret
 ```
 or
 ```bash
-$ wsk action update /guest/demo/hello hello.js --web true -a require-whisk-auth my-secret
+$ hypi wsk action update /guest/demo/hello hello.js --web true -a require-whisk-auth my-secret
 ```
 
 ```bash
@@ -297,7 +297,7 @@ It's important to note that the owner of the web action owns all of the web acti
 To disable a web action from being invoked via web API (`https://APIHOST/api/v1/web/`), pass a value of `false` or `no` to the `--web` flag while updating an action with the CLI.
 
 ```bash
-$ wsk action update /guest/demo/hello hello.js --web false
+$ hypi wsk action update /guest/demo/hello hello.js --web false
 ```
 
 ### Raw HTTP handling
@@ -330,7 +330,7 @@ OpenWhisk uses the [Akka Http](http://doc.akka.io/docs/akka-http/current/scala/h
 Raw HTTP web actions are enabled via the `--web` flag using a value of `raw`.
 
 ```bash
-$ wsk action create /guest/demo/hello hello.js --web raw
+$ hypi wsk action create /guest/demo/hello hello.js --web raw
 ```
 
 #### Disabling raw HTTP handling
@@ -404,7 +404,7 @@ function main(array $args) : array
 
 As an example, save the Node function as `decode.js` and execute the following commands:
 ```bash
-$ wsk action create decode decode.js --web raw
+$ hypi wsk action create decode decode.js --web raw
 ok: created action decode
 $ curl -k -H "content-type: application" -X POST -d "Decoded body" https://${APIHOST}/api/v1/web/guest/default/decodeNode.json
 {
@@ -442,7 +442,7 @@ function main(params) {
 Save the above function to `custom-options.js` and execute the following commands:
 
 ```
-$ wsk action create custom-option custom-options.js --web true -a web-custom-options true
+$ hypi wsk action create custom-option custom-options.js --web true -a web-custom-options true
 $ curl https://${APIHOST}/api/v1/web/guest/default/custom-options.http -kvX OPTIONS
 < HTTP/1.1 200 OK
 < Server: nginx/1.11.13

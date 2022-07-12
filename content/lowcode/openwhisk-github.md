@@ -38,7 +38,7 @@ The following is an example of creating a trigger that will be fired each time t
 2. Create a package binding that is configured for your GitHub repository and with the personal access token created in step 1.
 
   ```
-  wsk package bind /whisk.system/github myGit \
+  hypi wsk package bind /whisk.system/github myGit \
     --param baseUrl https://github.myenterprise.com/api/v3 \
     --param username myGitUser \
     --param repository myGitRepo \
@@ -48,7 +48,7 @@ The following is an example of creating a trigger that will be fired each time t
 3. Create a trigger for the GitHub `push` event type by using your `myGit/webhook` feed.
 
   ```
-  wsk trigger create myGitTrigger --feed myGit/webhook --param events push
+  hypi wsk trigger create myGitTrigger --feed myGit/webhook --param events push
   ```
 
 A commit to the GitHub repository by using a `git push` causes the trigger to be fired by the webhook. If there is a rule that matches the trigger, then the associated action will be invoked.

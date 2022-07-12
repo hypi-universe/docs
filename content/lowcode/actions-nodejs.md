@@ -28,7 +28,7 @@ However, by convention, a function called `main` must exist to provide the entry
 
 2. Create an action from the following JavaScript function. For this example, the action is called `hello`.
 ```
-wsk action create hello hello.js
+hypi wsk action create hello hello.js
 ok: created action hello
 ```
 The CLI automatically infers the type of the action by using the source file extension.
@@ -62,10 +62,10 @@ A call to `reject()` can be used to reject the Promise and signal that the activ
 2. Run the following commands to create the action and invoke it:
 
 ```
-wsk action create asyncAction asyncAction.js
+hypi wsk action create asyncAction asyncAction.js
 ```
 ```
-wsk action invoke --result asyncAction
+hypi wsk action invoke --result asyncAction
 ```
 ```json
 {
@@ -77,14 +77,14 @@ Notice that you performed a blocking invocation of an asynchronous action.
 
 3. Fetch the activation log to see how long the activation took to complete:
 ```
-wsk activation list --limit 1 asyncAction
+hypi wsk activation list --limit 1 asyncAction
 ```
 ```
 Datetime            Activation ID                    Kind      Start Duration   Status  Entity
 2019-03-16 19:46:43 64581426b44e4b3d981426b44e3b3d19 nodejs:6  cold  2.033s     success guest/asyncAction:0.0.1
 ```
 ```
-wsk activation get 64581426b44e4b3d981426b44e3b3d19
+hypi wsk activation get 64581426b44e4b3d981426b44e3b3d19
 ```
 ```json
 {
@@ -135,12 +135,12 @@ This example also shows the need for asynchronous actions. The action returns a 
 2. Create an action from the `weather.js` file:
 
 ```
-wsk action create weather weather.js
+hypi wsk action create weather weather.js
 ```
 
 3. Use the following command to run the action, and observe the output:
 ```
-wsk action invoke --result weather --param location "Brooklyn, NY"
+hypi wsk action invoke --result weather --param location "Brooklyn, NY"
 ```
 
 Using the `--result` flag means that the value returned from the action is shown as output on the command-line:
@@ -206,7 +206,7 @@ zip -r action.zip *
 - Create the action from the zip file.
 
 ```
-wsk action create packageAction --kind nodejs:10 action.zip
+hypi wsk action create packageAction --kind nodejs:10 action.zip
 ```
 
 When creating an action from a `.zip` archive with the CLI tool, you must explicitly provide a value for the `--kind` flag by using `nodejs:12`, or `nodejs:10`.
@@ -214,7 +214,7 @@ When creating an action from a `.zip` archive with the CLI tool, you must explic
 - Invoke the action as normal.
 
 ```
-wsk action invoke --result packageAction --param lines "[\"and now\", \"for something completely\", \"different\" ]"
+hypi wsk action invoke --result packageAction --param lines "[\"and now\", \"for something completely\", \"different\" ]"
 ```
 ```json
 {
@@ -255,7 +255,7 @@ zip -r action.zip *
 - Create new action with action archive.
 
 ```
-wsk action create my-action --kind nodejs:10 action.zip
+hypi wsk action create my-action --kind nodejs:10 action.zip
 ```
 
 #### Building custom runtime image
@@ -278,7 +278,7 @@ $ docker push <USERNAME>/custom-runtime
 - Create new action using custom runtime image.
 
 ```
-wsk action create my-action --docker <USERNAME>/custom-runtime action.zip
+hypi wsk action create my-action --docker <USERNAME>/custom-runtime action.zip
 ```
 
 **Make sure the `node_modules` included in the `action.zip` does not include the same libraries folders.**
@@ -334,11 +334,11 @@ npx rollup --config
 ```
 - Create an action using the bundle source file.
 ```
-wsk action create my-action bundle.js --kind nodejs:10
+hypi wsk action create my-action bundle.js --kind nodejs:10
 ```
 - Invoke the action as normal. Results should be the same as the example above.
 ```
-wsk action invoke my-action --result --param lines "[\"and now\", \"for something completely\", \"different\" ]"
+hypi wsk action invoke my-action --result --param lines "[\"and now\", \"for something completely\", \"different\" ]"
 ```
 
 #### Using webpack ([https://webpack.js.org/](https://webpack.js.org/))
@@ -379,11 +379,11 @@ npx webpack --config webpack.config.js
 ```
 - Create an action using the bundle source file.
 ```
-wsk action create my-action dist/bundle.js --kind nodejs:10
+hypi wsk action create my-action dist/bundle.js --kind nodejs:10
 ```
 - Invoke the action as normal. Results should be the same as the example above.
 ```
-wsk action invoke my-action --result --param lines "[\"and now\", \"for something completely\", \"different\" ]"
+hypi wsk action invoke my-action --result --param lines "[\"and now\", \"for something completely\", \"different\" ]"
 ```
 
 #### Using parcel ([https://parceljs.org/](https://parceljs.org/))
@@ -413,11 +413,11 @@ npx parcel index.js
 ```
 - Create an action using the bundle source file.
 ```
-wsk action create my-action dist/index.js --kind nodejs:10
+hypi wsk action create my-action dist/index.js --kind nodejs:10
 ```
 - Invoke the action as normal. Results should be the same as the example above.
 ```
-wsk action invoke my-action --result --param lines "[\"and now\", \"for something completely\", \"different\" ]"
+hypi wsk action invoke my-action --result --param lines "[\"and now\", \"for something completely\", \"different\" ]"
 ```
 ### Reference
 

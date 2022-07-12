@@ -15,7 +15,7 @@ function main({ value }) { return { value: value * 3 } }
 ```
 We create the action _triple_:
 ```
-wsk action create triple triple.js
+hypi wsk action create triple triple.js
 ```
 We define an _increment_ action in a source file `increment.js`:
 ```javascript
@@ -23,7 +23,7 @@ function main({ value }) { return { value: value + 1 } }
 ```
 We create the action _increment_:
 ```
-wsk action create increment increment.js
+hypi wsk action create increment increment.js
 ```
 
 ### Conductor annotation
@@ -43,13 +43,13 @@ function main(params) {
 ```
 We create a _conductor_ action by specifying the _conductor_ annotation:
 ```
-wsk action create tripleAndIncrement tripleAndIncrement.js -a conductor true
+hypi wsk action create tripleAndIncrement tripleAndIncrement.js -a conductor true
 ```
 A _conductor action_ is an action with a _conductor_ annotation with a value that is not _falsy_, i.e., a value that is different from zero, null, false, and the empty string.
 
 At this time, the conductor annotation is ignored on sequence actions.
 
-Because a conductor action is an action, it has all the attributes of an action (name, namespace, default parameters, limits...) and it can be managed as such, for instance using the `wsk action` CLI commands. It can be part of a package or be a web action.
+Because a conductor action is an action, it has all the attributes of an action (name, namespace, default parameters, limits...) and it can be managed as such, for instance using the `hypi wsk action` CLI commands. It can be part of a package or be a web action.
 
 In essence, the _tripleAndIncrement_ action builds a sequence of two actions by encoding a program with three steps:
 
@@ -63,7 +63,7 @@ At each step, the conductor action specifies how to continue or terminate the ex
 
 A conductor action is invoked like a regular [action](openwhisk-actions.md), for instance:
 ```
-wsk action invoke tripleAndIncrement -r -p value 3
+hypi wsk action invoke tripleAndIncrement -r -p value 3
 ```
 ```json
 {
@@ -76,13 +76,13 @@ Blocking and non-blocking invocations are supported. As usual, a blocking invoca
 
 One invocation of the conductor action results in multiple activations, for instance:
 ```
-wsk action invoke tripleAndIncrement -p value 3
+hypi wsk action invoke tripleAndIncrement -p value 3
 ```
 ```
 ok: invoked /_/tripleAndIncrement with id 4f91f9ed0d874aaa91f9ed0d87baaa07
 ```
 ```
-wsk activation list
+hypi wsk activation list
 ```
 ```
 Datetime            Activation ID                    Kind      Start Duration   Status   Entity
@@ -119,7 +119,7 @@ The primary activation record for the invocation of a conductor action is a synt
 - its end time is greater or equal to the end time of the last derived activation in the series.
 
 ```
-wsk activation get 4f91f9ed0d874aaa91f9ed0d87baaa07
+hypi wsk activation get 4f91f9ed0d874aaa91f9ed0d87baaa07
 ```
 ```
 ok: got activation 4f91f9ed0d874aaa91f9ed0d87baaa07

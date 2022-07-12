@@ -39,7 +39,7 @@ when creating the action with the `wsk` CLI using `--main`, as with any other ac
 You can create an OpenWhisk action called `hello_ruby` from this function as follows:
 
 ```
-wsk action create hello_ruby hello.rb
+hypi wsk action create hello_ruby hello.rb
 ```
 
 The CLI automatically infers the type of the action from the source file extension.
@@ -48,7 +48,7 @@ For `.rb` source files, the action runs using a Ruby 2.5 runtime.
 Action invocation is the same for Ruby actions as it is for [any other action](openwhisk-actions.md#the-basics).
 
 ```
-wsk action invoke --result hello_ruby --param name World
+hypi wsk action invoke --result hello_ruby --param name World
 ```
 
 ```json
@@ -72,7 +72,7 @@ zip -r hello_ruby.zip main.rb helper.rb
 and then create the action:
 
 ```bash
-wsk action create hello_ruby --kind ruby:2.5 hello_ruby.zip
+hypi wsk action create hello_ruby --kind ruby:2.5 hello_ruby.zip
 ```
 
 A few Ruby gems such as `mechanize` and `jwt` are available in addition to the default and bundled gems.

@@ -51,14 +51,14 @@ As an example, create a trigger to send user location updates, and manually fire
 
 1. Enter the following command to create the trigger:
 ```
-wsk trigger create locationUpdate
+hypi wsk trigger create locationUpdate
 ```
 ```
 ok: created trigger locationUpdate
 ```
 2. Check that you created the trigger by listing the set of triggers.
 ```
-wsk trigger list
+hypi wsk trigger list
 ```
 ```
 triggers
@@ -68,7 +68,7 @@ So far you've created a named "channel" to which events can be fired.
 
 3. Next, fire a trigger event by specifying the trigger name and parameters:
 ```
-wsk trigger fire locationUpdate --param name Donald --param place "Washington, D.C."
+hypi wsk trigger fire locationUpdate --param name Donald --param place "Washington, D.C."
 ```
 ```
 ok: triggered locationUpdate with id fa495d1223a2408b999c3e0ca73b2677
@@ -90,36 +90,36 @@ function main(params) {
 ```
 2. Make sure that the trigger and action exist.
 ```
-wsk trigger update locationUpdate
+hypi wsk trigger update locationUpdate
 ```
 ```
-wsk action update hello hello.js
+hypi wsk action update hello hello.js
 ```
 3. Create the rule. Note that the rule will be enabled upon creation, meaning that it will be immediately available to respond to activations of your trigger. The three parameters are the name of the rule, the trigger, and the action.
 ```
-wsk rule create myRule locationUpdate hello
+hypi wsk rule create myRule locationUpdate hello
 ```
 At any time, you can choose to disable a rule.
 ```
-wsk rule disable myRule
+hypi wsk rule disable myRule
 ```
 4. Fire the locationUpdate trigger. Each time that you fire an event, the hello action is called with the event parameters.
 ```
-wsk trigger fire locationUpdate --param name Donald --param place "Washington, D.C."
+hypi wsk trigger fire locationUpdate --param name Donald --param place "Washington, D.C."
 ```
 ```
 ok: triggered locationUpdate with id 878998285cad448b8998285cad948b30
 ```
 5. Verify that the action was invoked by checking the most recent activation.
 ```
-wsk activation list --limit 1 hello
+hypi wsk activation list --limit 1 hello
 ```
 ```java
 Datetime            Activation ID                    Kind     Start Duration   Status  Entity
 2019-02-18 11:51:41 0efe54d8fb96486bbe54d8fb96d86bbe nodejs:6 cold  54ms       success guest/hello:0.0.1
 ```
 ```
-wsk activation result 0efe54d8fb96486bbe54d8fb96d86bbe
+hypi wsk activation result 0efe54d8fb96486bbe54d8fb96d86bbe
 ```
 ```
 {
@@ -133,13 +133,13 @@ You can create multiple rules that associate the same trigger with different act
 Triggers and rules cannot belong to a package. The rule may be associated with an action
 that belongs to a package however, for example:
 ```
-wsk rule create recordLocation locationUpdate /whisk.system/utils/echo
+hypi wsk rule create recordLocation locationUpdate /whisk.system/utils/echo
 ```
 You can also use rules with sequences. For example, one can create an action
 sequence `recordLocationAndHello` that is activated by the rule `anotherRule`.
 ```
-wsk action create recordLocationAndHello --sequence /whisk.system/utils/echo,hello
-wsk rule create anotherRule locationUpdate recordLocationAndHello
+hypi wsk action create recordLocationAndHello --sequence /whisk.system/utils/echo,hello
+hypi wsk rule create anotherRule locationUpdate recordLocationAndHello
 ```
 
 :::note

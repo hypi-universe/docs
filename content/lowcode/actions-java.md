@@ -51,7 +51,7 @@ You can create a OpenWhisk action called `helloJava` from this JAR file as
 follows:
 
 ```
-wsk action create helloJava hello.jar --main Hello
+hypi wsk action create helloJava hello.jar --main Hello
 ```
 
 When you use the command line and a `.jar` source file, you do not need tospecify that you are creating a Java action; the tool determines that from the file extension.
@@ -65,7 +65,7 @@ e.q., `--main com.example.MyMain#methodName`
 Action invocation is the same for Java actions as it is for Swift and JavaScript actions:
 
 ```
-wsk action invoke --result helloJava --param name World
+hypi wsk action invoke --result helloJava --param name World
 ```
 
 ```json
