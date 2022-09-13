@@ -204,6 +204,7 @@ Suppose the `book` object has the following records. The `after` parameter has t
 | Sapiens                          | 3           |
 | Hamlet                           | 4           |
 | Merchant of Venice               | 4           |
+
 :::note
 
 `page` parameter doesn't work with the `before` parameter.
