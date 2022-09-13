@@ -793,6 +793,10 @@ OR
 </TabItem>
 </Tabs>
 
+###  @versioned 
+
+This directive is used to implement undo/redo functions. (See more about @versioned directive [here](undo-redo.md))
+
 ### @specifiedBy
 
 Hypi does not support this directive at the moment.

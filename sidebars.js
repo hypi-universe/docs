@@ -52,7 +52,7 @@ module.exports = {
      {
       type: 'category',
       label: 'API & References',
-      items: ['lowcode/api-references','lowcode/apisetup','lowcode/authentication','lowcode/scalars','lowcode/hypiobject','lowcode/crud','lowcode/createdata','lowcode/updatedata','lowcode/readdata','lowcode/deletedata','lowcode/arcql','lowcode/references','lowcode/authorisation','lowcode/realtime-db','lowcode/apigateway','lowcode/aggregation','lowcode/mathsapi','lowcode/hypi-directives','lowcode/userdefinedfunctions','lowcode/triggers','lowcode/scheduled-function','lowcode/webhooks','lowcode/fileupload','lowcode/rest-apis','lowcode/oauth2login','lowcode/password-reminder'],
+      items: ['lowcode/api-references','lowcode/apisetup','lowcode/authentication','lowcode/scalars','lowcode/hypiobject','lowcode/crud','lowcode/createdata','lowcode/updatedata','lowcode/readdata','lowcode/deletedata','lowcode/arcql','lowcode/references','lowcode/authorisation','lowcode/realtime-db','lowcode/apigateway','lowcode/aggregation','lowcode/mathsapi','lowcode/hypi-directives','lowcode/undo-redo','lowcode/userdefinedfunctions','lowcode/triggers','lowcode/scheduled-function','lowcode/webhooks','lowcode/fileupload','lowcode/rest-apis','lowcode/oauth2login','lowcode/password-reminder','lowcode/api-rate-limits'],
      },
      {
       type: 'category',
