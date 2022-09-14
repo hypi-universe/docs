@@ -40,4 +40,4 @@ The Rate Limit is applicable for the following parameters or type of requests:
 6.  `networkout` : The amount of data that can be retrieved from a single response to a particular request. 
 7.  `serverless`: Execution time of the serverless functions. The time spent executing a serverless function gets recorded. If the time limit exceeds, then the user gets an error with a 429 status code. 
 
-For current pricing and rate limits for the above parameters, see [hypi.io](hypi.io). 
+For current pricing and rate limits for the above parameters, see [hypi.io](https://hypi.io). 
