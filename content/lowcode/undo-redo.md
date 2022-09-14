@@ -17,7 +17,7 @@ type VersionedObj @versioned {
 }
 ```
 
-The `version` field in the [hypi](lowcode/magic-hypi-object.md) object automatically generates a version for each object created for a data type.  Or you can create an object with a unique version number.
+The `version` field in the [hypi](hypiobject.md) object automatically generates a version for each object created for a data type.  Or you can create an object with a unique version number.
 
 ```
 mutation {
