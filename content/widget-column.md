@@ -5,7 +5,7 @@ sidebar_label: Column
 slug: /widget-column
 ---
 
-![Column-Widget](/img/Widget-Column-1.PNG)
+![Column-Widget](/img/Widget-Column-1.png)
 
 Column accommodates multiple widgets in a vertical array. It does not scroll. You can add multiple child widgets till it fits available space in the column. Child widgets can be Layout widgets like Container or any other Basic widget like Text.
 

@@ -5,7 +5,7 @@ sidebar_label: Icon
 slug: /widget-icon
 ---
 
-![Icon-Widget](/img/Widget-Icon-1.PNG)
+![Icon-Widget](/img/Widget-Icon-1.png)
 
 ##  Overview
 
@@ -21,12 +21,12 @@ Icon is a visual representation of a program, function, event, or any other impo
 
 * Search for Icons from Hypi Tink’s Icon Collection
 
-![Icon-Widget](/img/Widget-Icon-2.PNG)
+![Icon-Widget](/img/Widget-Icon-2.png)
 
 * Set the Size of the Icon with ease. Enter the size in pixels.
 * Set the Color of the Icon. Choose the Color by clicking on the Color icon on the right side.
 
-![Icon-Widget](/img/Widget-Icon-3.PNG)
+![Icon-Widget](/img/Widget-Icon-3.png)
 
 * Grade and Weight properties decide the thickness of the symbol. The Grade is the granular stroke weight for drawing the icon. The weight property means the weight of the Stroke while drawing the symbol.
 * Attach a meaningful label called a Semantic label to the Icon.

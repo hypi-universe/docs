@@ -5,7 +5,7 @@ sidebar_label: Row
 slug: /widget-row
 ---
 
-![Row-Widget](/img/Widget-Row-1.PNG)
+![Row-Widget](/img/Widget-Row-1.png)
 
 ## Overview
 
@@ -15,7 +15,7 @@ Row accommodates multiple widgets in a horizontal array. It does not scroll. You
 
 *  You may place multiple Row widgets within a Column as per your requirement.
 
-*  If you have just one child widget to place, consider using the \[Container\](#) Widget.
+*  If you have just one child widget to place, consider using the [Container](#) Widget.
 
 ## Properties
 
