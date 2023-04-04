@@ -29,7 +29,7 @@ A container is a layout widget that facilitates common painting, decorating, pos
 * Provide an **image URL** to upload the image in the background.
 * Choose [BoxFit](https://api.flutter.dev/flutter/painting/BoxFit.html) values to fit the child widget into the container.
 * The Shape of the container can be Rectangle or Circle.
-* 
+
 ![Container-Widget](/img/Widget-Container-3.png)
 
 * For Rectangle, the circular corners can be provided by giving **Radius** values of all corners. It is also possible to make only one or two corners circular.
