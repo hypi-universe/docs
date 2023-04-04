@@ -5,7 +5,7 @@ sidebar_label: Vertical Divider
 slug: /widget-vertical-divider
 ---
 
-![Divider-Vertical](/Widget-Vertical-Divider-1.png)
+![Divider-Vertical](/img/Widget-Vertical-Divider-1.png)
 
 ## Overview
 
