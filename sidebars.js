@@ -22,13 +22,18 @@ module.exports = {
       },
       {
        type: 'category',
-       label: 'Designer Board',
+       label: 'App Designer',
        items: ['hypi-tink-designer','designer-screens','designer-components','designer-widgets','designer-assets'],
       },
       {
        type: 'category',
-       label: 'Widget',
-       items: ['widget-groups','widget-basic','widget-layout','widget-forms','widget-advance','widget-list-view'],
+       label: 'Widget Groups',
+       items: ['widget-groups','widget-basic','widget-layout','widget-forms','widget-advance'],
+      },
+      {
+       type: 'category',
+       label: 'Widgets',
+       items: ['widget-column','widget-container','widget-row','widget-icon','widget-text',,'widget-action-chip','widget-back-button','widget-close-button','widget-elevated-button','widget-outlined-button','widget-text-button'],
       },
       {
        type: 'category',
