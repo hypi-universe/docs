@@ -18,7 +18,7 @@ An Outlined Button has a Rectangular shape button with a rounded border. Any Tex
 * For different states of the Button, the button style can be customized.
 * For overflow of the Text, the clipping property is available.
 
-### Properties
+## Properties
 
 * Button text properties can be customized with the Text widget properties.
 

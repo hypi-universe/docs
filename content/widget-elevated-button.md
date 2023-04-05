@@ -18,7 +18,7 @@ An Elevated Button provides raised appearance to the Button. It has an Elevated 
 * For different states of the Button, the button style can be customized.
 * For overflow of the Text, the clipping property is available.
 
-### Properties
+## Properties
 
 * Button text properties can be customized with the Text widget properties.
 

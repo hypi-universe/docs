@@ -14,8 +14,7 @@ Row accommodates multiple widgets in a horizontal array. It does not scroll. You
 ## Use Cases
 
 *  You may place multiple Row widgets within a Column as per your requirement.
-
-*  If you have just one child widget to place, consider using the [Container](#) Widget.
+*  If you have just one child widget to place, consider using the [Container](widget-container.md) Widget.
 
 ## Properties
 
