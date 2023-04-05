@@ -37,6 +37,11 @@ A container is a layout widget that facilitates common painting, decorating, pos
 
 ![Container-Widget](/img/Widget-Container-4.png)
 
+* If the content overflows the widget boundary, then there are the following ways to clip it.
+
+1. Anti Alias - It clips the edges to have a smoother look. 
+2. Anti Alias with Save Layer - It clips with anti-aliasing and saves the Layer immediately following the clip. This process is slower than Anti Aliasing and is rarely used.
+3. Hard Edge - This is the fastest clipping with low fidelity. No anti-aliasing, or smoothening of edges applied.
 * Provide **Margin** values to create space around the outer border of the Container.
 * Provide **Padding** values to create space between the child widget and the outer border of the container. 
 

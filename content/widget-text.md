@@ -38,4 +38,12 @@ Text is an important basic widget that is visible and common. It can be a child 
 * Set the **Text Alignment** - `Left`, `Right`, `Center`, `Justify`.
 * Set the **Text Color** and **Background color** of the Text.
 * **Decorate** the text with the `Underline`, `Overline`, or `Strikethrough` line. The line's `color` can be changed. The `Thickness` of the line can be changed by providing values in the edit box. Setting the style to `None` reverts the changes.
+* Set the **text alignment - Start, Centre, End, Justify, Left, or Right.**
+* Set the **Text direction as Left to Right or Right to Left.**
 
+![Text-Widget](/img/Widget-Text-5.png)
+
+* Handle a visual overflow of text by clipping or fading the overflowing text, adding an ellipsis (…) at the end, or making overflowing text visible outside the widget area.
+* Softwrap checks whether the text should break at soft line breaks.
+* **The Text Scale Factor** defines the number of font pixels for each logical pixel. If the factor is 1.5, the text font would be 50% bigger than the specified font size.
+* **MaxLines** sets the maximum number of lines for the text content. It wraps the text if necessary.
