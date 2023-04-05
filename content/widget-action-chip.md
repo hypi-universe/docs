@@ -48,4 +48,3 @@ Action chip triggers an action related to primary content or shows progress and 
 ![Action-chip-Widget](/img/Widget-Action-Chip-4.png)
 
 * Provide **Padding** values to create space between the child widget and the outer border of the Button. You can also provide Label padding values to provide padding around the label.
-* 
