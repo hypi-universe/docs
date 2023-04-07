@@ -33,7 +33,7 @@ module.exports = {
       {
        type: 'category',
        label: 'Widgets',
-       items: ['widget-column','widget-container','widget-row','widget-icon','widget-icon-button','widget-text','widget-text-field','widget-action-chip','widget-back-button','widget-close-button','widget-elevated-button','widget-outlined-button','widget-text-button','widget-about-dialog','widget-aspect-ratio','widget-card','widget-divider','widget-vertical-divider'],
+       items: ['widget-column','widget-container','widget-row','widget-icon','widget-icon-button','widget-text','widget-text-field','widget-action-chip','widget-back-button','widget-close-button','widget-elevated-button','widget-outlined-button','widget-text-button','widget-about-dialog','widget-aspect-ratio','widget-card','widget-center','widget-circle-avatar','widget-clip-oval','widget-clip-rrect','widget-colored-box','widget-divider','widget-vertical-divider'],
       },
       {
        type: 'category',
