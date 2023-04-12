@@ -23,8 +23,12 @@ module.exports = {
       {
        type: 'category',
        label: 'App Designer',
-       items: ['hypi-tink-designer','designer-screens','designer-components','designer-widgets','designer-assets'],
-      },
+       items: [
+       'hypi-tink-designer',
+       'designer-screens',
+       'designer-components',
+       'designer-widgets',
+       'designer-assets',
       {
        type: 'category',
        label: 'Widget Groups',
@@ -44,6 +48,8 @@ module.exports = {
        type: 'category',
        label: 'Logic',
        items: ['designer-logic','logic-output-binding','logic-input-binding'],
+      }
+       ],
       },
       'hypi-tink-glossary',
      {
