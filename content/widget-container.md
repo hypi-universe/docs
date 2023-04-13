@@ -47,6 +47,6 @@ A container is a layout widget that facilitates common painting, decorating, pos
 
 ![Container-Widget](/img/Widget-Container-5.png)
 
-* The Alignment** places the widget at a certain position inside the parent widget boundaries. The Position can be **Bottom Center, Bottom Left, Bottom Right, Center, Center Left, Center Right, Top Left, Top Right, Top Center,** etc. Choose the child widget position inside the button appropriately. X and Y coordinates can also be provided to position the child widget.
+* The` Alignment` places the widget at a certain position inside the parent widget boundaries. The Position can be **Bottom Center, Bottom Left, Bottom Right, Center, Center Left, Center Right, Top Left, Top Right, Top Center**, etc. Choose the child widget position inside the button appropriately. X and Y coordinates can also be provided to position the child widget.
 
 ![Container-Widget](/img/Widget-Container-6.png)

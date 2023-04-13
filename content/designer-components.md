@@ -12,7 +12,8 @@ A `Component` is also made up of data and images just like screens. You can plac
 ### 1. **How to add Component?**
 
 + Go to Components and click the `+` sign to add a component.
-+ You can add more than one component tp an application. Drag and drop them on various screens.
++ You can add more than one component to an application. 
++ To reuse components, drag and drop them on various screens.
 
 ![Designer-Components](/img/Designer-Components-1.PNG)
 
@@ -25,4 +26,4 @@ A `Component` is also made up of data and images just like screens. You can plac
 
 ### 3. **How to change Component Properties?**
 
-+ You can change the component background colour through Tink Component Properties.
++ You can change the component properties through Tink Component Properties. The component has a Container format and resembles it. Check the Container properties [here](widget-container.md).

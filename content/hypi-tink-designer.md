@@ -1,11 +1,11 @@
 ---
 id: hypi-tink-designer
-title: Designer Board - Overview
+title: App Designer
 sidebar_label: Overview
 slug: /hypi-tink-designer
 ---
 
-Designer Board is the most important board of Hypi Tink. Using Designer, you can 
+`App Designer` is the most important board of Hypi Tink. Using Designer, you can 
 **Create a User Interface of your application, add functionalities to the interface and connect it to backend**. 
 
 Without writing a single piece of code, it is possible to **create User Interface with the power of Hypi Tink!**. 
