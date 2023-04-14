@@ -20,11 +20,11 @@ A) Look at the attached Twitter app, the primary destinations are
 3.  Alerts
 4.  Messages
 
-![Navigation Bar](/img/Twitter Destination.png)
+![Navigation Bar](/img/Twitter-Destination.png)
 
 B) In the Google Analytics app, they don’t have a navigation bar. Instead, they put their primary destinations in a drawer (the burger icon in the top left).  So, it shows primary destinations when you open the drawer. 
 
-![Navigation Bar](/img/Google Analystics Destination.png)
+![Navigation Bar](/img/Google-Analystics-Destination.png)
 
 C) In the New York Times news app, they have  
 
