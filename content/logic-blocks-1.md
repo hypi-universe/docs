@@ -1,8 +1,8 @@
 ---
-id: logic-blocks
+id: logic-blocks-1
 title: Logic Blocks
 sidebar_label: Logic Blocks
-slug: /logic-blocks
+slug: /logic-blocks-1
 ---
 
 Tink follows Block Based Programming model to help users add logic to their apps. It is important to know how these blocks connect to each other to form jigsaw puzzle. Each block has its own shape. It also has a slot shape to be inserted into. Blocks are interconnected with each other to form block based script.
