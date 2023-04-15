@@ -61,7 +61,7 @@ Reporter blocks can also have inputs that may be another kind of reporter blocks
 
 A C block is a block that is shaped like the letter "C" so that other blocks can fit inside it. These blocks perform the conditions and loops. 
 
-C blocks have a "mouth" (it looks like the letter "C", hence the name) — the blocks that will be placed inside the C block go in these mouths. All but one of the C blocks consist of one mouth — the other, if <> then, else, consists of two mouths. (For this reason, this block is occasionally referred to as an "E block".)
+C blocks have a "mouth" (it looks like the letter "C", hence the name) — the blocks that will be placed inside the C block go in these mouths. All but one of the C blocks consist of one mouth — the other, if - then, else, consists of two mouths. (For this reason, this block is occasionally referred to as an "E block".)
 
 When any of the other C blocks are dragged over a stack of blocks and if the C is empty, its mouth extends to wrap around them.
 
