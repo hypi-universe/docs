@@ -47,7 +47,7 @@ module.exports = {
       {
        type: 'category',
        label: 'Logic',
-       items: ['designer-logic','logic-output-binding','logic-input-binding'],
+       items: ['designer-logic','logic-blocks-1'],
       }
        ],
       },
