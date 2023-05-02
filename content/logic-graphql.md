@@ -19,14 +19,16 @@ Add Object Blocks and Scalar blocks to retrieve specific data from the response.
 
 ###  Object Block
 
-GraphQL object has a name and contains fields. Similarly, Object field blocks are given on the Logic Canvas. They have the shape of a `C`. You can choose a field on the object block. It fits inside the GraphQL Data block.  It accepts scalar blocks inside it.
+GraphQL object has a name and contains fields. Similarly, Object field blocks are given on the Logic Canvas. They have the shape of a `C`. You can choose a field on the object block. It fits inside the GraphQL Data block. It accepts scalar blocks or other object blocks inside it depending on what the selected field type is.
 
 ![GraphQL Data](/img/Logic-GQL-Object-Block-2.png)
 
 
 ###  Scalar Block
 
-The Scalar field holds a Constant value. When you want to retrieve Scalar values from an object, put a scalar block inside an object or GraphQL data block. The returned values get stored in the Response Variable.
+[Scalar](lowcode/scalars.md) has a data type that does not have any fields of its own. Int, Float, String are some of the scalar types.
+
+When you want to retrieve Scalar values from an object, put a scalar block inside an object or GraphQL data block. The returned values get stored in the Response Variable.  E.g. **username** is a string that is used as a scalar block.
 
 ![GraphQL Data](/img/Logic-GQL-Scalar-Block-3.png)
 

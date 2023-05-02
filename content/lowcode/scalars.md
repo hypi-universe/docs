@@ -5,8 +5,7 @@ sidebar_label: Scalars
 slug: /lowcode/scalars
 ---
 
-A GraphQL object type has a name and cont
-ains fields. But at some point, those fields have to resolve to some concrete data. That's where the scalar types come in: they represent the leaves of the query.
+A GraphQL object type has a name and contains fields. But at some point, those fields have to resolve to some concrete data. That's where the scalar types come in: they represent the leaves of the query.
 
 In the following query, the `name` and `appearsIn` fields will resolve to scalar types:
 ```java
@@ -14,8 +13,8 @@ In the following query, the `name` and `appearsIn` fields will resolve to scalar
  hero {
          name
          appearsIn
-     }
- }
+      }
+}
 ```
 
 Scalar types represent primitive leaf values in a GraphQL type system. GraphQL responses take the form of a hierarchical tree; the leaves of this tree are typically GraphQL Scalar types (but may also be Enum types or null values).
