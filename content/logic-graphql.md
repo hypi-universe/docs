@@ -34,7 +34,7 @@ When you want to retrieve Scalar values from an object, put a scalar block insid
 
 ###  GraphQL Data `find` Query
 
-Hypi's low code APIs provide functions to read data from the backend. Here is a sample [find](lowcode/readdata.md#find) query to read data from the Account table. This demonstrates the no-code way to read data from the database. The ;ogic flow follows the lowcode `find` query pattern.
+Hypi's low code APIs provide functions to read data from the backend. Here is a sample [find](lowcode/readdata.md#find) query to read data from the Account table. This demonstrates the no-code way to read data from the database. The logic flow follows the lowcode `find` query pattern.
 
 ![GraphQL Data](/img/Logic-data-find-query.png)
 
