@@ -1,7 +1,7 @@
 ---
 id: designer-logic
 title: Logic
-sidebar_label: Logic
+sidebar_label: Overview
 slug: /designer-logic
 ---
 
@@ -16,21 +16,27 @@ On the Logic Panel of Tink, you can perform Block Based Programming. Placing bui
 You can store the data in the following  **variables**. The scope of accessibility of different variables differs.
 
 ####  Widget Properties
+
 Widget Properties save the values of various widget properties. The current status of widgets decides Widget Properties values. 
 
 #### Local Variable
+
 Local variables are accessible only on the local canvas of the Logic Panel.
 
 #### Screen Variable
+
 The scope of this variable is limited to the selected screen only. So, data can be transferred from one widget to another on the same screen. Interchange of data on different screens is not allowed.
 
 #### Global Variable
+
 Data can be stored on the application level using the App variable. Hence, data can be transferred from one screen to another. However, when the application gets closed, the value stored in this variable gets deleted as well.
 
 #### Device Variable
+
 The scope of this variable is on the device level. Even if the application gets closed, the value of this variable remains unchanged as the variable data gets saved on the device.
 
 ####  Stack Variable
+
 Stack stores different variable values one after the other in a stack. 
 
 

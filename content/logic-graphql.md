@@ -1,7 +1,7 @@
 ---
 id: logic-graphql
-title: GraphQL Data Blocks
-sidebar_label: GraphQL Data Blocks
+title: GraphQL Data Block
+sidebar_label: GraphQL Data Block
 slug: /logic-graphql
 ---
 

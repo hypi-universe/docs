@@ -1,7 +1,7 @@
 ---
 id: logic-events
-title: Events Blocks
-sidebar_label: Events Blocks
+title: Event Block
+sidebar_label: Event Block
 slug: /logic-event
 ---
 
