@@ -1,7 +1,7 @@
 ---
 id: logic-graphql
-title: GraphQL Data Blocks
-sidebar_label: GraphQL Data Blocks
+title: GraphQL Data Block
+sidebar_label: GraphQL Data Block
 slug: /logic-graphql
 ---
 
@@ -32,3 +32,18 @@ When you want to retrieve Scalar values from an object, put a scalar block insid
 
 ![GraphQL Data](/img/Logic-GQL-Scalar-Block-3.png)
 
+###  GraphQL Data `find` Query
+
+Hypi's low code APIs provide functions to read data from the backend. Here is a sample [find](lowcode/readdata.md#find) query to read data from the Account table. This demonstrates the no-code way to read data from the database. The logic flow follows the lowcode `find` query pattern.
+
+![GraphQL Data](/img/Logic-data-find-query.png)
+
+Here is a brief explanation of the no code logic.
+
+* Used Constant block to store the response in a variable to access and use this data later
+* Hardcoded the Authorization token used in the query. But normally this would be taken from a device variable stored at the time of user login.
+* Used `*` to get data without any filters
+* Can click the + to add other parameters such as a page to paginate through the results e.g. as the user scrolls in a list view
+* Selected the fields like `username` and `enabled` in scalar blocks that are needed to display the results in the UI
+* Used Object fields `edges` and `nodes` to access all the `Account` data.
+* Show Toast displayed the result on the screen by converting the Result variable into String
