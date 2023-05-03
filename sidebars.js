@@ -47,7 +47,7 @@ module.exports = {
       {
        type: 'category',
        label: 'Logic',
-       items: ['designer-logic','logic-blocks-1','logic-set-variable','logic-get-variable','logic-graphql'],
+       items: ['designer-logic','logic-blocks-1','logic-set-variable','logic-get-variable','logic-graphql','logic-events'],
       }
        ],
       },
