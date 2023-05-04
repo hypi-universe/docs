@@ -17,8 +17,8 @@ module.exports = {
       },
       {
        type: 'category',
-       label: 'Data Tables',
-       items: ['stories-data-tables','data-tables','data-tables-versions','data-tables-environment','data-console'],
+       label: 'Collections',
+       items: ['data-tables','data-console'],
       },
       {
        type: 'category',
