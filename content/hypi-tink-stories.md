@@ -25,7 +25,7 @@ This helps to collate requirement specifications.
 
 Once user stories are in place, the next step would be designing data models or schema. User stories would give you an insight into the kind of data you would need to store. 
 
-**[Create the tables](stories-data-tables.md) with different fields in connection to the User Stories**.
+**[Create the tables](data-tables.md) with different fields in connection to the User Stories**.
 
 You can save the data on [Hypi's low code backend](https://docs.hypi.app/docs/lowcode/). Or you can have your own database with APIs to save the data. 
 
@@ -34,4 +34,4 @@ Check out the below links to know how to use the Stories board and insert Data t
 * [Add Users](stories-users.md)
 * [Add an Action](stories-action.md)
 * [Add an Outcome](stories-outcome.md)
-* [Insert Data Tables](stories-data-tables.md)
+* [Insert Data Tables](data-tables.md)

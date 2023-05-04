@@ -37,7 +37,7 @@ Stories board facilitates adding User Stories to the application. Here, you can
 * [Add possible actions](stories-action.md) of the users and their [outcomes](stories-outcome.md)
 * Comment on each action and outcome 
 * Assign Status for each action and outcome
-* [Add data models/schema](stories-data-tables.md) for the App using the Stories
+* [Add data models/schema](data-tables.md) for the App using the Stories
 
 ### Designer
 
